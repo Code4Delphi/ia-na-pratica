@@ -5,7 +5,7 @@ Estamos iniciando uma nova série de vídeos práticos mostrando como integrar e
 saremos componentes que abstraem toda a complexidade técnica, permitindo que você foque no uso real da inteligência artificial em suas aplicações Delphi, inclusive em sistemas ERP . Desde funcionalidades básicas como LLMs até recursos avançados como RAG (Retrieval-Augmented Generation), MCP (Multi-Component Prompting), Agents, Function Calling e até modelos Multimodais.
 
 Você poderá acompanhar esta série através de nossa playlist:
-👉 [https://www.youtube.com/@code4delphi - IA na Prática](https://www.youtube.com/playlist?list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+👉 [Playlist IA na Prática](https://www.youtube.com/playlist?list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 
 Abaixo, apresentamos um guia rápido com os principais provedores de IA disponíveis, seus sites e links para geração de chaves de API.
 
