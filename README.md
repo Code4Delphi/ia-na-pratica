@@ -1,3 +1,14 @@
+# IA na prática
+
+Estamos iniciando uma nova série de vídeos práticos mostrando como integrar e utilizar as principais IAs do mercado com Delphi, de forma simples e eficiente.
+
+saremos componentes que abstraem toda a complexidade técnica, permitindo que você foque no uso real da inteligência artificial em suas aplicações Delphi, inclusive em sistemas ERP . Desde funcionalidades básicas como LLMs até recursos avançados como RAG (Retrieval-Augmented Generation), MCP (Multi-Component Prompting), Agents, Function Calling e até modelos Multimodais.
+
+Você poderá acompanhar esta série através de nossa playlist:
+👉 [https://www.youtube.com/@code4delphi - IA na Prática](https://www.youtube.com/playlist?list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+
+Abaixo, apresentamos um guia rápido com os principais provedores de IA disponíveis, seus sites e links para geração de chaves de API.
+
 <table style="margin-bottom: 10px; width: 100%;">
   <tr>
     <td style="width: 64px; text-align: center; vertical-align: middle; padding: 4px;">
@@ -109,3 +120,7 @@
     </td>
   </tr>
 </table>
+
+A inteligência artificial já é uma realidade acessível para desenvolvedores Delphi, e seu uso vai muito além de experimentações. Com os recursos certos, é possível aplicar IA de forma estratégica em sistemas reais, como ERPs, agregando valor, automação e inteligência às soluções que você já entrega.
+
+O momento é agora: aproveite o conteúdo prático, explore os vídeos e os exemplos no GitHub e veja como a IA pode elevar o nível dos seus projetos.
