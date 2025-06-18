@@ -51,6 +51,12 @@ type
     lbServiceModel: TLabel;
     Label12: TLabel;
     lbTotalTokens: TLabel;
+    ckGerarLogs: TCheckBox;
+    Label13: TLabel;
+    edtTemperature: TEdit;
+    ckWebSearch: TCheckBox;
+    Label14: TLabel;
+    edtMaxTokens: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure cBoxModelChange(Sender: TObject);
     procedure btnExecuteClick(Sender: TObject);
@@ -62,6 +68,8 @@ type
     procedure LoadKeys;
     procedure SaveKeys;
     procedure ClearResponse;
+    procedure Settings;
+    procedure SetManualModel;
   public
 
   end;
@@ -79,10 +87,7 @@ const
 
 procedure TViewMain.FormCreate(Sender: TObject);
 begin
-  //ATIVAR LOG
-  TMSFNCCloudAI1.Logging := True;
-  TMSFNCCloudAI1.LogFileName := ExtractFilePath(ParamStr(0)) + 'IAChat.log';
-
+  ReportMemoryLeaksOnShutdown := True;
   Self.LoadKeys;
 
   //CARREGAR IAS DISPONIVEIS
@@ -90,12 +95,26 @@ begin
   cBoxModel.ItemIndex := 6;
   cBoxModelChange(cBoxModel);
 
-  //SETANDO MODELOS MANUALMENTE
+  Self.SetManualModel;
+  Self.Settings;
+end;
+
+procedure TViewMain.SetManualModel;
+begin
   TMSFNCCloudAI1.Settings.OllamaModel := 'tinyllama';
-  TMSFNCCloudAI1.Settings.OllamaModel := 'deepseek-r1';
+  //TMSFNCCloudAI1.Settings.OllamaModel := 'llama3.1';
   //TMSFNCCloudAI1.Settings.ClaudeModel := 'claude-opus-4-20250514';
-  //TMSFNCCloudAI1.Settings.GeminiModel := 'gemini-2.5-pro-preview-tts';
-  //TMSFNCCloudAI1.Settings.MistralModel := 'mistral-medium-latest';
+end;
+
+procedure TViewMain.Settings;
+begin
+  //LOG
+  TMSFNCCloudAI1.Logging := ckGerarLogs.Checked;
+  TMSFNCCloudAI1.LogFileName := ExtractFilePath(ParamStr(0)) + 'IAChat.log';
+
+  TMSFNCCloudAI1.Settings.Temperature := StrToIntDef(edtTemperature.Text, 0);
+  TMSFNCCloudAI1.Settings.MaxTokens := StrToIntDef(edtMaxTokens.Text, 0);
+  TMSFNCCloudAI1.Settings.WebSearch := ckWebSearch.Checked;
 end;
 
 procedure TViewMain.btnLoadKeysClick(Sender: TObject);
@@ -154,6 +173,7 @@ end;
 procedure TViewMain.btnExecuteClick(Sender: TObject);
 begin
   Self.ClearResponse;
+  Self.Settings;
 
   TMSFNCCloudAI1.Context.Text := mmQuestion.Lines.Text;
   TMSFNCCloudAI1.Execute();

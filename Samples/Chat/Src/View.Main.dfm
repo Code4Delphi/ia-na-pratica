@@ -187,13 +187,26 @@ object ViewMain: TViewMain
         Align = alTop
         TabOrder = 0
         ExplicitTop = -5
-        ExplicitWidth = 815
         object Label1: TLabel
           Left = 18
           Top = 7
           Width = 34
           Height = 15
           Caption = 'Model'
+        end
+        object Label13: TLabel
+          Left = 221
+          Top = 7
+          Width = 67
+          Height = 15
+          Caption = 'Temperature'
+        end
+        object Label14: TLabel
+          Left = 344
+          Top = 7
+          Width = 110
+          Height = 15
+          Caption = 'Max tokens response'
         end
         object cBoxModel: TComboBox
           Left = 18
@@ -203,6 +216,42 @@ object ViewMain: TViewMain
           Style = csDropDownList
           TabOrder = 0
           OnChange = cBoxModelChange
+        end
+        object ckGerarLogs: TCheckBox
+          Left = 473
+          Top = 27
+          Width = 76
+          Height = 17
+          Caption = 'Gerar Log'
+          TabOrder = 1
+        end
+        object edtTemperature: TEdit
+          Left = 221
+          Top = 24
+          Width = 121
+          Height = 23
+          MaxLength = 3
+          NumbersOnly = True
+          TabOrder = 2
+          Text = '0'
+        end
+        object ckWebSearch: TCheckBox
+          Left = 554
+          Top = 27
+          Width = 87
+          Height = 17
+          Caption = 'Web Search'
+          TabOrder = 3
+        end
+        object edtMaxTokens: TEdit
+          Left = 344
+          Top = 24
+          Width = 125
+          Height = 23
+          MaxLength = 3
+          NumbersOnly = True
+          TabOrder = 4
+          Text = '0'
         end
       end
       object pnBoth: TPanel
@@ -237,8 +286,7 @@ object ViewMain: TViewMain
             Lines.Strings = (
               'Ol'#225' quem '#233' voc'#234' e quem '#233' o seu fabricante?')
             TabOrder = 0
-            ExplicitLeft = 4
-            ExplicitTop = 16
+            ExplicitLeft = 2
           end
         end
         object Panel1: TPanel
@@ -263,6 +311,8 @@ object ViewMain: TViewMain
             Caption = 'Execute'
             TabOrder = 0
             OnClick = btnExecuteClick
+            ExplicitLeft = -2
+            ExplicitTop = 1
           end
           object ProgressBar1: TProgressBar
             AlignWithMargins = True
@@ -418,7 +468,7 @@ object ViewMain: TViewMain
   end
   object TMSFNCCloudAI1: TTMSFNCCloudAI
     Left = 680
-    Top = 48
+    Top = 47
     Width = 26
     Height = 26
     Visible = True
