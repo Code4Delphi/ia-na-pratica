@@ -2,7 +2,7 @@
 
 Estamos iniciando uma nova série de vídeos práticos mostrando como integrar e utilizar as principais IAs do mercado com Delphi, de forma simples e eficiente.
 
-saremos componentes que abstraem toda a complexidade técnica, permitindo que você foque no uso real da inteligência artificial em suas aplicações Delphi, inclusive em sistemas ERP . Desde funcionalidades básicas como LLMs até recursos avançados como RAG (Retrieval-Augmented Generation), MCP (Multi-Component Prompting), Agents, Function Calling e até modelos Multimodais.
+saremos componentes que abstraem toda a complexidade técnica, permitindo que você foque no uso real da inteligência artificial em suas aplicações Delphi, inclusive em sistemas ERP. Desde funcionalidades básicas com LLMs até recursos avançados como **RAG** (Retrieval-Augmented Generation), **MCP** (Model Context Protocol), **Agents**, **Function Calling** e até modelos **Multimodais**.
 
 ## Componentes utilizados
 TTMSFNCCloudAI (TMS FNC Cloud Pack): [https://www.tmssoftware.com/site/tmsfnccloudpack.asp](https://www.tmssoftware.com/site/tmsfnccloudpack.asp)
