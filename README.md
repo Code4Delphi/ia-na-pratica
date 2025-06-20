@@ -97,13 +97,12 @@ Abaixo, apresentamos um guia rápido com os principais provedores de IA disponí
 <table style="margin-bottom: 10px; width: 100%;">
   <tr>
     <td style="width: 64px; text-align: center; vertical-align: middle; padding: 4px;">
-      <img src="https://code4delphi.com.br/img/LLMs-Logos/128x128/ollama-128x128.png" width="48">
+      <img src="https://code4delphi.com.br/img/LLMs-Logos/128x128/perplexity-128x128.png" width="48">
     </td>
     <td style="width: calc(100% - 64px); vertical-align: top; text-align: left; padding: 4px; line-height: 1.4;">
-      <strong>Ollama (IA OffLine)</strong><br>
-      Framework open‑source para baixar, configurar e rodar LLMs diretamente na sua máquina. <br>
-      <a href="https://ollama.com" target="_blank">https://ollama.com</a>
-      <!-- - Criação de API Key: <a href="https://ollama.com" target="_blank">https://ollama.com</a> -->
+      <strong>Perplexity AI</strong><br>
+      Um mecanismo de resposta com IA que combina pesquisa na Web e IA conversacional.<br>
+      <a href="https://www.perplexity.ai" target="_blank">https://www.perplexity.ai</a> - Criação de API Key: <a href="https://www.perplexity.ai/account/api/keys" target="_blank">https://www.perplexity.ai/account/api/keys</a>
     </td>
   </tr>
 </table>
@@ -111,12 +110,13 @@ Abaixo, apresentamos um guia rápido com os principais provedores de IA disponí
 <table style="margin-bottom: 10px; width: 100%;">
   <tr>
     <td style="width: 64px; text-align: center; vertical-align: middle; padding: 4px;">
-      <img src="https://code4delphi.com.br/img/LLMs-Logos/128x128/perplexity-128x128.png" width="48">
+      <img src="https://code4delphi.com.br/img/LLMs-Logos/128x128/ollama-128x128.png" width="48">
     </td>
     <td style="width: calc(100% - 64px); vertical-align: top; text-align: left; padding: 4px; line-height: 1.4;">
-      <strong>Perplexity AI</strong><br>
-      Um mecanismo de resposta com IA que combina pesquisa na Web e IA conversacional.<br>
-      <a href="https://www.perplexity.ai" target="_blank">https://www.perplexity.ai</a> - Criação de API Key: <a href="https://www.perplexity.ai/account/api/keys" target="_blank">https://www.perplexity.ai/account/api/keys</a>
+      <strong>Ollama (IA OffLine)</strong><br>
+      Framework open‑source para baixar, configurar e rodar LLMs diretamente na sua máquina. <br>
+      <a href="https://ollama.com" target="_blank">https://ollama.com</a>
+      <!-- - Criação de API Key: <a href="https://ollama.com" target="_blank">https://ollama.com</a> -->
     </td>
   </tr>
 </table>
