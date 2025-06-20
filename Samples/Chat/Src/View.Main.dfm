@@ -22,10 +22,6 @@ object ViewMain: TViewMain
     ActivePage = tabChat
     Align = alClient
     TabOrder = 0
-    ExplicitLeft = 160
-    ExplicitTop = 128
-    ExplicitWidth = 617
-    ExplicitHeight = 422
     object tabAPIKeys: TTabSheet
       Caption = 'API Keys'
       object pnAPIKeysBack: TPanel
@@ -37,10 +33,6 @@ object ViewMain: TViewMain
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 72
-        ExplicitTop = 396
-        ExplicitWidth = 401
-        ExplicitHeight = 129
         object Label2: TLabel
           Left = 16
           Top = 19
@@ -186,7 +178,6 @@ object ViewMain: TViewMain
         Height = 65
         Align = alTop
         TabOrder = 0
-        ExplicitTop = -5
         object Label1: TLabel
           Left = 18
           Top = 7
@@ -262,8 +253,6 @@ object ViewMain: TViewMain
         Align = alTop
         Caption = 'pnBoth'
         TabOrder = 1
-        ExplicitTop = 0
-        ExplicitWidth = 823
         object gBoxQuestion: TGroupBox
           Left = 1
           Top = 1
@@ -275,7 +264,6 @@ object ViewMain: TViewMain
           Padding.Right = 1
           Padding.Bottom = 1
           TabOrder = 0
-          ExplicitWidth = 821
           object mmQuestion: TMemo
             Left = 3
             Top = 17
@@ -286,7 +274,6 @@ object ViewMain: TViewMain
             Lines.Strings = (
               'Ol'#225' quem '#233' voc'#234' e quem '#233' o seu fabricante?')
             TabOrder = 0
-            ExplicitLeft = 2
           end
         end
         object Panel1: TPanel
@@ -299,9 +286,6 @@ object ViewMain: TViewMain
           Padding.Right = 2
           Padding.Bottom = 2
           TabOrder = 1
-          ExplicitLeft = 3
-          ExplicitTop = 138
-          ExplicitWidth = 813
           object btnExecute: TBitBtn
             Left = 1
             Top = 3
@@ -311,8 +295,6 @@ object ViewMain: TViewMain
             Caption = 'Execute'
             TabOrder = 0
             OnClick = btnExecuteClick
-            ExplicitLeft = -2
-            ExplicitTop = 1
           end
           object ProgressBar1: TProgressBar
             AlignWithMargins = True
@@ -330,8 +312,6 @@ object ViewMain: TViewMain
             SmoothReverse = True
             State = pbsPaused
             TabOrder = 1
-            ExplicitTop = 6
-            ExplicitHeight = 20
           end
         end
       end
@@ -346,10 +326,6 @@ object ViewMain: TViewMain
         Padding.Right = 1
         Padding.Bottom = 1
         TabOrder = 2
-        ExplicitLeft = 1
-        ExplicitTop = 265
-        ExplicitWidth = 815
-        ExplicitHeight = 263
         object mmResponse: TMemo
           Left = 3
           Top = 17
@@ -359,8 +335,6 @@ object ViewMain: TViewMain
           BorderStyle = bsNone
           ScrollBars = ssVertical
           TabOrder = 0
-          ExplicitLeft = 4
-          ExplicitTop = 13
         end
         object pnResponseDetails: TPanel
           Left = 3
@@ -372,8 +346,6 @@ object ViewMain: TViewMain
           BevelKind = bkTile
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitLeft = 4
-          ExplicitTop = 263
           object Label9: TLabel
             Left = 174
             Top = 0
@@ -385,7 +357,6 @@ object ViewMain: TViewMain
             ParentShowHint = False
             ShowHint = True
             Layout = tlCenter
-            ExplicitLeft = 173
             ExplicitHeight = 15
           end
           object lbNumTokensResponse: TLabel
@@ -438,7 +409,6 @@ object ViewMain: TViewMain
             Align = alLeft
             Caption = '-'
             Layout = tlCenter
-            ExplicitLeft = 666
             ExplicitHeight = 15
           end
           object Label12: TLabel
