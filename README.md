@@ -12,6 +12,8 @@ Documentação: [https://download.tmssoftware.com/doc/tmsfnccloudpack/components
 ## Vídeos de demonstração
 Você poderá acompanhar esta série através de nossa playlist:
 👉 [Playlist IA na Prática](https://www.youtube.com/playlist?list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+- [AI na Pratica #01 - Múltiplas IAs, apenas um Componente](https://www.youtube.com/watch?v=dN0pgO141OY&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+
 
 ## IAs disponíveis
 Abaixo, apresentamos um guia rápido com os principais provedores de IA disponíveis, seus sites e links para geração de chaves de API.
