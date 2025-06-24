@@ -79,6 +79,19 @@ object MainView: TMainView
               Properties = <>
             end>
           OnExecute = TMSFNCCloudAI1Tools0Execute
+        end
+        item
+          Name = 'GetEndereco'
+          Description = 'Qual o endere'#231'o do CEP informado'
+          Parameters = <
+            item
+              ArrayProperties = <>
+              Name = 'CEP'
+              Type = ptString
+              Description = 'CEP a ser consultado'
+              Properties = <>
+            end>
+          OnExecute = TMSFNCCloudAI1Tools1Execute
         end>
       OnExecuted = TMSFNCCloudAI1Executed
     end
@@ -113,9 +126,10 @@ object MainView: TMainView
         Align = alClient
         BorderStyle = bsNone
         Lines.Strings = (
-          'Ol'#225' quem '#233' voc'#234' e quem '#233' o seu fabricante?')
+          'Qual '#233' o endere'#231'o do CEP: 13098-615')
         TabOrder = 0
-        ExplicitLeft = 4
+        ExplicitLeft = 2
+        ExplicitTop = 16
       end
     end
     object Panel1: TPanel

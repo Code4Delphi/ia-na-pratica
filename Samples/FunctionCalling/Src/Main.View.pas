@@ -42,7 +42,9 @@ type
     procedure TMSFNCCloudAI1Executed(Sender: TObject; AResponse: TTMSFNCCloudAIResponse; AHttpStatusCode: Integer;
       AHttpResult: string);
     procedure TMSFNCCloudAI1Tools0Execute(Sender: TObject; Args: TJSONObject; var Result: string);
+    procedure TMSFNCCloudAI1Tools1Execute(Sender: TObject; Args: TJSONObject; var Result: string);
   private
+    function GetEndereco(const ACEP: string): string;
     { Private declarations }
   public
     { Public declarations }
@@ -97,6 +99,33 @@ end;
 procedure TMainView.TMSFNCCloudAI1Tools0Execute(Sender: TObject; Args: TJSONObject; var Result: string);
 begin
   Result := FloatToStr(Args.GetValue<Integer>('IdProduto') * 10);
+end;
+
+procedure TMainView.TMSFNCCloudAI1Tools1Execute(Sender: TObject; Args: TJSONObject; var Result: string);
+begin
+  Result := Self.GetEndereco(Args.GetValue<string>('CEP'));
+end;
+
+function TMainView.GetEndereco(const ACEP: string): string;
+var
+  LRequest: TTMSFNCCloudBase;
+  LResult: string;
+begin
+  LRequest := TTMSFNCCloudBase.Create;
+  try
+    LRequest.Request.Host := 'https://viacep.com.br/ws/';
+    LRequest.Request.Path := Format('%s/json', [ACEP.Replace('-', '', [])]);
+
+    LRequest.ExecuteRequest(
+      procedure(const ARequestResult: TTMSFNCCloudBaseRequestResult)
+      begin
+        LResult := ARequestResult.ResultString;
+      end, nil, False);
+
+    Result := LResult;
+  finally
+    LRequest.Free;
+  end;
 end;
 
 end.
