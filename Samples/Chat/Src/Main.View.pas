@@ -1,4 +1,4 @@
-unit View.Main;
+unit Main.View;
 
 interface
 
@@ -21,7 +21,7 @@ uses
   Vcl.ComCtrls;
 
 type
-  TViewMain = class(TForm)
+  TMainView = class(TForm)
     pnTop: TPanel;
     cBoxIAService: TComboBox;
     Label1: TLabel;
@@ -88,7 +88,7 @@ type
   end;
 
 var
-  ViewMain: TViewMain;
+  MainView: TMainView;
 
 implementation
 
@@ -96,9 +96,9 @@ implementation
 
 const
   KEYS_FILE = './aikeys.cfg';
-  KEYS_PASSWORD = 'Code4Delphi';
+  KEYS_PASSWORD = 'PasswordTest';
 
-procedure TViewMain.FormCreate(Sender: TObject);
+procedure TMainView.FormCreate(Sender: TObject);
 begin
   ReportMemoryLeaksOnShutdown := True;
   Self.LoadKeys;
@@ -112,14 +112,14 @@ begin
   Self.Settings;
 end;
 
-procedure TViewMain.SetManualModel;
+procedure TMainView.SetManualModel;
 begin
   TMSFNCCloudAI1.Settings.OllamaModel := 'tinyllama';
   //TMSFNCCloudAI1.Settings.OllamaModel := 'llama3.1';
   //TMSFNCCloudAI1.Settings.ClaudeModel := 'claude-opus-4-20250514';
 end;
 
-procedure TViewMain.Settings;
+procedure TMainView.Settings;
 begin
   //LOG
   TMSFNCCloudAI1.Logging := ckGerarLogs.Checked;
@@ -130,17 +130,17 @@ begin
   TMSFNCCloudAI1.Settings.WebSearch := ckWebSearch.Checked;
 end;
 
-procedure TViewMain.btnLoadKeysClick(Sender: TObject);
+procedure TMainView.btnLoadKeysClick(Sender: TObject);
 begin
   Self.LoadKeys;
 end;
 
-procedure TViewMain.btnSaveKeysClick(Sender: TObject);
+procedure TMainView.btnSaveKeysClick(Sender: TObject);
 begin
   Self.SaveKeys;
 end;
 
-procedure TViewMain.LoadKeys;
+procedure TMainView.LoadKeys;
 begin
   TMSFNCCloudAI1.APIKeys.LoadFromFile(KEYS_FILE, KEYS_PASSWORD);
 
@@ -153,7 +153,7 @@ begin
   edtKeyPerplexity.Text := TMSFNCCloudAI1.APIKeys.Perplexity;
 end;
 
-procedure TViewMain.SaveKeys;
+procedure TMainView.SaveKeys;
 begin
   TMSFNCCloudAI1.APIKeys.Claude := edtKeyClaude.Text;
   TMSFNCCloudAI1.APIKeys.DeepSeek := edtKeyDeepSeek.Text;
@@ -166,7 +166,7 @@ begin
   TMSFNCCloudAI1.APIKeys.SaveToFile(KEYS_FILE, KEYS_PASSWORD);
 end;
 
-procedure TViewMain.cBoxIAServiceChange(Sender: TObject);
+procedure TMainView.cBoxIAServiceChange(Sender: TObject);
 var
   i: Integer;
 begin
@@ -174,7 +174,7 @@ begin
   TMSFNCCloudAI1.Service := TTMSFNCCloudAIService(i);
 end;
 
-procedure TViewMain.ClearResponse;
+procedure TMainView.ClearResponse;
 begin
   mmResponse.Lines.Clear;
   lbPromptTokens.Caption := '0';
@@ -183,7 +183,7 @@ begin
   lbServiceModel.Caption := '';
 end;
 
-procedure TViewMain.btnExecuteClick(Sender: TObject);
+procedure TMainView.btnExecuteClick(Sender: TObject);
 begin
   Self.ClearResponse;
   Self.Settings;
@@ -193,7 +193,7 @@ begin
   ProgressBar1.State := pbsNormal;
 end;
 
-procedure TViewMain.TMSFNCCloudAI1Executed(Sender: TObject; AResponse: TTMSFNCCloudAIResponse; AHttpStatusCode: Integer;
+procedure TMainView.TMSFNCCloudAI1Executed(Sender: TObject; AResponse: TTMSFNCCloudAIResponse; AHttpStatusCode: Integer;
   AHttpResult: string);
 begin
   ProgressBar1.State := pbsPaused;

@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{95996150-4312-4955-83D9-B74623A21E62}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Chat\IAChat.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FunctionCalling\FunctionCalling.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="IAChat">
+        <MSBuild Projects="Chat\IAChat.dproj"/>
+    </Target>
+    <Target Name="IAChat:Clean">
+        <MSBuild Projects="Chat\IAChat.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="IAChat:Make">
+        <MSBuild Projects="Chat\IAChat.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FunctionCalling">
+        <MSBuild Projects="FunctionCalling\FunctionCalling.dproj"/>
+    </Target>
+    <Target Name="FunctionCalling:Clean">
+        <MSBuild Projects="FunctionCalling\FunctionCalling.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FunctionCalling:Make">
+        <MSBuild Projects="FunctionCalling\FunctionCalling.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="IAChat;FunctionCalling"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="IAChat:Clean;FunctionCalling:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="IAChat:Make;FunctionCalling:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

@@ -1,4 +1,4 @@
-object ViewMain: TViewMain
+object MainView: TMainView
   Left = 0
   Top = 0
   Caption = 'IA na pr'#225'tica: Chat'
@@ -335,6 +335,8 @@ object ViewMain: TViewMain
           BorderStyle = bsNone
           ScrollBars = ssVertical
           TabOrder = 0
+          ExplicitLeft = 2
+          ExplicitTop = 13
         end
         object pnResponseDetails: TPanel
           Left = 3
@@ -445,7 +447,7 @@ object ViewMain: TViewMain
     Service = aiOpenAI
     Settings.GeminiModel = 'gemini-1.5-flash-latest'
     Settings.OpenAIModel = 'gpt-4o'
-    Settings.GrokModel = 'grok-beta'
+    Settings.GrokModel = 'grok-3'
     Settings.ClaudeModel = 'claude-3-5-sonnet-20241022'
     Settings.OllamaModel = 'llama3.2:latest'
     Settings.DeepSeekModel = 'deepseek-chat'
