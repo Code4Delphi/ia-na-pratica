@@ -40,7 +40,7 @@ object MainView: TMainView
     end
     object TMSFNCCloudAI1: TTMSFNCCloudAI
       Left = 536
-      Top = 20
+      Top = 14
       Width = 26
       Height = 26
       Visible = True
@@ -149,7 +149,6 @@ object MainView: TMainView
       TabOrder = 0
       ExplicitLeft = 2
       ExplicitTop = 16
-      ExplicitHeight = 356
     end
   end
 end

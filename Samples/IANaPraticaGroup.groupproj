@@ -12,6 +12,9 @@
         <Projects Include="Models\Models.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="APIKeys\APIKey.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -47,14 +50,23 @@
     <Target Name="Models:Make">
         <MSBuild Projects="Models\Models.dproj" Targets="Make"/>
     </Target>
+    <Target Name="APIKey">
+        <MSBuild Projects="APIKeys\APIKey.dproj"/>
+    </Target>
+    <Target Name="APIKey:Clean">
+        <MSBuild Projects="APIKeys\APIKey.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="APIKey:Make">
+        <MSBuild Projects="APIKeys\APIKey.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="IAChat;FunctionCalling;Models"/>
+        <CallTarget Targets="IAChat;FunctionCalling;Models;APIKey"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="IAChat:Clean;FunctionCalling:Clean;Models:Clean"/>
+        <CallTarget Targets="IAChat:Clean;FunctionCalling:Clean;Models:Clean;APIKey:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="IAChat:Make;FunctionCalling:Make;Models:Make"/>
+        <CallTarget Targets="IAChat:Make;FunctionCalling:Make;Models:Make;APIKey:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

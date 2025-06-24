@@ -3,9 +3,21 @@ unit Main.View;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, VCL.TMSFNCCustomComponent, VCL.TMSFNCCloudBase, VCL.TMSFNCCloudAI, Vcl.StdCtrls,
-  Vcl.ExtCtrls, Vcl.ComCtrls;
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  VCL.TMSFNCCustomComponent,
+  VCL.TMSFNCCloudBase,
+  VCL.TMSFNCCloudAI,
+  Vcl.StdCtrls,
+  Vcl.ExtCtrls,
+  Vcl.ComCtrls;
 
 type
   TMainView = class(TForm)
@@ -39,7 +51,7 @@ procedure TMainView.FormCreate(Sender: TObject);
 begin
   ReportMemoryLeaksOnShutdown := True;
   TMSFNCCloudAI1.Logging := True;
-  TMSFNCCloudAI1.LogFileName := '..\..\Files\FunctionCalling.log';
+  TMSFNCCloudAI1.LogFileName := '..\..\Files\Models.log';
 
   TMSFNCCloudAI1.APIKeys.LoadFromFile('..\..\Files\aikeys.cfg', 'PasswordTest');
 
