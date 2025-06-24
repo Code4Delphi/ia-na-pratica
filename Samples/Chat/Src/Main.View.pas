@@ -95,7 +95,7 @@ implementation
 {$R *.dfm}
 
 const
-  KEYS_FILE = './aikeys.cfg';
+  KEYS_FILE = '..\..\Files\aikeys.cfg';
   KEYS_PASSWORD = 'PasswordTest';
 
 procedure TMainView.FormCreate(Sender: TObject);
@@ -123,7 +123,7 @@ procedure TMainView.Settings;
 begin
   //LOG
   TMSFNCCloudAI1.Logging := ckGerarLogs.Checked;
-  TMSFNCCloudAI1.LogFileName := ExtractFilePath(ParamStr(0)) + 'IAChat.log';
+  TMSFNCCloudAI1.LogFileName := '..\..\Files\Chat.log';
 
   TMSFNCCloudAI1.Settings.Temperature := StrToIntDef(edtTemperature.Text, 0);
   TMSFNCCloudAI1.Settings.MaxTokens := StrToIntDef(edtMaxTokens.Text, 0);
