@@ -92,6 +92,26 @@ object MainView: TMainView
               Properties = <>
             end>
           OnExecute = TMSFNCCloudAI1Tools1Execute
+        end
+        item
+          Name = 'PeriodoVenda'
+          Description = 'Retorne os dados das vendas do periodo informado'
+          Parameters = <
+            item
+              ArrayProperties = <>
+              Name = 'DataIni'
+              Type = ptString
+              Description = 'Data inicial do periodo de filtro da venda'
+              Properties = <>
+            end
+            item
+              ArrayProperties = <>
+              Name = 'DataFim'
+              Type = ptString
+              Description = 'Data final do periodo de filtro da venda'
+              Properties = <>
+            end>
+          OnExecute = TMSFNCCloudAI1Tools2Execute
         end>
       OnExecuted = TMSFNCCloudAI1Executed
     end
@@ -126,7 +146,7 @@ object MainView: TMainView
         Align = alClient
         BorderStyle = bsNone
         Lines.Strings = (
-          'Qual '#233' o endere'#231'o do CEP: 13098-615')
+          'Retorne os dados das vendas do periodo 01/06/2025 a 24/06/2025')
         TabOrder = 0
         ExplicitLeft = 2
         ExplicitTop = 16
@@ -152,6 +172,8 @@ object MainView: TMainView
         Caption = 'Execute'
         TabOrder = 0
         OnClick = btnExecuteClick
+        ExplicitLeft = -2
+        ExplicitTop = 1
       end
       object ProgressBar1: TProgressBar
         AlignWithMargins = True
@@ -195,7 +217,7 @@ object MainView: TMainView
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
-      ExplicitLeft = 2
+      ExplicitLeft = 4
       ExplicitTop = 16
     end
   end

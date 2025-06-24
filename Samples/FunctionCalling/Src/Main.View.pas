@@ -19,7 +19,8 @@ uses
   Vcl.Buttons,
   VCL.TMSFNCCustomComponent,
   VCL.TMSFNCCloudBase,
-  VCL.TMSFNCCloudAI;
+  VCL.TMSFNCCloudAI,
+  uDM;
 
 type
   TMainView = class(TForm)
@@ -43,11 +44,11 @@ type
       AHttpResult: string);
     procedure TMSFNCCloudAI1Tools0Execute(Sender: TObject; Args: TJSONObject; var Result: string);
     procedure TMSFNCCloudAI1Tools1Execute(Sender: TObject; Args: TJSONObject; var Result: string);
+    procedure TMSFNCCloudAI1Tools2Execute(Sender: TObject; Args: TJSONObject; var Result: string);
   private
     function GetEndereco(const ACEP: string): string;
-    { Private declarations }
   public
-    { Public declarations }
+
   end;
 
 var
@@ -126,6 +127,35 @@ begin
   finally
     LRequest.Free;
   end;
+end;
+
+procedure TMainView.TMSFNCCloudAI1Tools2Execute(Sender: TObject; Args: TJSONObject; var Result: string);
+var
+  LDataIni: TDate;
+  LDataFim: TDate;
+begin
+  LDataIni := StrToDateDef(Args.GetValue<string>('DataIni'), 0);
+  LDataFim := StrToDateDef(Args.GetValue<string>('DataFim'), 0);
+
+  DM.VendasListar(LDataIni, LDataFim);
+  if DM.TBVendas.IsEmpty then
+  begin
+    Result := 'Não foram encontadas vendas neste período'; Result := Result + sLineBreak + DM.TBVendas.SQL.Text;
+    Exit;
+  end;
+
+  Result := 'Vendas encontadas: ' + DM.TBVendas.RecordCount.ToString;
+
+  DM.TBVendas.First;
+  while not DM.TBVendas.Eof do
+  begin
+    Result := Result + sLineBreak +
+      Format('%d - %s - %s', [DM.TBVendasId.AsInteger, DM.TBVendasdata.AsString, DM.TBVendasClienteNome.AsString]);
+
+    DM.TBVendas.Next;
+  end;
+
+  Result := Result + sLineBreak + DM.TBVendas.SQL.Text;
 end;
 
 end.
