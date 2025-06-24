@@ -9,6 +9,9 @@
         <Projects Include="FunctionCalling\FunctionCalling.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="Models\Models.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -35,14 +38,23 @@
     <Target Name="FunctionCalling:Make">
         <MSBuild Projects="FunctionCalling\FunctionCalling.dproj" Targets="Make"/>
     </Target>
+    <Target Name="Models">
+        <MSBuild Projects="Models\Models.dproj"/>
+    </Target>
+    <Target Name="Models:Clean">
+        <MSBuild Projects="Models\Models.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Models:Make">
+        <MSBuild Projects="Models\Models.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="IAChat;FunctionCalling"/>
+        <CallTarget Targets="IAChat;FunctionCalling;Models"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="IAChat:Clean;FunctionCalling:Clean"/>
+        <CallTarget Targets="IAChat:Clean;FunctionCalling:Clean;Models:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="IAChat:Make;FunctionCalling:Make"/>
+        <CallTarget Targets="IAChat:Make;FunctionCalling:Make;Models:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

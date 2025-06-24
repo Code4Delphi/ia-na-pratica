@@ -1,9 +1,9 @@
 object MainView: TMainView
   Left = 0
   Top = 0
-  Caption = 'IA na pr'#225'tica: Function Calling (chamada de fun'#231#227'o)'
-  ClientHeight = 552
-  ClientWidth = 742
+  Caption = 'IA na pr'#225'tica: Models'
+  ClientHeight = 649
+  ClientWidth = 624
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,24 +14,14 @@ object MainView: TMainView
   Position = poScreenCenter
   OnCreate = FormCreate
   TextHeight = 15
-  object Splitter1: TSplitter
-    Left = 0
-    Top = 233
-    Width = 742
-    Height = 5
-    Cursor = crVSplit
-    Align = alTop
-    ExplicitLeft = -284
-    ExplicitWidth = 1025
-  end
   object pnTop: TPanel
     Left = 0
     Top = 0
-    Width = 742
+    Width = 624
     Height = 65
     Align = alTop
     TabOrder = 0
-    ExplicitTop = -5
+    ExplicitTop = -6
     object Label1: TLabel
       Left = 18
       Top = 8
@@ -41,7 +31,7 @@ object MainView: TMainView
     end
     object cBoxIAService: TComboBox
       Left = 18
-      Top = 25
+      Top = 26
       Width = 201
       Height = 23
       Style = csDropDownList
@@ -49,8 +39,8 @@ object MainView: TMainView
       OnChange = cBoxIAServiceChange
     end
     object TMSFNCCloudAI1: TTMSFNCCloudAI
-      Left = 480
-      Top = 24
+      Left = 536
+      Top = 20
       Width = 26
       Height = 26
       Visible = True
@@ -77,7 +67,6 @@ object MainView: TMainView
               Description = 'Id do produto'
               Properties = <>
             end>
-          OnExecute = TMSFNCCloudAI1Tools0Execute
         end
         item
           Name = 'GetEndereco'
@@ -90,7 +79,6 @@ object MainView: TMainView
               Description = 'CEP a ser consultado'
               Properties = <>
             end>
-          OnExecute = TMSFNCCloudAI1Tools1Execute
         end
         item
           Name = 'PeriodoVenda'
@@ -110,103 +98,58 @@ object MainView: TMainView
               Description = 'Data final do periodo de filtro da venda'
               Properties = <>
             end>
-          OnExecute = TMSFNCCloudAI1Tools2Execute
         end>
-      OnExecuted = TMSFNCCloudAI1Executed
+      OnGetModels = TMSFNCCloudAI1GetModels
     end
-  end
-  object pnBoth: TPanel
-    Left = 0
-    Top = 65
-    Width = 742
-    Height = 168
-    Align = alTop
-    Caption = 'pnBoth'
-    TabOrder = 1
-    object gBoxQuestion: TGroupBox
-      Left = 1
-      Top = 1
-      Width = 740
-      Height = 134
-      Align = alClient
-      Caption = ' Prompt / question '
-      Padding.Left = 1
-      Padding.Right = 1
-      Padding.Bottom = 1
-      TabOrder = 0
-      object mmQuestion: TMemo
-        Left = 3
-        Top = 17
-        Width = 734
-        Height = 114
-        Align = alClient
-        BorderStyle = bsNone
-        Lines.Strings = (
-          'Retorne os dados das vendas do periodo 01/06/2025 a 24/06/2025')
-        TabOrder = 0
-      end
+    object btnShowModels: TButton
+      Left = 225
+      Top = 25
+      Width = 95
+      Height = 25
+      Cursor = crHandPoint
+      Caption = 'Show Models'
+      TabOrder = 2
+      OnClick = btnShowModelsClick
     end
-    object Panel1: TPanel
-      Left = 1
-      Top = 135
-      Width = 740
-      Height = 32
-      Align = alBottom
-      Padding.Top = 2
-      Padding.Right = 2
-      Padding.Bottom = 2
-      TabOrder = 1
-      object btnExecute: TBitBtn
-        Left = 1
-        Top = 3
-        Width = 102
-        Height = 26
-        Cursor = crHandPoint
-        Align = alLeft
-        Caption = 'Execute'
-        TabOrder = 0
-        OnClick = btnExecuteClick
-      end
-      object ProgressBar1: TProgressBar
-        AlignWithMargins = True
-        Left = 109
-        Top = 7
-        Width = 200
-        Height = 18
-        Margins.Left = 6
-        Margins.Top = 4
-        Margins.Right = 6
-        Margins.Bottom = 4
-        Align = alLeft
-        Smooth = True
-        Style = pbstMarquee
-        SmoothReverse = True
-        State = pbsPaused
-        TabOrder = 1
-        ExplicitLeft = 112
-      end
+    object ProgressBar1: TProgressBar
+      Left = 326
+      Top = 29
+      Width = 150
+      Height = 17
+      Smooth = True
+      Style = pbstMarquee
+      SmoothReverse = True
+      State = pbsPaused
+      TabOrder = 3
     end
   end
   object gBoxResponse: TGroupBox
     Left = 0
-    Top = 238
-    Width = 742
-    Height = 314
+    Top = 65
+    Width = 624
+    Height = 584
     Align = alClient
     Caption = ' Response '
     Padding.Left = 1
     Padding.Right = 1
     Padding.Bottom = 1
     TabOrder = 2
+    ExplicitLeft = -118
+    ExplicitTop = 127
+    ExplicitWidth = 742
+    ExplicitHeight = 314
     object mmResponse: TMemo
       Left = 3
       Top = 17
-      Width = 736
-      Height = 294
+      Width = 618
+      Height = 564
       Align = alClient
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
+      ExplicitLeft = 2
+      ExplicitTop = 16
+      ExplicitHeight = 356
     end
   end
 end
