@@ -12,6 +12,8 @@ Documentação: [https://download.tmssoftware.com/doc/tmsfnccloudpack/components
 ## Vídeos de demonstração
 Você poderá acompanhar esta série através de nossa playlist:
 👉 [Playlist IA na Prática](https://www.youtube.com/playlist?list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+- [AI na Pratica #01 - Múltiplas IAs, apenas um Componente](https://www.youtube.com/watch?v=dN0pgO141OY&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+
 
 ## IAs disponíveis
 Abaixo, apresentamos um guia rápido com os principais provedores de IA disponíveis, seus sites e links para geração de chaves de API.
@@ -124,3 +126,14 @@ Abaixo, apresentamos um guia rápido com os principais provedores de IA disponí
 A inteligência artificial já é uma realidade acessível para desenvolvedores Delphi, e seu uso vai muito além de experimentações. Com os recursos certos, é possível aplicar IA de forma estratégica em sistemas reais, como ERPs, agregando valor, automação e inteligência às soluções que você já entrega.
 
 O momento é agora: aproveite o conteúdo prático, explore os vídeos e os exemplos no GitHub e veja como a IA pode elevar o nível dos seus projetos.
+
+![IA-na pratica-900x900](https://github.com/user-attachments/assets/3b0dea30-0473-414c-a006-2983ac2093f2)
+
+## 📞 Contatos
+[![Telegram](https://img.shields.io/badge/Telegram-Join-blue?logo=telegram)](https://t.me/Code4Delphi)
+[![YouTube](https://img.shields.io/badge/YouTube-Join-red?logo=youtube&logoColor=red)](https://www.youtube.com/@code4delphi)
+[![Instagram](https://img.shields.io/badge/Intagram-Follow-red?logo=instagram&logoColor=pink)](https://www.instagram.com/code4delphi/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/cesar-cardoso-dev)
+[![Blog](https://img.shields.io/badge/Blog-Code4Delphi-F00?logo=delphi)](https://code4delphi.com.br/blog/)
+[![Course](https://img.shields.io/badge/Course-Delphi-F00?logo=delphi)](https://go.hotmart.com/U81331747Y?dp=1)
+[![E-mail](https://img.shields.io/badge/E--mail-Send-yellowgreen?logo=maildotru&logoColor=yellowgreen)](mailto:contato@code4delphi.com.br)
