@@ -181,9 +181,9 @@ object ViewMain: TViewMain
         object Label1: TLabel
           Left = 18
           Top = 7
-          Width = 34
+          Width = 50
           Height = 15
-          Caption = 'Model'
+          Caption = 'IA service'
         end
         object Label13: TLabel
           Left = 221
@@ -199,14 +199,14 @@ object ViewMain: TViewMain
           Height = 15
           Caption = 'Max tokens response'
         end
-        object cBoxModel: TComboBox
+        object cBoxIAService: TComboBox
           Left = 18
           Top = 24
           Width = 201
           Height = 23
           Style = csDropDownList
           TabOrder = 0
-          OnChange = cBoxModelChange
+          OnChange = cBoxIAServiceChange
         end
         object ckGerarLogs: TCheckBox
           Left = 473

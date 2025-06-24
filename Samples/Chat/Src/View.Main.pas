@@ -23,7 +23,7 @@ uses
 type
   TViewMain = class(TForm)
     pnTop: TPanel;
-    cBoxModel: TComboBox;
+    cBoxIAService: TComboBox;
     Label1: TLabel;
     pnBoth: TPanel;
     gBoxQuestion: TGroupBox;
@@ -71,7 +71,7 @@ type
     Label14: TLabel;
     edtMaxTokens: TEdit;
     procedure FormCreate(Sender: TObject);
-    procedure cBoxModelChange(Sender: TObject);
+    procedure cBoxIAServiceChange(Sender: TObject);
     procedure btnExecuteClick(Sender: TObject);
     procedure TMSFNCCloudAI1Executed(Sender: TObject; AResponse: TTMSFNCCloudAIResponse; AHttpStatusCode: Integer;
       AHttpResult: string);
@@ -104,9 +104,9 @@ begin
   Self.LoadKeys;
 
   //CARREGAR IAS DISPONIVEIS
-  cBoxModel.Items.Assign(TMSFNCCloudAI1.GetServices(True));
-  cBoxModel.ItemIndex := 6;
-  cBoxModelChange(cBoxModel);
+  cBoxIAService.Items.Assign(TMSFNCCloudAI1.GetServices(True));
+  cBoxIAService.ItemIndex := 6;
+  cBoxIAServiceChange(cBoxIAService);
 
   Self.SetManualModel;
   Self.Settings;
@@ -166,11 +166,11 @@ begin
   TMSFNCCloudAI1.APIKeys.SaveToFile(KEYS_FILE, KEYS_PASSWORD);
 end;
 
-procedure TViewMain.cBoxModelChange(Sender: TObject);
+procedure TViewMain.cBoxIAServiceChange(Sender: TObject);
 var
   i: Integer;
 begin
-  i := Integer(cBoxModel.Items.Objects[cBoxModel.ItemIndex]);
+  i := Integer(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
   TMSFNCCloudAI1.Service := TTMSFNCCloudAIService(i);
 end;
 
