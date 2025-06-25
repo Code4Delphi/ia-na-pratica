@@ -19,7 +19,7 @@ object ChatMainView: TChatMainView
     Top = 0
     Width = 1033
     Height = 558
-    ActivePage = tabAPIKeys
+    ActivePage = tabChat
     Align = alClient
     TabOrder = 0
     object tabAPIKeys: TTabSheet
@@ -155,6 +155,118 @@ object ChatMainView: TChatMainView
           Caption = 'Save'
           TabOrder = 8
           OnClick = btnSaveKeysClick
+        end
+      end
+    end
+    object tabModels: TTabSheet
+      Caption = 'Models'
+      ImageIndex = 2
+      object pnModelsBack: TPanel
+        Left = 0
+        Top = 0
+        Width = 1025
+        Height = 528
+        Align = alClient
+        BevelOuter = bvNone
+        ParentBackground = False
+        TabOrder = 0
+        object Label15: TLabel
+          Left = 16
+          Top = 19
+          Width = 37
+          Height = 15
+          Caption = 'Claude'
+        end
+        object Label16: TLabel
+          Left = 16
+          Top = 59
+          Width = 51
+          Height = 15
+          Caption = 'DeepSeek'
+        end
+        object Label17: TLabel
+          Left = 16
+          Top = 99
+          Width = 38
+          Height = 15
+          Caption = 'Gemini'
+        end
+        object Label18: TLabel
+          Left = 16
+          Top = 139
+          Width = 25
+          Height = 15
+          Caption = 'Grok'
+        end
+        object Label19: TLabel
+          Left = 16
+          Top = 179
+          Width = 36
+          Height = 15
+          Caption = 'Mistral'
+        end
+        object Label20: TLabel
+          Left = 16
+          Top = 219
+          Width = 40
+          Height = 15
+          Caption = 'OpenAI'
+        end
+        object Label21: TLabel
+          Left = 16
+          Top = 259
+          Width = 51
+          Height = 15
+          Caption = 'Perplexity'
+        end
+        object edtModelClaude: TEdit
+          Left = 80
+          Top = 16
+          Width = 697
+          Height = 23
+          TabOrder = 0
+        end
+        object edtModelDeepSeek: TEdit
+          Left = 80
+          Top = 56
+          Width = 697
+          Height = 23
+          TabOrder = 1
+        end
+        object edtModelGemini: TEdit
+          Left = 80
+          Top = 96
+          Width = 697
+          Height = 23
+          TabOrder = 2
+        end
+        object edtModelGrok: TEdit
+          Left = 80
+          Top = 136
+          Width = 697
+          Height = 23
+          TabOrder = 3
+        end
+        object edtModelMistral: TEdit
+          Left = 80
+          Top = 176
+          Width = 697
+          Height = 23
+          TabOrder = 4
+        end
+        object edtModelOpenAI: TEdit
+          Left = 80
+          Top = 216
+          Width = 697
+          Height = 23
+          TabOrder = 5
+        end
+        object edtModelPerplexity: TEdit
+          Left = 80
+          Top = 256
+          Width = 697
+          Height = 23
+          TabOrder = 6
         end
       end
     end
@@ -447,7 +559,7 @@ object ChatMainView: TChatMainView
     Settings.OpenAIModel = 'gpt-4o'
     Settings.GrokModel = 'grok-3'
     Settings.ClaudeModel = 'claude-3-5-sonnet-20241022'
-    Settings.OllamaModel = 'llama3.2:latest'
+    Settings.OllamaModel = 'tinyllama'
     Settings.DeepSeekModel = 'deepseek-chat'
     Settings.PerplexityModel = 'llama-3.1-sonar-small-128k-online'
     Settings.OllamaHost = 'localhost'

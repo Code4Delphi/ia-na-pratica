@@ -70,6 +70,22 @@ type
     ckWebSearch: TCheckBox;
     Label14: TLabel;
     edtMaxTokens: TEdit;
+    tabModels: TTabSheet;
+    pnModelsBack: TPanel;
+    Label15: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    Label18: TLabel;
+    Label19: TLabel;
+    Label20: TLabel;
+    Label21: TLabel;
+    edtModelClaude: TEdit;
+    edtModelDeepSeek: TEdit;
+    edtModelGemini: TEdit;
+    edtModelGrok: TEdit;
+    edtModelMistral: TEdit;
+    edtModelOpenAI: TEdit;
+    edtModelPerplexity: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure cBoxIAServiceChange(Sender: TObject);
     procedure btnExecuteClick(Sender: TObject);
@@ -82,7 +98,8 @@ type
     procedure SaveKeys;
     procedure ClearResponse;
     procedure Settings;
-    procedure SetManualModel;
+    procedure ModelsComponentToScreen;
+    procedure ModelsScreenToComponent;
   public
 
   end;
@@ -108,19 +125,12 @@ begin
   cBoxIAService.ItemIndex := 6;
   cBoxIAServiceChange(cBoxIAService);
 
-  Self.SetManualModel;
   Self.Settings;
-end;
-
-procedure TChatMainView.SetManualModel;
-begin
-  TMSFNCCloudAI1.Settings.OllamaModel := 'tinyllama';
-  //TMSFNCCloudAI1.Settings.ClaudeModel := 'claude-opus-4-20250514';
+  Self.ModelsComponentToScreen;
 end;
 
 procedure TChatMainView.Settings;
 begin
-  //LOG
   TMSFNCCloudAI1.Logging := ckGerarLogs.Checked;
   TMSFNCCloudAI1.LogFileName := '..\..\Files\Chat.log';
 
@@ -165,6 +175,28 @@ begin
   TMSFNCCloudAI1.APIKeys.SaveToFile(KEYS_FILE, KEYS_PASSWORD);
 end;
 
+procedure TChatMainView.ModelsComponentToScreen;
+begin
+  edtModelClaude.Text := TMSFNCCloudAI1.Settings.ClaudeModel;
+  edtModelDeepSeek.Text := TMSFNCCloudAI1.Settings.DeepSeekModel;
+  edtModelGemini.Text := TMSFNCCloudAI1.Settings.GeminiModel;
+  edtModelGrok.Text := TMSFNCCloudAI1.Settings.GrokModel;
+  edtModelMistral.Text := TMSFNCCloudAI1.Settings.MistralModel;
+  edtModelOpenAI.Text := TMSFNCCloudAI1.Settings.OpenAIModel;
+  edtModelPerplexity.Text := TMSFNCCloudAI1.Settings.PerplexityModel;
+end;
+
+procedure TChatMainView.ModelsScreenToComponent;
+begin
+  TMSFNCCloudAI1.Settings.ClaudeModel := edtModelClaude.Text;
+  TMSFNCCloudAI1.Settings.DeepSeekModel := edtModelDeepSeek.Text;
+  TMSFNCCloudAI1.Settings.GeminiModel := edtModelGemini.Text;
+  TMSFNCCloudAI1.Settings.GrokModel := edtModelGrok.Text;
+  TMSFNCCloudAI1.Settings.MistralModel := edtModelMistral.Text;
+  TMSFNCCloudAI1.Settings.OpenAIModel := edtModelOpenAI.Text;
+  TMSFNCCloudAI1.Settings.PerplexityModel := edtModelPerplexity.Text;
+end;
+
 procedure TChatMainView.cBoxIAServiceChange(Sender: TObject);
 var
   i: Integer;
@@ -186,6 +218,7 @@ procedure TChatMainView.btnExecuteClick(Sender: TObject);
 begin
   Self.ClearResponse;
   Self.Settings;
+  Self.ModelsScreenToComponent;
 
   TMSFNCCloudAI1.Context.Text := mmQuestion.Lines.Text;
   TMSFNCCloudAI1.Execute();
