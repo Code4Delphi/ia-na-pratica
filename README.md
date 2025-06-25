@@ -4,6 +4,8 @@ Estamos iniciando uma nova série de vídeos práticos mostrando como integrar e
 
 saremos componentes que abstraem toda a complexidade técnica, permitindo que você foque no uso real da inteligência artificial em suas aplicações Delphi, inclusive em sistemas ERP. Desde funcionalidades básicas com LLMs até recursos avançados como **RAG** (Retrieval-Augmented Generation), **MCP** (Model Context Protocol), **Agents**, **Function Calling** e até modelos **Multimodais** entre outros.
 
+![IA-na pratica-900x900](https://github.com/user-attachments/assets/3b0dea30-0473-414c-a006-2983ac2093f2)
+
 ## Componentes utilizados
 TTMSFNCCloudAI (TMS FNC Cloud Pack): [https://www.tmssoftware.com/site/tmsfnccloudpack.asp](https://www.tmssoftware.com/site/tmsfnccloudpack.asp)
 
@@ -126,8 +128,6 @@ Abaixo, apresentamos um guia rápido com os principais provedores de IA disponí
 A inteligência artificial já é uma realidade acessível para desenvolvedores Delphi, e seu uso vai muito além de experimentações. Com os recursos certos, é possível aplicar IA de forma estratégica em sistemas reais, como ERPs, agregando valor, automação e inteligência às soluções que você já entrega.
 
 O momento é agora: aproveite o conteúdo prático, explore os vídeos e os exemplos no GitHub e veja como a IA pode elevar o nível dos seus projetos.
-
-![IA-na pratica-900x900](https://github.com/user-attachments/assets/3b0dea30-0473-414c-a006-2983ac2093f2)
 
 ## 📞 Contatos
 [![Telegram](https://img.shields.io/badge/Telegram-Join-blue?logo=telegram)](https://t.me/Code4Delphi)
