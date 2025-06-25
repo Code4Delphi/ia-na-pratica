@@ -40,12 +40,13 @@ type
     TMSFNCCloudAI1: TTMSFNCCloudAI;
     gBoxDefaultsPrompts: TGroupBox;
     pnDefaultsPrompts01: TPanel;
-    Button1: TButton;
-    Button2: TButton;
     Button3: TButton;
     Button4: TButton;
+    pnDefaultsPrompts02: TPanel;
+    Button1: TButton;
+    Button2: TButton;
+    Button5: TButton;
     procedure FormCreate(Sender: TObject);
-    procedure cBoxIAServiceChange(Sender: TObject);
     procedure btnExecuteClick(Sender: TObject);
     procedure TMSFNCCloudAI1Executed(Sender: TObject; AResponse: TTMSFNCCloudAIResponse; AHttpStatusCode: Integer;
       AHttpResult: string);
@@ -57,6 +58,7 @@ type
     procedure TMSFNCCloudAI1Tools3Execute(Sender: TObject; Args: TJSONObject; var Result: string);
     procedure Button3Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
   private
     function GetEndereco(const ACEP: string): string;
   public
@@ -78,14 +80,12 @@ begin
   TMSFNCCloudAI1.Settings.WebSearch := True;
 
   cBoxIAService.Items.Assign(TMSFNCCloudAI1.GetServices(True));
-  cBoxIAService.ItemIndex := 2; //6
-  cBoxIAServiceChange(cBoxIAService);
+  cBoxIAService.ItemIndex := 0;
 end;
 
-procedure TMainView.cBoxIAServiceChange(Sender: TObject);
+procedure TMainView.Button5Click(Sender: TObject);
 begin
-  var i := Integer(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
-  TMSFNCCloudAI1.Service := TTMSFNCCloudAIService(i);
+  mmQuestion.Text := 'Retorne o estoque do produto informado id 10';
 end;
 
 procedure TMainView.Button3Click(Sender: TObject);
@@ -107,12 +107,15 @@ end;
 
 procedure TMainView.Button2Click(Sender: TObject);
 begin
-  mmQuestion.Text := 'Retorne os dados das vendas do periodo 01/06/2025 a 24/06/2025' + sLineBreak +
+  cBoxIAService.ItemIndex := 0;
+  mmQuestion.Text := 'Retorne os dados das vendas do periodo 01/06/2025 a 25/06/2025' + sLineBreak +
     'Mostre as 5 primeiras vendas';
 end;
 
 procedure TMainView.btnExecuteClick(Sender: TObject);
 begin
+  TMSFNCCloudAI1.Service := TTMSFNCCloudAIService(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
+
   TMSFNCCloudAI1.Context := mmQuestion.Lines;
   TMSFNCCloudAI1.Execute();
   ProgressBar1.State := pbsNormal;
@@ -129,6 +132,30 @@ begin
   end;
 
   mmResponse.Lines.Text := AResponse.Content.Text;
+end;
+
+procedure TMainView.TMSFNCCloudAI1Tools0Execute(Sender: TObject; Args: TJSONObject; var Result: string);
+var
+  LIdProduto: Integer;
+begin
+  LIdProduto := Args.GetValue<Integer>('IdProduto', 0);
+  if LIdProduto <= 0 then
+  begin
+    Result := 'Código do produto não pode ser recuperado';
+    Exit;
+  end;
+
+  DM.ProdutosGet(LIdProduto);
+  if dm.TBProdutos.IsEmpty then
+  begin
+    Result := 'Nenhum produto foi encontrado com o código: ' + LIdProduto.ToString;
+    Exit;
+  end;
+
+  Result := DM.TBProdutosid.AsString + sLineBreak +
+    'Nome: ' + DM.TBProdutosnome.AsString + sLineBreak +
+    'Estoque: ' + DM.TBProdutosestoque.AsString + sLineBreak +
+    'Preço: ' + DM.TBProdutospreco.AsString;
 end;
 
 procedure TMainView.TMSFNCCloudAI1Tools3Execute(Sender: TObject; Args: TJSONObject; var Result: string);
@@ -150,11 +177,6 @@ begin
   end;
 
   Result := DM.TBClientesId.AsString + ' - ' +  DM.TBClientesnome.AsString;
-end;
-
-procedure TMainView.TMSFNCCloudAI1Tools0Execute(Sender: TObject; Args: TJSONObject; var Result: string);
-begin
-  Result := FloatToStr(Args.GetValue<Integer>('IdProduto') * 10);
 end;
 
 procedure TMainView.TMSFNCCloudAI1Tools1Execute(Sender: TObject; Args: TJSONObject; var Result: string);

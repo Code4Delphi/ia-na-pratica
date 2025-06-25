@@ -25,8 +25,8 @@ object DM: TDM
       'from vendas'
       'left join clientes on clientes.id = vendas.id_cliente'
       '')
-    Left = 128
-    Top = 216
+    Left = 120
+    Top = 280
     object TBVendasId: TFDAutoIncField
       FieldName = 'Id'
       Origin = 'Id'
@@ -65,7 +65,7 @@ object DM: TDM
       'where id = :IdCliente '
       'limit 1')
     Left = 120
-    Top = 152
+    Top = 216
     ParamData = <
       item
         Name = 'IDCLIENTE'
@@ -84,6 +84,39 @@ object DM: TDM
       Origin = 'nome'
       Required = True
       Size = 50
+    end
+  end
+  object TBProdutos: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select *'
+      'from produtos')
+    Left = 120
+    Top = 152
+    object TBProdutosid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = False
+    end
+    object TBProdutosnome: TWideStringField
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 40
+    end
+    object TBProdutosestoque: TFloatField
+      FieldName = 'estoque'
+      Origin = 'estoque'
+      DisplayFormat = ',,0.00'
+    end
+    object TBProdutospreco: TFloatField
+      FieldName = 'preco'
+      Origin = 'preco'
+      DisplayFormat = ',,0.00'
+    end
+    object TBProdutosregistro: TIntegerField
+      FieldName = 'registro'
+      Origin = 'registro'
     end
   end
 end

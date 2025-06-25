@@ -39,10 +39,18 @@ type
     TBClientes: TFDQuery;
     TBClientesId: TFDAutoIncField;
     TBClientesnome: TWideStringField;
+    TBProdutos: TFDQuery;
+    TBProdutosid: TFDAutoIncField;
+    TBProdutosnome: TWideStringField;
+    TBProdutosestoque: TFloatField;
+    TBProdutospreco: TFloatField;
+    TBProdutosregistro: TIntegerField;
     procedure DataModuleCreate(Sender: TObject);
   private
+    FSqlTBProdutos: string;
     FSqlTBVendas: string;
   public
+    procedure ProdutosGet(const AId: Integer);
     procedure ClienteGet(const AId: Integer);
     procedure VendasListar(ADataIni, ADataFim: TDate);
   end;
@@ -58,13 +66,23 @@ implementation
 
 procedure TDM.DataModuleCreate(Sender: TObject);
 begin
+  FSqlTBProdutos := TBProdutos.SQL.Text;
   FSqlTBVendas := TBVendas.SQL.Text;
+end;
+
+procedure TDM.ProdutosGet(const AId: Integer);
+begin
+  TBProdutos.Close;
+  TBProdutos.SQL.Text := FSqlTBProdutos;
+  TBProdutos.SQL.Add('where id = :IdProduto');
+  TBProdutos.ParamByName('IdProduto').AsInteger := AId;
+  TBProdutos.Open;
 end;
 
 procedure TDM.ClienteGet(const AId: Integer);
 begin
   TBClientes.Close;
-  TBClientes.ParamByName('IdCLiente').AsInteger := AId;
+  TBClientes.ParamByName('IdCliente').AsInteger := AId;
   TBClientes.Open;
 end;
 

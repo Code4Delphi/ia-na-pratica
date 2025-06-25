@@ -46,7 +46,6 @@ object MainView: TMainView
       Height = 23
       Style = csDropDownList
       TabOrder = 0
-      OnChange = cBoxIAServiceChange
     end
     object TMSFNCCloudAI1: TTMSFNCCloudAI
       Left = 480
@@ -67,19 +66,6 @@ object MainView: TMainView
       Settings.MistralModel = 'mistral-large-latest'
       Tools = <
         item
-          Name = 'IdCliente'
-          Description = 'Retorne os dados do cliente pelo ID informado'
-          Parameters = <
-            item
-              ArrayProperties = <>
-              Name = 'IdCliente'
-              Type = ptNumber
-              Description = 'Id do cliente'
-              Properties = <>
-            end>
-          OnExecute = TMSFNCCloudAI1Tools3Execute
-        end
-        item
           Name = 'GetEstoqueProduto'
           Description = 'Retorne o estoque do produto informado'
           Parameters = <
@@ -91,6 +77,19 @@ object MainView: TMainView
               Properties = <>
             end>
           OnExecute = TMSFNCCloudAI1Tools0Execute
+        end
+        item
+          Name = 'IdCliente'
+          Description = 'Retorne os dados do cliente pelo ID informado'
+          Parameters = <
+            item
+              ArrayProperties = <>
+              Name = 'IdCliente'
+              Type = ptNumber
+              Description = 'Id do cliente'
+              Properties = <>
+            end>
+          OnExecute = TMSFNCCloudAI1Tools3Execute
         end
         item
           Name = 'GetEndereco'
@@ -150,7 +149,7 @@ object MainView: TMainView
         Left = 3
         Top = 17
         Width = 734
-        Height = 143
+        Height = 127
         Align = alClient
         BorderStyle = bsNone
         Lines.Strings = (
@@ -158,12 +157,13 @@ object MainView: TMainView
         TabOrder = 0
         ExplicitLeft = 2
         ExplicitTop = 11
+        ExplicitHeight = 143
       end
       object gBoxDefaultsPrompts: TGroupBox
         Left = 3
-        Top = 160
+        Top = 144
         Width = 734
-        Height = 59
+        Height = 75
         Align = alBottom
         Caption = ' Defaults  Prompts '
         TabOrder = 1
@@ -171,52 +171,79 @@ object MainView: TMainView
           Left = 2
           Top = 17
           Width = 730
+          Height = 27
+          Align = alTop
+          BevelOuter = bvNone
+          Padding.Bottom = 3
+          TabOrder = 0
+          ExplicitTop = 11
+          object Button3: TButton
+            Left = 182
+            Top = 0
+            Width = 182
+            Height = 24
+            Align = alLeft
+            Caption = 'Dados cliente'
+            TabOrder = 0
+            OnClick = Button3Click
+            ExplicitLeft = -6
+            ExplicitTop = -3
+          end
+          object Button4: TButton
+            Left = 364
+            Top = 0
+            Width = 182
+            Height = 24
+            Align = alLeft
+            Caption = 'Email cliente'
+            TabOrder = 1
+            OnClick = Button4Click
+            ExplicitLeft = 182
+          end
+          object Button5: TButton
+            Left = 0
+            Top = 0
+            Width = 182
+            Height = 24
+            Align = alLeft
+            Caption = 'Dados produto'
+            TabOrder = 2
+            OnClick = Button5Click
+            ExplicitLeft = -6
+            ExplicitTop = -3
+          end
+        end
+        object pnDefaultsPrompts02: TPanel
+          Left = 2
+          Top = 44
+          Width = 730
           Height = 24
           Align = alTop
           BevelOuter = bvNone
-          TabOrder = 0
-          ExplicitLeft = 1
-          ExplicitTop = 1
-          ExplicitWidth = 732
+          Padding.Bottom = 3
+          TabOrder = 1
+          ExplicitTop = 41
           object Button1: TButton
-            Left = 198
+            Left = 0
             Top = 0
-            Width = 99
-            Height = 24
+            Width = 182
+            Height = 21
             Align = alLeft
             Caption = 'Vendas per'#237'odo'
             TabOrder = 0
             OnClick = Button1Click
           end
           object Button2: TButton
-            Left = 297
+            Left = 182
             Top = 0
             Width = 182
-            Height = 24
+            Height = 21
             Align = alLeft
             Caption = 'Vendas per'#237'odo (detalhando)'
             TabOrder = 1
             OnClick = Button2Click
-          end
-          object Button3: TButton
-            Left = 0
-            Top = 0
-            Width = 99
-            Height = 24
-            Align = alLeft
-            Caption = 'Dados cliente'
-            TabOrder = 2
-            OnClick = Button3Click
-          end
-          object Button4: TButton
-            Left = 99
-            Top = 0
-            Width = 99
-            Height = 24
-            Align = alLeft
-            Caption = 'Email cliente'
-            TabOrder = 3
-            OnClick = Button4Click
+            ExplicitLeft = 107
+            ExplicitTop = 3
           end
         end
       end
