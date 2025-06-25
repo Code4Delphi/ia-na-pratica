@@ -6,9 +6,6 @@
         <Projects Include="Chat\IAChat.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="FunctionCalling\FunctionCalling.dproj">
-            <Dependencies/>
-        </Projects>
         <Projects Include="Models\Models.dproj">
             <Dependencies/>
         </Projects>
@@ -32,15 +29,6 @@
     <Target Name="IAChat:Make">
         <MSBuild Projects="Chat\IAChat.dproj" Targets="Make"/>
     </Target>
-    <Target Name="FunctionCalling">
-        <MSBuild Projects="FunctionCalling\FunctionCalling.dproj"/>
-    </Target>
-    <Target Name="FunctionCalling:Clean">
-        <MSBuild Projects="FunctionCalling\FunctionCalling.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="FunctionCalling:Make">
-        <MSBuild Projects="FunctionCalling\FunctionCalling.dproj" Targets="Make"/>
-    </Target>
     <Target Name="Models">
         <MSBuild Projects="Models\Models.dproj"/>
     </Target>
@@ -60,13 +48,13 @@
         <MSBuild Projects="APIKeys\APIKey.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="IAChat;FunctionCalling;Models;APIKey"/>
+        <CallTarget Targets="IAChat;Models;APIKey"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="IAChat:Clean;FunctionCalling:Clean;Models:Clean;APIKey:Clean"/>
+        <CallTarget Targets="IAChat:Clean;Models:Clean;APIKey:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="IAChat:Make;FunctionCalling:Make;Models:Make;APIKey:Make"/>
+        <CallTarget Targets="IAChat:Make;Models:Make;APIKey:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
