@@ -153,7 +153,7 @@ object MainView: TMainView
         Align = alClient
         BorderStyle = bsNone
         Lines.Strings = (
-          'Retorne os dados das vendas do periodo 01/06/2025 a 24/06/2025')
+          'Ol'#225' quem '#233' voc'#234' e quem '#233' o seu fabricante?')
         TabOrder = 0
         ExplicitLeft = 2
         ExplicitTop = 11
@@ -186,7 +186,7 @@ object MainView: TMainView
             Caption = 'Dados cliente'
             TabOrder = 0
             OnClick = Button3Click
-            ExplicitLeft = -6
+            ExplicitLeft = 176
             ExplicitTop = -3
           end
           object Button4: TButton
@@ -222,7 +222,7 @@ object MainView: TMainView
           BevelOuter = bvNone
           Padding.Bottom = 3
           TabOrder = 1
-          ExplicitTop = 41
+          ExplicitTop = 47
           object Button1: TButton
             Left = 0
             Top = 0
@@ -243,6 +243,30 @@ object MainView: TMainView
             TabOrder = 1
             OnClick = Button2Click
             ExplicitLeft = 107
+            ExplicitTop = 3
+          end
+          object Button6: TButton
+            Left = 364
+            Top = 0
+            Width = 182
+            Height = 21
+            Align = alLeft
+            Caption = 'API ViaCep'
+            TabOrder = 2
+            OnClick = Button6Click
+            ExplicitLeft = 370
+            ExplicitTop = 3
+          end
+          object Button7: TButton
+            Left = 546
+            Top = 0
+            Width = 182
+            Height = 21
+            Align = alLeft
+            Caption = 'API ViaCep + Internet'
+            TabOrder = 3
+            OnClick = Button7Click
+            ExplicitLeft = 552
             ExplicitTop = 3
           end
         end

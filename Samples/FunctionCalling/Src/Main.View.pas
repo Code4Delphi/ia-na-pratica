@@ -46,6 +46,8 @@ type
     Button1: TButton;
     Button2: TButton;
     Button5: TButton;
+    Button6: TButton;
+    Button7: TButton;
     procedure FormCreate(Sender: TObject);
     procedure btnExecuteClick(Sender: TObject);
     procedure TMSFNCCloudAI1Executed(Sender: TObject; AResponse: TTMSFNCCloudAIResponse; AHttpStatusCode: Integer;
@@ -59,6 +61,8 @@ type
     procedure Button3Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
     procedure Button5Click(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
+    procedure Button7Click(Sender: TObject);
   private
     function GetEndereco(const ACEP: string): string;
   public
@@ -110,6 +114,18 @@ begin
   cBoxIAService.ItemIndex := 0;
   mmQuestion.Text := 'Retorne os dados das vendas do periodo 01/06/2025 a 25/06/2025' + sLineBreak +
     'Mostre as 5 primeiras vendas';
+end;
+
+procedure TMainView.Button6Click(Sender: TObject);
+begin
+  mmQuestion.Text := 'Qual é o endereço do CEP: 13098-615';
+end;
+
+procedure TMainView.Button7Click(Sender: TObject);
+begin
+  mmQuestion.Clear;
+  mmQuestion.Lines.Add('- Qual é o endereço do CEP: 13098-615.');
+  mmQuestion.Lines.Add('- Logo depois pesquise na internet quantos habitantes tem a cidade do CEP.');
 end;
 
 procedure TMainView.btnExecuteClick(Sender: TObject);
