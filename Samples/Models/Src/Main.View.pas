@@ -29,15 +29,17 @@ type
     mmResponse: TMemo;
     btnShowModels: TButton;
     ProgressBar1: TProgressBar;
+    pnBottom: TPanel;
+    Label2: TLabel;
+    lbTotalModels: TLabel;
     procedure FormCreate(Sender: TObject);
-    procedure cBoxIAServiceChange(Sender: TObject);
     procedure btnShowModelsClick(Sender: TObject);
     procedure TMSFNCCloudAI1GetModels(Sender: TObject; AResponse: TTMSFNCCloudAIResponse; AHttpStatusCode: Integer;
       AHttpResult: string);
   private
-    { Private declarations }
+
   public
-    { Public declarations }
+
   end;
 
 var
@@ -56,19 +58,15 @@ begin
   TMSFNCCloudAI1.APIKeys.LoadFromFile('..\..\Files\aikeys.cfg', 'PasswordTest');
 
   cBoxIAService.Items.Assign(TMSFNCCloudAI1.GetServices(True));
-  cBoxIAService.ItemIndex := 2; //6
-  cBoxIAServiceChange(cBoxIAService);
-end;
-
-procedure TMainView.cBoxIAServiceChange(Sender: TObject);
-begin
-  var i := Integer(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
-  TMSFNCCloudAI1.Service := TTMSFNCCloudAIService(i);
+  cBoxIAService.ItemIndex := 2;
 end;
 
 procedure TMainView.btnShowModelsClick(Sender: TObject);
 begin
   ProgressBar1.State := pbsNormal;
+  lbTotalModels.Caption := '0';
+
+  TMSFNCCloudAI1.Service := TTMSFNCCloudAIService(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
   TMSFNCCloudAI1.GetModels();
 end;
 
@@ -82,8 +80,8 @@ begin
     Exit;
   end;
 
-  //mmResponse.Text := AResponse.Content.Text;
   mmResponse.Text := TMSFNCCloudAI1.Models.Text;
+  lbTotalModels.Caption := TMSFNCCloudAI1.Models.Count.ToString;
 end;
 
 end.

@@ -21,7 +21,6 @@ object MainView: TMainView
     Height = 65
     Align = alTop
     TabOrder = 0
-    ExplicitTop = -6
     object Label1: TLabel
       Left = 18
       Top = 8
@@ -36,7 +35,6 @@ object MainView: TMainView
       Height = 23
       Style = csDropDownList
       TabOrder = 0
-      OnChange = cBoxIAServiceChange
     end
     object TMSFNCCloudAI1: TTMSFNCCloudAI
       Left = 536
@@ -113,7 +111,7 @@ object MainView: TMainView
     end
     object ProgressBar1: TProgressBar
       Left = 326
-      Top = 29
+      Top = 30
       Width = 150
       Height = 17
       Smooth = True
@@ -134,21 +132,49 @@ object MainView: TMainView
     Padding.Right = 1
     Padding.Bottom = 1
     TabOrder = 2
-    ExplicitLeft = -118
-    ExplicitTop = 127
-    ExplicitWidth = 742
-    ExplicitHeight = 314
     object mmResponse: TMemo
       Left = 3
       Top = 17
       Width = 618
-      Height = 564
+      Height = 535
       Align = alClient
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
       ExplicitLeft = 2
-      ExplicitTop = 16
+      ExplicitTop = 13
+    end
+    object pnBottom: TPanel
+      Left = 3
+      Top = 552
+      Width = 618
+      Height = 29
+      Align = alBottom
+      BevelInner = bvLowered
+      TabOrder = 1
+      ExplicitLeft = 0
+      ExplicitTop = 361
+      ExplicitWidth = 801
+      object Label2: TLabel
+        Left = 2
+        Top = 2
+        Width = 32
+        Height = 25
+        Align = alLeft
+        Caption = 'Total: '
+        Layout = tlCenter
+        ExplicitHeight = 15
+      end
+      object lbTotalModels: TLabel
+        Left = 34
+        Top = 2
+        Width = 6
+        Height = 25
+        Align = alLeft
+        Caption = '0'
+        Layout = tlCenter
+        ExplicitHeight = 15
+      end
     end
   end
 end

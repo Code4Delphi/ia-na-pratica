@@ -23,7 +23,6 @@ object MainView: TMainView
     BevelOuter = bvNone
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = -6
     object Label2: TLabel
       Left = 18
       Top = 32
@@ -205,8 +204,6 @@ object MainView: TMainView
       Caption = 'Open folder'
       TabOrder = 0
       OnClick = btnOpenFolderClick
-      ExplicitLeft = 50
-      ExplicitTop = 6
     end
   end
 end
