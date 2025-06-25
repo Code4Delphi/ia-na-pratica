@@ -1,4 +1,4 @@
-object MainView: TMainView
+object ModelsMainView: TModelsMainView
   Left = 0
   Top = 0
   Caption = 'IA na pr'#225'tica: Models'

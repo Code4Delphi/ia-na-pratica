@@ -2,13 +2,13 @@ program APIKey;
 
 uses
   Vcl.Forms,
-  Main.View in 'Src\Main.View.pas' {MainView};
+  APIKey.Main.View in 'Src\APIKey.Main.View.pas' {APIKeyMainView};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TMainView, MainView);
+  Application.CreateForm(TAPIKeyMainView, APIKeyMainView);
   Application.Run;
 end.

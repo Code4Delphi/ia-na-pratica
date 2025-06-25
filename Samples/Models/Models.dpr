@@ -2,13 +2,13 @@ program Models;
 
 uses
   Vcl.Forms,
-  Main.View in 'Src\Main.View.pas' {MainView};
+  Models.Main.View in 'Src\Models.Main.View.pas' {ModelsMainView};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TMainView, MainView);
+  Application.CreateForm(TModelsMainView, ModelsMainView);
   Application.Run;
 end.

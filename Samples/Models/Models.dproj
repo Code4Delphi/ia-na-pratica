@@ -127,8 +127,8 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="Src\Main.View.pas">
-            <Form>MainView</Form>
+        <DCCReference Include="Src\Models.Main.View.pas">
+            <Form>ModelsMainView</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

@@ -1,4 +1,4 @@
-object MainView: TMainView
+object ChatMainView: TChatMainView
   Left = 0
   Top = 0
   Caption = 'IA na pr'#225'tica: Chat'
@@ -19,7 +19,7 @@ object MainView: TMainView
     Top = 0
     Width = 1033
     Height = 558
-    ActivePage = tabChat
+    ActivePage = tabAPIKeys
     Align = alClient
     TabOrder = 0
     object tabAPIKeys: TTabSheet

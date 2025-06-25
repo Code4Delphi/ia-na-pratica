@@ -1,4 +1,4 @@
-unit Main.View;
+unit Models.Main.View;
 
 interface
 
@@ -20,7 +20,7 @@ uses
   Vcl.ComCtrls;
 
 type
-  TMainView = class(TForm)
+  TModelsMainView = class(TForm)
     pnTop: TPanel;
     Label1: TLabel;
     cBoxIAService: TComboBox;
@@ -43,13 +43,13 @@ type
   end;
 
 var
-  MainView: TMainView;
+  ModelsMainView: TModelsMainView;
 
 implementation
 
 {$R *.dfm}
 
-procedure TMainView.FormCreate(Sender: TObject);
+procedure TModelsMainView.FormCreate(Sender: TObject);
 begin
   ReportMemoryLeaksOnShutdown := True;
   TMSFNCCloudAI1.Logging := True;
@@ -61,7 +61,7 @@ begin
   cBoxIAService.ItemIndex := 2;
 end;
 
-procedure TMainView.btnShowModelsClick(Sender: TObject);
+procedure TModelsMainView.btnShowModelsClick(Sender: TObject);
 begin
   ProgressBar1.State := pbsNormal;
   lbTotalModels.Caption := '0';
@@ -70,7 +70,7 @@ begin
   TMSFNCCloudAI1.GetModels();
 end;
 
-procedure TMainView.TMSFNCCloudAI1GetModels(Sender: TObject; AResponse: TTMSFNCCloudAIResponse;
+procedure TModelsMainView.TMSFNCCloudAI1GetModels(Sender: TObject; AResponse: TTMSFNCCloudAIResponse;
   AHttpStatusCode: Integer; AHttpResult: string);
 begin
   ProgressBar1.State := pbsPaused;

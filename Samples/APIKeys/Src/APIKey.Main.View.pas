@@ -1,4 +1,4 @@
-unit Main.View;
+unit APIKey.Main.View;
 
 interface
 
@@ -20,7 +20,7 @@ uses
   VCL.TMSFNCCloudAI;
 
 type
-  TMainView = class(TForm)
+  TAPIKeyMainView = class(TForm)
     pnAPIKeysBack: TPanel;
     Label2: TLabel;
     Label3: TLabel;
@@ -56,30 +56,30 @@ type
   end;
 
 var
-  MainView: TMainView;
+  APIKeyMainView: TAPIKeyMainView;
 
 implementation
 
 {$R *.dfm}
 
-procedure TMainView.FormCreate(Sender: TObject);
+procedure TAPIKeyMainView.FormCreate(Sender: TObject);
 begin
   lbPathFile.Caption := ExpandFileName('..\..\Files\aikeys.cfg');
   Self.LoadKeys;
 end;
 
-procedure TMainView.btnOpenFolderClick(Sender: TObject);
+procedure TAPIKeyMainView.btnOpenFolderClick(Sender: TObject);
 begin
   if DirectoryExists(ExtractFileDir(lbPathFile.Caption)) then
     ShellExecute(0, 'open', PChar(ExtractFileDir(lbPathFile.Caption)), nil, nil, SW_SHOWNORMAL);
 end;
 
-procedure TMainView.btnLoadKeysClick(Sender: TObject);
+procedure TAPIKeyMainView.btnLoadKeysClick(Sender: TObject);
 begin
   Self.LoadKeys;
 end;
 
-procedure TMainView.LoadKeys;
+procedure TAPIKeyMainView.LoadKeys;
 begin
   TMSFNCCloudAI1.APIKeys.LoadFromFile('..\..\Files\aikeys.cfg', 'PasswordTest');
 
@@ -92,12 +92,12 @@ begin
   edtKeyPerplexity.Text := TMSFNCCloudAI1.APIKeys.Perplexity;
 end;
 
-procedure TMainView.btnSaveKeysClick(Sender: TObject);
+procedure TAPIKeyMainView.btnSaveKeysClick(Sender: TObject);
 begin
   Self.SaveKeys;
 end;
 
-procedure TMainView.SaveKeys;
+procedure TAPIKeyMainView.SaveKeys;
 begin
   TMSFNCCloudAI1.APIKeys.Claude := edtKeyClaude.Text;
   TMSFNCCloudAI1.APIKeys.DeepSeek := edtKeyDeepSeek.Text;
