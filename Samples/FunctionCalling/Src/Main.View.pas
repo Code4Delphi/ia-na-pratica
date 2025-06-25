@@ -37,6 +37,11 @@ type
     gBoxResponse: TGroupBox;
     mmResponse: TMemo;
     TMSFNCCloudAI1: TTMSFNCCloudAI;
+    pnPromptsPadroes: TPanel;
+    Panel2: TPanel;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
     procedure FormCreate(Sender: TObject);
     procedure cBoxIAServiceChange(Sender: TObject);
     procedure btnExecuteClick(Sender: TObject);
@@ -45,6 +50,10 @@ type
     procedure TMSFNCCloudAI1Tools0Execute(Sender: TObject; Args: TJSONObject; var Result: string);
     procedure TMSFNCCloudAI1Tools1Execute(Sender: TObject; Args: TJSONObject; var Result: string);
     procedure TMSFNCCloudAI1Tools2Execute(Sender: TObject; Args: TJSONObject; var Result: string);
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure TMSFNCCloudAI1Tools3Execute(Sender: TObject; Args: TJSONObject; var Result: string);
+    procedure Button3Click(Sender: TObject);
   private
     function GetEndereco(const ACEP: string): string;
   public
@@ -75,6 +84,22 @@ procedure TMainView.cBoxIAServiceChange(Sender: TObject);
 begin
   var i := Integer(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
   TMSFNCCloudAI1.Service := TTMSFNCCloudAIService(i);
+end;
+
+procedure TMainView.Button1Click(Sender: TObject);
+begin
+  mmQuestion.Text := 'Retorne os dados das vendas do periodo 01/06/2025 a 24/06/2025';
+end;
+
+procedure TMainView.Button2Click(Sender: TObject);
+begin
+  mmQuestion.Text := 'Retorne os dados das vendas do periodo 01/06/2025 a 24/06/2025' + sLineBreak +
+    'Mostre as 5 primeiras vendas';
+end;
+
+procedure TMainView.Button3Click(Sender: TObject);
+begin
+  mmQuestion.Text := 'Retorne os dados do cliente ID: 10';
 end;
 
 procedure TMainView.btnExecuteClick(Sender: TObject);
@@ -140,7 +165,7 @@ begin
   DM.VendasListar(LDataIni, LDataFim);
   if DM.TBVendas.IsEmpty then
   begin
-    Result := 'Não foram encontadas vendas neste período'; Result := Result + sLineBreak + DM.TBVendas.SQL.Text;
+    Result := 'Não foram encontadas vendas neste período';
     Exit;
   end;
 
@@ -154,8 +179,27 @@ begin
 
     DM.TBVendas.Next;
   end;
+end;
 
-  Result := Result + sLineBreak + DM.TBVendas.SQL.Text;
+procedure TMainView.TMSFNCCloudAI1Tools3Execute(Sender: TObject; Args: TJSONObject; var Result: string);
+var
+  LIdCLiente: Integer;
+begin
+  LIdCLiente := Args.GetValue<Integer>('IdCliente', 0);
+  if LIdCLiente <= 0 then
+  begin
+    Result := 'Código do cliente não pode ser recuperado';
+    Exit;
+  end;
+
+  DM.ClienteGet(LIdCLiente);
+  if dm.TBClientes.IsEmpty then
+  begin
+    Result := 'Nenhum cliente foi encontrado com o código: ' + LIdCLiente.ToString;
+    Exit;
+  end;
+
+  Result := DM.TBClientesId.AsString + ' - ' +  DM.TBClientesnome.AsString;
 end;
 
 end.

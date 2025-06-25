@@ -2,7 +2,7 @@ object MainView: TMainView
   Left = 0
   Top = 0
   Caption = 'IA na pr'#225'tica: Function Calling (chamada de fun'#231#227'o)'
-  ClientHeight = 552
+  ClientHeight = 653
   ClientWidth = 742
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -16,12 +16,13 @@ object MainView: TMainView
   TextHeight = 15
   object Splitter1: TSplitter
     Left = 0
-    Top = 233
+    Top = 321
     Width = 742
     Height = 5
     Cursor = crVSplit
     Align = alTop
     ExplicitLeft = -284
+    ExplicitTop = 233
     ExplicitWidth = 1025
   end
   object pnTop: TPanel
@@ -31,7 +32,6 @@ object MainView: TMainView
     Height = 65
     Align = alTop
     TabOrder = 0
-    ExplicitTop = -5
     object Label1: TLabel
       Left = 18
       Top = 8
@@ -50,7 +50,7 @@ object MainView: TMainView
     end
     object TMSFNCCloudAI1: TTMSFNCCloudAI
       Left = 480
-      Top = 24
+      Top = 8
       Width = 26
       Height = 26
       Visible = True
@@ -111,6 +111,19 @@ object MainView: TMainView
               Properties = <>
             end>
           OnExecute = TMSFNCCloudAI1Tools2Execute
+        end
+        item
+          Name = 'IdCliente'
+          Description = 'Retorne os dados do cliente pelo ID informado'
+          Parameters = <
+            item
+              ArrayProperties = <>
+              Name = 'IdCliente'
+              Type = ptNumber
+              Description = 'Id do cliente'
+              Properties = <>
+            end>
+          OnExecute = TMSFNCCloudAI1Tools3Execute
         end>
       OnExecuted = TMSFNCCloudAI1Executed
     end
@@ -119,7 +132,7 @@ object MainView: TMainView
     Left = 0
     Top = 65
     Width = 742
-    Height = 168
+    Height = 256
     Align = alTop
     Caption = 'pnBoth'
     TabOrder = 1
@@ -127,28 +140,85 @@ object MainView: TMainView
       Left = 1
       Top = 1
       Width = 740
-      Height = 134
+      Height = 222
       Align = alClient
       Caption = ' Prompt / question '
       Padding.Left = 1
       Padding.Right = 1
       Padding.Bottom = 1
       TabOrder = 0
+      ExplicitHeight = 134
       object mmQuestion: TMemo
         Left = 3
         Top = 17
         Width = 734
-        Height = 114
+        Height = 159
         Align = alClient
         BorderStyle = bsNone
         Lines.Strings = (
           'Retorne os dados das vendas do periodo 01/06/2025 a 24/06/2025')
         TabOrder = 0
+        ExplicitLeft = 2
+        ExplicitTop = 12
+      end
+      object pnPromptsPadroes: TPanel
+        Left = 3
+        Top = 176
+        Width = 734
+        Height = 43
+        Align = alBottom
+        BevelOuter = bvLowered
+        TabOrder = 1
+        ExplicitLeft = 2
+        ExplicitTop = 175
+        object Panel2: TPanel
+          Left = 1
+          Top = 1
+          Width = 732
+          Height = 24
+          Align = alTop
+          BevelOuter = bvNone
+          TabOrder = 0
+          object Button1: TButton
+            Left = 99
+            Top = 0
+            Width = 99
+            Height = 24
+            Align = alLeft
+            Caption = 'Vendas per'#237'odo'
+            TabOrder = 0
+            OnClick = Button1Click
+            ExplicitLeft = 0
+            ExplicitTop = 5
+          end
+          object Button2: TButton
+            Left = 198
+            Top = 0
+            Width = 182
+            Height = 24
+            Align = alLeft
+            Caption = 'Vendas per'#237'odo (detalhando)'
+            TabOrder = 1
+            OnClick = Button2Click
+            ExplicitLeft = 99
+          end
+          object Button3: TButton
+            Left = 0
+            Top = 0
+            Width = 99
+            Height = 24
+            Align = alLeft
+            Caption = 'Dados cliente'
+            TabOrder = 2
+            OnClick = Button3Click
+            ExplicitLeft = 8
+          end
+        end
       end
     end
     object Panel1: TPanel
       Left = 1
-      Top = 135
+      Top = 223
       Width = 740
       Height = 32
       Align = alBottom
@@ -156,6 +226,7 @@ object MainView: TMainView
       Padding.Right = 2
       Padding.Bottom = 2
       TabOrder = 1
+      ExplicitTop = 135
       object btnExecute: TBitBtn
         Left = 1
         Top = 3
@@ -183,30 +254,32 @@ object MainView: TMainView
         SmoothReverse = True
         State = pbsPaused
         TabOrder = 1
-        ExplicitLeft = 112
       end
     end
   end
   object gBoxResponse: TGroupBox
     Left = 0
-    Top = 238
+    Top = 326
     Width = 742
-    Height = 314
+    Height = 327
     Align = alClient
     Caption = ' Response '
     Padding.Left = 1
     Padding.Right = 1
     Padding.Bottom = 1
     TabOrder = 2
+    ExplicitTop = 238
+    ExplicitHeight = 314
     object mmResponse: TMemo
       Left = 3
       Top = 17
       Width = 736
-      Height = 294
+      Height = 307
       Align = alClient
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
+      ExplicitHeight = 294
     end
   end
 end

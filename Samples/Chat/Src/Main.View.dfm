@@ -19,7 +19,7 @@ object MainView: TMainView
     Top = 0
     Width = 1033
     Height = 558
-    ActivePage = tabAPIKeys
+    ActivePage = tabChat
     Align = alClient
     TabOrder = 0
     object tabAPIKeys: TTabSheet

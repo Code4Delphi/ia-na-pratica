@@ -6,13 +6,14 @@ object DM: TDM
     Params.Strings = (
       'Database=C:\Code4D\Projetos\IA-na-pratica\Samples\BD\dados.db'
       'DriverID=SQLite')
-    Connected = True
     LoginPrompt = False
     Left = 128
     Top = 88
   end
   object TBVendas: TFDQuery
     Connection = FDConnection1
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
     SQL.Strings = (
       'select'
       'vendas.Id,'
@@ -24,7 +25,7 @@ object DM: TDM
       'left join cliente on cliente.id = vendas.id_cliente'
       '')
     Left = 128
-    Top = 152
+    Top = 216
     object TBVendasId: TFDAutoIncField
       FieldName = 'Id'
       Origin = 'Id'
@@ -52,6 +53,32 @@ object DM: TDM
     object TBVendastotal: TFloatField
       FieldName = 'total'
       Origin = 'total'
+    end
+  end
+  object TBClientes: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select Id, nome from clientes where id = :IdCliente limit 1')
+    Left = 120
+    Top = 152
+    ParamData = <
+      item
+        Name = 'IDCLIENTE'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
+    object TBClientesId: TFDAutoIncField
+      FieldName = 'Id'
+      Origin = 'Id'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = False
+    end
+    object TBClientesnome: TWideStringField
+      FieldName = 'nome'
+      Origin = 'nome'
+      Required = True
+      Size = 50
     end
   end
 end

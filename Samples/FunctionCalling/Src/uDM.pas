@@ -3,10 +3,29 @@ unit uDM;
 interface
 
 uses
-  System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
-  FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.SQLite,
-  FireDAC.Phys.SQLiteDef, FireDAC.Stan.ExprFuncs, FireDAC.Phys.SQLiteWrapper.Stat, FireDAC.VCLUI.Wait,
-  FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+  System.SysUtils,
+  System.Classes,
+  FireDAC.Stan.Intf,
+  FireDAC.Stan.Option,
+  FireDAC.Stan.Error,
+  FireDAC.UI.Intf,
+  FireDAC.Phys.Intf,
+  FireDAC.Stan.Def,
+  FireDAC.Stan.Pool,
+  FireDAC.Stan.Async,
+  FireDAC.Phys,
+  FireDAC.Phys.SQLite,
+  FireDAC.Phys.SQLiteDef,
+  FireDAC.Stan.ExprFuncs,
+  FireDAC.Phys.SQLiteWrapper.Stat,
+  FireDAC.VCLUI.Wait,
+  FireDAC.Stan.Param,
+  FireDAC.DatS,
+  FireDAC.DApt.Intf,
+  FireDAC.DApt,
+  Data.DB,
+  FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client;
 
 type
   TDM = class(TDataModule)
@@ -17,10 +36,14 @@ type
     TBVendasClienteNome: TWideStringField;
     TBVendasdata: TWideStringField;
     TBVendastotal: TFloatField;
+    TBClientes: TFDQuery;
+    TBClientesId: TFDAutoIncField;
+    TBClientesnome: TWideStringField;
     procedure DataModuleCreate(Sender: TObject);
   private
     FSqlTBVendas: string;
   public
+    procedure ClienteGet(const AId: Integer);
     procedure VendasListar(ADataIni, ADataFim: TDate);
   end;
 
@@ -36,6 +59,13 @@ implementation
 procedure TDM.DataModuleCreate(Sender: TObject);
 begin
   FSqlTBVendas := TBVendas.SQL.Text;
+end;
+
+procedure TDM.ClienteGet(const AId: Integer);
+begin
+  TBClientes.Close;
+  TBClientes.ParamByName('IdCLiente').AsInteger := AId;
+  TBClientes.Open;
 end;
 
 procedure TDM.VendasListar(ADataIni, ADataFim: TDate);
