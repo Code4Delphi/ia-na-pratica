@@ -115,7 +115,6 @@ end;
 procedure TMainView.SetManualModel;
 begin
   TMSFNCCloudAI1.Settings.OllamaModel := 'tinyllama';
-  //TMSFNCCloudAI1.Settings.OllamaModel := 'llama3.1';
   //TMSFNCCloudAI1.Settings.ClaudeModel := 'claude-opus-4-20250514';
 end;
 
