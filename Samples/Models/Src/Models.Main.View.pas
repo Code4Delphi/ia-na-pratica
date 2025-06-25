@@ -52,9 +52,6 @@ implementation
 procedure TModelsMainView.FormCreate(Sender: TObject);
 begin
   ReportMemoryLeaksOnShutdown := True;
-  TMSFNCCloudAI1.Logging := True;
-  TMSFNCCloudAI1.LogFileName := '..\..\Files\Models.log';
-
   TMSFNCCloudAI1.APIKeys.LoadFromFile('..\..\Files\aikeys.cfg', 'PasswordTest');
 
   cBoxIAService.Items.Assign(TMSFNCCloudAI1.GetServices(True));

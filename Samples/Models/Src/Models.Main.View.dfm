@@ -141,8 +141,6 @@ object ModelsMainView: TModelsMainView
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
-      ExplicitLeft = 2
-      ExplicitTop = 13
     end
     object pnBottom: TPanel
       Left = 3
@@ -152,9 +150,6 @@ object ModelsMainView: TModelsMainView
       Align = alBottom
       BevelInner = bvLowered
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 361
-      ExplicitWidth = 801
       object Label2: TLabel
         Left = 2
         Top = 2
