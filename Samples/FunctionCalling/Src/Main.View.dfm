@@ -1,9 +1,9 @@
 object MainView: TMainView
   Left = 0
   Top = 0
-  Caption = 'IA na pr'#225'tica: Function Calling (chamada de fun'#231#227'o)'
-  ClientHeight = 653
-  ClientWidth = 742
+  Caption = 'IA na pr'#225'tica: Function Calling/Tool Calling (chamada de fun'#231#227'o)'
+  ClientHeight = 665
+  ClientWidth = 752
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,7 +17,7 @@ object MainView: TMainView
   object Splitter1: TSplitter
     Left = 0
     Top = 321
-    Width = 742
+    Width = 752
     Height = 5
     Cursor = crVSplit
     Align = alTop
@@ -28,10 +28,11 @@ object MainView: TMainView
   object pnTop: TPanel
     Left = 0
     Top = 0
-    Width = 742
+    Width = 752
     Height = 65
     Align = alTop
     TabOrder = 0
+    ExplicitWidth = 742
     object Label1: TLabel
       Left = 18
       Top = 8
@@ -89,19 +90,6 @@ object MainView: TMainView
               Description = 'Id do cliente'
               Properties = <>
             end>
-          OnExecute = TMSFNCCloudAI1Tools3Execute
-        end
-        item
-          Name = 'GetEndereco'
-          Description = 'Qual o endere'#231'o do CEP informado'
-          Parameters = <
-            item
-              ArrayProperties = <>
-              Name = 'CEP'
-              Type = ptString
-              Description = 'CEP a ser consultado'
-              Properties = <>
-            end>
           OnExecute = TMSFNCCloudAI1Tools1Execute
         end
         item
@@ -123,6 +111,19 @@ object MainView: TMainView
               Properties = <>
             end>
           OnExecute = TMSFNCCloudAI1Tools2Execute
+        end
+        item
+          Name = 'GetEndereco'
+          Description = 'Qual o endere'#231'o do CEP informado'
+          Parameters = <
+            item
+              ArrayProperties = <>
+              Name = 'CEP'
+              Type = ptString
+              Description = 'CEP a ser consultado'
+              Properties = <>
+            end>
+          OnExecute = TMSFNCCloudAI1Tools3Execute
         end>
       OnExecuted = TMSFNCCloudAI1Executed
     end
@@ -130,14 +131,15 @@ object MainView: TMainView
   object pnBoth: TPanel
     Left = 0
     Top = 65
-    Width = 742
+    Width = 752
     Height = 256
     Align = alTop
     TabOrder = 1
+    ExplicitWidth = 742
     object gBoxQuestion: TGroupBox
       Left = 1
       Top = 1
-      Width = 740
+      Width = 750
       Height = 222
       Align = alClient
       Caption = ' Prompt / question '
@@ -145,39 +147,39 @@ object MainView: TMainView
       Padding.Right = 1
       Padding.Bottom = 1
       TabOrder = 0
+      ExplicitWidth = 740
       object mmQuestion: TMemo
         Left = 3
         Top = 17
-        Width = 734
-        Height = 127
+        Width = 744
+        Height = 101
         Align = alClient
         BorderStyle = bsNone
         Lines.Strings = (
           'Ol'#225' quem '#233' voc'#234' e quem '#233' o seu fabricante?')
         TabOrder = 0
-        ExplicitLeft = 2
-        ExplicitTop = 11
-        ExplicitHeight = 143
+        ExplicitWidth = 734
+        ExplicitHeight = 127
       end
       object gBoxDefaultsPrompts: TGroupBox
         Left = 3
-        Top = 144
-        Width = 734
-        Height = 75
+        Top = 118
+        Width = 744
+        Height = 101
         Align = alBottom
         Caption = ' Defaults  Prompts '
         TabOrder = 1
         object pnDefaultsPrompts01: TPanel
           Left = 2
           Top = 17
-          Width = 730
+          Width = 740
           Height = 27
           Align = alTop
           BevelOuter = bvNone
           Padding.Bottom = 3
           TabOrder = 0
-          ExplicitTop = 11
-          object Button3: TButton
+          ExplicitWidth = 730
+          object btnDadosCliente: TButton
             Left = 182
             Top = 0
             Width = 182
@@ -185,11 +187,9 @@ object MainView: TMainView
             Align = alLeft
             Caption = 'Dados cliente'
             TabOrder = 0
-            OnClick = Button3Click
-            ExplicitLeft = 176
-            ExplicitTop = -3
+            OnClick = btnDadosClienteClick
           end
-          object Button4: TButton
+          object btnEmailCliente: TButton
             Left = 364
             Top = 0
             Width = 182
@@ -197,10 +197,9 @@ object MainView: TMainView
             Align = alLeft
             Caption = 'Email cliente'
             TabOrder = 1
-            OnClick = Button4Click
-            ExplicitLeft = 182
+            OnClick = btnEmailClienteClick
           end
-          object Button5: TButton
+          object btnDadosProduto: TButton
             Left = 0
             Top = 0
             Width = 182
@@ -208,7 +207,7 @@ object MainView: TMainView
             Align = alLeft
             Caption = 'Dados produto'
             TabOrder = 2
-            OnClick = Button5Click
+            OnClick = btnDadosProdutoClick
             ExplicitLeft = -6
             ExplicitTop = -3
           end
@@ -216,57 +215,95 @@ object MainView: TMainView
         object pnDefaultsPrompts02: TPanel
           Left = 2
           Top = 44
-          Width = 730
-          Height = 24
+          Width = 740
+          Height = 27
           Align = alTop
           BevelOuter = bvNone
           Padding.Bottom = 3
           TabOrder = 1
-          ExplicitTop = 47
-          object Button1: TButton
+          ExplicitWidth = 730
+          object btnVendasPeriodo: TButton
             Left = 0
             Top = 0
             Width = 182
-            Height = 21
+            Height = 24
             Align = alLeft
             Caption = 'Vendas per'#237'odo'
             TabOrder = 0
-            OnClick = Button1Click
+            OnClick = btnVendasPeriodoClick
+            ExplicitHeight = 21
           end
-          object Button2: TButton
+          object btnVendasPeriodoDetalhando: TButton
             Left = 182
             Top = 0
             Width = 182
-            Height = 21
+            Height = 24
             Align = alLeft
             Caption = 'Vendas per'#237'odo (detalhando)'
             TabOrder = 1
-            OnClick = Button2Click
-            ExplicitLeft = 107
-            ExplicitTop = 3
+            OnClick = btnVendasPeriodoDetalhandoClick
+            ExplicitLeft = 176
+            ExplicitTop = -3
           end
-          object Button6: TButton
+          object btnVendasPeriodoClienteMaisVendas: TButton
             Left = 364
             Top = 0
             Width = 182
-            Height = 21
+            Height = 24
             Align = alLeft
-            Caption = 'API ViaCep'
+            Caption = 'Clientes com mais vendas'
             TabOrder = 2
-            OnClick = Button6Click
-            ExplicitLeft = 370
-            ExplicitTop = 3
+            OnClick = btnVendasPeriodoClienteMaisVendasClick
+            ExplicitLeft = 358
+            ExplicitTop = -3
           end
-          object Button7: TButton
+          object btnVendasPeriodoEmailClimaisVendas: TButton
             Left = 546
             Top = 0
             Width = 182
-            Height = 21
+            Height = 24
+            Align = alLeft
+            Caption = 'Email clientes mais vendas'
+            TabOrder = 3
+            OnClick = btnVendasPeriodoEmailClimaisVendasClick
+            ExplicitLeft = 552
+            ExplicitTop = -3
+          end
+        end
+        object pnDefaultsPrompts03: TPanel
+          Left = 2
+          Top = 71
+          Width = 740
+          Height = 27
+          Align = alTop
+          BevelOuter = bvNone
+          Padding.Bottom = 3
+          TabOrder = 2
+          ExplicitTop = 68
+          ExplicitWidth = 730
+          object btnAPIViaCep: TButton
+            Left = 0
+            Top = 0
+            Width = 182
+            Height = 24
+            Align = alLeft
+            Caption = 'API ViaCep'
+            TabOrder = 0
+            OnClick = btnAPIViaCepClick
+            ExplicitLeft = 9
+            ExplicitTop = 5
+            ExplicitHeight = 22
+          end
+          object btnAPIViaCepMaisInternet: TButton
+            Left = 182
+            Top = 0
+            Width = 182
+            Height = 24
             Align = alLeft
             Caption = 'API ViaCep + Internet'
-            TabOrder = 3
-            OnClick = Button7Click
-            ExplicitLeft = 552
+            TabOrder = 1
+            OnClick = btnAPIViaCepMaisInternetClick
+            ExplicitLeft = 176
             ExplicitTop = 3
           end
         end
@@ -275,13 +312,14 @@ object MainView: TMainView
     object Panel1: TPanel
       Left = 1
       Top = 223
-      Width = 740
+      Width = 750
       Height = 32
       Align = alBottom
       Padding.Top = 2
       Padding.Right = 2
       Padding.Bottom = 2
       TabOrder = 1
+      ExplicitWidth = 740
       object btnExecute: TBitBtn
         Left = 1
         Top = 3
@@ -292,8 +330,6 @@ object MainView: TMainView
         Caption = 'Execute'
         TabOrder = 0
         OnClick = btnExecuteClick
-        ExplicitLeft = -2
-        ExplicitTop = 1
       end
       object ProgressBar1: TProgressBar
         AlignWithMargins = True
@@ -317,19 +353,21 @@ object MainView: TMainView
   object gBoxResponse: TGroupBox
     Left = 0
     Top = 326
-    Width = 742
-    Height = 327
+    Width = 752
+    Height = 339
     Align = alClient
     Caption = ' Response '
     Padding.Left = 1
     Padding.Right = 1
     Padding.Bottom = 1
     TabOrder = 2
+    ExplicitWidth = 742
+    ExplicitHeight = 327
     object mmResponse: TMemo
       Left = 3
       Top = 17
-      Width = 736
-      Height = 307
+      Width = 746
+      Height = 319
       Align = alClient
       BorderStyle = bsNone
       ScrollBars = ssVertical

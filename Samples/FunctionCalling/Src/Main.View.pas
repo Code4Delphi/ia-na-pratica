@@ -40,14 +40,17 @@ type
     TMSFNCCloudAI1: TTMSFNCCloudAI;
     gBoxDefaultsPrompts: TGroupBox;
     pnDefaultsPrompts01: TPanel;
-    Button3: TButton;
-    Button4: TButton;
+    btnDadosCliente: TButton;
+    btnEmailCliente: TButton;
     pnDefaultsPrompts02: TPanel;
-    Button1: TButton;
-    Button2: TButton;
-    Button5: TButton;
-    Button6: TButton;
-    Button7: TButton;
+    btnVendasPeriodo: TButton;
+    btnVendasPeriodoDetalhando: TButton;
+    btnDadosProduto: TButton;
+    pnDefaultsPrompts03: TPanel;
+    btnAPIViaCep: TButton;
+    btnAPIViaCepMaisInternet: TButton;
+    btnVendasPeriodoClienteMaisVendas: TButton;
+    btnVendasPeriodoEmailClimaisVendas: TButton;
     procedure FormCreate(Sender: TObject);
     procedure btnExecuteClick(Sender: TObject);
     procedure TMSFNCCloudAI1Executed(Sender: TObject; AResponse: TTMSFNCCloudAIResponse; AHttpStatusCode: Integer;
@@ -55,14 +58,16 @@ type
     procedure TMSFNCCloudAI1Tools0Execute(Sender: TObject; Args: TJSONObject; var Result: string);
     procedure TMSFNCCloudAI1Tools1Execute(Sender: TObject; Args: TJSONObject; var Result: string);
     procedure TMSFNCCloudAI1Tools2Execute(Sender: TObject; Args: TJSONObject; var Result: string);
-    procedure Button1Click(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
+    procedure btnVendasPeriodoClick(Sender: TObject);
+    procedure btnVendasPeriodoDetalhandoClick(Sender: TObject);
+    procedure btnDadosClienteClick(Sender: TObject);
+    procedure btnEmailClienteClick(Sender: TObject);
+    procedure btnDadosProdutoClick(Sender: TObject);
+    procedure btnAPIViaCepClick(Sender: TObject);
+    procedure btnAPIViaCepMaisInternetClick(Sender: TObject);
+    procedure btnVendasPeriodoClienteMaisVendasClick(Sender: TObject);
+    procedure btnVendasPeriodoEmailClimaisVendasClick(Sender: TObject);
     procedure TMSFNCCloudAI1Tools3Execute(Sender: TObject; Args: TJSONObject; var Result: string);
-    procedure Button3Click(Sender: TObject);
-    procedure Button4Click(Sender: TObject);
-    procedure Button5Click(Sender: TObject);
-    procedure Button6Click(Sender: TObject);
-    procedure Button7Click(Sender: TObject);
   private
     function GetEndereco(const ACEP: string): string;
   public
@@ -87,41 +92,58 @@ begin
   cBoxIAService.ItemIndex := 0;
 end;
 
-procedure TMainView.Button5Click(Sender: TObject);
+procedure TMainView.btnDadosProdutoClick(Sender: TObject);
 begin
-  mmQuestion.Text := 'Retorne o estoque do produto informado id 10';
+  mmQuestion.Text := 'Retorne o estoque do produto id 10';
 end;
 
-procedure TMainView.Button3Click(Sender: TObject);
+procedure TMainView.btnDadosClienteClick(Sender: TObject);
 begin
   mmQuestion.Text := 'Retorne os dados do cliente ID 3';
 end;
 
-procedure TMainView.Button4Click(Sender: TObject);
+procedure TMainView.btnEmailClienteClick(Sender: TObject);
 begin
   mmQuestion.Clear;
   mmQuestion.Lines.Add('- Pegue o nome do cliente ID 3.');
   mmQuestion.Lines.Add('- Depois crie o texto de um e-mail para este nome agradecendo sua inscrição no canal da Code4Delphi');
 end;
 
-procedure TMainView.Button1Click(Sender: TObject);
+procedure TMainView.btnVendasPeriodoClick(Sender: TObject);
 begin
-  mmQuestion.Text := 'Retorne os dados das vendas do periodo 01/06/2025 a 24/06/2025';
+  mmQuestion.Text := '- Retorne os dados das vendas do periodo 01/06/2025 a 24/06/2025';
 end;
 
-procedure TMainView.Button2Click(Sender: TObject);
+procedure TMainView.btnVendasPeriodoDetalhandoClick(Sender: TObject);
 begin
   cBoxIAService.ItemIndex := 0;
-  mmQuestion.Text := 'Retorne os dados das vendas do periodo 01/06/2025 a 25/06/2025' + sLineBreak +
-    'Mostre as 5 primeiras vendas';
+  mmQuestion.Clear;
+  mmQuestion.Lines.Add('- Retorne os dados das vendas do periodo 01/06/2025 a 25/06/2025');
+  mmQuestion.Lines.Add('- Mostre as 5 primeiras vendas');
 end;
 
-procedure TMainView.Button6Click(Sender: TObject);
+procedure TMainView.btnVendasPeriodoClienteMaisVendasClick(Sender: TObject);
+begin
+  cBoxIAService.ItemIndex := 0;
+  mmQuestion.Clear;
+  mmQuestion.Lines.Add('- Retorne os dados das vendas do periodo 01/06/2025 a 25/06/2025');
+  mmQuestion.Lines.Add('- Liste quais clientes tem um número maior de vendas');
+end;
+
+procedure TMainView.btnVendasPeriodoEmailClimaisVendasClick(Sender: TObject);
+begin
+  cBoxIAService.ItemIndex := 0;
+  mmQuestion.Clear;
+  mmQuestion.Lines.Add('- Retorne os dados das vendas do periodo 01/06/2025 a 25/06/2025');
+  mmQuestion.Lines.Add('- Crie um email para os 3 clientes que tem um número maior de vendas');
+end;
+
+procedure TMainView.btnAPIViaCepClick(Sender: TObject);
 begin
   mmQuestion.Text := 'Qual é o endereço do CEP: 13098-615';
 end;
 
-procedure TMainView.Button7Click(Sender: TObject);
+procedure TMainView.btnAPIViaCepMaisInternetClick(Sender: TObject);
 begin
   mmQuestion.Clear;
   mmQuestion.Lines.Add('- Qual é o endereço do CEP: 13098-615.');
@@ -147,7 +169,7 @@ begin
     Exit;
   end;
 
-  mmResponse.Lines.Text := AResponse.Content.Text;
+  mmResponse.Lines := AResponse.Content;
 end;
 
 procedure TMainView.TMSFNCCloudAI1Tools0Execute(Sender: TObject; Args: TJSONObject; var Result: string);
@@ -174,7 +196,7 @@ begin
     'Preço: ' + DM.TBProdutospreco.AsString;
 end;
 
-procedure TMainView.TMSFNCCloudAI1Tools3Execute(Sender: TObject; Args: TJSONObject; var Result: string);
+procedure TMainView.TMSFNCCloudAI1Tools1Execute(Sender: TObject; Args: TJSONObject; var Result: string);
 var
   LIdCLiente: Integer;
 begin
@@ -195,7 +217,38 @@ begin
   Result := DM.TBClientesId.AsString + ' - ' +  DM.TBClientesnome.AsString;
 end;
 
-procedure TMainView.TMSFNCCloudAI1Tools1Execute(Sender: TObject; Args: TJSONObject; var Result: string);
+procedure TMainView.TMSFNCCloudAI1Tools2Execute(Sender: TObject; Args: TJSONObject; var Result: string);
+var
+  LDataIni: TDate;
+  LDataFim: TDate;
+begin
+  LDataIni := StrToDateDef(Args.GetValue<string>('DataIni'), 0);
+  LDataFim := StrToDateDef(Args.GetValue<string>('DataFim'), 0);
+
+  DM.VendasListar(LDataIni, LDataFim);
+  if DM.TBVendas.IsEmpty then
+  begin
+    Result := 'Não foram encontadas vendas neste período';
+    Exit;
+  end;
+
+  Result := 'Vendas encontadas: ' + DM.TBVendas.RecordCount.ToString + sLineBreak;
+
+  Result := Result + 'Dados das vendas no formato CSV: '+ sLineBreak;
+  Result := Result + 'Id-Venda;Data;Id-Cliente;Nome-Cliente';
+
+  DM.TBVendas.First;
+  while not DM.TBVendas.Eof do
+  begin
+     //Format('%d - %s - %s', [DM.TBVendasId.AsInteger, DM.TBVendasdata.AsString, DM.TBVendasClienteNome.AsString]);
+     Result := Result + sLineBreak +
+       Format('%d;%s;%d;%s', [DM.TBVendasId.AsInteger, DM.TBVendasdata.AsString, DM.TBVendasid_cliente.AsInteger, DM.TBVendasClienteNome.AsString]);
+
+    DM.TBVendas.Next;
+  end;
+end;
+
+procedure TMainView.TMSFNCCloudAI1Tools3Execute(Sender: TObject; Args: TJSONObject; var Result: string);
 begin
   Result := Self.GetEndereco(Args.GetValue<string>('CEP'));
 end;
@@ -221,34 +274,5 @@ begin
     LRequest.Free;
   end;
 end;
-
-procedure TMainView.TMSFNCCloudAI1Tools2Execute(Sender: TObject; Args: TJSONObject; var Result: string);
-var
-  LDataIni: TDate;
-  LDataFim: TDate;
-begin
-  LDataIni := StrToDateDef(Args.GetValue<string>('DataIni'), 0);
-  LDataFim := StrToDateDef(Args.GetValue<string>('DataFim'), 0);
-
-  DM.VendasListar(LDataIni, LDataFim);
-  if DM.TBVendas.IsEmpty then
-  begin
-    Result := 'Não foram encontadas vendas neste período';
-    Exit;
-  end;
-
-  Result := 'Vendas encontadas: ' + DM.TBVendas.RecordCount.ToString;
-
-  DM.TBVendas.First;
-  while not DM.TBVendas.Eof do
-  begin
-    Result := Result + sLineBreak +
-      Format('%d - %s - %s', [DM.TBVendasId.AsInteger, DM.TBVendasdata.AsString, DM.TBVendasClienteNome.AsString]);
-
-    DM.TBVendas.Next;
-  end;
-end;
-
-
 
 end.
