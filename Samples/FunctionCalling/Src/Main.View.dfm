@@ -3,7 +3,7 @@ object MainView: TMainView
   Top = 0
   Caption = 'IA na pr'#225'tica: Function Calling/Tool Calling (chamada de fun'#231#227'o)'
   ClientHeight = 665
-  ClientWidth = 752
+  ClientWidth = 931
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,7 +17,7 @@ object MainView: TMainView
   object Splitter1: TSplitter
     Left = 0
     Top = 321
-    Width = 752
+    Width = 931
     Height = 5
     Cursor = crVSplit
     Align = alTop
@@ -28,7 +28,7 @@ object MainView: TMainView
   object pnTop: TPanel
     Left = 0
     Top = 0
-    Width = 752
+    Width = 931
     Height = 65
     Align = alTop
     TabOrder = 0
@@ -131,7 +131,7 @@ object MainView: TMainView
   object pnBoth: TPanel
     Left = 0
     Top = 65
-    Width = 752
+    Width = 931
     Height = 256
     Align = alTop
     TabOrder = 1
@@ -139,7 +139,7 @@ object MainView: TMainView
     object gBoxQuestion: TGroupBox
       Left = 1
       Top = 1
-      Width = 750
+      Width = 929
       Height = 222
       Align = alClient
       Caption = ' Prompt / question '
@@ -151,7 +151,7 @@ object MainView: TMainView
       object mmQuestion: TMemo
         Left = 3
         Top = 17
-        Width = 744
+        Width = 923
         Height = 101
         Align = alClient
         BorderStyle = bsNone
@@ -164,21 +164,24 @@ object MainView: TMainView
       object gBoxDefaultsPrompts: TGroupBox
         Left = 3
         Top = 118
-        Width = 744
+        Width = 923
         Height = 101
         Align = alBottom
         Caption = ' Defaults  Prompts '
         TabOrder = 1
+        ExplicitWidth = 744
         object pnDefaultsPrompts01: TPanel
           Left = 2
           Top = 17
-          Width = 740
+          Width = 919
           Height = 27
           Align = alTop
           BevelOuter = bvNone
           Padding.Bottom = 3
           TabOrder = 0
-          ExplicitWidth = 730
+          ExplicitLeft = 3
+          ExplicitTop = 11
+          ExplicitWidth = 1182
           object btnDadosCliente: TButton
             Left = 182
             Top = 0
@@ -215,7 +218,7 @@ object MainView: TMainView
         object pnDefaultsPrompts02: TPanel
           Left = 2
           Top = 44
-          Width = 740
+          Width = 919
           Height = 27
           Align = alTop
           BevelOuter = bvNone
@@ -257,7 +260,7 @@ object MainView: TMainView
             ExplicitLeft = 358
             ExplicitTop = -3
           end
-          object btnVendasPeriodoEmailClimaisVendas: TButton
+          object btnVendasPeriodoEmailMaisVendas: TButton
             Left = 546
             Top = 0
             Width = 182
@@ -265,15 +268,27 @@ object MainView: TMainView
             Align = alLeft
             Caption = 'Email clientes mais vendas'
             TabOrder = 3
-            OnClick = btnVendasPeriodoEmailClimaisVendasClick
+            OnClick = btnVendasPeriodoEmailMaisVendasClick
             ExplicitLeft = 552
+            ExplicitTop = -3
+          end
+          object btnVendasDoDiaX: TButton
+            Left = 728
+            Top = 0
+            Width = 182
+            Height = 24
+            Align = alLeft
+            Caption = 'Vendas do dia X'
+            TabOrder = 4
+            OnClick = btnVendasDoDiaXClick
+            ExplicitLeft = 734
             ExplicitTop = -3
           end
         end
         object pnDefaultsPrompts03: TPanel
           Left = 2
           Top = 71
-          Width = 740
+          Width = 919
           Height = 27
           Align = alTop
           BevelOuter = bvNone
@@ -312,7 +327,7 @@ object MainView: TMainView
     object Panel1: TPanel
       Left = 1
       Top = 223
-      Width = 750
+      Width = 929
       Height = 32
       Align = alBottom
       Padding.Top = 2
@@ -330,6 +345,8 @@ object MainView: TMainView
         Caption = 'Execute'
         TabOrder = 0
         OnClick = btnExecuteClick
+        ExplicitLeft = -2
+        ExplicitTop = 1
       end
       object ProgressBar1: TProgressBar
         AlignWithMargins = True
@@ -353,7 +370,7 @@ object MainView: TMainView
   object gBoxResponse: TGroupBox
     Left = 0
     Top = 326
-    Width = 752
+    Width = 931
     Height = 339
     Align = alClient
     Caption = ' Response '
@@ -366,7 +383,7 @@ object MainView: TMainView
     object mmResponse: TMemo
       Left = 3
       Top = 17
-      Width = 746
+      Width = 925
       Height = 319
       Align = alClient
       BorderStyle = bsNone
@@ -374,6 +391,16 @@ object MainView: TMainView
       TabOrder = 0
       ExplicitLeft = 2
       ExplicitTop = 16
+      ExplicitWidth = 746
+    end
+    object Memo1: TMemo
+      Left = 536
+      Top = 24
+      Width = 225
+      Height = 249
+      Lines.Strings = (
+        'Memo1')
+      TabOrder = 1
     end
   end
 end

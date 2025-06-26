@@ -50,7 +50,9 @@ type
     btnAPIViaCep: TButton;
     btnAPIViaCepMaisInternet: TButton;
     btnVendasPeriodoClienteMaisVendas: TButton;
-    btnVendasPeriodoEmailClimaisVendas: TButton;
+    btnVendasPeriodoEmailMaisVendas: TButton;
+    btnVendasDoDiaX: TButton;
+    Memo1: TMemo;
     procedure FormCreate(Sender: TObject);
     procedure btnExecuteClick(Sender: TObject);
     procedure TMSFNCCloudAI1Executed(Sender: TObject; AResponse: TTMSFNCCloudAIResponse; AHttpStatusCode: Integer;
@@ -66,8 +68,9 @@ type
     procedure btnAPIViaCepClick(Sender: TObject);
     procedure btnAPIViaCepMaisInternetClick(Sender: TObject);
     procedure btnVendasPeriodoClienteMaisVendasClick(Sender: TObject);
-    procedure btnVendasPeriodoEmailClimaisVendasClick(Sender: TObject);
+    procedure btnVendasPeriodoEmailMaisVendasClick(Sender: TObject);
     procedure TMSFNCCloudAI1Tools3Execute(Sender: TObject; Args: TJSONObject; var Result: string);
+    procedure btnVendasDoDiaXClick(Sender: TObject);
   private
     function GetEndereco(const ACEP: string): string;
   public
@@ -116,7 +119,6 @@ end;
 
 procedure TMainView.btnVendasPeriodoDetalhandoClick(Sender: TObject);
 begin
-  cBoxIAService.ItemIndex := 0;
   mmQuestion.Clear;
   mmQuestion.Lines.Add('- Retorne os dados das vendas do periodo 01/06/2025 a 25/06/2025');
   mmQuestion.Lines.Add('- Mostre as 5 primeiras vendas');
@@ -124,18 +126,21 @@ end;
 
 procedure TMainView.btnVendasPeriodoClienteMaisVendasClick(Sender: TObject);
 begin
-  cBoxIAService.ItemIndex := 0;
   mmQuestion.Clear;
   mmQuestion.Lines.Add('- Retorne os dados das vendas do periodo 01/06/2025 a 25/06/2025');
   mmQuestion.Lines.Add('- Liste quais clientes tem um número maior de vendas');
 end;
 
-procedure TMainView.btnVendasPeriodoEmailClimaisVendasClick(Sender: TObject);
+procedure TMainView.btnVendasPeriodoEmailMaisVendasClick(Sender: TObject);
 begin
-  cBoxIAService.ItemIndex := 0;
   mmQuestion.Clear;
   mmQuestion.Lines.Add('- Retorne os dados das vendas do periodo 01/06/2025 a 25/06/2025');
   mmQuestion.Lines.Add('- Crie um email para os 3 clientes que tem um número maior de vendas');
+end;
+
+procedure TMainView.btnVendasDoDiaXClick(Sender: TObject);
+begin
+  mmQuestion.Text := 'Vendas do dia 06/06/2025';
 end;
 
 procedure TMainView.btnAPIViaCepClick(Sender: TObject);
@@ -154,6 +159,7 @@ procedure TMainView.btnExecuteClick(Sender: TObject);
 begin
   TMSFNCCloudAI1.Service := TTMSFNCCloudAIService(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
 
+  mmResponse.Text := 'Processando...';
   TMSFNCCloudAI1.Context := mmQuestion.Lines;
   TMSFNCCloudAI1.Execute();
   ProgressBar1.State := pbsNormal;
@@ -163,6 +169,7 @@ procedure TMainView.TMSFNCCloudAI1Executed(Sender: TObject; AResponse: TTMSFNCCl
   AHttpResult: string);
 begin
   ProgressBar1.State := pbsPaused;
+
   if AHttpStatusCode <> 200 then
   begin
     mmResponse.Lines.Text := 'HTTP error code: ' + AHttpStatusCode.ToString + sLineBreak + AHttpResult;
