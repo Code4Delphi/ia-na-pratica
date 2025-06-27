@@ -52,7 +52,6 @@ type
     btnVendasPeriodoClienteMaisVendas: TButton;
     btnVendasPeriodoEmailMaisVendas: TButton;
     btnVendasDoDiaX: TButton;
-    Memo1: TMemo;
     procedure FormCreate(Sender: TObject);
     procedure btnExecuteClick(Sender: TObject);
     procedure TMSFNCCloudAI1Executed(Sender: TObject; AResponse: TTMSFNCCloudAIResponse; AHttpStatusCode: Integer;

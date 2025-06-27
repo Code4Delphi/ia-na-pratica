@@ -32,7 +32,6 @@ object MainView: TMainView
     Height = 65
     Align = alTop
     TabOrder = 0
-    ExplicitWidth = 742
     object Label1: TLabel
       Left = 18
       Top = 8
@@ -135,7 +134,6 @@ object MainView: TMainView
     Height = 256
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 742
     object gBoxQuestion: TGroupBox
       Left = 1
       Top = 1
@@ -147,7 +145,6 @@ object MainView: TMainView
       Padding.Right = 1
       Padding.Bottom = 1
       TabOrder = 0
-      ExplicitWidth = 740
       object mmQuestion: TMemo
         Left = 3
         Top = 17
@@ -158,8 +155,6 @@ object MainView: TMainView
         Lines.Strings = (
           'Ol'#225' quem '#233' voc'#234' e quem '#233' o seu fabricante?')
         TabOrder = 0
-        ExplicitWidth = 734
-        ExplicitHeight = 127
       end
       object gBoxDefaultsPrompts: TGroupBox
         Left = 3
@@ -169,7 +164,6 @@ object MainView: TMainView
         Align = alBottom
         Caption = ' Defaults  Prompts '
         TabOrder = 1
-        ExplicitWidth = 744
         object pnDefaultsPrompts01: TPanel
           Left = 2
           Top = 17
@@ -179,9 +173,6 @@ object MainView: TMainView
           BevelOuter = bvNone
           Padding.Bottom = 3
           TabOrder = 0
-          ExplicitLeft = 3
-          ExplicitTop = 11
-          ExplicitWidth = 1182
           object btnDadosCliente: TButton
             Left = 182
             Top = 0
@@ -224,7 +215,6 @@ object MainView: TMainView
           BevelOuter = bvNone
           Padding.Bottom = 3
           TabOrder = 1
-          ExplicitWidth = 730
           object btnVendasPeriodo: TButton
             Left = 0
             Top = 0
@@ -234,7 +224,6 @@ object MainView: TMainView
             Caption = 'Vendas per'#237'odo'
             TabOrder = 0
             OnClick = btnVendasPeriodoClick
-            ExplicitHeight = 21
           end
           object btnVendasPeriodoDetalhando: TButton
             Left = 182
@@ -245,8 +234,6 @@ object MainView: TMainView
             Caption = 'Vendas per'#237'odo (detalhando)'
             TabOrder = 1
             OnClick = btnVendasPeriodoDetalhandoClick
-            ExplicitLeft = 176
-            ExplicitTop = -3
           end
           object btnVendasPeriodoClienteMaisVendas: TButton
             Left = 364
@@ -257,8 +244,6 @@ object MainView: TMainView
             Caption = 'Clientes com mais vendas'
             TabOrder = 2
             OnClick = btnVendasPeriodoClienteMaisVendasClick
-            ExplicitLeft = 358
-            ExplicitTop = -3
           end
           object btnVendasPeriodoEmailMaisVendas: TButton
             Left = 546
@@ -269,8 +254,6 @@ object MainView: TMainView
             Caption = 'Email clientes mais vendas'
             TabOrder = 3
             OnClick = btnVendasPeriodoEmailMaisVendasClick
-            ExplicitLeft = 552
-            ExplicitTop = -3
           end
           object btnVendasDoDiaX: TButton
             Left = 728
@@ -281,8 +264,6 @@ object MainView: TMainView
             Caption = 'Vendas do dia X'
             TabOrder = 4
             OnClick = btnVendasDoDiaXClick
-            ExplicitLeft = 734
-            ExplicitTop = -3
           end
         end
         object pnDefaultsPrompts03: TPanel
@@ -294,8 +275,6 @@ object MainView: TMainView
           BevelOuter = bvNone
           Padding.Bottom = 3
           TabOrder = 2
-          ExplicitTop = 68
-          ExplicitWidth = 730
           object btnAPIViaCep: TButton
             Left = 0
             Top = 0
@@ -305,9 +284,6 @@ object MainView: TMainView
             Caption = 'API ViaCep'
             TabOrder = 0
             OnClick = btnAPIViaCepClick
-            ExplicitLeft = 9
-            ExplicitTop = 5
-            ExplicitHeight = 22
           end
           object btnAPIViaCepMaisInternet: TButton
             Left = 182
@@ -318,8 +294,6 @@ object MainView: TMainView
             Caption = 'API ViaCep + Internet'
             TabOrder = 1
             OnClick = btnAPIViaCepMaisInternetClick
-            ExplicitLeft = 176
-            ExplicitTop = 3
           end
         end
       end
@@ -334,7 +308,6 @@ object MainView: TMainView
       Padding.Right = 2
       Padding.Bottom = 2
       TabOrder = 1
-      ExplicitWidth = 740
       object btnExecute: TBitBtn
         Left = 1
         Top = 3
@@ -345,8 +318,6 @@ object MainView: TMainView
         Caption = 'Execute'
         TabOrder = 0
         OnClick = btnExecuteClick
-        ExplicitLeft = -2
-        ExplicitTop = 1
       end
       object ProgressBar1: TProgressBar
         AlignWithMargins = True
@@ -378,8 +349,6 @@ object MainView: TMainView
     Padding.Right = 1
     Padding.Bottom = 1
     TabOrder = 2
-    ExplicitWidth = 742
-    ExplicitHeight = 327
     object mmResponse: TMemo
       Left = 3
       Top = 17
@@ -389,18 +358,6 @@ object MainView: TMainView
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
-      ExplicitLeft = 2
-      ExplicitTop = 16
-      ExplicitWidth = 746
-    end
-    object Memo1: TMemo
-      Left = 536
-      Top = 24
-      Width = 225
-      Height = 249
-      Lines.Strings = (
-        'Memo1')
-      TabOrder = 1
     end
   end
 end
