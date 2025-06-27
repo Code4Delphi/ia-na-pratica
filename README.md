@@ -16,7 +16,7 @@ Você poderá acompanhar esta série através de nossa playlist:
 👉 [Playlist IA na Prática](https://www.youtube.com/playlist?list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 - [AI na Pratica #01 - Múltiplas IAs, apenas um Componente](https://www.youtube.com/watch?v=dN0pgO141OY&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 - [AI na Pratica #02 - Gerenciando API Keys e Models disponíveis](https://www.youtube.com/watch?v=UFZVhgtkcBM&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
-- [AI na Prática #03: Function Calling - IA Chamando funções](https://www.youtube.com/watch?v=LZVjg2NTlJE&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+- [AI na Prática #03 - Function Calling - IA Chamando funções](https://www.youtube.com/watch?v=LZVjg2NTlJE&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 
 
 ## IAs disponíveis
