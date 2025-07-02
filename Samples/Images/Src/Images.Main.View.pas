@@ -37,8 +37,8 @@ type
     gBoxResponse: TGroupBox;
     mmResponse: TMemo;
     Splitter1: TSplitter;
-    Panel3: TPanel;
-    Panel4: TPanel;
+    pnImagem01: TPanel;
+    pnImagem02: TPanel;
     Splitter2: TSplitter;
     Panel2: TPanel;
     Panel5: TPanel;

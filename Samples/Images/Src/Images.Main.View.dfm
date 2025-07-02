@@ -2,8 +2,8 @@ object ImagesMainView: TImagesMainView
   Left = 0
   Top = 0
   Caption = 'IA na pr'#225'tica: Multimodal - Imagens'
-  ClientHeight = 737
-  ClientWidth = 984
+  ClientHeight = 705
+  ClientWidth = 1273
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,28 +15,32 @@ object ImagesMainView: TImagesMainView
   OnCreate = FormCreate
   TextHeight = 15
   object Splitter1: TSplitter
-    Left = 0
-    Top = 395
-    Width = 984
-    Height = 10
-    Cursor = crVSplit
-    Align = alBottom
+    Left = 353
+    Top = 0
+    Width = 10
+    Height = 705
     Beveled = True
     Color = clMedGray
     ParentColor = False
-    ExplicitTop = 363
+    ExplicitLeft = 351
+    ExplicitTop = -1
+    ExplicitHeight = 737
   end
   object pnBoth: TPanel
-    Left = 0
-    Top = 405
-    Width = 984
-    Height = 332
-    Align = alBottom
+    Left = 363
+    Top = 0
+    Width = 910
+    Height = 705
+    Align = alClient
     TabOrder = 0
+    ExplicitLeft = 0
+    ExplicitTop = 405
+    ExplicitWidth = 984
+    ExplicitHeight = 332
     object gBoxQuestion: TGroupBox
       Left = 1
       Top = 1
-      Width = 982
+      Width = 908
       Height = 96
       Align = alTop
       Caption = ' Prompt / question '
@@ -44,25 +48,28 @@ object ImagesMainView: TImagesMainView
       Padding.Right = 1
       Padding.Bottom = 1
       TabOrder = 0
+      ExplicitWidth = 982
       object mmQuestion: TMemo
         Left = 3
         Top = 17
-        Width = 709
+        Width = 635
         Height = 76
         Align = alClient
         BorderStyle = bsNone
         Lines.Strings = (
           'Descreva a imagem')
         TabOrder = 0
+        ExplicitWidth = 709
       end
       object gBoxDefaultsPrompts: TGroupBox
-        Left = 712
+        Left = 638
         Top = 17
         Width = 267
         Height = 76
         Align = alRight
         Caption = ' Defaults  Prompts '
         TabOrder = 1
+        ExplicitLeft = 712
         object pnDefaultsPrompts01: TPanel
           Left = 2
           Top = 17
@@ -138,13 +145,14 @@ object ImagesMainView: TImagesMainView
     object Panel1: TPanel
       Left = 1
       Top = 97
-      Width = 982
+      Width = 908
       Height = 31
       Align = alTop
       Padding.Top = 2
       Padding.Right = 2
       Padding.Bottom = 2
       TabOrder = 1
+      ExplicitWidth = 982
       object Label1: TLabel
         Left = 221
         Top = 3
@@ -227,66 +235,73 @@ object ImagesMainView: TImagesMainView
     object gBoxResponse: TGroupBox
       Left = 1
       Top = 128
-      Width = 982
-      Height = 203
+      Width = 908
+      Height = 576
       Align = alClient
       Caption = ' Response '
       Padding.Left = 1
       Padding.Right = 1
       Padding.Bottom = 1
       TabOrder = 2
+      ExplicitWidth = 982
+      ExplicitHeight = 203
       object mmResponse: TMemo
         Left = 3
         Top = 17
-        Width = 976
-        Height = 183
+        Width = 902
+        Height = 556
         Align = alClient
         BorderStyle = bsNone
         ScrollBars = ssVertical
         TabOrder = 0
-        ExplicitLeft = 4
-        ExplicitTop = 16
+        ExplicitLeft = 5
       end
     end
   end
   object pnImagesBack: TPanel
     Left = 0
     Top = 0
-    Width = 984
-    Height = 395
-    Align = alClient
+    Width = 353
+    Height = 705
+    Align = alLeft
     BevelOuter = bvNone
     TabOrder = 1
+    ExplicitHeight = 727
     object Splitter2: TSplitter
-      Left = 488
-      Top = 0
-      Width = 10
-      Height = 395
+      Left = 0
+      Top = 353
+      Width = 353
+      Height = 10
+      Cursor = crVSplit
+      Align = alTop
       Beveled = True
-      ExplicitHeight = 298
+      ExplicitTop = 488
+      ExplicitWidth = 239
     end
-    object Panel3: TPanel
+    object pnImagem01: TPanel
       Left = 0
       Top = 0
-      Width = 488
-      Height = 395
-      Align = alLeft
+      Width = 353
+      Height = 353
+      Align = alTop
       TabOrder = 0
       object Image1: TImage
         Left = 1
         Top = 33
-        Width = 486
-        Height = 361
+        Width = 351
+        Height = 319
         Align = alClient
         Center = True
         Proportional = True
-        ExplicitLeft = 6
+        ExplicitLeft = 2
         ExplicitTop = 35
+        ExplicitWidth = 1020
+        ExplicitHeight = 343
       end
       object Panel2: TPanel
         Left = 1
         Top = 1
-        Width = 486
+        Width = 351
         Height = 32
         Align = alTop
         BevelEdges = [beBottom]
@@ -297,6 +312,9 @@ object ImagesMainView: TImagesMainView
         Padding.Right = 2
         Padding.Bottom = 2
         TabOrder = 0
+        ExplicitLeft = 6
+        ExplicitTop = -5
+        ExplicitWidth = 486
         object btnLoadImage1: TButton
           Left = 2
           Top = 2
@@ -309,18 +327,21 @@ object ImagesMainView: TImagesMainView
         end
       end
     end
-    object Panel4: TPanel
-      Left = 498
-      Top = 0
-      Width = 486
-      Height = 395
+    object pnImagem02: TPanel
+      Left = 0
+      Top = 363
+      Width = 353
+      Height = 342
       Align = alClient
       TabOrder = 1
+      ExplicitTop = 498
+      ExplicitWidth = 1022
+      ExplicitHeight = 229
       object Image2: TImage
         Left = 1
         Top = 33
-        Width = 484
-        Height = 361
+        Width = 351
+        Height = 308
         Align = alClient
         Center = True
         Proportional = True
@@ -332,7 +353,7 @@ object ImagesMainView: TImagesMainView
       object Panel5: TPanel
         Left = 1
         Top = 1
-        Width = 484
+        Width = 351
         Height = 32
         Align = alTop
         BevelEdges = [beBottom]
@@ -343,6 +364,7 @@ object ImagesMainView: TImagesMainView
         Padding.Right = 2
         Padding.Bottom = 2
         TabOrder = 0
+        ExplicitWidth = 484
         object btnLoadImage2: TButton
           Left = 2
           Top = 2
