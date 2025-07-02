@@ -15,7 +15,11 @@ uses
   Vcl.StdCtrls,
   Vcl.ExtCtrls,
   Vcl.ComCtrls,
-  Vcl.Buttons, VCL.TMSFNCCustomComponent, VCL.TMSFNCCloudBase, VCL.TMSFNCCloudAI, Vcl.Imaging.pngimage;
+  Vcl.Buttons,
+  Vcl.Imaging.pngimage,
+  VCL.TMSFNCCustomComponent,
+  VCL.TMSFNCCloudBase,
+  VCL.TMSFNCCloudAI;
 
 type
   TImagesMainView = class(TForm)
@@ -48,9 +52,9 @@ type
     Label1: TLabel;
     cBoxIAService: TComboBox;
     TMSFNCCloudAI1: TTMSFNCCloudAI;
-    cBoxModel: TComboBox;
     pnDefaultsPrompts02: TPanel;
     btnVendasPeriodo: TButton;
+    btnQtdCamisas: TButton;
     procedure FormCreate(Sender: TObject);
     procedure btnDescrevaImagem1Click(Sender: TObject);
     procedure btnCompareAsImagensClick(Sender: TObject);
@@ -60,6 +64,7 @@ type
     procedure btnLoadImage1Click(Sender: TObject);
     procedure btnLoadImage2Click(Sender: TObject);
     procedure btnVendasPeriodoClick(Sender: TObject);
+    procedure btnQtdCamisasClick(Sender: TObject);
   private
     FFileNameImg1: string;
     FFileNameImg2: string;
@@ -79,20 +84,18 @@ begin
   ReportMemoryLeaksOnShutdown := True;
 
   TMSFNCCloudAI1.APIKeys.LoadFromFile('..\..\Files\aikeys.cfg', 'PasswordTest');
-  TMSFNCCloudAI1.Settings.WebSearch := True;
-
-  cBoxIAService.Items.Assign(TMSFNCCloudAI1.GetServices(True));
-  cBoxIAService.ItemIndex := 2;
-
+  //SETA MODELOS QUE SUPORTAM MULTIMODAL
   TMSFNCCloudAI1.Settings.GeminiModel := 'gemini-2.0-flash-exp';
   TMSFNCCloudAI1.Settings.GrokModel := 'grok-2-vision-latest';
   TMSFNCCloudAI1.Settings.MistralModel := 'mistral-small-2503';
+  //TMSFNCCloudAI1.Settings.WebSearch := True;
+
+  cBoxIAService.Items.Assign(TMSFNCCloudAI1.GetServices(True));
+  cBoxIAService.ItemIndex := 2;
 end;
 
 procedure TImagesMainView.btnExecuteClick(Sender: TObject);
 begin
-  //TMSFNCCloudAI1.Settings.GeminiModel := Trim(cBoxModel.Text);
-
   TMSFNCCloudAI1.Service := TTMSFNCCloudAIService(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
 
   TMSFNCCloudAI1.Files.Clear;
@@ -103,7 +106,7 @@ begin
     TMSFNCCloudAI1.AddFile(FFileNameImg2, aiftImage);
 
   TMSFNCCloudAI1.Context := mmQuestion.Lines;
-  TMSFNCCloudAI1.Execute();
+  TMSFNCCloudAI1.Execute;
 
   ProgressBar1.State := pbsNormal;
 end;
@@ -157,6 +160,13 @@ end;
 procedure TImagesMainView.btnVendasPeriodoClick(Sender: TObject);
 begin
   mmQuestion.Text := 'Extrair o texto da imagem';
+  ckAddImagem1.Checked := True;
+  ckAddImagem2.Checked := False;
+end;
+
+procedure TImagesMainView.btnQtdCamisasClick(Sender: TObject);
+begin
+  mmQuestion.Text := 'Qual o número de camisas da imagem?';
   ckAddImagem1.Checked := True;
   ckAddImagem2.Checked := False;
 end;

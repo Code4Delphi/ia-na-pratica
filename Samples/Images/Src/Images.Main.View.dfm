@@ -121,6 +121,17 @@ object ImagesMainView: TImagesMainView
             TabOrder = 0
             OnClick = btnVendasPeriodoClick
           end
+          object btnQtdCamisas: TButton
+            Left = 129
+            Top = 0
+            Width = 129
+            Height = 24
+            Hint = 'Extrair o texto da imagem 1'
+            Align = alLeft
+            Caption = 'Quantidade camisas'
+            TabOrder = 1
+            OnClick = btnQtdCamisasClick
+          end
         end
       end
     end
@@ -233,6 +244,8 @@ object ImagesMainView: TImagesMainView
         BorderStyle = bsNone
         ScrollBars = ssVertical
         TabOrder = 0
+        ExplicitLeft = 4
+        ExplicitTop = 16
       end
     end
   end
@@ -268,6 +281,7 @@ object ImagesMainView: TImagesMainView
         Center = True
         Proportional = True
         ExplicitLeft = 6
+        ExplicitTop = 35
       end
       object Panel2: TPanel
         Left = 1
@@ -293,65 +307,6 @@ object ImagesMainView: TImagesMainView
           TabOrder = 0
           OnClick = btnLoadImage1Click
         end
-        object cBoxModel: TComboBox
-          Left = 135
-          Top = 3
-          Width = 330
-          Height = 23
-          TabOrder = 1
-          Text = 'cBoxModel'
-          Items.Strings = (
-            'embedding-gecko-001'
-            'gemini-1.0-pro-vision-latest'
-            'gemini-pro-vision'
-            'gemini-1.5-pro-latest'
-            'gemini-1.5-pro-002'
-            'gemini-1.5-pro'
-            'gemini-1.5-flash-latest'
-            'gemini-1.5-flash'
-            'gemini-1.5-flash-002'
-            'gemini-1.5-flash-8b'
-            'gemini-1.5-flash-8b-001'
-            'gemini-1.5-flash-8b-latest'
-            'gemini-2.5-pro-preview-03-25'
-            'gemini-2.5-flash-preview-04-17'
-            'gemini-2.5-flash-preview-05-20'
-            'gemini-2.5-flash'
-            'gemini-2.5-flash-preview-04-17-thinking'
-            'gemini-2.5-flash-lite-preview-06-17'
-            'gemini-2.5-pro-preview-05-06'
-            'gemini-2.5-pro-preview-06-05'
-            'gemini-2.5-pro'
-            'gemini-2.0-flash-exp'
-            'gemini-2.0-flash'
-            'gemini-2.0-flash-001'
-            'gemini-2.0-flash-exp-image-generation'
-            'gemini-2.0-flash-lite-001'
-            'gemini-2.0-flash-lite'
-            'gemini-2.0-flash-preview-image-generation'
-            'gemini-2.0-flash-lite-preview-02-05'
-            'gemini-2.0-flash-lite-preview'
-            'gemini-2.0-pro-exp'
-            'gemini-2.0-pro-exp-02-05'
-            'gemini-exp-1206'
-            'gemini-2.0-flash-thinking-exp-01-21'
-            'gemini-2.0-flash-thinking-exp'
-            'gemini-2.0-flash-thinking-exp-1219'
-            'gemini-2.5-flash-preview-tts'
-            'gemini-2.5-pro-preview-tts'
-            'learnlm-2.0-flash-experimental'
-            'gemma-3-1b-it'
-            'gemma-3-4b-it'
-            'gemma-3-12b-it'
-            'gemma-3-27b-it'
-            'gemma-3n-e4b-it'
-            'gemma-3n-e2b-it'
-            'embedding-001'
-            'text-embedding-004'
-            'gemini-embedding-exp-03-07'
-            'gemini-embedding-exp'
-            'aqa')
-        end
       end
     end
     object Panel4: TPanel
@@ -369,6 +324,7 @@ object ImagesMainView: TImagesMainView
         Align = alClient
         Center = True
         Proportional = True
+        Stretch = True
         ExplicitLeft = 0
         ExplicitWidth = 488
         ExplicitHeight = 264
@@ -401,8 +357,8 @@ object ImagesMainView: TImagesMainView
     end
   end
   object TMSFNCCloudAI1: TTMSFNCCloudAI
-    Left = 880
-    Top = 216
+    Left = 696
+    Top = 48
     Width = 26
     Height = 26
     Visible = True
@@ -424,7 +380,7 @@ object ImagesMainView: TImagesMainView
     Filter = 
       'JPEG files|*.jpg|PNG files|*.png|WebP files|*.webp|All image fil' +
       'es|*.*'
-    Left = 792
-    Top = 16
+    Left = 800
+    Top = 48
   end
 end
