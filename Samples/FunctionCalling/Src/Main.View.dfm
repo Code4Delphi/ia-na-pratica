@@ -21,9 +21,8 @@ object MainView: TMainView
     Height = 5
     Cursor = crVSplit
     Align = alTop
-    ExplicitLeft = -284
-    ExplicitTop = 233
-    ExplicitWidth = 1025
+    ExplicitLeft = 1
+    ExplicitTop = 320
   end
   object pnTop: TPanel
     Left = 0
@@ -202,8 +201,6 @@ object MainView: TMainView
             Caption = 'Dados produto'
             TabOrder = 2
             OnClick = btnDadosProdutoClick
-            ExplicitLeft = -6
-            ExplicitTop = -3
           end
         end
         object pnDefaultsPrompts02: TPanel
@@ -308,6 +305,7 @@ object MainView: TMainView
       Padding.Right = 2
       Padding.Bottom = 2
       TabOrder = 1
+      ExplicitLeft = 2
       object btnExecute: TBitBtn
         Left = 1
         Top = 3
