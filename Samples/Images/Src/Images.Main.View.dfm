@@ -33,10 +33,6 @@ object ImagesMainView: TImagesMainView
     Height = 705
     Align = alClient
     TabOrder = 0
-    ExplicitLeft = 0
-    ExplicitTop = 405
-    ExplicitWidth = 984
-    ExplicitHeight = 332
     object gBoxQuestion: TGroupBox
       Left = 1
       Top = 1
@@ -48,7 +44,6 @@ object ImagesMainView: TImagesMainView
       Padding.Right = 1
       Padding.Bottom = 1
       TabOrder = 0
-      ExplicitWidth = 982
       object mmQuestion: TMemo
         Left = 3
         Top = 17
@@ -59,7 +54,6 @@ object ImagesMainView: TImagesMainView
         Lines.Strings = (
           'Descreva a imagem')
         TabOrder = 0
-        ExplicitWidth = 709
       end
       object gBoxDefaultsPrompts: TGroupBox
         Left = 638
@@ -69,7 +63,6 @@ object ImagesMainView: TImagesMainView
         Align = alRight
         Caption = ' Defaults  Prompts '
         TabOrder = 1
-        ExplicitLeft = 712
         object pnDefaultsPrompts01: TPanel
           Left = 2
           Top = 17
@@ -128,17 +121,6 @@ object ImagesMainView: TImagesMainView
             TabOrder = 0
             OnClick = btnVendasPeriodoClick
           end
-          object btnQtdCamisas: TButton
-            Left = 129
-            Top = 0
-            Width = 129
-            Height = 24
-            Hint = 'Extrair o texto da imagem 1'
-            Align = alLeft
-            Caption = 'Quantidade camisas'
-            TabOrder = 1
-            OnClick = btnQtdCamisasClick
-          end
         end
       end
     end
@@ -152,7 +134,6 @@ object ImagesMainView: TImagesMainView
       Padding.Right = 2
       Padding.Bottom = 2
       TabOrder = 1
-      ExplicitWidth = 982
       object Label1: TLabel
         Left = 221
         Top = 3
@@ -243,8 +224,6 @@ object ImagesMainView: TImagesMainView
       Padding.Right = 1
       Padding.Bottom = 1
       TabOrder = 2
-      ExplicitWidth = 982
-      ExplicitHeight = 203
       object mmResponse: TMemo
         Left = 3
         Top = 17
@@ -254,7 +233,6 @@ object ImagesMainView: TImagesMainView
         BorderStyle = bsNone
         ScrollBars = ssVertical
         TabOrder = 0
-        ExplicitLeft = 5
       end
     end
   end
@@ -266,7 +244,6 @@ object ImagesMainView: TImagesMainView
     Align = alLeft
     BevelOuter = bvNone
     TabOrder = 1
-    ExplicitHeight = 727
     object Splitter2: TSplitter
       Left = 0
       Top = 353
@@ -312,9 +289,6 @@ object ImagesMainView: TImagesMainView
         Padding.Right = 2
         Padding.Bottom = 2
         TabOrder = 0
-        ExplicitLeft = 6
-        ExplicitTop = -5
-        ExplicitWidth = 486
         object btnLoadImage1: TButton
           Left = 2
           Top = 2
@@ -334,9 +308,6 @@ object ImagesMainView: TImagesMainView
       Height = 342
       Align = alClient
       TabOrder = 1
-      ExplicitTop = 498
-      ExplicitWidth = 1022
-      ExplicitHeight = 229
       object Image2: TImage
         Left = 1
         Top = 33
@@ -364,7 +335,6 @@ object ImagesMainView: TImagesMainView
         Padding.Right = 2
         Padding.Bottom = 2
         TabOrder = 0
-        ExplicitWidth = 484
         object btnLoadImage2: TButton
           Left = 2
           Top = 2
