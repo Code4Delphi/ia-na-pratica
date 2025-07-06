@@ -132,6 +132,9 @@ A inteligência artificial já é uma realidade acessível para desenvolvedores 
 
 O momento é agora: aproveite o conteúdo prático, explore os vídeos e os exemplos no GitHub e veja como a IA pode elevar o nível dos seus projetos.
 
+## MCP
+Postagem completa sobre MCP Server e Client: https://code4delphi.com.br/blog/mcp/
+
 ## 📞 Contatos
 [![Telegram](https://img.shields.io/badge/Telegram-Join-blue?logo=telegram)](https://t.me/Code4Delphi)
 [![YouTube](https://img.shields.io/badge/YouTube-Join-red?logo=youtube&logoColor=red)](https://www.youtube.com/@code4delphi)
