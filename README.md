@@ -21,6 +21,7 @@ Você poderá acompanhar esta série através de nossa playlist:
 - [IA na Prática 05 - MCP Server e Client](https://www.youtube.com/watch?v=G7H9_hGQ3Q8&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 - [IA na Prática 06 - Criando MCP Server com Delphi](https://www.youtube.com/watch?v=fS77DYcTerg&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 - [IA na Prática 07 - MCP Server FileSystem - LLM interagindo com sistema de arquivos](https://www.youtube.com/watch?v=AHTS0bTdxXs&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+  - [Repositório MCP Server FileSystem](https://github.com/Code4Delphi/mcp-servers/tree/master/Filesystem)
 
 
 ## IAs disponíveis
