@@ -139,9 +139,9 @@ O momento é agora: aproveite o conteúdo prático, explore os vídeos e os exem
 ## MCP
 - Postagem completa sobre MCP Server e Client: <br/>
 https://code4delphi.com.br/blog/mcp/
-- Repositório com exemplos práticos e projetos prontos de MCP Servers criados com Delphi: <br/>
+- Repositório com exemplos práticos e projetos prontos de **MCP Servers** criados com Delphi: <br/>
 https://github.com/Code4Delphi/mcp-servers
-- Repositório com MCP Client criado com Delphi: <br/>
+- Repositório com **MCP Client** criado com Delphi: <br/>
 https://github.com/Code4Delphi/mcp-client
 
 ## 📞 Contatos
