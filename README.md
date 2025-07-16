@@ -22,7 +22,8 @@ Você poderá acompanhar esta série através de nossa playlist:
 - [IA na Prática 06 - Criando MCP Server com Delphi](https://www.youtube.com/watch?v=fS77DYcTerg&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 - [IA na Prática 07 - MCP Server FileSystem - LLM interagindo com sistema de arquivos](https://www.youtube.com/watch?v=AHTS0bTdxXs&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
   - [Repositório MCP Server FileSystem](https://github.com/Code4Delphi/mcp-servers/tree/master/Filesystem)
-
+- [IA na Prática 08 - MCP Client](https://www.youtube.com/watch?v=B3_HI9-8N_U&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+  - [Repositório MCP Client criado com Delphi](https://github.com/Code4Delphi/mcp-client)
 
 ## IAs disponíveis
 Abaixo, apresentamos um guia rápido com os principais provedores de IA disponíveis, seus sites e links para geração de chaves de API.
@@ -139,7 +140,7 @@ O momento é agora: aproveite o conteúdo prático, explore os vídeos e os exem
 ## 🔗 MCP
 - 🗂️ [Repositório com MCP Servers criados com Delphi](https://github.com/Code4Delphi/mcp-servers)
 
-- 🗂️ [Repositório com MCP Client criado com Delphi](https://github.com/Code4Delphi/mcp-client)
+- 🗂️ [Repositório MCP Client criado com Delphi](https://github.com/Code4Delphi/mcp-client)
 
 - 🌟 [Postagem sobre MCP Server e Client](https://code4delphi.com.br/blog/mcp/)
 
