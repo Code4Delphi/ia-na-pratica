@@ -27,6 +27,7 @@ Você poderá acompanhar esta série através de nossa playlist:
 - [IA na Prática 09 - Criando um MCP Client do Zero](https://www.youtube.com/watch?v=38HbhsRr4nc&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 - [IA na Prática 10 - MCP Server / Spotify / NodeJS](https://www.youtube.com/watch?v=P9uoITPvK3c&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 - [IA na Prática 11 - MCP Server Database - IA com acesso ao seu banco](https://www.youtube.com/watch?v=W6KKBMetiyE&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+- [IA na Prática 12 - Lançamento TMS AI Studio](https://www.youtube.com/watch?v=TXafyGDx8Os&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 
 ## IAs disponíveis
 Abaixo, apresentamos um guia rápido com os principais provedores de IA disponíveis, seus sites e links para geração de chaves de API.
