@@ -46,6 +46,15 @@ object MainView: TMainView
       Style = csDropDownList
       TabOrder = 0
     end
+    object Button1: TButton
+      Left = 359
+      Top = 21
+      Width = 75
+      Height = 25
+      Caption = 'Button1'
+      TabOrder = 1
+      OnClick = Button1Click
+    end
   end
   object pnBoth: TPanel
     Left = 0
@@ -69,22 +78,25 @@ object MainView: TMainView
         Left = 3
         Top = 17
         Width = 923
-        Height = 151
+        Height = 112
         Align = alClient
         BorderStyle = bsNone
         Lines.Strings = (
           'Ol'#225' quem '#233' voc'#234' e quem '#233' o seu fabricante?')
         TabOrder = 0
-        ExplicitHeight = 101
+        ExplicitLeft = 2
+        ExplicitTop = 11
+        ExplicitHeight = 151
       end
       object gBoxDefaultsPrompts: TGroupBox
         Left = 3
-        Top = 168
+        Top = 129
         Width = 923
         Height = 51
         Align = alBottom
         Caption = ' Defaults  Prompts '
         TabOrder = 1
+        ExplicitTop = 168
         object pnDefaultsPrompts01: TPanel
           Left = 2
           Top = 17
@@ -187,7 +199,8 @@ object MainView: TMainView
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
-      ExplicitHeight = 319
+      ExplicitLeft = 2
+      ExplicitTop = 13
     end
     object pnResponseDetails: TPanel
       Left = 3
@@ -289,6 +302,14 @@ object MainView: TMainView
       end
     end
   end
+  object ListBox1: TListBox
+    Left = 247
+    Top = 164
+    Width = 658
+    Height = 82
+    ItemHeight = 15
+    TabOrder = 3
+  end
   object TMSMCPCloudAI1: TTMSMCPCloudAI
     Service = aiOpenAI
     Settings.GeminiModel = 'gemini-1.5-flash-latest'
@@ -305,5 +326,12 @@ object MainView: TMainView
     OnExecuted = TMSMCPCloudAI1Executed
     Left = 481
     Top = 82
+  end
+  object OpenDialog1: TOpenDialog
+    Filter = 
+      'JPEG files|*.jpg|PNG files|*.png|WebP files|*.webp|All image fil' +
+      'es|*.*'
+    Left = 608
+    Top = 80
   end
 end

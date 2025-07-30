@@ -129,7 +129,6 @@ object ImagesMainView: TImagesMainView
             Align = alLeft
             Caption = 'Quantidade camisas'
             TabOrder = 1
-            OnClick = btnQtdCamisasClick
           end
         end
       end
@@ -300,6 +299,8 @@ object ImagesMainView: TImagesMainView
         Padding.Right = 2
         Padding.Bottom = 2
         TabOrder = 0
+        ExplicitLeft = 4
+        ExplicitTop = -6
         object btnLoadImage1: TButton
           Left = 2
           Top = 2

@@ -52,6 +52,9 @@ type
     lbServiceModel: TLabel;
     Label12: TLabel;
     lbTotalTokens: TLabel;
+    OpenDialog1: TOpenDialog;
+    Button1: TButton;
+    ListBox1: TListBox;
     procedure FormCreate(Sender: TObject);
     procedure btnExecuteClick(Sender: TObject);
     procedure btnDadosClienteClick(Sender: TObject);
@@ -59,6 +62,7 @@ type
     procedure btnDadosProdutoClick(Sender: TObject);
     procedure TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse; AHttpStatusCode: Integer;
       AHttpResult: string);
+    procedure Button1Click(Sender: TObject);
   private
 
   public
@@ -102,12 +106,26 @@ end;
 
 procedure TMainView.btnExecuteClick(Sender: TObject);
 begin
+  mmResponse.Text := 'Processando...';
+
   TMSMCPCloudAI1.Service := TTMSMCPCloudAIService(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
 
-  mmResponse.Text := 'Processando...';
+  TMSMCPCloudAI1.Files.Clear;
+  TMSMCPCloudAI1.AddFile('C:\IA\secret-test.txt', aiftText);
+
   TMSMCPCloudAI1.Context := mmQuestion.Lines;
-  TMSMCPCloudAI1.Execute();
+  TMSMCPCloudAI1.Execute;
   ProgressBar1.State := pbsNormal;
+end;
+
+procedure TMainView.Button1Click(Sender: TObject);
+begin
+  ListBox1.Clear;
+  TMSMCPCloudAI1.GetFiles;
+  for var i := 0 to Pred(TMSMCPCloudAI1.Files.Count) do
+  begin
+    ListBox1.Items.Add(TMSMCPCloudAI1.Files[i].FileName);
+  end;
 end;
 
 procedure TMainView.TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse; AHttpStatusCode: Integer;
