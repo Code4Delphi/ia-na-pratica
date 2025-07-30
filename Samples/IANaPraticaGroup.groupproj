@@ -18,6 +18,9 @@
         <Projects Include="Images\Images.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="RAG\RAG.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -71,14 +74,23 @@
     <Target Name="Images:Make">
         <MSBuild Projects="Images\Images.dproj" Targets="Make"/>
     </Target>
+    <Target Name="RAG">
+        <MSBuild Projects="RAG\RAG.dproj"/>
+    </Target>
+    <Target Name="RAG:Clean">
+        <MSBuild Projects="RAG\RAG.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RAG:Make">
+        <MSBuild Projects="RAG\RAG.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="IAChat;Models;APIKey;FunctionCalling;Images"/>
+        <CallTarget Targets="IAChat;Models;APIKey;FunctionCalling;Images;RAG"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="IAChat:Clean;Models:Clean;APIKey:Clean;FunctionCalling:Clean;Images:Clean"/>
+        <CallTarget Targets="IAChat:Clean;Models:Clean;APIKey:Clean;FunctionCalling:Clean;Images:Clean;RAG:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="IAChat:Make;Models:Make;APIKey:Make;FunctionCalling:Make;Images:Make"/>
+        <CallTarget Targets="IAChat:Make;Models:Make;APIKey:Make;FunctionCalling:Make;Images:Make;RAG:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

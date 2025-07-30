@@ -22,9 +22,7 @@ object ImagesMainView: TImagesMainView
     Beveled = True
     Color = clMedGray
     ParentColor = False
-    ExplicitLeft = 351
-    ExplicitTop = -1
-    ExplicitHeight = 737
+    ExplicitLeft = 350
   end
   object pnBoth: TPanel
     Left = 363
@@ -32,11 +30,12 @@ object ImagesMainView: TImagesMainView
     Width = 910
     Height = 705
     Align = alClient
+    BevelOuter = bvNone
     TabOrder = 0
     object gBoxQuestion: TGroupBox
-      Left = 1
-      Top = 1
-      Width = 908
+      Left = 0
+      Top = 0
+      Width = 910
       Height = 96
       Align = alTop
       Caption = ' Prompt / question '
@@ -47,7 +46,7 @@ object ImagesMainView: TImagesMainView
       object mmQuestion: TMemo
         Left = 3
         Top = 17
-        Width = 635
+        Width = 637
         Height = 76
         Align = alClient
         BorderStyle = bsNone
@@ -56,7 +55,7 @@ object ImagesMainView: TImagesMainView
         TabOrder = 0
       end
       object gBoxDefaultsPrompts: TGroupBox
-        Left = 638
+        Left = 640
         Top = 17
         Width = 267
         Height = 76
@@ -121,13 +120,24 @@ object ImagesMainView: TImagesMainView
             TabOrder = 0
             OnClick = btnVendasPeriodoClick
           end
+          object btnQtdCamisas: TButton
+            Left = 129
+            Top = 0
+            Width = 129
+            Height = 24
+            Hint = 'Extrair o texto da imagem 1'
+            Align = alLeft
+            Caption = 'Quantidade camisas'
+            TabOrder = 1
+            OnClick = btnQtdCamisasClick
+          end
         end
       end
     end
     object Panel1: TPanel
-      Left = 1
-      Top = 97
-      Width = 908
+      Left = 0
+      Top = 96
+      Width = 910
       Height = 31
       Align = alTop
       Padding.Top = 2
@@ -214,10 +224,10 @@ object ImagesMainView: TImagesMainView
       end
     end
     object gBoxResponse: TGroupBox
-      Left = 1
-      Top = 128
-      Width = 908
-      Height = 576
+      Left = 0
+      Top = 127
+      Width = 910
+      Height = 578
       Align = alClient
       Caption = ' Response '
       Padding.Left = 1
@@ -227,8 +237,8 @@ object ImagesMainView: TImagesMainView
       object mmResponse: TMemo
         Left = 3
         Top = 17
-        Width = 902
-        Height = 556
+        Width = 904
+        Height = 558
         Align = alClient
         BorderStyle = bsNone
         ScrollBars = ssVertical
@@ -252,6 +262,8 @@ object ImagesMainView: TImagesMainView
       Cursor = crVSplit
       Align = alTop
       Beveled = True
+      Color = clMedGray
+      ParentColor = False
       ExplicitTop = 488
       ExplicitWidth = 239
     end
@@ -261,24 +273,23 @@ object ImagesMainView: TImagesMainView
       Width = 353
       Height = 353
       Align = alTop
+      BevelOuter = bvNone
       TabOrder = 0
       object Image1: TImage
-        Left = 1
-        Top = 33
-        Width = 351
-        Height = 319
+        Left = 0
+        Top = 32
+        Width = 353
+        Height = 321
         Align = alClient
         Center = True
         Proportional = True
-        ExplicitLeft = 2
-        ExplicitTop = 35
-        ExplicitWidth = 1020
-        ExplicitHeight = 343
+        ExplicitLeft = 4
+        ExplicitTop = 34
       end
       object Panel2: TPanel
-        Left = 1
-        Top = 1
-        Width = 351
+        Left = 0
+        Top = 0
+        Width = 353
         Height = 32
         Align = alTop
         BevelEdges = [beBottom]
@@ -307,24 +318,25 @@ object ImagesMainView: TImagesMainView
       Width = 353
       Height = 342
       Align = alClient
+      BevelOuter = bvNone
       TabOrder = 1
       object Image2: TImage
-        Left = 1
-        Top = 33
-        Width = 351
-        Height = 308
+        Left = 0
+        Top = 32
+        Width = 353
+        Height = 310
         Align = alClient
         Center = True
         Proportional = True
         Stretch = True
-        ExplicitLeft = 0
+        ExplicitTop = 33
         ExplicitWidth = 488
         ExplicitHeight = 264
       end
       object Panel5: TPanel
-        Left = 1
-        Top = 1
-        Width = 351
+        Left = 0
+        Top = 0
+        Width = 353
         Height = 32
         Align = alTop
         BevelEdges = [beBottom]
