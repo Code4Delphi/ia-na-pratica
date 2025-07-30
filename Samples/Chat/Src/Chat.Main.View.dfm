@@ -78,7 +78,7 @@ object ChatMainView: TChatMainView
         object Label8: TLabel
           Left = 16
           Top = 259
-          Width = 51
+          Width = 52
           Height = 15
           Caption = 'Perplexity'
         end
@@ -215,7 +215,7 @@ object ChatMainView: TChatMainView
         object Label21: TLabel
           Left = 16
           Top = 259
-          Width = 51
+          Width = 52
           Height = 15
           Caption = 'Perplexity'
         end
@@ -300,14 +300,14 @@ object ChatMainView: TChatMainView
         object Label13: TLabel
           Left = 221
           Top = 7
-          Width = 67
+          Width = 66
           Height = 15
           Caption = 'Temperature'
         end
         object Label14: TLabel
           Left = 344
           Top = 7
-          Width = 110
+          Width = 111
           Height = 15
           Caption = 'Max tokens response'
         end
@@ -447,6 +447,8 @@ object ChatMainView: TChatMainView
           BorderStyle = bsNone
           ScrollBars = ssVertical
           TabOrder = 0
+          ExplicitLeft = 2
+          ExplicitTop = 13
         end
         object pnResponseDetails: TPanel
           Left = 3
@@ -461,7 +463,7 @@ object ChatMainView: TChatMainView
           object Label9: TLabel
             Left = 174
             Top = 0
-            Width = 93
+            Width = 92
             Height = 21
             Hint = 'N'#186' de tokens que a resposta cont'#233'm: '
             Align = alLeft
@@ -472,7 +474,7 @@ object ChatMainView: TChatMainView
             ExplicitHeight = 15
           end
           object lbNumTokensResponse: TLabel
-            Left = 267
+            Left = 266
             Top = 0
             Width = 90
             Height = 21
@@ -504,37 +506,40 @@ object ChatMainView: TChatMainView
             ExplicitLeft = 83
           end
           object Label11: TLabel
-            Left = 517
+            Left = 515
             Top = 0
             Width = 90
             Height = 21
             Align = alLeft
             Caption = 'Model response: '
             Layout = tlCenter
+            ExplicitLeft = 517
             ExplicitHeight = 15
           end
           object lbServiceModel: TLabel
-            Left = 607
+            Left = 605
             Top = 0
             Width = 5
             Height = 21
             Align = alLeft
             Caption = '-'
             Layout = tlCenter
+            ExplicitLeft = 607
             ExplicitHeight = 15
           end
           object Label12: TLabel
-            Left = 357
+            Left = 356
             Top = 0
-            Width = 70
+            Width = 69
             Height = 21
             Align = alLeft
             Caption = 'Total tokens: '
             Layout = tlCenter
+            ExplicitLeft = 357
             ExplicitHeight = 15
           end
           object lbTotalTokens: TLabel
-            Left = 427
+            Left = 425
             Top = 0
             Width = 90
             Height = 21

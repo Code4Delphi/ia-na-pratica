@@ -46,85 +46,6 @@ object MainView: TMainView
       Style = csDropDownList
       TabOrder = 0
     end
-    object TMSFNCCloudAI1: TTMSFNCCloudAI
-      Left = 480
-      Top = 8
-      Width = 26
-      Height = 26
-      Visible = True
-      Service = aiOpenAI
-      Settings.GeminiModel = 'gemini-1.5-flash-latest'
-      Settings.OpenAIModel = 'gpt-4o'
-      Settings.GrokModel = 'grok-3'
-      Settings.ClaudeModel = 'claude-3-5-sonnet-20241022'
-      Settings.OllamaModel = 'llama3.2:latest'
-      Settings.DeepSeekModel = 'deepseek-chat'
-      Settings.PerplexityModel = 'llama-3.1-sonar-small-128k-online'
-      Settings.OllamaHost = 'localhost'
-      Settings.OllamaPath = '/api/chat'
-      Settings.MistralModel = 'mistral-large-latest'
-      Tools = <
-        item
-          Name = 'GetEstoqueProduto'
-          Description = 'Retorne o estoque do produto informado'
-          Parameters = <
-            item
-              ArrayProperties = <>
-              Name = 'IdProduto'
-              Type = ptNumber
-              Description = 'Id do produto'
-              Properties = <>
-            end>
-          OnExecute = TMSFNCCloudAI1Tools0Execute
-        end
-        item
-          Name = 'IdCliente'
-          Description = 'Retorne os dados do cliente pelo ID informado'
-          Parameters = <
-            item
-              ArrayProperties = <>
-              Name = 'IdCliente'
-              Type = ptNumber
-              Description = 'Id do cliente'
-              Properties = <>
-            end>
-          OnExecute = TMSFNCCloudAI1Tools1Execute
-        end
-        item
-          Name = 'PeriodoVenda'
-          Description = 'Retorne os dados das vendas do periodo informado'
-          Parameters = <
-            item
-              ArrayProperties = <>
-              Name = 'DataIni'
-              Type = ptString
-              Description = 'Data inicial do periodo de filtro da venda'
-              Properties = <>
-            end
-            item
-              ArrayProperties = <>
-              Name = 'DataFim'
-              Type = ptString
-              Description = 'Data final do periodo de filtro da venda'
-              Properties = <>
-            end>
-          OnExecute = TMSFNCCloudAI1Tools2Execute
-        end
-        item
-          Name = 'GetEndereco'
-          Description = 'Qual o endere'#231'o do CEP informado'
-          Parameters = <
-            item
-              ArrayProperties = <>
-              Name = 'CEP'
-              Type = ptString
-              Description = 'CEP a ser consultado'
-              Properties = <>
-            end>
-          OnExecute = TMSFNCCloudAI1Tools3Execute
-        end>
-      OnExecuted = TMSFNCCloudAI1Executed
-    end
   end
   object pnBoth: TPanel
     Left = 0
@@ -148,18 +69,19 @@ object MainView: TMainView
         Left = 3
         Top = 17
         Width = 923
-        Height = 101
+        Height = 151
         Align = alClient
         BorderStyle = bsNone
         Lines.Strings = (
           'Ol'#225' quem '#233' voc'#234' e quem '#233' o seu fabricante?')
         TabOrder = 0
+        ExplicitHeight = 101
       end
       object gBoxDefaultsPrompts: TGroupBox
         Left = 3
-        Top = 118
+        Top = 168
         Width = 923
-        Height = 101
+        Height = 51
         Align = alBottom
         Caption = ' Defaults  Prompts '
         TabOrder = 1
@@ -201,96 +123,6 @@ object MainView: TMainView
             Caption = 'Dados produto'
             TabOrder = 2
             OnClick = btnDadosProdutoClick
-          end
-        end
-        object pnDefaultsPrompts02: TPanel
-          Left = 2
-          Top = 44
-          Width = 919
-          Height = 27
-          Align = alTop
-          BevelOuter = bvNone
-          Padding.Bottom = 3
-          TabOrder = 1
-          object btnVendasPeriodo: TButton
-            Left = 0
-            Top = 0
-            Width = 182
-            Height = 24
-            Align = alLeft
-            Caption = 'Vendas per'#237'odo'
-            TabOrder = 0
-            OnClick = btnVendasPeriodoClick
-          end
-          object btnVendasPeriodoDetalhando: TButton
-            Left = 182
-            Top = 0
-            Width = 182
-            Height = 24
-            Align = alLeft
-            Caption = 'Vendas per'#237'odo (detalhando)'
-            TabOrder = 1
-            OnClick = btnVendasPeriodoDetalhandoClick
-          end
-          object btnVendasPeriodoClienteMaisVendas: TButton
-            Left = 364
-            Top = 0
-            Width = 182
-            Height = 24
-            Align = alLeft
-            Caption = 'Clientes com mais vendas'
-            TabOrder = 2
-            OnClick = btnVendasPeriodoClienteMaisVendasClick
-          end
-          object btnVendasPeriodoEmailMaisVendas: TButton
-            Left = 546
-            Top = 0
-            Width = 182
-            Height = 24
-            Align = alLeft
-            Caption = 'Email clientes mais vendas'
-            TabOrder = 3
-            OnClick = btnVendasPeriodoEmailMaisVendasClick
-          end
-          object btnVendasDoDiaX: TButton
-            Left = 728
-            Top = 0
-            Width = 182
-            Height = 24
-            Align = alLeft
-            Caption = 'Vendas do dia X'
-            TabOrder = 4
-            OnClick = btnVendasDoDiaXClick
-          end
-        end
-        object pnDefaultsPrompts03: TPanel
-          Left = 2
-          Top = 71
-          Width = 919
-          Height = 27
-          Align = alTop
-          BevelOuter = bvNone
-          Padding.Bottom = 3
-          TabOrder = 2
-          object btnAPIViaCep: TButton
-            Left = 0
-            Top = 0
-            Width = 182
-            Height = 24
-            Align = alLeft
-            Caption = 'API ViaCep'
-            TabOrder = 0
-            OnClick = btnAPIViaCepClick
-          end
-          object btnAPIViaCepMaisInternet: TButton
-            Left = 182
-            Top = 0
-            Width = 182
-            Height = 24
-            Align = alLeft
-            Caption = 'API ViaCep + Internet'
-            TabOrder = 1
-            OnClick = btnAPIViaCepMaisInternetClick
           end
         end
       end
@@ -350,13 +182,128 @@ object MainView: TMainView
       Left = 3
       Top = 17
       Width = 925
-      Height = 319
+      Height = 296
       Align = alClient
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
-      ExplicitLeft = 2
-      ExplicitTop = 16
+      ExplicitHeight = 319
     end
+    object pnResponseDetails: TPanel
+      Left = 3
+      Top = 313
+      Width = 925
+      Height = 23
+      Align = alBottom
+      BevelEdges = [beTop]
+      BevelKind = bkTile
+      BevelOuter = bvNone
+      TabOrder = 1
+      ExplicitTop = 264
+      ExplicitWidth = 1019
+      object Label9: TLabel
+        Left = 174
+        Top = 0
+        Width = 92
+        Height = 21
+        Hint = 'N'#186' de tokens que a resposta cont'#233'm: '
+        Align = alLeft
+        Caption = 'Tokens response: '
+        ParentShowHint = False
+        ShowHint = True
+        Layout = tlCenter
+        ExplicitHeight = 15
+      end
+      object lbNumTokensResponse: TLabel
+        Left = 266
+        Top = 0
+        Width = 90
+        Height = 21
+        Align = alLeft
+        AutoSize = False
+        Caption = '0'
+        Layout = tlCenter
+        ExplicitLeft = 370
+      end
+      object Label10: TLabel
+        Left = 0
+        Top = 0
+        Width = 84
+        Height = 21
+        Align = alLeft
+        Caption = 'Prompt tokens: '
+        Layout = tlCenter
+        ExplicitHeight = 15
+      end
+      object lbPromptTokens: TLabel
+        Left = 84
+        Top = 0
+        Width = 90
+        Height = 21
+        Align = alLeft
+        AutoSize = False
+        Caption = '0'
+        Layout = tlCenter
+        ExplicitLeft = 83
+      end
+      object Label11: TLabel
+        Left = 515
+        Top = 0
+        Width = 90
+        Height = 21
+        Align = alLeft
+        Caption = 'Model response: '
+        Layout = tlCenter
+        ExplicitHeight = 15
+      end
+      object lbServiceModel: TLabel
+        Left = 605
+        Top = 0
+        Width = 5
+        Height = 21
+        Align = alLeft
+        Caption = '-'
+        Layout = tlCenter
+        ExplicitHeight = 15
+      end
+      object Label12: TLabel
+        Left = 356
+        Top = 0
+        Width = 69
+        Height = 21
+        Align = alLeft
+        Caption = 'Total tokens: '
+        Layout = tlCenter
+        ExplicitHeight = 15
+      end
+      object lbTotalTokens: TLabel
+        Left = 425
+        Top = 0
+        Width = 90
+        Height = 21
+        Align = alLeft
+        AutoSize = False
+        Caption = '0'
+        Layout = tlCenter
+        ExplicitLeft = 675
+      end
+    end
+  end
+  object TMSMCPCloudAI1: TTMSMCPCloudAI
+    Service = aiOpenAI
+    Settings.GeminiModel = 'gemini-1.5-flash-latest'
+    Settings.OpenAIModel = 'gpt-4o'
+    Settings.GrokModel = 'grok-3'
+    Settings.ClaudeModel = 'claude-3-5-sonnet-20241022'
+    Settings.OllamaModel = 'llama3.2:latest'
+    Settings.DeepSeekModel = 'deepseek-chat'
+    Settings.PerplexityModel = 'llama-3.1-sonar-small-128k-online'
+    Settings.OllamaHost = 'localhost'
+    Settings.OllamaPath = '/api/chat'
+    Settings.MistralModel = 'mistral-large-latest'
+    Tools = <>
+    OnExecuted = TMSMCPCloudAI1Executed
+    Left = 481
+    Top = 82
   end
 end
