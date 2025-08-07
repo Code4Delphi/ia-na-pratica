@@ -1,4 +1,4 @@
-object MainView: TMainView
+object RAGMainView: TRAGMainView
   Left = 0
   Top = 0
   Caption = 'IA na pr'#225'tica: RAG - Retrieval-Augmented Generation'
@@ -45,15 +45,34 @@ object MainView: TMainView
       Height = 23
       Style = csDropDownList
       TabOrder = 0
+      OnChange = cBoxIAServiceChange
     end
-    object Button1: TButton
-      Left = 359
+    object btnGetFiles: TButton
+      Left = 353
       Top = 21
       Width = 75
       Height = 25
-      Caption = 'Button1'
+      Caption = 'GetFiles'
       TabOrder = 1
-      OnClick = Button1Click
+      OnClick = btnGetFilesClick
+    end
+    object btnUploadFile: TButton
+      Left = 434
+      Top = 21
+      Width = 75
+      Height = 25
+      Caption = 'UploadFile'
+      TabOrder = 2
+      OnClick = btnUploadFileClick
+    end
+    object btnDelete: TButton
+      Left = 515
+      Top = 21
+      Width = 75
+      Height = 25
+      Caption = 'Delete'
+      TabOrder = 3
+      OnClick = btnDeleteClick
     end
   end
   object pnBoth: TPanel
@@ -78,65 +97,12 @@ object MainView: TMainView
         Left = 3
         Top = 17
         Width = 923
-        Height = 112
+        Height = 202
         Align = alClient
         BorderStyle = bsNone
         Lines.Strings = (
-          'Ol'#225' quem '#233' voc'#234' e quem '#233' o seu fabricante?')
+          '- Quando a DelphiDevs foi fundada?')
         TabOrder = 0
-        ExplicitLeft = 2
-        ExplicitTop = 11
-        ExplicitHeight = 151
-      end
-      object gBoxDefaultsPrompts: TGroupBox
-        Left = 3
-        Top = 129
-        Width = 923
-        Height = 51
-        Align = alBottom
-        Caption = ' Defaults  Prompts '
-        TabOrder = 1
-        ExplicitTop = 168
-        object pnDefaultsPrompts01: TPanel
-          Left = 2
-          Top = 17
-          Width = 919
-          Height = 27
-          Align = alTop
-          BevelOuter = bvNone
-          Padding.Bottom = 3
-          TabOrder = 0
-          object btnDadosCliente: TButton
-            Left = 182
-            Top = 0
-            Width = 182
-            Height = 24
-            Align = alLeft
-            Caption = 'Dados cliente'
-            TabOrder = 0
-            OnClick = btnDadosClienteClick
-          end
-          object btnEmailCliente: TButton
-            Left = 364
-            Top = 0
-            Width = 182
-            Height = 24
-            Align = alLeft
-            Caption = 'Email cliente'
-            TabOrder = 1
-            OnClick = btnEmailClienteClick
-          end
-          object btnDadosProduto: TButton
-            Left = 0
-            Top = 0
-            Width = 182
-            Height = 24
-            Align = alLeft
-            Caption = 'Dados produto'
-            TabOrder = 2
-            OnClick = btnDadosProdutoClick
-          end
-        end
       end
     end
     object Panel1: TPanel
@@ -199,8 +165,6 @@ object MainView: TMainView
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
-      ExplicitLeft = 2
-      ExplicitTop = 13
     end
     object pnResponseDetails: TPanel
       Left = 3
@@ -212,8 +176,6 @@ object MainView: TMainView
       BevelKind = bkTile
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitTop = 264
-      ExplicitWidth = 1019
       object Label9: TLabel
         Left = 174
         Top = 0
@@ -303,9 +265,9 @@ object MainView: TMainView
     end
   end
   object ListBox1: TListBox
-    Left = 247
-    Top = 164
-    Width = 658
+    Left = 359
+    Top = 71
+    Width = 522
     Height = 82
     ItemHeight = 15
     TabOrder = 3
@@ -324,13 +286,12 @@ object MainView: TMainView
     Settings.MistralModel = 'mistral-large-latest'
     Tools = <>
     OnExecuted = TMSMCPCloudAI1Executed
+    OnGetFiles = TMSMCPCloudAI1GetFiles
     Left = 481
     Top = 82
   end
   object OpenDialog1: TOpenDialog
-    Filter = 
-      'JPEG files|*.jpg|PNG files|*.png|WebP files|*.webp|All image fil' +
-      'es|*.*'
+    Filter = 'PDF files|*.pdf'
     Left = 608
     Top = 80
   end
