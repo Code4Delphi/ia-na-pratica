@@ -1,6 +1,7 @@
 object RAGMainView: TRAGMainView
   Left = 0
   Top = 0
+  Cursor = crHandPoint
   Caption = 'IA na pr'#225'tica: RAG - Retrieval-Augmented Generation'
   ClientHeight = 685
   ClientWidth = 994
@@ -375,8 +376,8 @@ object RAGMainView: TRAGMainView
       'PDF files (*.pdf)|*.pdf|Text files (*.txt)|*.txt|CSV files (*.cs' +
       'v)|*.csv|All files (*.*)|*.*'
     FilterIndex = 4
-    Left = 632
-    Top = 8
+    Left = 626
+    Top = 10
   end
   object ClientDataSet1: TClientDataSet
     PersistDataPacket.Data = {
@@ -420,8 +421,8 @@ object RAGMainView: TRAGMainView
     IndexDefs = <>
     Params = <>
     StoreDefs = True
-    Left = 528
-    Top = 120
+    Left = 722
+    Top = 10
     object ClientDataSet1Index: TIntegerField
       FieldName = 'Index'
     end
@@ -447,7 +448,7 @@ object RAGMainView: TRAGMainView
   end
   object DataSource1: TDataSource
     DataSet = ClientDataSet1
-    Left = 632
-    Top = 120
+    Left = 804
+    Top = 10
   end
 end
