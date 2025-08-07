@@ -19,6 +19,9 @@ uses
   Vcl.ExtCtrls,
   Vcl.ComCtrls,
   Vcl.Buttons,
+  Vcl.Grids,
+  Vcl.DBGrids,
+  Datasnap.DBClient,
   TMS.MCP.CustomComponent,
   TMS.MCP.CloudBase,
   TMS.MCP.CloudAI;
@@ -48,10 +51,19 @@ type
     Label12: TLabel;
     lbTotalTokens: TLabel;
     OpenDialog1: TOpenDialog;
-    ListBox1: TListBox;
     btnGetFiles: TButton;
     btnUploadFile: TButton;
     btnDelete: TButton;
+    GroupBox1: TGroupBox;
+    DBGrid1: TDBGrid;
+    ClientDataSet1: TClientDataSet;
+    ClientDataSet1Index: TIntegerField;
+    ClientDataSet1ID: TStringField;
+    ClientDataSet1FileName: TStringField;
+    ClientDataSet1FileSize: TLargeintField;
+    ClientDataSet1URL: TStringField;
+    ClientDataSet1MimeType: TStringField;
+    DataSource1: TDataSource;
     procedure FormCreate(Sender: TObject);
     procedure btnExecuteClick(Sender: TObject);
     procedure TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse; AHttpStatusCode: Integer;
@@ -62,8 +74,11 @@ type
     procedure TMSMCPCloudAI1GetFiles(Sender: TObject; AResponse: TTMSMCPCloudAIResponse; AHttpStatusCode: Integer;
       AHttpResult: string);
     procedure cBoxIAServiceChange(Sender: TObject);
+    procedure TMSMCPCloudAI1FileUpload(Sender: TObject; HttpStatusCode: Integer; HttpResult: string; Index: Integer);
+    procedure TMSMCPCloudAI1FileDeleted(Sender: TObject; HttpStatusCode: Integer; HttpResult: string; Index: Integer);
   private
-
+    procedure GetListFilesAI;
+    procedure ComponentToDataSet(const AIndex: Integer);
   public
 
   end;
@@ -87,11 +102,15 @@ begin
   TMSMCPCloudAI1.Service := TTMSMCPCloudAIService(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
 end;
 
+procedure TRAGMainView.cBoxIAServiceChange(Sender: TObject);
+begin
+  TMSMCPCloudAI1.Service := TTMSMCPCloudAIService(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
+end;
+
 procedure TRAGMainView.btnExecuteClick(Sender: TObject);
 begin
   mmResponse.Text := 'Processando...';
 
-  //TMSMCPCloudAI1.Files.Clear;
   TMSMCPCloudAI1.Context := mmQuestion.Lines;
   TMSMCPCloudAI1.Execute();
   ProgressBar1.State := pbsNormal;
@@ -117,7 +136,12 @@ end;
 
 procedure TRAGMainView.btnGetFilesClick(Sender: TObject);
 begin
-  ListBox1.Clear;
+  Self.GetListFilesAI;
+end;
+
+procedure TRAGMainView.GetListFilesAI;
+begin
+  ClientDataSet1.EmptyDataSet;
   ProgressBar1.State := pbsNormal;
   TMSMCPCloudAI1.GetFiles;
 end;
@@ -129,14 +153,24 @@ begin
 
   if AHttpStatusCode <> 200 then
   begin
-    mmResponse.Lines.Text := 'HTTP error code: ' + AHttpStatusCode.ToString + sLineBreak + AHttpResult;
+    mmResponse.Lines.Text := 'GetFiles failed. HTTP error code: ' + AHttpStatusCode.ToString + sLineBreak + AHttpResult;
     Exit;
   end;
 
   for var i := 0 to Pred(TMSMCPCloudAI1.Files.Count) do
-  begin
-    ListBox1.Items.Add(Format('%s | %s | %d', [TMSMCPCloudAI1.Files[i].ID, TMSMCPCloudAI1.Files[i].FileName, TMSMCPCloudAI1.Files[i].FileSize]));
-  end;
+    Self.ComponentToDataSet(i);
+end;
+
+procedure TRAGMainView.ComponentToDataSet(const AIndex: Integer);
+begin
+  ClientDataSet1.Append;
+  ClientDataSet1Index.AsInteger := AIndex;
+  ClientDataSet1ID.AsString := TMSMCPCloudAI1.Files[AIndex].ID;
+  ClientDataSet1FileName.AsString := TMSMCPCloudAI1.Files[AIndex].FileName;
+  ClientDataSet1FileSize.AsLargeInt := TMSMCPCloudAI1.Files[AIndex].FileSize;
+  ClientDataSet1MimeType.AsString :=  TMSMCPCloudAI1.Files[AIndex].MimeType;
+  ClientDataSet1URL.AsString := TMSMCPCloudAI1.Files[AIndex].URL;
+  ClientDataSet1.Post;
 end;
 
 procedure TRAGMainView.btnUploadFileClick(Sender: TObject);
@@ -144,28 +178,51 @@ begin
   if not OpenDialog1.Execute then
     Exit;
 
-  TMSMCPCloudAI1.UploadFile(OpenDialog1.FileName, aiftPDF);
+  ProgressBar1.State := pbsNormal;
+  TMSMCPCloudAI1.UploadFile(OpenDialog1.FileName, FileExtToFileType(OpenDialog1.FileName));
+end;
+
+procedure TRAGMainView.TMSMCPCloudAI1FileUpload(Sender: TObject; HttpStatusCode: Integer; HttpResult: string;
+  Index: Integer);
+begin
+  ProgressBar1.State := pbsPaused;
+
+  if HttpStatusCode <> 200 then
+  begin
+    mmResponse.Lines.Text := 'Upload failed. HTTP error code: ' + HttpStatusCode.ToString + sLineBreak + HttpResult;
+    Exit;
+  end;
+
+  Self.ComponentToDataSet(Index);
 end;
 
 procedure TRAGMainView.btnDeleteClick(Sender: TObject);
-const
-  MSG = 'Deseja realmente deletar os %d arquivos?';
 begin
   if TMSMCPCloudAI1.Files.Count < 0 then
     raise Exception.Create('Não existem arquivos para serem excluídos');
 
-  if MessageDlg(Format(MSG, [TMSMCPCloudAI1.Files.Count]), mtConfirmation, [mbYes, mbNo], 0) = IDNO then
+  if ClientDataSet1.IsEmpty then
+    raise Exception.Create('Não existem arquivo selecionado para ser excluído');
+
+  if MessageDlg('Deseja realmente deletar este registro?', mtConfirmation, [mbYes, mbNo], 0) = IDNO then
     Exit;
 
-  for var i := Pred(TMSMCPCloudAI1.Files.Count) downto 0 do
-    TMSMCPCloudAI1.Files[i].Delete;
-
-  TMSMCPCloudAI1.Files.Clear;
+  ProgressBar1.State := pbsNormal;
+  TMSMCPCloudAI1.Files[ClientDataSet1Index.AsInteger].Delete;
 end;
 
-procedure TRAGMainView.cBoxIAServiceChange(Sender: TObject);
+procedure TRAGMainView.TMSMCPCloudAI1FileDeleted(Sender: TObject; HttpStatusCode: Integer; HttpResult: string;
+  Index: Integer);
 begin
-  TMSMCPCloudAI1.Service := TTMSMCPCloudAIService(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
+  ProgressBar1.State := pbsPaused;
+
+  if HttpStatusCode <> 200 then
+  begin
+    mmResponse.Lines.Text := 'FileDeleted failed. HTTP error code: ' + HttpStatusCode.ToString + sLineBreak + HttpResult;
+    Exit;
+  end;
+
+  Self.GetListFilesAI;
 end;
 
 end.

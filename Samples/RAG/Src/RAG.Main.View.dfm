@@ -2,8 +2,8 @@ object RAGMainView: TRAGMainView
   Left = 0
   Top = 0
   Caption = 'IA na pr'#225'tica: RAG - Retrieval-Augmented Generation'
-  ClientHeight = 665
-  ClientWidth = 931
+  ClientHeight = 685
+  ClientWidth = 994
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,21 +16,25 @@ object RAGMainView: TRAGMainView
   TextHeight = 15
   object Splitter1: TSplitter
     Left = 0
-    Top = 321
-    Width = 931
+    Top = 409
+    Width = 994
     Height = 5
     Cursor = crVSplit
     Align = alTop
     ExplicitLeft = 1
     ExplicitTop = 320
+    ExplicitWidth = 931
   end
   object pnTop: TPanel
     Left = 0
     Top = 0
-    Width = 931
+    Width = 994
     Height = 65
     Align = alTop
     TabOrder = 0
+    ExplicitLeft = 8
+    ExplicitTop = -5
+    ExplicitWidth = 931
     object Label1: TLabel
       Left = 18
       Top = 8
@@ -48,8 +52,8 @@ object RAGMainView: TRAGMainView
       OnChange = cBoxIAServiceChange
     end
     object btnGetFiles: TButton
-      Left = 353
-      Top = 21
+      Left = 228
+      Top = 24
       Width = 75
       Height = 25
       Caption = 'GetFiles'
@@ -57,8 +61,8 @@ object RAGMainView: TRAGMainView
       OnClick = btnGetFilesClick
     end
     object btnUploadFile: TButton
-      Left = 434
-      Top = 21
+      Left = 309
+      Top = 24
       Width = 75
       Height = 25
       Caption = 'UploadFile'
@@ -66,8 +70,8 @@ object RAGMainView: TRAGMainView
       OnClick = btnUploadFileClick
     end
     object btnDelete: TButton
-      Left = 515
-      Top = 21
+      Left = 390
+      Top = 24
       Width = 75
       Height = 25
       Caption = 'Delete'
@@ -77,44 +81,51 @@ object RAGMainView: TRAGMainView
   end
   object pnBoth: TPanel
     Left = 0
-    Top = 65
-    Width = 931
-    Height = 256
+    Top = 249
+    Width = 994
+    Height = 160
     Align = alTop
     TabOrder = 1
+    ExplicitTop = 185
+    ExplicitWidth = 931
     object gBoxQuestion: TGroupBox
       Left = 1
       Top = 1
-      Width = 929
-      Height = 222
+      Width = 992
+      Height = 126
       Align = alClient
       Caption = ' Prompt / question '
       Padding.Left = 1
       Padding.Right = 1
       Padding.Bottom = 1
       TabOrder = 0
+      ExplicitWidth = 929
+      ExplicitHeight = 222
       object mmQuestion: TMemo
         Left = 3
         Top = 17
-        Width = 923
-        Height = 202
+        Width = 986
+        Height = 106
         Align = alClient
         BorderStyle = bsNone
         Lines.Strings = (
           '- Quando a DelphiDevs foi fundada?')
         TabOrder = 0
+        ExplicitLeft = 2
       end
     end
     object Panel1: TPanel
       Left = 1
-      Top = 223
-      Width = 929
+      Top = 127
+      Width = 992
       Height = 32
       Align = alBottom
       Padding.Top = 2
       Padding.Right = 2
       Padding.Bottom = 2
       TabOrder = 1
+      ExplicitTop = 223
+      ExplicitWidth = 929
       object btnExecute: TBitBtn
         Left = 1
         Top = 3
@@ -147,35 +158,44 @@ object RAGMainView: TRAGMainView
   end
   object gBoxResponse: TGroupBox
     Left = 0
-    Top = 326
-    Width = 931
-    Height = 339
+    Top = 414
+    Width = 994
+    Height = 271
     Align = alClient
     Caption = ' Response '
     Padding.Left = 1
     Padding.Right = 1
     Padding.Bottom = 1
     TabOrder = 2
+    ExplicitTop = 326
+    ExplicitWidth = 931
+    ExplicitHeight = 339
     object mmResponse: TMemo
       Left = 3
       Top = 17
-      Width = 925
-      Height = 296
+      Width = 988
+      Height = 228
       Align = alClient
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
+      ExplicitLeft = 2
+      ExplicitTop = 13
+      ExplicitWidth = 925
+      ExplicitHeight = 296
     end
     object pnResponseDetails: TPanel
       Left = 3
-      Top = 313
-      Width = 925
+      Top = 245
+      Width = 988
       Height = 23
       Align = alBottom
       BevelEdges = [beTop]
       BevelKind = bkTile
       BevelOuter = bvNone
       TabOrder = 1
+      ExplicitTop = 313
+      ExplicitWidth = 925
       object Label9: TLabel
         Left = 174
         Top = 0
@@ -264,13 +284,67 @@ object RAGMainView: TRAGMainView
       end
     end
   end
-  object ListBox1: TListBox
-    Left = 359
-    Top = 71
-    Width = 522
-    Height = 82
-    ItemHeight = 15
+  object GroupBox1: TGroupBox
+    Left = 0
+    Top = 65
+    Width = 994
+    Height = 184
+    Align = alTop
+    Caption = ' Arquivos carregados '
     TabOrder = 3
+    object DBGrid1: TDBGrid
+      Left = 2
+      Top = 17
+      Width = 990
+      Height = 165
+      Align = alClient
+      BorderStyle = bsNone
+      DataSource = DataSource1
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -12
+      TitleFont.Name = 'Segoe UI'
+      TitleFont.Style = []
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'Index'
+          Title.Alignment = taCenter
+          Width = 45
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'ID'
+          Width = 213
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'FileName'
+          Width = 195
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'FileSize'
+          Width = 73
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'MimeType'
+          Width = 150
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'URL'
+          Width = 319
+          Visible = True
+        end>
+    end
   end
   object TMSMCPCloudAI1: TTMSMCPCloudAI
     Service = aiOpenAI
@@ -287,12 +361,89 @@ object RAGMainView: TRAGMainView
     Tools = <>
     OnExecuted = TMSMCPCloudAI1Executed
     OnGetFiles = TMSMCPCloudAI1GetFiles
-    Left = 481
-    Top = 82
+    OnFileDeleted = TMSMCPCloudAI1FileDeleted
+    OnFileUpload = TMSMCPCloudAI1FileUpload
+    Left = 529
+    Top = 10
   end
   object OpenDialog1: TOpenDialog
-    Filter = 'PDF files|*.pdf'
-    Left = 608
-    Top = 80
+    Filter = 
+      'PDF files (*.pdf)|*.pdf|Text files (*.txt)|*.txt|CSV files (*.cs' +
+      'v)|*.csv|All files (*.*)|*.*'
+    FilterIndex = 4
+    Left = 632
+    Top = 8
+  end
+  object ClientDataSet1: TClientDataSet
+    PersistDataPacket.Data = {
+      A20000009619E0BD010000001800000006000000000003000000A20005496E64
+      6578040001000000000002494401004900000001000557494454480200020064
+      000846696C654E616D65010049000000010005574944544802000200FA000846
+      696C6553697A6508000100000000000355524C01004900000001000557494454
+      4802000200FA00084D696D655479706501004900000001000557494454480200
+      02003C000000}
+    Active = True
+    Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'Index'
+        DataType = ftInteger
+      end
+      item
+        Name = 'ID'
+        DataType = ftString
+        Size = 100
+      end
+      item
+        Name = 'FileName'
+        DataType = ftString
+        Size = 250
+      end
+      item
+        Name = 'FileSize'
+        DataType = ftLargeint
+      end
+      item
+        Name = 'URL'
+        DataType = ftString
+        Size = 250
+      end
+      item
+        Name = 'MimeType'
+        DataType = ftString
+        Size = 60
+      end>
+    IndexDefs = <>
+    Params = <>
+    StoreDefs = True
+    Left = 528
+    Top = 120
+    object ClientDataSet1Index: TIntegerField
+      FieldName = 'Index'
+    end
+    object ClientDataSet1ID: TStringField
+      FieldName = 'ID'
+      Size = 100
+    end
+    object ClientDataSet1FileName: TStringField
+      FieldName = 'FileName'
+      Size = 250
+    end
+    object ClientDataSet1FileSize: TLargeintField
+      FieldName = 'FileSize'
+    end
+    object ClientDataSet1URL: TStringField
+      FieldName = 'URL'
+      Size = 250
+    end
+    object ClientDataSet1MimeType: TStringField
+      FieldName = 'MimeType'
+      Size = 60
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = ClientDataSet1
+    Left = 632
+    Top = 120
   end
 end

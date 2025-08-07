@@ -2,13 +2,13 @@ program RAG;
 
 uses
   Vcl.Forms,
-  Main.View in 'Src\Main.View.pas' {MainView};
+  RAG.Main.View in 'Src\RAG.Main.View.pas' {RAGMainView};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TMainView, MainView);
+  Application.CreateForm(TRAGMainView, RAGMainView);
   Application.Run;
 end.
