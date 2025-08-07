@@ -47,33 +47,37 @@ object RAGMainView: TRAGMainView
       Top = 25
       Width = 201
       Height = 23
+      Cursor = crHandPoint
       Style = csDropDownList
       TabOrder = 0
       OnChange = cBoxIAServiceChange
     end
     object btnGetFiles: TButton
-      Left = 228
+      Left = 226
       Top = 24
       Width = 75
       Height = 25
+      Cursor = crHandPoint
       Caption = 'GetFiles'
       TabOrder = 1
       OnClick = btnGetFilesClick
     end
     object btnUploadFile: TButton
-      Left = 309
+      Left = 307
       Top = 24
       Width = 75
       Height = 25
+      Cursor = crHandPoint
       Caption = 'UploadFile'
       TabOrder = 2
       OnClick = btnUploadFileClick
     end
     object btnDelete: TButton
-      Left = 390
+      Left = 388
       Top = 24
       Width = 75
       Height = 25
+      Cursor = crHandPoint
       Caption = 'Delete'
       TabOrder = 3
       OnClick = btnDeleteClick
