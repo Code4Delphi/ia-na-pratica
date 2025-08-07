@@ -1,15 +1,15 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{D02E7616-93EC-4BAE-BD16-8B7D29A5D474}</ProjectGuid>
+        <ProjectGuid>{617A2E13-C74A-40EA-B7F3-CBC29DE23736}</ProjectGuid>
         <ProjectVersion>20.3</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
-        <ProjectName Condition="'$(ProjectName)'==''">Images</ProjectName>
+        <ProjectName Condition="'$(ProjectName)'==''">RAG</ProjectName>
         <TargetedPlatforms>3</TargetedPlatforms>
         <AppType>Application</AppType>
-        <MainSource>Images.dpr</MainSource>
+        <MainSource>RAG.dpr</MainSource>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -60,7 +60,7 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
         <DCC_DcuOutput>.\DCU\$(Platform)\$(Config)</DCC_DcuOutput>
-        <DCC_ExeOutput>Bin</DCC_ExeOutput>
+        <DCC_ExeOutput>.\Bin</DCC_ExeOutput>
         <DCC_E>false</DCC_E>
         <DCC_N>false</DCC_N>
         <DCC_S>false</DCC_S>
@@ -70,12 +70,12 @@
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
-        <SanitizedProjectName>Images</SanitizedProjectName>
+        <SanitizedProjectName>RAG</SanitizedProjectName>
         <VerInfo_Locale>1046</VerInfo_Locale>
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
-        <DCC_UsePackage>vclwinx;DataSnapServer;ACBr_BPeDabpeESCPOS;ACBr_TCP;ACBr_ONE;ACBr_NFCom;fs29;fmx;vclie;DbxCommonDriver;bindengine;IndyIPCommon;VCLRESTComponents;DBXMSSQLDriver;FireDACCommonODBC;emsclient;bsfd103Rio;ACBr_OpenSSL;appanalytics;IndyProtocols;vclx;Skia.Package.RTL;aurelius;dbxcds;vcledge;FMX_FlexCel_Components;FmxTeeUI;VCLTMSFNCChartPkgDXE15;ACBr_BoletoRL;FlexCel_Pdf;DBXFirebirdDriver;ACBr_CTeDacteFR;FMXTMSFNCChartPkgDXE15;ACBr_NFCeECFVirtual;ACBr_DCeDACERL;FireDACSqliteDriver;DbxClientDriver;soapmidas;ACBr_NF3eDANF3eESCPOS;TeeUI;ACBr_PagFor;dbexpress;ACBr_Reinf;ACBr_NFSeXDanfseFPDF;inet;ACBr_BoletoFPDF;vcltouch;FMX_FlexCel_Core;FireDACDBXDriver;ACBr_NF3eDANF3eRL;fmxdae;tmsbcl;VCL_FlexCel_Core;CustomIPTransport;FireDACMSSQLDriver;C4DDateEdit;ZCore;ACBr_NFSeX;ZParseSql;C4DWizard;ACBr_NFe;frxPDF29;ACBr_CTeDacteRL;C4DMaskEdit;IndySystem;ACBr_Diversos;ACBr_GNREGuiaRL;BossExperts;frxe29;ZipMasterR;ACBr_NFSeXDanfseRL;ACBr_SAT;ACBr_CIOT;VirtualTreesR;ACBr_TEFD;fsDB29;VDOPrint;vclFireDAC;ACBr_SPED;ACBr_CTe;ACBr_SATWS;FireDACCommon;DataSnapServerMidas;FireDACODBCDriver;emsserverresource;ACBr_SEF2;ACBr_LCDPR;ACBr_SATExtratoFPDF;FlexCel_Render;DelphiAIDeveloper;ZComponent;bindcompdbx;rtl;FireDACMySQLDriver;ACBr_NFeDanfeFR;ACBr_DCe;VCL_FlexCel_Components;TMSFNCPushNotificationsPkgDXE15;frce;ACBr_BPe;DBXSqliteDriver;ACBr_Sintegra;DBXSybaseASEDriver;TMSWEBCorePkgDXE15;ACBr_Serial;ACBr_Comum;ACBr_MDFe;ACBr_NFeDanfeESCPOS;vclimg;DataSnapFireDAC;inetdbxpress;FireDAC;xmlrtl;dsnap;xdata;FireDACDb2Driver;DBXOracleDriver;DBXInformixDriver;ACBr_SATECFVirtual;fmxobj;bindcompvclsmp;DataSnapNativeClient;frx29;ACBr_SATExtratoFR;DatasnapConnectorsFreePascal;FMXTMSFNCUIPackPkgDXE15;frxIntIOIndy29;ACBr_NF3e;ACBr_PAF;ACBr_OpenDelivery;ACBr_NFeDanfeFPDF;ACBr_MDFeDamdfeFR;TMSFNCCorePkgDXE15;ACBr_SPEDImportar;FMXTMSFNCCorePkgDXE15;emshosting;sparkle;MCP;MSNPopUp_D104;frxDB29;FireDACCommonDriver;ACBr_ADRCST;ACBr_MTER;IndyIPClient;frxHTML29;bindcompvclwinx;ACBr_Convenio115;emsedge;bindcompfmx;inetdb;FireDACASADriver;ACBr_LFD;Tee;vclactnband;fmxFireDAC;FireDACInfxDriver;DBXMySQLDriver;fsADO29;VclSmp;ACBr_Ponto;DataSnapCommon;fmxase;DBXOdbcDriver;dbrtl;FireDACOracleDriver;Skia.Package.FMX;ACBre_Social;TeeDB;FlexCel_XlsAdapter;FireDACMSAccDriver;frxcs29;DataSnapIndy10ServerTransport;FMXTMSFNCCloudPackPkgDXE15;DataSnapConnectors;ACBr_ANe;ACBr_SATExtratoRL;vcldsnap;DBXInterBaseDriver;FireDACMongoDBDriver;ACBR_DeSTDA;PngComponentsD;ACBr_GNRE;ACBr_EDI;FireDACTDataDriver;Skia.Package.VCL;VCLTMSFNCUIPackPkgDXE15;vcldb;ACBr_Integrador;ACBr_PIXCD;FlexCel_Core;ACBr_BoletoFR;bindcomp;inetstn;IndyCore;RESTBackendComponents;ZPlain;frxIntIO29;FireDACADSDriver;RESTComponents;ACBr_NFSeXDANFSeFR;IndyIPServer;vcl;dsnapxml;adortl;dsnapcon;DataSnapClient;DataSnapProviderClient;ACBr_MDFeDamdfeRL;frxADO29;DBXDb2Driver;ACBr_Boleto;emsclientfiredac;FireDACPgDriver;FireDACDSDriver;ACBr_BlocoX;ACBrBaaS;tethering;ACBr_SATExtratoESCPOS;ZDbc;bindcompvcl;ACBr_GTIN;CloudService;DBXSybaseASADriver;ACBr_OFX;VCLTMSFNCCloudPackPkgDXE15;ACBr_PAFNFCe;FMXTee;ACBr_DebitoAutomatico;ACBr_NFeDanfeRL;TMSWEBCorePkgLibDXE15;DSPack_DXE2;ACBr_GNREGuiaFR;VCLTMSFNCCorePkgDXE15;soaprtl;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_UsePackage>vclwinx;DataSnapServer;ACBr_BPeDabpeESCPOS;ACBr_TCP;ACBr_ONE;ACBr_NFCom;fs29;fmx;vclie;DbxCommonDriver;bindengine;IndyIPCommon;VCLRESTComponents;DBXMSSQLDriver;FireDACCommonODBC;emsclient;bsfd103Rio;ACBr_OpenSSL;appanalytics;IndyProtocols;vclx;Skia.Package.RTL;aurelius;dbxcds;vcledge;FMX_FlexCel_Components;FmxTeeUI;VCLTMSFNCChartPkgDXE15;ACBr_BoletoRL;FlexCel_Pdf;DBXFirebirdDriver;ACBr_CTeDacteFR;FMXTMSFNCChartPkgDXE15;ACBr_NFCeECFVirtual;ACBr_DCeDACERL;FireDACSqliteDriver;DbxClientDriver;soapmidas;ACBr_NF3eDANF3eESCPOS;TeeUI;ACBr_PagFor;dbexpress;ACBr_Reinf;ACBr_NFSeXDanfseFPDF;inet;ACBr_BoletoFPDF;vcltouch;FMX_FlexCel_Core;FireDACDBXDriver;ACBr_NF3eDANF3eRL;fmxdae;tmsbcl;VCL_FlexCel_Core;CustomIPTransport;FireDACMSSQLDriver;C4DDateEdit;ZCore;ACBr_NFSeX;ZParseSql;C4DWizard;ACBr_NFe;frxPDF29;ACBr_CTeDacteRL;C4DMaskEdit;IndySystem;ACBr_Diversos;ACBr_GNREGuiaRL;BossExperts;frxe29;ZipMasterR;ACBr_NFSeXDanfseRL;ACBr_SAT;ACBr_CIOT;VirtualTreesR;ACBr_TEFD;fsDB29;VDOPrint;vclFireDAC;ACBr_SPED;ACBr_CTe;ACBr_SATWS;FireDACCommon;DataSnapServerMidas;FireDACODBCDriver;emsserverresource;ACBr_SEF2;ACBr_LCDPR;ACBr_SATExtratoFPDF;FlexCel_Render;DelphiAIDeveloper;ZComponent;bindcompdbx;rtl;FireDACMySQLDriver;ACBr_NFeDanfeFR;ACBr_DCe;VCL_FlexCel_Components;TMSFNCPushNotificationsPkgDXE15;frce;ACBr_BPe;DBXSqliteDriver;ACBr_Sintegra;DBXSybaseASEDriver;TMSWEBCorePkgDXE15;ACBr_Serial;ACBr_Comum;ACBr_MDFe;ACBr_NFeDanfeESCPOS;vclimg;DataSnapFireDAC;inetdbxpress;FireDAC;xmlrtl;dsnap;xdata;FireDACDb2Driver;DBXOracleDriver;DBXInformixDriver;ACBr_SATECFVirtual;fmxobj;bindcompvclsmp;DataSnapNativeClient;frx29;ACBr_SATExtratoFR;DatasnapConnectorsFreePascal;FMXTMSFNCUIPackPkgDXE15;frxIntIOIndy29;ACBr_NF3e;ACBr_PAF;ACBr_OpenDelivery;ACBr_NFeDanfeFPDF;ACBr_MDFeDamdfeFR;TMSFNCCorePkgDXE15;ACBr_SPEDImportar;FMXTMSFNCCorePkgDXE15;emshosting;sparkle;MSNPopUp_D104;frxDB29;FireDACCommonDriver;ACBr_ADRCST;ACBr_MTER;IndyIPClient;frxHTML29;bindcompvclwinx;ACBr_Convenio115;emsedge;bindcompfmx;inetdb;FireDACASADriver;ACBr_LFD;Tee;vclactnband;fmxFireDAC;FireDACInfxDriver;DBXMySQLDriver;fsADO29;VclSmp;ACBr_Ponto;DataSnapCommon;fmxase;DBXOdbcDriver;dbrtl;FireDACOracleDriver;Skia.Package.FMX;ACBre_Social;TeeDB;FlexCel_XlsAdapter;FireDACMSAccDriver;frxcs29;DataSnapIndy10ServerTransport;FMXTMSFNCCloudPackPkgDXE15;DataSnapConnectors;ACBr_ANe;ACBr_SATExtratoRL;vcldsnap;DBXInterBaseDriver;FireDACMongoDBDriver;ACBR_DeSTDA;PngComponentsD;ACBr_GNRE;ACBr_EDI;FireDACTDataDriver;Skia.Package.VCL;VCLTMSFNCUIPackPkgDXE15;vcldb;ACBr_Integrador;ACBr_PIXCD;FlexCel_Core;ACBr_BoletoFR;bindcomp;inetstn;IndyCore;RESTBackendComponents;ZPlain;frxIntIO29;FireDACADSDriver;RESTComponents;ACBr_NFSeXDANFSeFR;IndyIPServer;vcl;dsnapxml;adortl;dsnapcon;DataSnapClient;DataSnapProviderClient;ACBr_MDFeDamdfeRL;frxADO29;DBXDb2Driver;ACBr_Boleto;emsclientfiredac;FireDACPgDriver;FireDACDSDriver;ACBr_BlocoX;ACBrBaaS;tethering;ACBr_SATExtratoESCPOS;ZDbc;bindcompvcl;ACBr_GTIN;CloudService;DBXSybaseASADriver;ACBr_OFX;VCLTMSFNCCloudPackPkgDXE15;ACBr_PAFNFCe;FMXTee;ACBr_DebitoAutomatico;ACBr_NFeDanfeRL;TMSWEBCorePkgLibDXE15;DSPack_DXE2;ACBr_GNREGuiaFR;VCLTMSFNCCorePkgDXE15;soaprtl;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
@@ -127,8 +127,8 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="Src\Images.Main.View.pas">
-            <Form>ImagesMainView</Form>
+        <DCCReference Include="Src\RAG.Main.View.pas">
+            <Form>RAGMainView</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
@@ -149,7 +149,7 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">Images.dpr</Source>
+                    <Source Name="MainSource">RAG.dpr</Source>
                 </Source>
                 <Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k290.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
@@ -157,9 +157,9 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="5">
-                <DeployFile LocalName="Win32\Debug\Images.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="Bin\RAG.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>Images.exe</RemoteName>
+                        <RemoteName>RAG.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
