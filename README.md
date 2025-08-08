@@ -30,6 +30,7 @@ Você poderá acompanhar esta série através de nossa playlist:
   - [Repositório MCP Server Database](https://github.com/Code4Delphi/mcp-servers/tree/master/Database)
 - [IA na Prática 12 - Lançamento TMS AI Studio](https://www.youtube.com/watch?v=TXafyGDx8Os&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 - [IA na Prática 13 - Consumindo MCP Servers Python](https://www.youtube.com/watch?v=B5UUVIKPq1E&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+- [IA na Prática 14 - RAG - Retrieval-Augmented Generation](https://www.youtube.com/watch?v=JzT473X9N1Q&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 
 ## IAs disponíveis
 Abaixo, apresentamos um guia rápido com os principais provedores de IA disponíveis, seus sites e links para geração de chaves de API.
