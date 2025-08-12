@@ -162,7 +162,7 @@ begin
 
   mmTanscription.Lines.Text := Text;
   TMSMCPCloudAI1.Context.Text := Text;
-  TMSMCPCloudAI1.Execute();
+  TMSMCPCloudAI1.Execute;
 end;
 
 procedure TMainView.TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse; AHttpStatusCode: Integer;

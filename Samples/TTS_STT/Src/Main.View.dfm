@@ -42,8 +42,7 @@ object MainView: TMainView
       Height = 39
       Align = alTop
       TabOrder = 0
-      ExplicitLeft = 3
-      ExplicitTop = 0
+      ExplicitTop = -4
       DesignSize = (
         841
         39)
@@ -190,7 +189,8 @@ object MainView: TMainView
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
-      ExplicitLeft = 2
+      ExplicitLeft = 4
+      ExplicitTop = 13
     end
     object pnResponseDetails: TPanel
       Left = 3
