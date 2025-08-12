@@ -27,9 +27,10 @@ type
     btnStartRecording: TButton;
     btnStopRecording: TButton;
     Splitter1: TSplitter;
+    ProgressBar1: TProgressBar;
+    cBoxLanguage: TComboBox;
     TMSMCPCloudAI1: TTMSMCPCloudAI;
-    gBoxTanscription: TGroupBox;
-    mmTanscription: TMemo;
+    ckSpeakAudioRecording: TCheckBox;
     gBoxResponse: TGroupBox;
     mmResponse: TMemo;
     pnResponseDetails: TPanel;
@@ -41,8 +42,9 @@ type
     lbServiceModel: TLabel;
     Label12: TLabel;
     lbTotalTokens: TLabel;
-    ProgressBar1: TProgressBar;
-    cBoxLanguage: TComboBox;
+    gBoxTanscription: TGroupBox;
+    mmTanscription: TMemo;
+    ckSpeakResponse: TCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure btnStartRecordingClick(Sender: TObject);
@@ -128,12 +130,16 @@ procedure TMainView.btnStopRecordingClick(Sender: TObject);
 var
   LAudioStream: TMemoryStream;
 begin
+  btnStopRecording.Enabled := False;
+
   FAudioRecorder.StopRecording;
   LAudioStream := FAudioRecorder.GetMP3Stream(20500);
   try
     LAudioStream.Position := 0;
     TMSMCPCloudAI1.Transcribe(LAudioStream, Self.GetLanguage); //, 'pt' 'en'
-    //FAudioRecorder.PlayMP3FromStream(LAudioStream);
+
+    if ckSpeakAudioRecording.Checked then
+      FAudioRecorder.PlayMP3FromStream(LAudioStream);
   finally
     LAudioStream.Free;
   end;
@@ -156,7 +162,7 @@ begin
 
   mmTanscription.Lines.Text := Text;
   TMSMCPCloudAI1.Context.Text := Text;
-  TMSMCPCloudAI1.Execute;
+  TMSMCPCloudAI1.Execute();
 end;
 
 procedure TMainView.TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse; AHttpStatusCode: Integer;
@@ -174,6 +180,9 @@ begin
   lbNumTokensResponse.Caption := AResponse.CompletionTokens.ToString;
   lbTotalTokens.Caption := AResponse.TotalTokens.ToString;
   lbServiceModel.Caption := AResponse.ServiceModel;
+
+  if ckSpeakResponse.Checked then
+    TMSMCPCloudAI1.Speak(AResponse.Content.Text);
 end;
 
 end.

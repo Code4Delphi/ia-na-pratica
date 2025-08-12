@@ -2,8 +2,8 @@ object MainView: TMainView
   Left = 0
   Top = 0
   Caption = 'IA na pr'#225'tica: TTS e STT Demo'
-  ClientHeight = 572
-  ClientWidth = 780
+  ClientHeight = 698
+  ClientWidth = 845
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,28 +18,35 @@ object MainView: TMainView
   object Splitter1: TSplitter
     Left = 0
     Top = 273
-    Width = 780
+    Width = 845
     Height = 8
     Cursor = crVSplit
     Align = alTop
     Beveled = True
     ExplicitTop = 161
+    ExplicitWidth = 780
   end
   object pnTop: TPanel
     Left = 0
     Top = 0
-    Width = 780
+    Width = 845
     Height = 273
     Align = alTop
     BevelInner = bvLowered
     TabOrder = 0
+    ExplicitTop = -6
     object pnButtonsTop: TPanel
       Left = 2
       Top = 2
-      Width = 776
+      Width = 841
       Height = 39
       Align = alTop
       TabOrder = 0
+      ExplicitLeft = 3
+      ExplicitTop = 0
+      DesignSize = (
+        841
+        39)
       object btnStartRecording: TButton
         AlignWithMargins = True
         Left = 155
@@ -62,7 +69,6 @@ object MainView: TMainView
         Caption = 'Stop recording'
         TabOrder = 1
         OnClick = btnStopRecordingClick
-        ExplicitLeft = 131
         ExplicitTop = 2
       end
       object ProgressBar1: TProgressBar
@@ -92,7 +98,7 @@ object MainView: TMainView
         Height = 23
         Margins.Top = 8
         Align = alLeft
-        ItemIndex = 0
+        DropDownCount = 15
         TabOrder = 3
         Text = 'Auto  '
         Items.Strings = (
@@ -101,19 +107,39 @@ object MainView: TMainView
           'Portugu'#234's - PT'
           'Espanhol - ES'
           'Franc'#234's - FR'
-          'Alem'#227'o - DE'
           'Italiano - IT'
           'Japon'#234's - JA'
-          'Chin'#234's - ZH'
           #193'rabe - AR')
         ExplicitLeft = -49
         ExplicitTop = -2
+      end
+      object ckSpeakAudioRecording: TCheckBox
+        Left = 690
+        Top = 1
+        Width = 150
+        Height = 17
+        Anchors = [akTop, akRight]
+        Caption = 'Speak audio recording'
+        Checked = True
+        State = cbChecked
+        TabOrder = 4
+      end
+      object ckSpeakResponse: TCheckBox
+        Left = 690
+        Top = 18
+        Width = 150
+        Height = 17
+        Anchors = [akTop, akRight]
+        Caption = 'Speak response'
+        Checked = True
+        State = cbChecked
+        TabOrder = 5
       end
     end
     object gBoxTanscription: TGroupBox
       Left = 2
       Top = 41
-      Width = 776
+      Width = 841
       Height = 230
       Align = alClient
       Caption = ' Audio transcription  '
@@ -121,18 +147,21 @@ object MainView: TMainView
       Padding.Right = 1
       Padding.Bottom = 1
       TabOrder = 1
-      ExplicitLeft = 4
-      ExplicitTop = 43
-      ExplicitHeight = 118
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitWidth = 992
+      ExplicitHeight = 126
       object mmTanscription: TMemo
         Left = 3
         Top = 17
-        Width = 770
+        Width = 835
         Height = 210
         Align = alClient
         BorderStyle = bsNone
+        Lines.Strings = (
+          '')
         TabOrder = 0
-        ExplicitLeft = 2
+        ExplicitLeft = 4
         ExplicitTop = 16
       end
     end
@@ -140,42 +169,41 @@ object MainView: TMainView
   object gBoxResponse: TGroupBox
     Left = 0
     Top = 281
-    Width = 780
-    Height = 291
+    Width = 845
+    Height = 417
     Align = alClient
     Caption = ' Response '
     Padding.Left = 1
     Padding.Right = 1
     Padding.Bottom = 1
     TabOrder = 1
-    ExplicitLeft = -245
-    ExplicitTop = 238
-    ExplicitWidth = 1025
-    ExplicitHeight = 290
+    ExplicitLeft = -149
+    ExplicitTop = 414
+    ExplicitWidth = 994
+    ExplicitHeight = 271
     object mmResponse: TMemo
       Left = 3
       Top = 17
-      Width = 774
-      Height = 248
+      Width = 839
+      Height = 374
       Align = alClient
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
-      ExplicitWidth = 1019
-      ExplicitHeight = 247
+      ExplicitLeft = 2
     end
     object pnResponseDetails: TPanel
       Left = 3
-      Top = 265
-      Width = 774
+      Top = 391
+      Width = 839
       Height = 23
       Align = alBottom
       BevelEdges = [beTop]
       BevelKind = bkTile
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitTop = 264
-      ExplicitWidth = 1019
+      ExplicitTop = 245
+      ExplicitWidth = 988
       object Label9: TLabel
         Left = 174
         Top = 0
@@ -269,7 +297,7 @@ object MainView: TMainView
     Settings.GeminiModel = 'gemini-1.5-flash-latest'
     Settings.OpenAIModel = 'gpt-4o'
     Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
-    Settings.GrokModel = 'grok-3'
+    Settings.GrokModel = 'grok-beta'
     Settings.ClaudeModel = 'claude-3-5-sonnet-20241022'
     Settings.OllamaModel = 'llama3.2:latest'
     Settings.DeepSeekModel = 'deepseek-chat'
@@ -281,7 +309,7 @@ object MainView: TMainView
     OnExecuted = TMSMCPCloudAI1Executed
     OnSpeechAudio = TMSMCPCloudAI1SpeechAudio
     OnTranscribeAudio = TMSMCPCloudAI1TranscribeAudio
-    Left = 546
-    Top = 74
+    Left = 520
+    Top = 112
   end
 end
