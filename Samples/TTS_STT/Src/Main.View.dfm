@@ -41,14 +41,15 @@ object MainView: TMainView
       Height = 39
       Align = alTop
       TabOrder = 0
+      ExplicitTop = -4
       DesignSize = (
         841
         39)
       object btnStartRecording: TButton
         AlignWithMargins = True
-        Left = 155
+        Left = 127
         Top = 4
-        Width = 121
+        Width = 90
         Height = 31
         Cursor = crHandPoint
         Align = alLeft
@@ -58,9 +59,9 @@ object MainView: TMainView
       end
       object btnStopRecording: TButton
         AlignWithMargins = True
-        Left = 282
+        Left = 223
         Top = 4
-        Width = 121
+        Width = 90
         Height = 31
         Cursor = crHandPoint
         Align = alLeft
@@ -70,9 +71,9 @@ object MainView: TMainView
       end
       object ProgressBar1: TProgressBar
         AlignWithMargins = True
-        Left = 410
+        Left = 320
         Top = 9
-        Width = 175
+        Width = 129
         Height = 21
         Margins.Left = 4
         Margins.Top = 8
@@ -89,7 +90,7 @@ object MainView: TMainView
         AlignWithMargins = True
         Left = 4
         Top = 9
-        Width = 145
+        Width = 117
         Height = 23
         Margins.Top = 8
         Align = alLeft
@@ -130,17 +131,28 @@ object MainView: TMainView
       end
       object btnStopTalking: TButton
         AlignWithMargins = True
-        Left = 592
+        Left = 552
         Top = 4
-        Width = 81
+        Width = 90
         Height = 31
         Cursor = crHandPoint
         Align = alLeft
         Caption = 'Stop talking'
         TabOrder = 6
         OnClick = btnStopTalkingClick
-        ExplicitTop = 8
-        ExplicitHeight = 25
+      end
+      object btnLoadAudio: TButton
+        AlignWithMargins = True
+        Left = 456
+        Top = 4
+        Width = 90
+        Height = 31
+        Cursor = crHandPoint
+        Align = alLeft
+        Caption = 'Load audio'
+        TabOrder = 7
+        OnClick = btnLoadAudioClick
+        ExplicitTop = 2
       end
     end
     object gBoxTanscription: TGroupBox
@@ -189,6 +201,8 @@ object MainView: TMainView
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
+      ExplicitLeft = 2
+      ExplicitTop = 13
     end
     object pnResponseDetails: TPanel
       Left = 3
@@ -253,7 +267,6 @@ object MainView: TMainView
         Align = alLeft
         Caption = 'Model response: '
         Layout = tlCenter
-        ExplicitLeft = 515
         ExplicitHeight = 15
       end
       object lbServiceModel: TLabel
@@ -264,7 +277,6 @@ object MainView: TMainView
         Align = alLeft
         Caption = '-'
         Layout = tlCenter
-        ExplicitLeft = 605
         ExplicitHeight = 15
       end
       object Label12: TLabel
@@ -275,7 +287,6 @@ object MainView: TMainView
         Align = alLeft
         Caption = 'Total tokens: '
         Layout = tlCenter
-        ExplicitLeft = 356
         ExplicitHeight = 15
       end
       object lbTotalTokens: TLabel
@@ -308,7 +319,13 @@ object MainView: TMainView
     OnExecuted = TMSMCPCloudAI1Executed
     OnSpeechAudio = TMSMCPCloudAI1SpeechAudio
     OnTranscribeAudio = TMSMCPCloudAI1TranscribeAudio
-    Left = 520
-    Top = 112
+    Left = 624
+    Top = 136
+  end
+  object OpenDialog1: TOpenDialog
+    DefaultExt = 'mp3'
+    Filter = 'Arquivos MP3 (*.mp3)|*.mp3|Todos os arquivos (*.*)|*.*'
+    Left = 624
+    Top = 72
   end
 end
