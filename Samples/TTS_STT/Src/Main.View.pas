@@ -45,6 +45,7 @@ type
     gBoxTanscription: TGroupBox;
     mmTanscription: TMemo;
     ckSpeakResponse: TCheckBox;
+    btnStopTalking: TButton;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure btnStartRecordingClick(Sender: TObject);
@@ -54,6 +55,7 @@ type
     procedure TMSMCPCloudAI1TranscribeAudio(Sender: TObject; HttpStatusCode: Integer; HttpResult, Text: string);
     procedure TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse; AHttpStatusCode: Integer;
       AHttpResult: string);
+    procedure btnStopTalkingClick(Sender: TObject);
   private
     FAudioRecorder: TAudioRecorder;
     procedure ScreenRecordingOn;
@@ -79,11 +81,12 @@ begin
 
   TMSMCPCloudAI1.APIKeys.LoadFromFile('..\..\Files\aikeys.cfg', 'PasswordTest');
   TMSMCPCloudAI1.Service := aiOpenAI;
+  TMSMCPCloudAI1.Settings.WebSearch := True;
 end;
 
 procedure TMainView.FormDestroy(Sender: TObject);
 begin
-   FAudioRecorder.Free;
+  FAudioRecorder.Free;
 end;
 
 procedure TMainView.ScreenRecordingOn;
@@ -91,6 +94,7 @@ begin
   ProgressBar1.State := pbsNormal;
   btnStartRecording.Enabled := False;
   btnStopRecording.Enabled := True;
+  btnStopTalking.Enabled := False;
   Self.ClearResponse;
 end;
 
@@ -98,6 +102,7 @@ procedure TMainView.ScreenRecordingOff;
 begin
   btnStartRecording.Enabled := True;
   btnStopRecording.Enabled := False;
+  btnStopTalking.Enabled := False;
   ProgressBar1.State := pbsPaused;
 end;
 
@@ -139,15 +144,25 @@ begin
     TMSMCPCloudAI1.Transcribe(LAudioStream, Self.GetLanguage); //, 'pt' 'en'
 
     if ckSpeakAudioRecording.Checked then
+    begin
+      btnStopTalking.Enabled := True;
       FAudioRecorder.PlayMP3FromStream(LAudioStream);
+    end;
   finally
     LAudioStream.Free;
   end;
 end;
 
+procedure TMainView.btnStopTalkingClick(Sender: TObject);
+begin
+  FAudioRecorder.PlayMP3FromFile('');
+  btnStopTalking.Enabled := False;
+end;
+
 procedure TMainView.TMSMCPCloudAI1SpeechAudio(Sender: TObject; HttpStatusCode: Integer; HttpResult: string;
   SoundBuffer: TMemoryStream);
 begin
+  btnStopTalking.Enabled := True;
   FAudioRecorder.PlayMP3FromStream(SoundBuffer);
 end;
 

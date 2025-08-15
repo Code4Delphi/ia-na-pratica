@@ -1,7 +1,7 @@
 object MainView: TMainView
   Left = 0
   Top = 0
-  Caption = 'IA na pr'#225'tica: TTS e STT Demo'
+  Caption = 'AI in practice: TTS e STT Demo'
   ClientHeight = 698
   ClientWidth = 845
   Color = clBtnFace
@@ -34,7 +34,6 @@ object MainView: TMainView
     Align = alTop
     BevelInner = bvLowered
     TabOrder = 0
-    ExplicitTop = -6
     object pnButtonsTop: TPanel
       Left = 2
       Top = 2
@@ -42,7 +41,6 @@ object MainView: TMainView
       Height = 39
       Align = alTop
       TabOrder = 0
-      ExplicitTop = -4
       DesignSize = (
         841
         39)
@@ -52,11 +50,11 @@ object MainView: TMainView
         Top = 4
         Width = 121
         Height = 31
+        Cursor = crHandPoint
         Align = alLeft
         Caption = 'Start recording'
         TabOrder = 0
         OnClick = btnStartRecordingClick
-        ExplicitLeft = 4
       end
       object btnStopRecording: TButton
         AlignWithMargins = True
@@ -64,17 +62,17 @@ object MainView: TMainView
         Top = 4
         Width = 121
         Height = 31
+        Cursor = crHandPoint
         Align = alLeft
         Caption = 'Stop recording'
         TabOrder = 1
         OnClick = btnStopRecordingClick
-        ExplicitTop = 2
       end
       object ProgressBar1: TProgressBar
         AlignWithMargins = True
         Left = 410
         Top = 9
-        Width = 200
+        Width = 175
         Height = 21
         Margins.Left = 4
         Margins.Top = 8
@@ -86,8 +84,6 @@ object MainView: TMainView
         SmoothReverse = True
         State = pbsPaused
         TabOrder = 2
-        ExplicitLeft = 261
-        ExplicitTop = 7
       end
       object cBoxLanguage: TComboBox
         AlignWithMargins = True
@@ -109,18 +105,15 @@ object MainView: TMainView
           'Italiano - IT'
           'Japon'#234's - JA'
           #193'rabe - AR')
-        ExplicitLeft = -49
-        ExplicitTop = -2
       end
       object ckSpeakAudioRecording: TCheckBox
         Left = 690
         Top = 1
         Width = 150
         Height = 17
+        Cursor = crHandPoint
         Anchors = [akTop, akRight]
         Caption = 'Speak audio recording'
-        Checked = True
-        State = cbChecked
         TabOrder = 4
       end
       object ckSpeakResponse: TCheckBox
@@ -128,11 +121,26 @@ object MainView: TMainView
         Top = 18
         Width = 150
         Height = 17
+        Cursor = crHandPoint
         Anchors = [akTop, akRight]
         Caption = 'Speak response'
         Checked = True
         State = cbChecked
         TabOrder = 5
+      end
+      object btnStopTalking: TButton
+        AlignWithMargins = True
+        Left = 592
+        Top = 4
+        Width = 81
+        Height = 31
+        Cursor = crHandPoint
+        Align = alLeft
+        Caption = 'Stop talking'
+        TabOrder = 6
+        OnClick = btnStopTalkingClick
+        ExplicitTop = 8
+        ExplicitHeight = 25
       end
     end
     object gBoxTanscription: TGroupBox
@@ -146,10 +154,6 @@ object MainView: TMainView
       Padding.Right = 1
       Padding.Bottom = 1
       TabOrder = 1
-      ExplicitLeft = 1
-      ExplicitTop = 1
-      ExplicitWidth = 992
-      ExplicitHeight = 126
       object mmTanscription: TMemo
         Left = 3
         Top = 17
@@ -160,7 +164,7 @@ object MainView: TMainView
         Lines.Strings = (
           '')
         TabOrder = 0
-        ExplicitLeft = 4
+        ExplicitLeft = 2
         ExplicitTop = 16
       end
     end
@@ -176,10 +180,6 @@ object MainView: TMainView
     Padding.Right = 1
     Padding.Bottom = 1
     TabOrder = 1
-    ExplicitLeft = -149
-    ExplicitTop = 414
-    ExplicitWidth = 994
-    ExplicitHeight = 271
     object mmResponse: TMemo
       Left = 3
       Top = 17
@@ -189,8 +189,6 @@ object MainView: TMainView
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
-      ExplicitLeft = 4
-      ExplicitTop = 13
     end
     object pnResponseDetails: TPanel
       Left = 3
@@ -202,12 +200,10 @@ object MainView: TMainView
       BevelKind = bkTile
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitTop = 245
-      ExplicitWidth = 988
       object Label9: TLabel
         Left = 174
         Top = 0
-        Width = 92
+        Width = 93
         Height = 21
         Hint = 'N'#186' de tokens que a resposta cont'#233'm: '
         Align = alLeft
@@ -218,7 +214,7 @@ object MainView: TMainView
         ExplicitHeight = 15
       end
       object lbNumTokensResponse: TLabel
-        Left = 266
+        Left = 267
         Top = 0
         Width = 90
         Height = 21
@@ -250,37 +246,40 @@ object MainView: TMainView
         ExplicitLeft = 83
       end
       object Label11: TLabel
-        Left = 515
+        Left = 517
         Top = 0
         Width = 90
         Height = 21
         Align = alLeft
         Caption = 'Model response: '
         Layout = tlCenter
+        ExplicitLeft = 515
         ExplicitHeight = 15
       end
       object lbServiceModel: TLabel
-        Left = 605
+        Left = 607
         Top = 0
         Width = 5
         Height = 21
         Align = alLeft
         Caption = '-'
         Layout = tlCenter
+        ExplicitLeft = 605
         ExplicitHeight = 15
       end
       object Label12: TLabel
-        Left = 356
+        Left = 357
         Top = 0
-        Width = 69
+        Width = 70
         Height = 21
         Align = alLeft
         Caption = 'Total tokens: '
         Layout = tlCenter
+        ExplicitLeft = 356
         ExplicitHeight = 15
       end
       object lbTotalTokens: TLabel
-        Left = 425
+        Left = 427
         Top = 0
         Width = 90
         Height = 21
