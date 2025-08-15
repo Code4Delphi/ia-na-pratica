@@ -46,6 +46,8 @@ type
     mmTanscription: TMemo;
     ckSpeakResponse: TCheckBox;
     btnStopTalking: TButton;
+    btnLoadAudio: TButton;
+    OpenDialog1: TOpenDialog;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure btnStartRecordingClick(Sender: TObject);
@@ -56,6 +58,7 @@ type
     procedure TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse; AHttpStatusCode: Integer;
       AHttpResult: string);
     procedure btnStopTalkingClick(Sender: TObject);
+    procedure btnLoadAudioClick(Sender: TObject);
   private
     FAudioRecorder: TAudioRecorder;
     procedure ScreenRecordingOn;
@@ -95,6 +98,7 @@ begin
   btnStartRecording.Enabled := False;
   btnStopRecording.Enabled := True;
   btnStopTalking.Enabled := False;
+  btnLoadAudio.Enabled := False;
   Self.ClearResponse;
 end;
 
@@ -103,6 +107,7 @@ begin
   btnStartRecording.Enabled := True;
   btnStopRecording.Enabled := False;
   btnStopTalking.Enabled := False;
+  btnLoadAudio.Enabled := True;
   ProgressBar1.State := pbsPaused;
 end;
 
@@ -141,7 +146,7 @@ begin
   LAudioStream := FAudioRecorder.GetMP3Stream(20500);
   try
     LAudioStream.Position := 0;
-    TMSMCPCloudAI1.Transcribe(LAudioStream, Self.GetLanguage); //, 'pt' 'en'
+    TMSMCPCloudAI1.Transcribe(LAudioStream, Self.GetLanguage); //'en'
 
     if ckSpeakAudioRecording.Checked then
     begin
@@ -198,6 +203,20 @@ begin
 
   if ckSpeakResponse.Checked then
     TMSMCPCloudAI1.Speak(AResponse.Content.Text);
+end;
+
+procedure TMainView.btnLoadAudioClick(Sender: TObject);
+begin
+  if not OpenDialog1.Execute then
+    Exit;
+
+  TMSMCPCloudAI1.Transcribe(OpenDialog1.FileName, Self.GetLanguage); //'en'
+
+  if ckSpeakAudioRecording.Checked then
+  begin
+    btnStopTalking.Enabled := True;
+    FAudioRecorder.PlayMP3FromFile(OpenDialog1.FileName);
+  end;
 end;
 
 end.
