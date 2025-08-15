@@ -33,9 +33,6 @@ object RAGMainView: TRAGMainView
     Height = 65
     Align = alTop
     TabOrder = 0
-    ExplicitLeft = 8
-    ExplicitTop = -5
-    ExplicitWidth = 931
     object Label1: TLabel
       Left = 18
       Top = 8
@@ -91,8 +88,6 @@ object RAGMainView: TRAGMainView
     Height = 160
     Align = alTop
     TabOrder = 1
-    ExplicitTop = 185
-    ExplicitWidth = 931
     object gBoxQuestion: TGroupBox
       Left = 1
       Top = 1
@@ -104,8 +99,6 @@ object RAGMainView: TRAGMainView
       Padding.Right = 1
       Padding.Bottom = 1
       TabOrder = 0
-      ExplicitWidth = 929
-      ExplicitHeight = 222
       object mmQuestion: TMemo
         Left = 3
         Top = 17
@@ -116,7 +109,7 @@ object RAGMainView: TRAGMainView
         Lines.Strings = (
           '- Quando a DelphiDevs foi fundada?')
         TabOrder = 0
-        ExplicitLeft = 2
+        ExplicitLeft = 4
       end
     end
     object Panel1: TPanel
@@ -129,8 +122,6 @@ object RAGMainView: TRAGMainView
       Padding.Right = 2
       Padding.Bottom = 2
       TabOrder = 1
-      ExplicitTop = 223
-      ExplicitWidth = 929
       object btnExecute: TBitBtn
         Left = 1
         Top = 3
@@ -172,9 +163,7 @@ object RAGMainView: TRAGMainView
     Padding.Right = 1
     Padding.Bottom = 1
     TabOrder = 2
-    ExplicitTop = 326
-    ExplicitWidth = 931
-    ExplicitHeight = 339
+    ExplicitLeft = 2
     object mmResponse: TMemo
       Left = 3
       Top = 17
@@ -184,10 +173,8 @@ object RAGMainView: TRAGMainView
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
-      ExplicitLeft = 2
+      ExplicitLeft = 4
       ExplicitTop = 13
-      ExplicitWidth = 925
-      ExplicitHeight = 296
     end
     object pnResponseDetails: TPanel
       Left = 3
@@ -199,8 +186,6 @@ object RAGMainView: TRAGMainView
       BevelKind = bkTile
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitTop = 313
-      ExplicitWidth = 925
       object Label9: TLabel
         Left = 174
         Top = 0
@@ -355,6 +340,7 @@ object RAGMainView: TRAGMainView
     Service = aiOpenAI
     Settings.GeminiModel = 'gemini-1.5-flash-latest'
     Settings.OpenAIModel = 'gpt-4o'
+    Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
     Settings.GrokModel = 'grok-3'
     Settings.ClaudeModel = 'claude-3-5-sonnet-20241022'
     Settings.OllamaModel = 'llama3.2:latest'
