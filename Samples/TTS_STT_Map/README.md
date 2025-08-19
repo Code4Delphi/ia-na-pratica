@@ -1,5 +1,5 @@
-[![Static Badge](https://img.shields.io/badge/English-(en)-red)](https://github.com/Code4Delphi/ia-na-pratica/tree/master/Samples/TTS_STT#%EF%B8%8F-talking-to-ai-tts--stt)
-[![Static Badge](https://img.shields.io/badge/Portugu%C3%AAs-(ptBR)-green)](https://github.com/Code4Delphi/ia-na-pratica/tree/master/Samples/TTS_STT#%EF%B8%8F-conversando-com-a-ia-tts--stt)
+[![Static Badge](https://img.shields.io/badge/English-(en)-red)](https://github.com/Code4Delphi/ia-na-pratica/tree/master/Samples/TTS_STT_Map#%EF%B8%8F-voice-controlled-maps-ttsstt)
+[![Static Badge](https://img.shields.io/badge/Portugu%C3%AAs-(ptBR)-green)](https://github.com/Code4Delphi/ia-na-pratica/tree/master/Samples/TTS_STT_Map#%EF%B8%8F-mapas-controlados-por-voz-tts--stt)
 
 # 🎙️ Voice-Controlled Maps (TTS/STT)
 Voice-controlled route navigation on an interactive map. Ask the AI, "Show me the route between São Paulo and Rio de Janeiro," and it will add the route to the map.
@@ -14,7 +14,7 @@ Voice-controlled route navigation on an interactive map. Ask the AI, "Show me th
 
 <br/>
 
-[![Static Badge](https://img.shields.io/badge/Portugu%C3%AAs-(ptBR)-green)](https://github.com/Code4Delphi/ia-na-pratica/tree/master/Samples/TTS_STT#%EF%B8%8F-conversando-com-a-ia-tts--stt)
+[![Static Badge](https://img.shields.io/badge/Portugu%C3%AAs-(ptBR)-green)](https://github.com/Code4Delphi/ia-na-pratica/tree/master/Samples/TTS_STT_Map#%EF%B8%8F-mapas-controlados-por-voz-tts--stt)
 # 🎙️ Mapas controlados por voz (TTS / STT)
 Navegação de rota controlada por voz em um mapa interativo. Peça para IA "Mostre a rota entre São Paulo e Rio de Janeiro." e ela ira adicionar a rota ao mapa.
 
