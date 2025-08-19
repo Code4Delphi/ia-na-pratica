@@ -323,8 +323,8 @@ begin
     LcEnd.Longitude := Args.GetValue<double>('endlon');
     LcEnd.Latitude := Args.GetValue<double>('endlat');
 
-    if not ckSpeakResponse.Checked then  
-     TMSMCPCloudAI1.Speak(Format('Estou calculando a rota de %s para %s', [LnStart, LnEnd]));
+    //if not ckSpeakResponse.Checked then
+    //  TMSMCPCloudAI1.Speak(Format('Estou calculando a rota de %s para %s', [LnStart, LnEnd]));
 
     ShowDirections(LnStart, LnEnd, LcStart, LcEnd);
   end;

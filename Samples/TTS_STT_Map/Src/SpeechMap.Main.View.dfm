@@ -37,7 +37,6 @@ object SpeechMapMainView: TSpeechMapMainView
     Options.DefaultLatitude = 40.689247000000000000
     Options.DefaultLongitude = -74.044501999999990000
     Options.DefaultZoomLevel = 12.000000000000000000
-    ExplicitHeight = 494
   end
   object pnTop: TPanel
     Left = 0
@@ -147,9 +146,6 @@ object SpeechMapMainView: TSpeechMapMainView
         Caption = 'Add example text'
         TabOrder = 6
         OnClick = btnAddExampleTextClick
-        ExplicitLeft = 727
-        ExplicitTop = 8
-        ExplicitHeight = 25
       end
       object btnStopTalking: TButton
         AlignWithMargins = True
@@ -162,8 +158,6 @@ object SpeechMapMainView: TSpeechMapMainView
         Caption = 'Stop talking'
         TabOrder = 7
         OnClick = btnStopTalkingClick
-        ExplicitLeft = 809
-        ExplicitTop = 2
       end
     end
     object gBoxTanscription: TGroupBox
@@ -181,13 +175,12 @@ object SpeechMapMainView: TSpeechMapMainView
         Left = 3
         Top = 15
         Width = 1062
-        Height = 82
+        Height = 88
         Align = alClient
         BorderStyle = bsNone
         Lines.Strings = (
           '')
         TabOrder = 0
-        ExplicitHeight = 74
       end
     end
     object gBoxResponse: TGroupBox
@@ -201,7 +194,6 @@ object SpeechMapMainView: TSpeechMapMainView
       Padding.Right = 1
       Padding.Bottom = 1
       TabOrder = 2
-      ExplicitTop = 133
       object mmResponse: TMemo
         Left = 3
         Top = 15
@@ -211,9 +203,6 @@ object SpeechMapMainView: TSpeechMapMainView
         BorderStyle = bsNone
         ScrollBars = ssVertical
         TabOrder = 0
-        ExplicitLeft = 4
-        ExplicitTop = 14
-        ExplicitHeight = 96
       end
     end
   end
