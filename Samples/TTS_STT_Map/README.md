@@ -10,6 +10,15 @@ Voice-controlled route navigation on an interactive map. Ask the AI, "Show me th
 - [Map Component](https://www.tmssoftware.com/site/tmsfncmaps.asp)
 - [Generate the OpenRouteService API Key for map use](https://openrouteservice.org/dev/#/api-docs)
 
+## 📚 DLLs not found?
+If you see the following error:
+"Could not initialize Edge Chromium! Please check if WebView2Loader_xXX.dll is correctly distributed and accessible"
+or any other DLL-related error, this may indicate two missing DLLs on your computer. <br/>
+If this happens, follow the steps described in the following link: [Steps to enable Edge Chromium support](https://www.tmssoftware.com/site/edgechromium.asp) <br/>
+Or follow the instructions below:
+- Download the DLL **[WebView2Loader_x86.dll](https://code4delphi.com.br/downloads/dlls/WebView2Loader_x86.dll)** and add it to the **SysWow64** folder
+- Download the DLL **[WebView2Loader_x64.dll](https://code4delphi.com.br/downloads/dlls/WebView2Loader_x64.dll)** and add it to the **System32** folder
+
 ---
 
 <br/>
@@ -23,6 +32,15 @@ Navegação de rota controlada por voz em um mapa interativo. Peça para IA "Mos
 - [Post com instruções sobre TMS FNC Maps e OpenRouteService](https://www.tmssoftware.com/site/blog.asp?post=851)
 - [Componente de mapa](https://www.tmssoftware.com/site/tmsfncmaps.asp)
 - [Gerar a API Key OpenRouteService para uso do mapa ](https://openrouteservice.org/dev/#/api-docs)
+
+## 📚 DLLs não encontradas?
+Caso apareça o seguinte erro:
+"Could not initialize Edge Chromium! Please check if WebView2Loader_xXX.dll is correctly distributed and accessible"
+ou algum erro relacionado a DLL, isso pode indicar a falta de duas DLLs em seu computador. <br/>
+Se isso acontecer, siga os passos descritos no seguinte link: [Steps to enable Edge Chromium support](https://www.tmssoftware.com/site/edgechromium.asp) <br/>
+Ou siga as instruções abaixo:
+- Baixe a DLL **[WebView2Loader_x86.dll](https://code4delphi.com.br/downloads/dlls/WebView2Loader_x86.dll)** e adicione-a na pasta **SysWow64**
+- Baixe a DLL **[WebView2Loader_x64.dll](https://code4delphi.com.br/downloads/dlls/WebView2Loader_x64.dll)** e adicione-a na pasta **System32**
   
 ---
 
