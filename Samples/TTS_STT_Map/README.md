@@ -9,6 +9,7 @@ Voice-controlled route navigation on an interactive map. Ask the AI, "Show me th
 - [Post with instructions on TMS FNC Maps and OpenRouteService](https://www.tmssoftware.com/site/blog.asp?post=851)
 - [Map Component](https://www.tmssoftware.com/site/tmsfncmaps.asp)
 - [Generate the OpenRouteService API Key for map use](https://openrouteservice.org/dev/#/api-docs)
+- [Step-by-step guide to using the DelphiAudio library](https://github.com/Code4Delphi/DelphiAudio)
 
 ## 📚 DLLs not found?
 If you see the following error:
@@ -32,6 +33,7 @@ Navegação de rota controlada por voz em um mapa interativo. Peça para IA "Mos
 - [Post com instruções sobre TMS FNC Maps e OpenRouteService](https://www.tmssoftware.com/site/blog.asp?post=851)
 - [Componente de mapa](https://www.tmssoftware.com/site/tmsfncmaps.asp)
 - [Gerar a API Key OpenRouteService para uso do mapa ](https://openrouteservice.org/dev/#/api-docs)
+- [Passo a passo para uso da biblioteca DelphiAudio](https://github.com/Code4Delphi/DelphiAudio)
 
 ## 📚 DLLs não encontradas?
 Caso apareça o seguinte erro:
