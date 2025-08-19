@@ -100,7 +100,7 @@ implementation
 
 const
   //GENERATE THE API KEY: https://openrouteservice.org/dev/#/api-docs
-  KEY_OPENROUTE = 'AdDD_API_KEY';
+  KEY_OPENROUTE = 'ADD_API_KEY';
 
 procedure TSpeechMapMainView.FormCreate(Sender: TObject);
 begin
