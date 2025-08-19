@@ -100,7 +100,7 @@ implementation
 
 const
   //GENERATE THE API KEY: https://openrouteservice.org/dev/#/api-docs
-  KEY_OPENROUTE = 'eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6ImYwYzZjMDA2OWQxMjQ5YTQ4M2NiYTBhOTdhZWYyYTgzIiwiaCI6Im11cm11cjY0In0=';
+  KEY_OPENROUTE = 'AdDD_API_KEY';
 
 procedure TSpeechMapMainView.FormCreate(Sender: TObject);
 begin
@@ -323,8 +323,8 @@ begin
     LcEnd.Longitude := Args.GetValue<double>('endlon');
     LcEnd.Latitude := Args.GetValue<double>('endlat');
 
-    if not ckSpeakResponse.Checked then  
-     TMSMCPCloudAI1.Speak(Format('Estou calculando a rota de %s para %s', [LnStart, LnEnd]));
+    //if not ckSpeakResponse.Checked then
+    //  TMSMCPCloudAI1.Speak(Format('Estou calculando a rota de %s para %s', [LnStart, LnEnd]));
 
     ShowDirections(LnStart, LnEnd, LcStart, LcEnd);
   end;
