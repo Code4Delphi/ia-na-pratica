@@ -26,4 +26,5 @@ Navegação de rota controlada por voz em um mapa interativo. Peça para IA "Mos
   
 ---
 
-<img width="950" height="620" alt="Mapa" src="https://github.com/user-attachments/assets/36cad3d9-16de-4444-909f-7b211754cc0d" />
+![Mapa-TTS-STT](https://github.com/user-attachments/assets/65ba964d-db9b-4212-abde-03e8acab725f)
+
