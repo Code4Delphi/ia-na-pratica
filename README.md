@@ -33,6 +33,7 @@ Você poderá acompanhar esta série através de nossa playlist:
 - [IA na Prática 14 - RAG - Retrieval-Augmented Generation](https://www.youtube.com/watch?v=JzT473X9N1Q&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 - [IA na Prática 15 - Cases de uso da IA](https://www.youtube.com/watch?v=pFlJAxcsSHE&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 - [IA na Prática 16 - Conversando com a IA - TTS/STT](https://www.youtube.com/watch?v=s4fsgngB8Oc&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+- [IA na Prática 17 – Interação com mapa por meio da fala (TTS/STT)](https://www.youtube.com/watch?v=Ywd3OzgETyw&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 
 ## IAs disponíveis
 Abaixo, apresentamos um guia rápido com os principais provedores de IA disponíveis, seus sites e links para geração de chaves de API.
