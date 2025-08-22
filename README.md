@@ -6,10 +6,11 @@ saremos componentes que abstraem toda a complexidade técnica, permitindo que vo
 
 ![IA-na pratica-900x900](https://github.com/user-attachments/assets/3b0dea30-0473-414c-a006-2983ac2093f2)
 
-## Componentes utilizados
-TTMSFNCCloudAI (TMS FNC Cloud Pack): [https://www.tmssoftware.com/site/tmsfnccloudpack.asp](https://www.tmssoftware.com/site/tmsfnccloudpack.asp)
+## Componente utilizado
+- [TMS AI Studio](https://www.tmssoftware.com/site/tmsaistudio.asp)
+- [Documentação](https://download.tmssoftware.com/doc/tmsaistudio/)
 
-Documentação: [https://download.tmssoftware.com/doc/tmsfnccloudpack/components/ttmsfnccloudai/](https://download.tmssoftware.com/doc/tmsfnccloudpack/components/ttmsfnccloudai/)
+Obs.: Nos primeiros vídeos o componente utilizado era o [TMSFNCCloudAI](https://www.tmssoftware.com/site/tmsfnccloudpack.asp). Porém, após o lançamento do TMS AI Studio, todos os componentes para interação com IA passaram a ser os componentes do TMS AI Studio. Portanto, ao invés de usar o TMSFNCCloudAI, deve ser utilizado o componente TMSMCPCloudAI.
 
 ## Vídeos de demonstração
 Você poderá acompanhar esta série através de nossa playlist:
