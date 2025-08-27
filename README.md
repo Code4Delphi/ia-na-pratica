@@ -158,6 +158,19 @@ O momento é agora: aproveite o conteúdo prático, explore os vídeos e os exem
 
 - 🌟 [Postagem sobre IA na prática: IAs utilizadas](https://code4delphi.com.br/blog/ia-na-pratica-ias-utilizadas/)
 
+## N8N
+- Plataforma de automação de fluxo de trabalho
+- Intuitiva e flexível, permite criar fluxos automatizados de forma visual e simples
+- Exemplo prático: arraste um card no Trello e alguém pode ser automaticamente avisado por WhatsApp ou e-mail
+- Código aberto (open source)
+- Pode ser utilizado diretamente pelo site [https://n8n.io/](https://n8n.io/) ou instalado em:
+  - Servidor próprio
+  - Hospedagem
+  - VPS
+  - Computador local
+- Pode ser Instalação facilitada com Docker
+- Suporta diversas [integrações](https://n8n.io/integrations/), incluindo: Dropbox, Google Drive, Telegram, WhatsApp, Trello, Mailchimp, entre outras.
+
 ## 📞 Contatos
 [![Telegram](https://img.shields.io/badge/Telegram-Join-blue?logo=telegram)](https://t.me/Code4Delphi)
 [![YouTube](https://img.shields.io/badge/YouTube-Join-red?logo=youtube&logoColor=red)](https://www.youtube.com/@code4delphi)
