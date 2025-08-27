@@ -158,7 +158,7 @@ O momento é agora: aproveite o conteúdo prático, explore os vídeos e os exem
 
 - 🌟 [Postagem sobre IA na prática: IAs utilizadas](https://code4delphi.com.br/blog/ia-na-pratica-ias-utilizadas/)
 
-## N8N
+## 📚 N8N
 - Plataforma de automação de fluxo de trabalho
 - Intuitiva e flexível, permite criar fluxos automatizados de forma visual e simples
 - Exemplo prático: arraste um card no Trello e alguém pode ser automaticamente avisado por WhatsApp ou e-mail
