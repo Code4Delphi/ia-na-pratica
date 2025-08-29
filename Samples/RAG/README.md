@@ -4,3 +4,6 @@ RAG é uma técnica utilizada para ampliar a capacidade de resposta dos modelos 
 Em resumo, é uma forma de "alimentar" o modelo de IA com dados externos, como arquivos ou documentos.
 
 Para mais detalhes acesse o seguinte post: https://www.tmssoftware.com/site/blog.asp?post=1358  
+
+## ▶️ Vídeo de demonstração
+[RAG - Retrieval-Augmented Generation](https://www.youtube.com/watch?v=JzT473X9N1Q&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
