@@ -288,17 +288,7 @@ end;
 
 procedure TToolsetsMainView.ProcessConfigsEmail;
 begin
-  TMSMCPCloudAIEmail1.SMTPHost := 'smtp.sparkpostmail.com';
-  TMSMCPCloudAIEmail1.SMPTUserName := 'SMTP_Injection';
-  TMSMCPCloudAIEmail1.SMTPPassword := '61163ddd81bf36c65a2ac8985b41471c87f2b62b';
-  TMSMCPCloudAIEmail1.SMTPSendFrom := 'contato@solusys.com.br';
-  TMSMCPCloudAIEmail1.SMPTPort := 587;
 
-//  TMSMCPCloudAIEmail1.SMTPHost := 'smtp.gmail.com';
-//  TMSMCPCloudAIEmail1.SMPTUserName := 'nfesolusys@gmail.com';
-//  TMSMCPCloudAIEmail1.SMTPPassword := 'Lbql rhbg mpev phuy';
-//  TMSMCPCloudAIEmail1.SMTPSendFrom := 'nfesolusys@gmail.com';
-//  TMSMCPCloudAIEmail1.SMPTPort := 465;
 end;
 
 end.

@@ -378,16 +378,14 @@ object ToolsetsMainView: TToolsetsMainView
           TabOrder = 0
           object mmQuestion: TMemo
             Left = 3
-            Top = 2
+            Top = 17
             Width = 1017
-            Height = 129
+            Height = 114
             Align = alClient
             BorderStyle = bsNone
             Lines.Strings = (
               'Ol'#225' quem '#233' voc'#234' e quem '#233' o seu fabricante?')
             TabOrder = 0
-            ExplicitLeft = 2
-            ExplicitTop = 1
           end
         end
         object Panel1: TPanel
@@ -546,8 +544,6 @@ object ToolsetsMainView: TToolsetsMainView
           BorderStyle = bsNone
           ScrollBars = ssVertical
           TabOrder = 1
-          ExplicitLeft = 2
-          ExplicitTop = 13
         end
       end
     end
