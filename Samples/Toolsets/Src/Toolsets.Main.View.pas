@@ -288,7 +288,11 @@ end;
 
 procedure TToolsetsMainView.ProcessConfigsEmail;
 begin
-
+  TMSMCPCloudAIEmail1.SMTPHost := 'smtp.mailserver.com';
+  TMSMCPCloudAIEmail1.SMPTUserName := 'noreply@myapp.com';
+  TMSMCPCloudAIEmail1.SMTPPassword := 'mypassword';
+  TMSMCPCloudAIEmail1.SMTPSendFrom := 'noreply@myapp.com';
+  TMSMCPCloudAIEmail1.SMPTPort := 587;
 end;
 
 end.
