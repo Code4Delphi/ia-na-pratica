@@ -27,6 +27,9 @@
         <Projects Include="TTS_STT_Map\TTS_STT_Map.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="Toolsets\Toolsets.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -107,14 +110,23 @@
     <Target Name="TTS_STT_Map:Make">
         <MSBuild Projects="TTS_STT_Map\TTS_STT_Map.dproj" Targets="Make"/>
     </Target>
+    <Target Name="Toolsets">
+        <MSBuild Projects="Toolsets\Toolsets.dproj"/>
+    </Target>
+    <Target Name="Toolsets:Clean">
+        <MSBuild Projects="Toolsets\Toolsets.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Toolsets:Make">
+        <MSBuild Projects="Toolsets\Toolsets.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="IAChat;Models;APIKey;FunctionCalling;Images;RAG;TTS_STT;TTS_STT_Map"/>
+        <CallTarget Targets="IAChat;Models;APIKey;FunctionCalling;Images;RAG;TTS_STT;TTS_STT_Map;Toolsets"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="IAChat:Clean;Models:Clean;APIKey:Clean;FunctionCalling:Clean;Images:Clean;RAG:Clean;TTS_STT:Clean;TTS_STT_Map:Clean"/>
+        <CallTarget Targets="IAChat:Clean;Models:Clean;APIKey:Clean;FunctionCalling:Clean;Images:Clean;RAG:Clean;TTS_STT:Clean;TTS_STT_Map:Clean;Toolsets:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="IAChat:Make;Models:Make;APIKey:Make;FunctionCalling:Make;Images:Make;RAG:Make;TTS_STT:Make;TTS_STT_Map:Make"/>
+        <CallTarget Targets="IAChat:Make;Models:Make;APIKey:Make;FunctionCalling:Make;Images:Make;RAG:Make;TTS_STT:Make;TTS_STT_Map:Make;Toolsets:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

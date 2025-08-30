@@ -14,12 +14,8 @@ uses
   Vcl.Dialogs,
   Vcl.StdCtrls,
   Vcl.ExtCtrls,
-  VCL.TMSFNCCustomComponent,
-  VCL.TMSFNCCloudBase,
-  VCL.TMSFNCCloudAI,
   Vcl.Buttons,
   Vcl.ComCtrls,
-  VCL.TMSFNCCloudAIToolSets,
   FireDAC.Stan.Intf,
   FireDAC.Stan.Option,
   FireDAC.Stan.Error,
@@ -40,7 +36,11 @@ uses
   FireDAC.Phys.SQLite,
   FireDAC.Phys.SQLiteDef,
   FireDAC.Stan.ExprFuncs,
-  FireDAC.Phys.SQLiteWrapper.Stat;
+  FireDAC.Phys.SQLiteWrapper.Stat,
+  TMS.MCP.CloudAIToolSets,
+  TMS.MCP.CloudAI,
+  TMS.MCP.CustomComponent,
+  TMS.MCP.CloudBase;
 
 type
   TToolsetsMainView = class(TForm)
@@ -54,12 +54,10 @@ type
     btnExecute: TBitBtn;
     Splitter1: TSplitter;
     gBoxResponse: TGroupBox;
-    mmResponse: TMemo;
     PageControl1: TPageControl;
     tabAPIKeys: TTabSheet;
     tabChat: TTabSheet;
     ProgressBar1: TProgressBar;
-    TMSFNCCloudAI1: TTMSFNCCloudAI;
     pnAPIKeysBack: TPanel;
     Label2: TLabel;
     Label3: TLabel;
@@ -108,18 +106,21 @@ type
     edtModelMistral: TEdit;
     edtModelOpenAI: TEdit;
     edtModelPerplexity: TEdit;
-    TMSFNCCloudAIDataSet1: TTMSFNCCloudAIDataSet;
     FDConnection1: TFDConnection;
     FDQuery1: TFDQuery;
     DataSource1: TDataSource;
-    TMSFNCCloudAIFileSystem1: TTMSFNCCloudAIFileSystem;
+    TMSMCPCloudAIDataSet1: TTMSMCPCloudAIDataSet;
+    TMSMCPCloudAIFileSystem1: TTMSMCPCloudAIFileSystem;
+    TMSMCPCloudAI1: TTMSMCPCloudAI;
+    mmResponse: TMemo;
+    TMSMCPCloudAIEmail1: TTMSMCPCloudAIEmail;
     procedure FormCreate(Sender: TObject);
     procedure cBoxIAServiceChange(Sender: TObject);
     procedure btnExecuteClick(Sender: TObject);
-    procedure TMSFNCCloudAI1Executed(Sender: TObject; AResponse: TTMSFNCCloudAIResponse; AHttpStatusCode: Integer;
-      AHttpResult: string);
     procedure btnSaveKeysClick(Sender: TObject);
     procedure btnLoadKeysClick(Sender: TObject);
+    procedure TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse; AHttpStatusCode: Integer;
+      AHttpResult: string);
   private
     procedure LoadKeys;
     procedure SaveKeys;
@@ -128,6 +129,7 @@ type
     procedure ModelsComponentToScreen;
     procedure ModelsScreenToComponent;
     procedure ProcessDatabaseConnection;
+    procedure ProcessConfigsEmail;
   public
 
   end;
@@ -149,7 +151,7 @@ begin
   Self.LoadKeys;
 
   //CARREGAR IAS DISPONIVEIS
-  cBoxIAService.Items.Assign(TMSFNCCloudAI1.GetServices(True));
+  cBoxIAService.Items.Assign(TMSMCPCloudAI1.GetServices(True));
   cBoxIAService.ItemIndex := 6;
   cBoxIAServiceChange(cBoxIAService);
 
@@ -157,6 +159,17 @@ begin
   Self.ModelsComponentToScreen;
 
   Self.ProcessDatabaseConnection;
+  Self.ProcessConfigsEmail;
+end;
+
+procedure TToolsetsMainView.Settings;
+begin
+  TMSMCPCloudAI1.Logging := ckGerarLogs.Checked;
+  TMSMCPCloudAI1.LogFileName := '..\..\Files\Chat.log';
+
+  TMSMCPCloudAI1.Settings.Temperature := StrToIntDef(edtTemperature.Text, 0);
+  TMSMCPCloudAI1.Settings.MaxTokens := StrToIntDef(edtMaxTokens.Text, 0);
+  TMSMCPCloudAI1.Settings.WebSearch := ckWebSearch.Checked;
 end;
 
 procedure TToolsetsMainView.ProcessDatabaseConnection;
@@ -166,19 +179,25 @@ begin
     FDQuery1.Open;
   except on E: Exception do
     ShowMessage('Não foi possível buscar os dados no banco. ' + sLineBreak +
-      'Caminho do arquivo: ' + FDConnection1.Params.Database + sLineBreak +
-      E.Message);
+      'Caminho do arquivo: ' + FDConnection1.Params.Database + sLineBreak + E.Message);
   end;
 end;
 
-procedure TToolsetsMainView.Settings;
+procedure TToolsetsMainView.TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse;
+  AHttpStatusCode: Integer; AHttpResult: string);
 begin
-  TMSFNCCloudAI1.Logging := ckGerarLogs.Checked;
-  TMSFNCCloudAI1.LogFileName := '..\..\Files\Chat.log';
+  ProgressBar1.State := pbsPaused;
+  if AHttpStatusCode <> 200 then
+  begin
+    mmResponse.Lines.Text := 'HTTP error code: ' + AHttpStatusCode.ToString + sLineBreak + AHttpResult;
+    Exit;
+  end;
 
-  TMSFNCCloudAI1.Settings.Temperature := StrToIntDef(edtTemperature.Text, 0);
-  TMSFNCCloudAI1.Settings.MaxTokens := StrToIntDef(edtMaxTokens.Text, 0);
-  TMSFNCCloudAI1.Settings.WebSearch := ckWebSearch.Checked;
+  mmResponse.Lines.Text := AResponse.Content.Text;
+  lbPromptTokens.Caption := AResponse.PromptTokens.ToString;
+  lbNumTokensResponse.Caption := AResponse.CompletionTokens.ToString;
+  lbTotalTokens.Caption := AResponse.TotalTokens.ToString;
+  lbServiceModel.Caption := AResponse.ServiceModel;
 end;
 
 procedure TToolsetsMainView.btnLoadKeysClick(Sender: TObject);
@@ -193,50 +212,50 @@ end;
 
 procedure TToolsetsMainView.LoadKeys;
 begin
-  TMSFNCCloudAI1.APIKeys.LoadFromFile(KEYS_FILE, KEYS_PASSWORD);
+  TMSMCPCloudAI1.APIKeys.LoadFromFile(KEYS_FILE, KEYS_PASSWORD);
 
-  edtKeyClaude.Text := TMSFNCCloudAI1.APIKeys.Claude;
-  edtKeyDeepSeek.Text := TMSFNCCloudAI1.APIKeys.DeepSeek;
-  edtKeyGemini.Text := TMSFNCCloudAI1.APIKeys.Gemini;
-  edtKeyGrok.Text := TMSFNCCloudAI1.APIKeys.Grok;
-  edtKeyMistral.Text := TMSFNCCloudAI1.APIKeys.Mistral;
-  edtKeyOpenAI.Text := TMSFNCCloudAI1.APIKeys.OpenAI;
-  edtKeyPerplexity.Text := TMSFNCCloudAI1.APIKeys.Perplexity;
+  edtKeyClaude.Text := TMSMCPCloudAI1.APIKeys.Claude;
+  edtKeyDeepSeek.Text := TMSMCPCloudAI1.APIKeys.DeepSeek;
+  edtKeyGemini.Text := TMSMCPCloudAI1.APIKeys.Gemini;
+  edtKeyGrok.Text := TMSMCPCloudAI1.APIKeys.Grok;
+  edtKeyMistral.Text := TMSMCPCloudAI1.APIKeys.Mistral;
+  edtKeyOpenAI.Text := TMSMCPCloudAI1.APIKeys.OpenAI;
+  edtKeyPerplexity.Text := TMSMCPCloudAI1.APIKeys.Perplexity;
 end;
 
 procedure TToolsetsMainView.SaveKeys;
 begin
-  TMSFNCCloudAI1.APIKeys.Claude := edtKeyClaude.Text;
-  TMSFNCCloudAI1.APIKeys.DeepSeek := edtKeyDeepSeek.Text;
-  TMSFNCCloudAI1.APIKeys.Gemini := edtKeyGemini.Text;
-  TMSFNCCloudAI1.APIKeys.Grok := edtKeyGrok.Text;
-  TMSFNCCloudAI1.APIKeys.Mistral := edtKeyMistral.Text;
-  TMSFNCCloudAI1.APIKeys.OpenAI := edtKeyOpenAI.Text;
-  TMSFNCCloudAI1.APIKeys.Perplexity := edtKeyPerplexity.Text;
+  TMSMCPCloudAI1.APIKeys.Claude := edtKeyClaude.Text;
+  TMSMCPCloudAI1.APIKeys.DeepSeek := edtKeyDeepSeek.Text;
+  TMSMCPCloudAI1.APIKeys.Gemini := edtKeyGemini.Text;
+  TMSMCPCloudAI1.APIKeys.Grok := edtKeyGrok.Text;
+  TMSMCPCloudAI1.APIKeys.Mistral := edtKeyMistral.Text;
+  TMSMCPCloudAI1.APIKeys.OpenAI := edtKeyOpenAI.Text;
+  TMSMCPCloudAI1.APIKeys.Perplexity := edtKeyPerplexity.Text;
 
-  TMSFNCCloudAI1.APIKeys.SaveToFile(KEYS_FILE, KEYS_PASSWORD);
+  TMSMCPCloudAI1.APIKeys.SaveToFile(KEYS_FILE, KEYS_PASSWORD);
 end;
 
 procedure TToolsetsMainView.ModelsComponentToScreen;
 begin
-  edtModelClaude.Text := TMSFNCCloudAI1.Settings.ClaudeModel;
-  edtModelDeepSeek.Text := TMSFNCCloudAI1.Settings.DeepSeekModel;
-  edtModelGemini.Text := TMSFNCCloudAI1.Settings.GeminiModel;
-  edtModelGrok.Text := TMSFNCCloudAI1.Settings.GrokModel;
-  edtModelMistral.Text := TMSFNCCloudAI1.Settings.MistralModel;
-  edtModelOpenAI.Text := TMSFNCCloudAI1.Settings.OpenAIModel;
-  edtModelPerplexity.Text := TMSFNCCloudAI1.Settings.PerplexityModel;
+  edtModelClaude.Text := TMSMCPCloudAI1.Settings.ClaudeModel;
+  edtModelDeepSeek.Text := TMSMCPCloudAI1.Settings.DeepSeekModel;
+  edtModelGemini.Text := TMSMCPCloudAI1.Settings.GeminiModel;
+  edtModelGrok.Text := TMSMCPCloudAI1.Settings.GrokModel;
+  edtModelMistral.Text := TMSMCPCloudAI1.Settings.MistralModel;
+  edtModelOpenAI.Text := TMSMCPCloudAI1.Settings.OpenAIModel;
+  edtModelPerplexity.Text := TMSMCPCloudAI1.Settings.PerplexityModel;
 end;
 
 procedure TToolsetsMainView.ModelsScreenToComponent;
 begin
-  TMSFNCCloudAI1.Settings.ClaudeModel := edtModelClaude.Text;
-  TMSFNCCloudAI1.Settings.DeepSeekModel := edtModelDeepSeek.Text;
-  TMSFNCCloudAI1.Settings.GeminiModel := edtModelGemini.Text;
-  TMSFNCCloudAI1.Settings.GrokModel := edtModelGrok.Text;
-  TMSFNCCloudAI1.Settings.MistralModel := edtModelMistral.Text;
-  TMSFNCCloudAI1.Settings.OpenAIModel := edtModelOpenAI.Text;
-  TMSFNCCloudAI1.Settings.PerplexityModel := edtModelPerplexity.Text;
+  TMSMCPCloudAI1.Settings.ClaudeModel := edtModelClaude.Text;
+  TMSMCPCloudAI1.Settings.DeepSeekModel := edtModelDeepSeek.Text;
+  TMSMCPCloudAI1.Settings.GeminiModel := edtModelGemini.Text;
+  TMSMCPCloudAI1.Settings.GrokModel := edtModelGrok.Text;
+  TMSMCPCloudAI1.Settings.MistralModel := edtModelMistral.Text;
+  TMSMCPCloudAI1.Settings.OpenAIModel := edtModelOpenAI.Text;
+  TMSMCPCloudAI1.Settings.PerplexityModel := edtModelPerplexity.Text;
 end;
 
 procedure TToolsetsMainView.cBoxIAServiceChange(Sender: TObject);
@@ -244,7 +263,7 @@ var
   i: Integer;
 begin
   i := Integer(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
-  TMSFNCCloudAI1.Service := TTMSFNCCloudAIService(i);
+  TMSMCPCloudAI1.Service := TTMSMCPCloudAIService(i);
 end;
 
 procedure TToolsetsMainView.ClearResponse;
@@ -262,26 +281,24 @@ begin
   Self.Settings;
   Self.ModelsScreenToComponent;
 
-  TMSFNCCloudAI1.Context.Text := mmQuestion.Lines.Text;
-  TMSFNCCloudAI1.Execute();
+  TMSMCPCloudAI1.Context.Text := mmQuestion.Lines.Text;
+  TMSMCPCloudAI1.Execute();
   ProgressBar1.State := pbsNormal;
 end;
 
-procedure TToolsetsMainView.TMSFNCCloudAI1Executed(Sender: TObject; AResponse: TTMSFNCCloudAIResponse; AHttpStatusCode: Integer;
-  AHttpResult: string);
+procedure TToolsetsMainView.ProcessConfigsEmail;
 begin
-  ProgressBar1.State := pbsPaused;
-  if AHttpStatusCode <> 200 then
-  begin
-    mmResponse.Lines.Text := 'HTTP error code: ' + AHttpStatusCode.ToString + sLineBreak + AHttpResult;
-    Exit;
-  end;
+  TMSMCPCloudAIEmail1.SMTPHost := 'smtp.sparkpostmail.com';
+  TMSMCPCloudAIEmail1.SMPTUserName := 'SMTP_Injection';
+  TMSMCPCloudAIEmail1.SMTPPassword := '61163ddd81bf36c65a2ac8985b41471c87f2b62b';
+  TMSMCPCloudAIEmail1.SMTPSendFrom := 'contato@solusys.com.br';
+  TMSMCPCloudAIEmail1.SMPTPort := 587;
 
-  mmResponse.Lines.Text := AResponse.Content.Text;
-  lbPromptTokens.Caption := AResponse.PromptTokens.ToString;
-  lbNumTokensResponse.Caption := AResponse.CompletionTokens.ToString;
-  lbTotalTokens.Caption := AResponse.TotalTokens.ToString;
-  lbServiceModel.Caption := AResponse.ServiceModel;
+//  TMSMCPCloudAIEmail1.SMTPHost := 'smtp.gmail.com';
+//  TMSMCPCloudAIEmail1.SMPTUserName := 'nfesolusys@gmail.com';
+//  TMSMCPCloudAIEmail1.SMTPPassword := 'Lbql rhbg mpev phuy';
+//  TMSMCPCloudAIEmail1.SMTPSendFrom := 'nfesolusys@gmail.com';
+//  TMSMCPCloudAIEmail1.SMPTPort := 465;
 end;
 
 end.

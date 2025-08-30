@@ -378,14 +378,16 @@ object ToolsetsMainView: TToolsetsMainView
           TabOrder = 0
           object mmQuestion: TMemo
             Left = 3
-            Top = 17
+            Top = 2
             Width = 1017
-            Height = 114
+            Height = 129
             Align = alClient
             BorderStyle = bsNone
             Lines.Strings = (
               'Ol'#225' quem '#233' voc'#234' e quem '#233' o seu fabricante?')
             TabOrder = 0
+            ExplicitLeft = 2
+            ExplicitTop = 1
           end
         end
         object Panel1: TPanel
@@ -438,18 +440,6 @@ object ToolsetsMainView: TToolsetsMainView
         Padding.Right = 1
         Padding.Bottom = 1
         TabOrder = 2
-        object mmResponse: TMemo
-          Left = 3
-          Top = 17
-          Width = 1019
-          Height = 247
-          Align = alClient
-          BorderStyle = bsNone
-          ScrollBars = ssVertical
-          TabOrder = 0
-          ExplicitLeft = 2
-          ExplicitTop = 13
-        end
         object pnResponseDetails: TPanel
           Left = 3
           Top = 264
@@ -459,7 +449,7 @@ object ToolsetsMainView: TToolsetsMainView
           BevelEdges = [beTop]
           BevelKind = bkTile
           BevelOuter = bvNone
-          TabOrder = 1
+          TabOrder = 0
           object Label9: TLabel
             Left = 174
             Top = 0
@@ -547,32 +537,51 @@ object ToolsetsMainView: TToolsetsMainView
             ExplicitLeft = 675
           end
         end
+        object mmResponse: TMemo
+          Left = 3
+          Top = 17
+          Width = 1019
+          Height = 247
+          Align = alClient
+          BorderStyle = bsNone
+          ScrollBars = ssVertical
+          TabOrder = 1
+          ExplicitLeft = 2
+          ExplicitTop = 13
+        end
       end
     end
   end
-  object TMSFNCCloudAI1: TTMSFNCCloudAI
-    Left = 680
-    Top = 47
-    Width = 26
-    Height = 26
-    Visible = True
-    Service = aiOpenAI
-    Settings.GeminiModel = 'gemini-1.5-flash-latest'
-    Settings.OpenAIModel = 'gpt-4o'
-    Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
-    Settings.GrokModel = 'grok-3'
-    Settings.ClaudeModel = 'claude-3-5-sonnet-20241022'
-    Settings.OllamaModel = 'tinyllama'
-    Settings.DeepSeekModel = 'deepseek-chat'
-    Settings.PerplexityModel = 'llama-3.1-sonar-small-128k-online'
-    Settings.OllamaHost = 'localhost'
-    Settings.OllamaPath = '/api/chat'
-    Settings.MistralModel = 'mistral-large-latest'
-    Tools = <>
-    OnExecuted = TMSFNCCloudAI1Executed
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'DriverID=SQLite')
+    LoginPrompt = False
+    Left = 592
+    Top = 304
   end
-  object TMSFNCCloudAIDataSet1: TTMSFNCCloudAIDataSet
-    AI = TMSFNCCloudAI1
+  object FDQuery1: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select '
+      'vendas.id,'
+      'vendas.data,'
+      'vendas.id_cliente,'
+      'clientes.nome as ClienteNome,'
+      'vendas.total '
+      'from vendas'
+      'inner join clientes on vendas.id_cliente = clientes.Id'
+      'order by vendas.id desc'
+      'limit 10')
+    Left = 669
+    Top = 304
+  end
+  object DataSource1: TDataSource
+    DataSet = FDQuery1
+    Left = 738
+    Top = 304
+  end
+  object TMSMCPCloudAIDataSet1: TTMSMCPCloudAIDataSet
+    AI = TMSMCPCloudAI1
     Tools = <
       item
         Name = 'GetFields'
@@ -730,39 +739,11 @@ object ToolsetsMainView: TToolsetsMainView
           end>
       end>
     DataSource = DataSource1
-    Left = 849
+    Left = 852
     Top = 304
   end
-  object FDConnection1: TFDConnection
-    Params.Strings = (
-      'DriverID=SQLite')
-    LoginPrompt = False
-    Left = 592
-    Top = 304
-  end
-  object FDQuery1: TFDQuery
-    Connection = FDConnection1
-    SQL.Strings = (
-      'select '
-      'vendas.id,'
-      'vendas.data,'
-      'vendas.id_cliente,'
-      'clientes.nome as ClienteNome,'
-      'vendas.total '
-      'from vendas'
-      'inner join clientes on vendas.id_cliente = clientes.Id'
-      'order by vendas.id desc'
-      'limit 10')
-    Left = 669
-    Top = 304
-  end
-  object DataSource1: TDataSource
-    DataSet = FDQuery1
-    Left = 738
-    Top = 304
-  end
-  object TMSFNCCloudAIFileSystem1: TTMSFNCCloudAIFileSystem
-    AI = TMSFNCCloudAI1
+  object TMSMCPCloudAIFileSystem1: TTMSMCPCloudAIFileSystem
+    AI = TMSMCPCloudAI1
     Tools = <
       item
         Name = 'GetFiles'
@@ -939,7 +920,77 @@ object ToolsetsMainView: TToolsetsMainView
             Properties = <>
           end>
       end>
-    Left = 677
+    Left = 789
     Top = 116
+  end
+  object TMSMCPCloudAI1: TTMSMCPCloudAI
+    Service = aiOpenAI
+    Settings.GeminiModel = 'gemini-1.5-flash-latest'
+    Settings.OpenAIModel = 'gpt-4o'
+    Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
+    Settings.GrokModel = 'grok-3'
+    Settings.ClaudeModel = 'claude-3-5-sonnet-20241022'
+    Settings.OllamaModel = 'llama3.2:latest'
+    Settings.DeepSeekModel = 'deepseek-chat'
+    Settings.PerplexityModel = 'sonar-pro'
+    Settings.OllamaHost = 'localhost'
+    Settings.OllamaPath = '/api/chat'
+    Settings.MistralModel = 'mistral-large-latest'
+    Tools = <>
+    OnExecuted = TMSMCPCloudAI1Executed
+    Left = 789
+    Top = 44
+  end
+  object TMSMCPCloudAIEmail1: TTMSMCPCloudAIEmail
+    AI = TMSMCPCloudAI1
+    Tools = <
+      item
+        Name = 'SendEmail'
+        Description = 'send an email to an email address with subject and body'
+        Parameters = <
+          item
+            ArrayProperties = <>
+            Name = 'EmailTo'
+            Type = ptString
+            Description = 'the email address of the recipient where to send it to'
+            Properties = <>
+          end
+          item
+            ArrayProperties = <>
+            Name = 'EmailSubject'
+            Type = ptString
+            Description = 'the email subject text'
+            Properties = <>
+          end
+          item
+            ArrayProperties = <>
+            Name = 'EmailBody'
+            Type = ptString
+            Description = 'the email body text'
+            Properties = <>
+          end>
+      end
+      item
+        Name = 'GetCountEmail'
+        Description = 'Get the number of emails'
+        Parameters = <>
+      end
+      item
+        Name = 'RetrieveEmail'
+        Description = 'Retrieve the email at index'
+        Parameters = <
+          item
+            ArrayProperties = <>
+            Name = 'Index'
+            Type = ptNumber
+            Description = 'the index of the email to retrieve'
+            Properties = <>
+          end>
+      end>
+    SMPTPort = 0
+    PopPort = 0
+    PopUseSSL = False
+    Left = 604
+    Top = 424
   end
 end
