@@ -290,6 +290,7 @@ object ToolsetsMainView: TToolsetsMainView
         Height = 65
         Align = alTop
         TabOrder = 0
+        ExplicitTop = -5
         object Label1: TLabel
           Left = 18
           Top = 7
@@ -386,6 +387,8 @@ object ToolsetsMainView: TToolsetsMainView
             Lines.Strings = (
               'Ol'#225' quem '#233' voc'#234' e quem '#233' o seu fabricante?')
             TabOrder = 0
+            ExplicitLeft = 4
+            ExplicitTop = 16
           end
         end
         object Panel1: TPanel
@@ -544,6 +547,8 @@ object ToolsetsMainView: TToolsetsMainView
           BorderStyle = bsNone
           ScrollBars = ssVertical
           TabOrder = 1
+          ExplicitLeft = 2
+          ExplicitTop = 13
         end
       end
     end
