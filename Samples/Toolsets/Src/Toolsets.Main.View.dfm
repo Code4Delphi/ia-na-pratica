@@ -386,7 +386,8 @@ object ToolsetsMainView: TToolsetsMainView
             Lines.Strings = (
               'Ol'#225' quem '#233' voc'#234' e quem '#233' o seu fabricante?')
             TabOrder = 0
-            ExplicitLeft = -5
+            ExplicitLeft = 2
+            ExplicitTop = 16
           end
         end
         object Panel1: TPanel
@@ -940,5 +941,57 @@ object ToolsetsMainView: TToolsetsMainView
     OnExecuted = TMSMCPCloudAI1Executed
     Left = 789
     Top = 44
+  end
+  object TMSMCPCloudAIEmail1: TTMSMCPCloudAIEmail
+    AI = TMSMCPCloudAI1
+    Tools = <
+      item
+        Name = 'SendEmail'
+        Description = 'send an email to an email address with subject and body'
+        Parameters = <
+          item
+            ArrayProperties = <>
+            Name = 'EmailTo'
+            Type = ptString
+            Description = 'the email address of the recipient where to send it to'
+            Properties = <>
+          end
+          item
+            ArrayProperties = <>
+            Name = 'EmailSubject'
+            Type = ptString
+            Description = 'the email subject text'
+            Properties = <>
+          end
+          item
+            ArrayProperties = <>
+            Name = 'EmailBody'
+            Type = ptString
+            Description = 'the email body text'
+            Properties = <>
+          end>
+      end
+      item
+        Name = 'GetCountEmail'
+        Description = 'Get the number of emails'
+        Parameters = <>
+      end
+      item
+        Name = 'RetrieveEmail'
+        Description = 'Retrieve the email at index'
+        Parameters = <
+          item
+            ArrayProperties = <>
+            Name = 'Index'
+            Type = ptNumber
+            Description = 'the index of the email to retrieve'
+            Properties = <>
+          end>
+      end>
+    SMPTPort = 0
+    PopPort = 0
+    PopUseSSL = False
+    Left = 620
+    Top = 392
   end
 end

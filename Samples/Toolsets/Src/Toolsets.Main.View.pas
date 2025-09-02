@@ -113,6 +113,7 @@ type
     TMSMCPCloudAIFileSystem1: TTMSMCPCloudAIFileSystem;
     TMSMCPCloudAI1: TTMSMCPCloudAI;
     mmResponse: TMemo;
+    TMSMCPCloudAIEmail1: TTMSMCPCloudAIEmail;
     procedure FormCreate(Sender: TObject);
     procedure cBoxIAServiceChange(Sender: TObject);
     procedure btnExecuteClick(Sender: TObject);
@@ -128,6 +129,7 @@ type
     procedure ModelsComponentToScreen;
     procedure ModelsScreenToComponent;
     procedure ProcessDatabaseConnection;
+    procedure ConfigDadosEmail;
   public
 
   end;
@@ -143,8 +145,6 @@ const
   KEYS_FILE = '..\..\Files\aikeys.cfg';
   KEYS_PASSWORD = 'PasswordTest';
 
-
-
 procedure TToolsetsMainView.FormCreate(Sender: TObject);
 begin
   Self.LoadKeys;
@@ -157,6 +157,16 @@ begin
   Self.ModelsComponentToScreen;
 
   Self.ProcessDatabaseConnection;
+  Self.ConfigDadosEmail;
+end;
+
+procedure TToolsetsMainView.ConfigDadosEmail;
+begin
+  TMSMCPCloudAIEmail1.SMTPHost := 'smtp.mailserver.com';
+  TMSMCPCloudAIEmail1.SMPTUserName := 'noreply@myapp.com';
+  TMSMCPCloudAIEmail1.SMTPPassword := 'mypassword';
+  TMSMCPCloudAIEmail1.SMTPSendFrom := 'noreply@myapp.com';
+  TMSMCPCloudAIEmail1.SMPTPort := 0; //587 / 465;
 end;
 
 procedure TToolsetsMainView.Settings;
