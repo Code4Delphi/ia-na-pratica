@@ -1,5 +1,5 @@
-[![Static Badge](https://img.shields.io/badge/Portugu%C3%AAs-(ptBR)-green)](https://github.com/Code4Delphi/ia-na-pratica/tree/master/Samples/TTS_STT_Map#%EF%B8%8F-mapas-controlados-por-voz-tts--stt)
-[![Static Badge](https://img.shields.io/badge/English-(en)-red)](https://github.com/Code4Delphi/ia-na-pratica/tree/master/Samples/TTS_STT_Map#%EF%B8%8F-voice-controlled-maps-ttsstt)
+[![Static Badge](https://img.shields.io/badge/Portugu%C3%AAs-(ptBR)-green)]([![Static Badge](https://img.shields.io/badge/Portugu%C3%AAs-(ptBR)-green)](https://github.com/Code4Delphi/ia-na-pratica/tree/master/Samples/TTS_STT_Map#%EF%B8%8F-mapas-controlados-por-voz-tts--stt))
+[![Static Badge](https://img.shields.io/badge/English-(en)-red)](https://github.com/Code4Delphi/ia-na-pratica/tree/master/Samples/Toolsets#%EF%B8%8F-toolsets)
 
 # 🛠️ Toolsets (conjuntos de ferramentas)
 - Fine-Grained AI Function Control (Controle de função de IA de granulação fina)
@@ -18,7 +18,7 @@
 
 <br/>
 
-[![Static Badge](https://img.shields.io/badge/English-(en)-red)](https://github.com/Code4Delphi/ia-na-pratica/tree/master/Samples/TTS_STT_Map#%EF%B8%8F-voice-controlled-maps-ttsstt)
+[![Static Badge](https://img.shields.io/badge/English-(en)-red)](https://github.com/Code4Delphi/ia-na-pratica/tree/master/Samples/Toolsets#%EF%B8%8F-toolsets)
 # 🛠️ Toolsets
 - Fine-Grained AI Function Control
 - Allows you to expose refined, predefined functions to AI in a controlled and efficient manner.
