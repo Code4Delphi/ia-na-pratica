@@ -143,13 +143,14 @@ const
   KEYS_FILE = '..\..\Files\aikeys.cfg';
   KEYS_PASSWORD = 'PasswordTest';
 
+
+
 procedure TToolsetsMainView.FormCreate(Sender: TObject);
 begin
   Self.LoadKeys;
 
-  //CARREGAR IAS DISPONIVEIS
   cBoxIAService.Items.Assign(TMSMCPCloudAI1.GetServices(True));
-  cBoxIAService.ItemIndex := 6;
+  cBoxIAService.ItemIndex := 0;
   cBoxIAServiceChange(cBoxIAService);
 
   Self.Settings;

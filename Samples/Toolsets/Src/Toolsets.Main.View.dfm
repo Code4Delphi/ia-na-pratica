@@ -290,7 +290,6 @@ object ToolsetsMainView: TToolsetsMainView
         Height = 65
         Align = alTop
         TabOrder = 0
-        ExplicitTop = -5
         object Label1: TLabel
           Left = 18
           Top = 7
@@ -387,8 +386,7 @@ object ToolsetsMainView: TToolsetsMainView
             Lines.Strings = (
               'Ol'#225' quem '#233' voc'#234' e quem '#233' o seu fabricante?')
             TabOrder = 0
-            ExplicitLeft = 4
-            ExplicitTop = 16
+            ExplicitLeft = -5
           end
         end
         object Panel1: TPanel
@@ -568,6 +566,7 @@ object ToolsetsMainView: TToolsetsMainView
       'vendas.data,'
       'vendas.id_cliente,'
       'clientes.nome as ClienteNome,'
+      'clientes.email,'
       'vendas.total '
       'from vendas'
       'inner join clientes on vendas.id_cliente = clientes.Id'
