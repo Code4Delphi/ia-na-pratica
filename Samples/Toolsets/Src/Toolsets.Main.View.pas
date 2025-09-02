@@ -113,7 +113,6 @@ type
     TMSMCPCloudAIFileSystem1: TTMSMCPCloudAIFileSystem;
     TMSMCPCloudAI1: TTMSMCPCloudAI;
     mmResponse: TMemo;
-    TMSMCPCloudAIEmail1: TTMSMCPCloudAIEmail;
     procedure FormCreate(Sender: TObject);
     procedure cBoxIAServiceChange(Sender: TObject);
     procedure btnExecuteClick(Sender: TObject);
@@ -129,7 +128,6 @@ type
     procedure ModelsComponentToScreen;
     procedure ModelsScreenToComponent;
     procedure ProcessDatabaseConnection;
-    procedure ProcessConfigsEmail;
   public
 
   end;
@@ -159,7 +157,6 @@ begin
   Self.ModelsComponentToScreen;
 
   Self.ProcessDatabaseConnection;
-  Self.ProcessConfigsEmail;
 end;
 
 procedure TToolsetsMainView.Settings;
@@ -284,15 +281,6 @@ begin
   TMSMCPCloudAI1.Context.Text := mmQuestion.Lines.Text;
   TMSMCPCloudAI1.Execute();
   ProgressBar1.State := pbsNormal;
-end;
-
-procedure TToolsetsMainView.ProcessConfigsEmail;
-begin
-  TMSMCPCloudAIEmail1.SMTPHost := 'smtp.mailserver.com';
-  TMSMCPCloudAIEmail1.SMPTUserName := 'noreply@myapp.com';
-  TMSMCPCloudAIEmail1.SMTPPassword := 'mypassword';
-  TMSMCPCloudAIEmail1.SMTPSendFrom := 'noreply@myapp.com';
-  TMSMCPCloudAIEmail1.SMPTPort := 587;
 end;
 
 end.
