@@ -145,7 +145,6 @@ const
 
 procedure TToolsetsMainView.FormCreate(Sender: TObject);
 begin
-  ReportMemoryLeaksOnShutdown := True;
   Self.LoadKeys;
 
   //CARREGAR IAS DISPONIVEIS
