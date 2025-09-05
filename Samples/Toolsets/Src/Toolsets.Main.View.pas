@@ -113,6 +113,7 @@ type
     TMSMCPCloudAIFileSystem1: TTMSMCPCloudAIFileSystem;
     TMSMCPCloudAI1: TTMSMCPCloudAI;
     mmResponse: TMemo;
+    TMSMCPCloudAIEmail1: TTMSMCPCloudAIEmail;
     procedure FormCreate(Sender: TObject);
     procedure cBoxIAServiceChange(Sender: TObject);
     procedure btnExecuteClick(Sender: TObject);
@@ -128,6 +129,7 @@ type
     procedure ModelsComponentToScreen;
     procedure ModelsScreenToComponent;
     procedure ProcessDatabaseConnection;
+    procedure ConfigDadosEmail;
   public
 
   end;
@@ -147,15 +149,24 @@ procedure TToolsetsMainView.FormCreate(Sender: TObject);
 begin
   Self.LoadKeys;
 
-  //CARREGAR IAS DISPONIVEIS
   cBoxIAService.Items.Assign(TMSMCPCloudAI1.GetServices(True));
-  cBoxIAService.ItemIndex := 6;
+  cBoxIAService.ItemIndex := 0;
   cBoxIAServiceChange(cBoxIAService);
 
   Self.Settings;
   Self.ModelsComponentToScreen;
 
   Self.ProcessDatabaseConnection;
+  Self.ConfigDadosEmail;
+end;
+
+procedure TToolsetsMainView.ConfigDadosEmail;
+begin
+  TMSMCPCloudAIEmail1.SMTPHost := 'smtp.mailserver.com';
+  TMSMCPCloudAIEmail1.SMPTUserName := 'noreply@myapp.com';
+  TMSMCPCloudAIEmail1.SMTPPassword := 'mypassword';
+  TMSMCPCloudAIEmail1.SMTPSendFrom := 'noreply@myapp.com';
+  TMSMCPCloudAIEmail1.SMPTPort := 0; //587 / 465;
 end;
 
 procedure TToolsetsMainView.Settings;
