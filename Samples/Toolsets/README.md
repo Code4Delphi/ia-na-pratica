@@ -34,7 +34,8 @@ Assim, você adiciona exatamente os recursos que deseja agrupar e expor para a I
 
 
 ## 🔗 Links
-- [▶️Vídeo de demonstração Toolsets](https://www.youtube.com/watch?v=Ywd3OzgETyw&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+- [▶️Vídeo de demonstração Toolsets FileSystem e DataSet (IA acessando database)](https://www.youtube.com/watch?v=M61eWjI2zms&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+- [▶️Vídeo de demonstração Toolsets envio automático de e-mails](https://www.youtube.com/watch?v=nrPhjpU2Ltk&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 - [📰Post Oficial](https://www.tmssoftware.com/site/blog.asp?post=2382)
 
 ---
@@ -72,5 +73,6 @@ This way, you add exactly the features you want to bundle and expose to AI.
 👉 With this combination of ready-made ToolSets and the flexibility to create new ones, TMS AI Studio adapts to different scenarios, making your application much more powerful and intelligent.
 
 ## 🔗 Links
-- [▶️Toolsets Demo Video](https://www.youtube.com/watch?v=Ywd3OzgETyw&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+- [▶️Toolsets FileSystem and DataSet Demo Video (AI accessing database)](https://www.youtube.com/watch?v=M61eWjI2zms&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+- [▶️Toolsets Automatic Email Sending Demo Video](https://www.youtube.com/watch?v=nrPhjpU2Ltk&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 - [📰Official Post](https://www.tmssoftware.com/site/blog.asp?post=2382)
