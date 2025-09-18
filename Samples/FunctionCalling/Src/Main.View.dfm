@@ -55,6 +55,7 @@ object MainView: TMainView
       Service = aiOpenAI
       Settings.GeminiModel = 'gemini-1.5-flash-latest'
       Settings.OpenAIModel = 'gpt-4o'
+      Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
       Settings.GrokModel = 'grok-3'
       Settings.ClaudeModel = 'claude-3-5-sonnet-20241022'
       Settings.OllamaModel = 'llama3.2:latest'
