@@ -1,4 +1,4 @@
-unit ToolsetsMy.Main.View;
+unit ToolsetsRAD.Main.View;
 
 interface
 
@@ -29,7 +29,7 @@ type
     procedure DefineTools; override;
   end;
 
-  TToolsetsMyMainView = class(TForm)
+  TToolsetsRADMainView = class(TForm)
     pnTop: TPanel;
     Label1: TLabel;
     cBoxIAService: TComboBox;
@@ -58,13 +58,13 @@ type
   end;
 
 var
-  ToolsetsMyMainView: TToolsetsMyMainView;
+  ToolsetsRADMainView: TToolsetsRADMainView;
 
 implementation
 
 {$R *.dfm}
 
-procedure TToolsetsMyMainView.FormCreate(Sender: TObject);
+procedure TToolsetsRADMainView.FormCreate(Sender: TObject);
 begin
   ReportMemoryLeaksOnShutdown := True;
 
@@ -80,12 +80,12 @@ begin
   //FMyToolSet.AI := TMSMCPCloudAI1;
 end;
 
-procedure TToolsetsMyMainView.FormDestroy(Sender: TObject);
+procedure TToolsetsRADMainView.FormDestroy(Sender: TObject);
 begin
   FMyToolSet.Free;
 end;
 
-procedure TToolsetsMyMainView.btnExecuteClick(Sender: TObject);
+procedure TToolsetsRADMainView.btnExecuteClick(Sender: TObject);
 begin
   TMSMCPCloudAI1.Service := TTMSMCPCloudAIService(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
 
@@ -95,7 +95,7 @@ begin
   ProgressBar1.State := pbsNormal;
 end;
 
-procedure TToolsetsMyMainView.TMSMCPCloudAIToolSet1Tools0Execute(Sender: TObject; Args: TJSONObject; var Result: string);
+procedure TToolsetsRADMainView.TMSMCPCloudAIToolSet1Tools0Execute(Sender: TObject; Args: TJSONObject; var Result: string);
 var
   LCep: string;
 begin
@@ -103,7 +103,7 @@ begin
   Result := Self.GetEndereco(LCep);
 end;
 
-function TToolsetsMyMainView.GetEndereco(const ACEP: string): string;
+function TToolsetsRADMainView.GetEndereco(const ACEP: string): string;
 var
   LRequest: TTMSMCPCloudBase;
   LResult: string;
@@ -125,7 +125,7 @@ begin
   end;
 end;
 
-procedure TToolsetsMyMainView.TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse;
+procedure TToolsetsRADMainView.TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse;
   AHttpStatusCode: Integer; AHttpResult: string);
 begin
   ProgressBar1.State := pbsPaused;

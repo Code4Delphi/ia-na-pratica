@@ -30,7 +30,10 @@
         <Projects Include="Toolsets\Toolsets.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="ToolsetsMy\ToolsetsMy.dproj">
+        <Projects Include="ToolsetsRAD\ToolsetsRAD.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="ToolsetsPOO\ToolsetsPOO.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -122,23 +125,32 @@
     <Target Name="Toolsets:Make">
         <MSBuild Projects="Toolsets\Toolsets.dproj" Targets="Make"/>
     </Target>
-    <Target Name="ToolsetsMy">
-        <MSBuild Projects="ToolsetsMy\ToolsetsMy.dproj"/>
+    <Target Name="ToolsetsRAD">
+        <MSBuild Projects="ToolsetsRAD\ToolsetsRAD.dproj"/>
     </Target>
-    <Target Name="ToolsetsMy:Clean">
-        <MSBuild Projects="ToolsetsMy\ToolsetsMy.dproj" Targets="Clean"/>
+    <Target Name="ToolsetsRAD:Clean">
+        <MSBuild Projects="ToolsetsRAD\ToolsetsRAD.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="ToolsetsMy:Make">
-        <MSBuild Projects="ToolsetsMy\ToolsetsMy.dproj" Targets="Make"/>
+    <Target Name="ToolsetsRAD:Make">
+        <MSBuild Projects="ToolsetsRAD\ToolsetsRAD.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ToolsetsPOO">
+        <MSBuild Projects="ToolsetsPOO\ToolsetsPOO.dproj"/>
+    </Target>
+    <Target Name="ToolsetsPOO:Clean">
+        <MSBuild Projects="ToolsetsPOO\ToolsetsPOO.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ToolsetsPOO:Make">
+        <MSBuild Projects="ToolsetsPOO\ToolsetsPOO.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="IAChat;Models;APIKey;FunctionCalling;Images;RAG;TTS_STT;TTS_STT_Map;Toolsets;ToolsetsMy"/>
+        <CallTarget Targets="IAChat;Models;APIKey;FunctionCalling;Images;RAG;TTS_STT;TTS_STT_Map;Toolsets;ToolsetsRAD;ToolsetsPOO"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="IAChat:Clean;Models:Clean;APIKey:Clean;FunctionCalling:Clean;Images:Clean;RAG:Clean;TTS_STT:Clean;TTS_STT_Map:Clean;Toolsets:Clean;ToolsetsMy:Clean"/>
+        <CallTarget Targets="IAChat:Clean;Models:Clean;APIKey:Clean;FunctionCalling:Clean;Images:Clean;RAG:Clean;TTS_STT:Clean;TTS_STT_Map:Clean;Toolsets:Clean;ToolsetsRAD:Clean;ToolsetsPOO:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="IAChat:Make;Models:Make;APIKey:Make;FunctionCalling:Make;Images:Make;RAG:Make;TTS_STT:Make;TTS_STT_Map:Make;Toolsets:Make;ToolsetsMy:Make"/>
+        <CallTarget Targets="IAChat:Make;Models:Make;APIKey:Make;FunctionCalling:Make;Images:Make;RAG:Make;TTS_STT:Make;TTS_STT_Map:Make;Toolsets:Make;ToolsetsRAD:Make;ToolsetsPOO:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

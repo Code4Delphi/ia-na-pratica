@@ -1,7 +1,7 @@
-object ToolsetsMyMainView: TToolsetsMyMainView
+object ToolsetsPOOMainView: TToolsetsPOOMainView
   Left = 0
   Top = 0
-  Caption = 'IA na pr'#225'tica: Toolsets Customizada'
+  Caption = 'IA na pr'#225'tica: Toolsets Customizada POO'
   ClientHeight = 609
   ClientWidth = 1001
   Color = clBtnFace
@@ -34,14 +34,14 @@ object ToolsetsMyMainView: TToolsetsMyMainView
     TabOrder = 0
     object Label1: TLabel
       Left = 18
-      Top = 8
+      Top = 11
       Width = 50
       Height = 15
       Caption = 'IA service'
     end
     object cBoxIAService: TComboBox
       Left = 18
-      Top = 25
+      Top = 28
       Width = 201
       Height = 23
       Style = csDropDownList
@@ -139,42 +139,5 @@ object ToolsetsMyMainView: TToolsetsMyMainView
       ScrollBars = ssVertical
       TabOrder = 0
     end
-  end
-  object TMSMCPCloudAI1: TTMSMCPCloudAI
-    Service = aiOpenAI
-    Settings.GeminiModel = 'gemini-1.5-flash-latest'
-    Settings.OpenAIModel = 'gpt-4o'
-    Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
-    Settings.GrokModel = 'grok-3'
-    Settings.ClaudeModel = 'claude-3-5-sonnet-20241022'
-    Settings.OllamaModel = 'llama3.2:latest'
-    Settings.DeepSeekModel = 'deepseek-chat'
-    Settings.PerplexityModel = 'sonar-pro'
-    Settings.OllamaHost = 'localhost'
-    Settings.OllamaPath = '/api/chat'
-    Settings.MistralModel = 'mistral-large-latest'
-    Tools = <>
-    OnExecuted = TMSMCPCloudAI1Executed
-    Left = 585
-    Top = 138
-  end
-  object ToolSetCEP: TTMSMCPCloudAIToolSet
-    AI = TMSMCPCloudAI1
-    Tools = <
-      item
-        Name = 'RetornaEndereco'
-        Description = 'Retorna o endere'#231'o do CEP informado'
-        Parameters = <
-          item
-            ArrayProperties = <>
-            Name = 'CEP'
-            Type = ptString
-            Description = 'CEP a ser utilizado para buscar endere'#231'o'
-            Properties = <>
-          end>
-        OnExecute = TMSMCPCloudAIToolSet1Tools0Execute
-      end>
-    Left = 585
-    Top = 218
   end
 end
