@@ -47,11 +47,11 @@ type
     mmResponse: TMemo;
     procedure FormCreate(Sender: TObject);
     procedure btnExecuteClick(Sender: TObject);
-    procedure FormDestroy(Sender: TObject);
   private
     FCloudAI: TTMSMCPCloudAI;
     FToolSetCEP: TToolSetCEP;
-    procedure OnCloudAIExecuted(Sender: TObject; AResponse: TTMSMCPCloudAIResponse; AHttpStatusCode: Integer; AHttpResult: string);
+    procedure OnCloudAIExecuted(Sender: TObject; AResponse: TTMSMCPCloudAIResponse;
+      AHttpStatusCode: Integer; AHttpResult: string);
   public
 
   end;
@@ -76,11 +76,6 @@ begin
 
   cBoxIAService.Items.Assign(FCloudAI.GetServices(True));
   cBoxIAService.ItemIndex := 0;
-end;
-
-procedure TToolsetsPOOMainView.FormDestroy(Sender: TObject);
-begin
-  //FMyToolSet.Free;
 end;
 
 procedure TToolsetsPOOMainView.OnCloudAIExecuted(Sender: TObject; AResponse: TTMSMCPCloudAIResponse;

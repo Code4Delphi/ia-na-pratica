@@ -13,7 +13,6 @@ object ToolsetsPOOMainView: TToolsetsPOOMainView
   KeyPreview = True
   Position = poScreenCenter
   OnCreate = FormCreate
-  OnDestroy = FormDestroy
   TextHeight = 15
   object Splitter1: TSplitter
     Left = 0
@@ -74,8 +73,9 @@ object ToolsetsPOOMainView: TToolsetsPOOMainView
         Align = alClient
         BorderStyle = bsNone
         Lines.Strings = (
-          'Ol'#225' quem '#233' voc'#234' e quem '#233' o seu fabricante?')
+          'Qual o endere'#231'o do CEP 01310-100')
         TabOrder = 0
+        ExplicitLeft = 4
       end
     end
     object Panel1: TPanel

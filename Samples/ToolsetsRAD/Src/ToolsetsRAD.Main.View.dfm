@@ -13,7 +13,6 @@ object ToolsetsRADMainView: TToolsetsRADMainView
   KeyPreview = True
   Position = poScreenCenter
   OnCreate = FormCreate
-  OnDestroy = FormDestroy
   TextHeight = 15
   object Splitter1: TSplitter
     Left = 0
@@ -74,7 +73,7 @@ object ToolsetsRADMainView: TToolsetsRADMainView
         Align = alClient
         BorderStyle = bsNone
         Lines.Strings = (
-          'Ol'#225' quem '#233' voc'#234' e quem '#233' o seu fabricante?')
+          'Qual o endere'#231'o do CEP 01310-100')
         TabOrder = 0
       end
     end
@@ -155,8 +154,8 @@ object ToolsetsRADMainView: TToolsetsRADMainView
     Settings.MistralModel = 'mistral-large-latest'
     Tools = <>
     OnExecuted = TMSMCPCloudAI1Executed
-    Left = 585
-    Top = 138
+    Left = 401
+    Top = 90
   end
   object ToolSetCEP: TTMSMCPCloudAIToolSet
     AI = TMSMCPCloudAI1
@@ -174,7 +173,7 @@ object ToolsetsRADMainView: TToolsetsRADMainView
           end>
         OnExecute = TMSMCPCloudAIToolSet1Tools0Execute
       end>
-    Left = 585
-    Top = 218
+    Left = 401
+    Top = 154
   end
 end
