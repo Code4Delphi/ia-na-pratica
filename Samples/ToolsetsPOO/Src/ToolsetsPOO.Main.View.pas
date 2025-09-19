@@ -21,17 +21,10 @@ uses
   TMS.MCP.CustomComponent,
   TMS.MCP.Server,
   TMS.MCP.CloudAI,
-  TMS.MCP.CloudBase;
+  TMS.MCP.CloudBase,
+  ToolSetCEP;
 
 type
-  TToolSetCEP = class(TTMSMCPCloudAIToolSet)
-  private
-    procedure ToolSetCepExecute(Sender: TObject; Args: TJSONObject; var Result: string);
-    function GetEndereco(const ACEP: string): string;
-  protected
-    procedure DefineTools; override;
-  end;
-
   TToolsetsPOOMainView = class(TForm)
     pnTop: TPanel;
     Label1: TLabel;
@@ -94,62 +87,13 @@ end;
 
 procedure TToolsetsPOOMainView.btnExecuteClick(Sender: TObject);
 begin
-  FCloudAI.Service := TTMSMCPCloudAIService(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
-
   mmResponse.Text := 'Processando...';
+
+  FCloudAI.Service := TTMSMCPCloudAIService(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
   FCloudAI.Context := mmQuestion.Lines;
   FCloudAI.Execute();
+
   ProgressBar1.State := pbsNormal;
-end;
-
-{ TToolSetCEP }
-procedure TToolSetCEP.DefineTools;
-var
-  LTool: TTMSMCPCloudAITool;
-  LParam: TTMSMCPCloudAIParameter;
-begin
-  BeginUpdate;
-
-  LTool := Tools.Add;
-  LTool.Name := 'RetornaEndereco';
-  LTool.Description := 'Retorna o endereço do CEP informado';
-  LTool.OnExecute := Self.ToolSetCepExecute;
-
-  LParam := LTool.Parameters.Add;
-  LParam.Name := 'CEP';
-  LParam.Description := 'CEP a ser utilizado para buscar endereço';
-
-  EndUpdate;
-end;
-
-procedure TToolSetCEP.ToolSetCepExecute(Sender: TObject; Args: TJSONObject; var Result: string);
-var
-  LCep: string;
-begin
-  LCep := Args.GetValue<string>('CEP', '');
-  Result := Self.GetEndereco(LCep);
-end;
-
-function TToolSetCEP.GetEndereco(const ACEP: string): string;
-var
-  LRequest: TTMSMCPCloudBase;
-  LResult: string;
-begin
-  LRequest := TTMSMCPCloudBase.Create;
-  try
-    LRequest.Request.Host := 'https://viacep.com.br/ws/';
-    LRequest.Request.Path := Format('%s/json', [ACEP.Replace('-', '', [])]);
-
-    LRequest.ExecuteRequest(
-      procedure(const ARequestResult:TTMSMCPCloudBaseRequestResult)
-      begin
-        LResult := ARequestResult.ResultString;
-      end, nil, False);
-
-    Result := LResult;
-  finally
-    LRequest.Free;
-  end;
 end;
 
 end.

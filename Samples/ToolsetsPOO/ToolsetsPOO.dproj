@@ -131,6 +131,7 @@
             <Form>ToolsetsPOOMainView</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Src\ToolSetCEP.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

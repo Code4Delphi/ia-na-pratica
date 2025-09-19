@@ -75,7 +75,7 @@ object ToolsetsPOOMainView: TToolsetsPOOMainView
         Lines.Strings = (
           'Qual o endere'#231'o do CEP 01310-100')
         TabOrder = 0
-        ExplicitLeft = 4
+        ExplicitLeft = 2
       end
     end
     object Panel1: TPanel

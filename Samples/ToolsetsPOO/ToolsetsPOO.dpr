@@ -2,7 +2,8 @@ program ToolsetsPOO;
 
 uses
   Vcl.Forms,
-  ToolsetsPOO.Main.View in 'Src\ToolsetsPOO.Main.View.pas' {ToolsetsPOOMainView};
+  ToolsetsPOO.Main.View in 'Src\ToolsetsPOO.Main.View.pas' {ToolsetsPOOMainView},
+  ToolSetCEP in 'Src\ToolSetCEP.pas';
 
 {$R *.res}
 
