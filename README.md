@@ -2,7 +2,7 @@
 
 Estamos iniciando uma nova série de vídeos práticos, mostrando como integrar e utilizar as principais IAs (inteligências artificiais) do mercado com Delphi, de forma simples e eficiente.
 
-saremos componentes que abstraem toda a complexidade técnica, permitindo que você foque no uso real da IA em suas aplicações Delphi, inclusive em sistemas ERP. Desde funcionalidades básicas com LLMs até recursos avançados como **RAG** (Retrieval-Augmented Generation), **MCP** (Model Context Protocol), **Agents**, **Function Calling**, modelos **Multimodais**, **TTS** (Text-to-Speech), **STT** (Speech-to-Text), **Toolsets** (Conjuntos de ferramentas) entre outros.
+saremos componentes que abstraem toda a complexidade técnica, permitindo que você foque no uso real da IA em suas aplicações Delphi, inclusive em sistemas ERP. Desde funcionalidades básicas com LLMs até recursos avançados como **RAG** (Retrieval-Augmented Generation), **MCP** (Model Context Protocol), **Agents**, **Function Calling**, modelos **Multimodais**, **TTS** (Text-to-Speech), **STT** (Speech-to-Text), **Toolsets** (conjuntos de ferramentas) entre outros.
 
 ![IA-na pratica-900x900](https://github.com/user-attachments/assets/3b0dea30-0473-414c-a006-2983ac2093f2)
 
