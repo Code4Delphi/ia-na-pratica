@@ -40,6 +40,7 @@ Você poderá acompanhar esta série através de nossa playlist:
 - [IA na Prática 20 - N8N + NGROK gerando gráficos / MCP Server remoto e local](https://www.youtube.com/watch?v=9KxcsnSL_5U&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 - [IA na Prática 21 - Toolsets FileSystem e DataSet (IA acessando database)](https://www.youtube.com/watch?v=M61eWjI2zms&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 - [IA na Prática 22 - Toolsets envio automático de e-mails](https://www.youtube.com/watch?v=nrPhjpU2Ltk&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+- [IA na Prática 23 - Toolsets Personalizadas | RAD](https://www.youtube.com/watch?v=rGPqzElOd3w&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 
 ## IAs disponíveis
 Abaixo, apresentamos um guia rápido com os principais provedores de IA disponíveis, seus sites e links para geração de chaves de API.
