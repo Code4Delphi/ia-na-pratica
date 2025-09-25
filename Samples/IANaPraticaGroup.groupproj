@@ -36,6 +36,9 @@
         <Projects Include="ToolsetsPOO\ToolsetsPOO.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="Ollama\Ollama.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -143,14 +146,23 @@
     <Target Name="ToolsetsPOO:Make">
         <MSBuild Projects="ToolsetsPOO\ToolsetsPOO.dproj" Targets="Make"/>
     </Target>
+    <Target Name="Ollama">
+        <MSBuild Projects="Ollama\Ollama.dproj"/>
+    </Target>
+    <Target Name="Ollama:Clean">
+        <MSBuild Projects="Ollama\Ollama.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Ollama:Make">
+        <MSBuild Projects="Ollama\Ollama.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="IAChat;Models;APIKey;FunctionCalling;Images;RAG;TTS_STT;TTS_STT_Map;Toolsets;ToolsetsRAD;ToolsetsPOO"/>
+        <CallTarget Targets="IAChat;Models;APIKey;FunctionCalling;Images;RAG;TTS_STT;TTS_STT_Map;Toolsets;ToolsetsRAD;ToolsetsPOO;Ollama"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="IAChat:Clean;Models:Clean;APIKey:Clean;FunctionCalling:Clean;Images:Clean;RAG:Clean;TTS_STT:Clean;TTS_STT_Map:Clean;Toolsets:Clean;ToolsetsRAD:Clean;ToolsetsPOO:Clean"/>
+        <CallTarget Targets="IAChat:Clean;Models:Clean;APIKey:Clean;FunctionCalling:Clean;Images:Clean;RAG:Clean;TTS_STT:Clean;TTS_STT_Map:Clean;Toolsets:Clean;ToolsetsRAD:Clean;ToolsetsPOO:Clean;Ollama:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="IAChat:Make;Models:Make;APIKey:Make;FunctionCalling:Make;Images:Make;RAG:Make;TTS_STT:Make;TTS_STT_Map:Make;Toolsets:Make;ToolsetsRAD:Make;ToolsetsPOO:Make"/>
+        <CallTarget Targets="IAChat:Make;Models:Make;APIKey:Make;FunctionCalling:Make;Images:Make;RAG:Make;TTS_STT:Make;TTS_STT_Map:Make;Toolsets:Make;ToolsetsRAD:Make;ToolsetsPOO:Make;Ollama:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
