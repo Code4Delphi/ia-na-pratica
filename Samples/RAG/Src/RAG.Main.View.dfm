@@ -109,7 +109,6 @@ object RAGMainView: TRAGMainView
         Lines.Strings = (
           '- Quando a DelphiDevs foi fundada?')
         TabOrder = 0
-        ExplicitLeft = 4
       end
     end
     object Panel1: TPanel
@@ -163,7 +162,6 @@ object RAGMainView: TRAGMainView
     Padding.Right = 1
     Padding.Bottom = 1
     TabOrder = 2
-    ExplicitLeft = 2
     object mmResponse: TMemo
       Left = 3
       Top = 17
@@ -173,8 +171,6 @@ object RAGMainView: TRAGMainView
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
-      ExplicitLeft = 4
-      ExplicitTop = 13
     end
     object pnResponseDetails: TPanel
       Left = 3
@@ -189,7 +185,7 @@ object RAGMainView: TRAGMainView
       object Label9: TLabel
         Left = 174
         Top = 0
-        Width = 92
+        Width = 93
         Height = 21
         Hint = 'N'#186' de tokens que a resposta cont'#233'm: '
         Align = alLeft
@@ -200,7 +196,7 @@ object RAGMainView: TRAGMainView
         ExplicitHeight = 15
       end
       object lbNumTokensResponse: TLabel
-        Left = 266
+        Left = 267
         Top = 0
         Width = 90
         Height = 21
@@ -232,37 +228,40 @@ object RAGMainView: TRAGMainView
         ExplicitLeft = 83
       end
       object Label11: TLabel
-        Left = 515
+        Left = 517
         Top = 0
         Width = 90
         Height = 21
         Align = alLeft
         Caption = 'Model response: '
         Layout = tlCenter
+        ExplicitLeft = 515
         ExplicitHeight = 15
       end
       object lbServiceModel: TLabel
-        Left = 605
+        Left = 607
         Top = 0
         Width = 5
         Height = 21
         Align = alLeft
         Caption = '-'
         Layout = tlCenter
+        ExplicitLeft = 605
         ExplicitHeight = 15
       end
       object Label12: TLabel
-        Left = 356
+        Left = 357
         Top = 0
-        Width = 69
+        Width = 70
         Height = 21
         Align = alLeft
         Caption = 'Total tokens: '
         Layout = tlCenter
+        ExplicitLeft = 356
         ExplicitHeight = 15
       end
       object lbTotalTokens: TLabel
-        Left = 425
+        Left = 427
         Top = 0
         Width = 90
         Height = 21
@@ -341,6 +340,7 @@ object RAGMainView: TRAGMainView
     Settings.GeminiModel = 'gemini-1.5-flash-latest'
     Settings.OpenAIModel = 'gpt-4o'
     Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
+    Settings.OpenAITranscribeModel = 'whisper-1'
     Settings.GrokModel = 'grok-3'
     Settings.ClaudeModel = 'claude-3-5-sonnet-20241022'
     Settings.OllamaModel = 'llama3.2:latest'
@@ -349,6 +349,7 @@ object RAGMainView: TRAGMainView
     Settings.OllamaHost = 'localhost'
     Settings.OllamaPath = '/api/chat'
     Settings.MistralModel = 'mistral-large-latest'
+    Settings.MistralTranscribeModel = 'voxtral-mini-2507'
     Tools = <>
     OnExecuted = TMSMCPCloudAI1Executed
     OnGetFiles = TMSMCPCloudAI1GetFiles

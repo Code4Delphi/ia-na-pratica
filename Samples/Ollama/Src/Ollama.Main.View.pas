@@ -8,6 +8,7 @@ uses
   System.SysUtils,
   System.Variants,
   System.Classes,
+  System.JSON,
   Vcl.Graphics,
   Vcl.Controls,
   Vcl.Forms,
@@ -23,37 +24,28 @@ uses
 
 type
   TOllamaMainView = class(TForm)
+    TMSMCPCloudAI1: TTMSMCPCloudAI;
     pnTop: TPanel;
+    Label13: TLabel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    lbPort: TLabel;
+    edtTemperature: TEdit;
+    btnShowModels: TButton;
+    cBoxModel: TComboBox;
+    edtHost: TEdit;
+    edtPath: TEdit;
+    edtPort: TEdit;
     pnBoth: TPanel;
     gBoxQuestion: TGroupBox;
     mmQuestion: TMemo;
     Panel1: TPanel;
     btnExecute: TBitBtn;
+    ProgressBar1: TProgressBar;
     Splitter1: TSplitter;
     gBoxResponse: TGroupBox;
-    PageControl1: TPageControl;
-    tabChat: TTabSheet;
-    ProgressBar1: TProgressBar;
-    pnResponseDetails: TPanel;
-    Label9: TLabel;
-    lbNumTokensResponse: TLabel;
-    Label10: TLabel;
-    lbPromptTokens: TLabel;
-    Label11: TLabel;
-    lbServiceModel: TLabel;
-    Label12: TLabel;
-    lbTotalTokens: TLabel;
-    ckGerarLogs: TCheckBox;
-    Label13: TLabel;
-    edtTemperature: TEdit;
-    ckWebSearch: TCheckBox;
-    Label14: TLabel;
-    edtMaxTokens: TEdit;
-    TMSMCPCloudAI1: TTMSMCPCloudAI;
     mmResponse: TMemo;
-    btnShowModels: TButton;
-    Label1: TLabel;
-    cBoxModel: TComboBox;
     procedure FormCreate(Sender: TObject);
     procedure btnExecuteClick(Sender: TObject);
     procedure TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse; AHttpStatusCode: Integer;
@@ -62,10 +54,8 @@ type
     procedure TMSMCPCloudAI1GetModels(Sender: TObject; AResponse: TTMSMCPCloudAIResponse; AHttpStatusCode: Integer;
       AHttpResult: string);
   private
-    procedure ClearResponse;
     procedure Settings;
-    procedure ModelsComponentToScreen;
-    procedure ModelsScreenToComponent;
+    procedure ComponentToScreen;
   public
 
   end;
@@ -79,26 +69,17 @@ implementation
 
 procedure TOllamaMainView.FormCreate(Sender: TObject);
 begin
-  Self.Settings;
-  Self.ModelsComponentToScreen;
+  Self.ComponentToScreen;
 end;
 
-procedure TOllamaMainView.Settings;
+procedure TOllamaMainView.ComponentToScreen;
 begin
-  TMSMCPCloudAI1.Logging := ckGerarLogs.Checked;
-  TMSMCPCloudAI1.LogFileName := '..\..\Files\Chat.log';
+  cBoxModel.Items.Add(TMSMCPCloudAI1.Settings.OllamaModel);
+  edtTemperature.Text := TMSMCPCloudAI1.Settings.Temperature.ToString;
 
-  TMSMCPCloudAI1.Settings.Temperature := StrToIntDef(edtTemperature.Text, 0);
-  TMSMCPCloudAI1.Settings.MaxTokens := StrToIntDef(edtMaxTokens.Text, 0);
-  TMSMCPCloudAI1.Settings.WebSearch := ckWebSearch.Checked;
-
-  //OLLAMA
-  TMSMCPCloudAI1.Settings.OllamaModel := cBoxModel.Text; //'mistral:latest';
-//  TMSMCPCloudAI1.Settings.OllamaHost := '';
-//  TMSMCPCloudAI1.Settings.OllamaPath := '';
-//  TMSMCPCloudAI1.Settings.OllamaPort := 11434
-
-  TMSMCPCloudAI1.Service := TTMSMCPCloudAIService.aiOllama;
+  edtHost.Text := TMSMCPCloudAI1.Settings.OllamaHost;
+  edtPath.Text := TMSMCPCloudAI1.Settings.OllamaPath;
+  edtPort.Text := TMSMCPCloudAI1.Settings.OllamaPort.ToString;
 end;
 
 procedure TOllamaMainView.TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse;
@@ -112,10 +93,6 @@ begin
   end;
 
   mmResponse.Lines.Text := AResponse.Content.Text;
-  lbPromptTokens.Caption := AResponse.PromptTokens.ToString;
-  lbNumTokensResponse.Caption := AResponse.CompletionTokens.ToString;
-  lbTotalTokens.Caption := AResponse.TotalTokens.ToString;
-  lbServiceModel.Caption := AResponse.ServiceModel;
 end;
 
 procedure TOllamaMainView.TMSMCPCloudAI1GetModels(Sender: TObject; AResponse: TTMSMCPCloudAIResponse;
@@ -129,34 +106,30 @@ begin
   end;
 
   cBoxModel.Items := TMSMCPCloudAI1.Models;
-  mmResponse.Text := TMSMCPCloudAI1.Models.Text;
-  //lbTotalModels.Caption := TMSMCPCloudAI1.Models.Count.ToString;
-end;
 
-procedure TOllamaMainView.ModelsComponentToScreen;
-begin
-  //edtModelClaude.Text := TMSMCPCloudAI1.Settings.ClaudeModel;
-end;
-
-procedure TOllamaMainView.ModelsScreenToComponent;
-begin
-  //TMSMCPCloudAI1.Settings.ClaudeModel := edtModelClaude.Text;
+  mmResponse.Lines.Clear;
+  mmResponse.Lines.Add(Format('Foram encontrados %d models', [TMSMCPCloudAI1.Models.Count]));
+  mmResponse.Lines.Add(TMSMCPCloudAI1.Models.Text);
 end;
 
 procedure TOllamaMainView.btnShowModelsClick(Sender: TObject);
 begin
+  Self.Settings;
+
   ProgressBar1.State := pbsNormal;
   cBoxModel.Items.Clear;
   TMSMCPCloudAI1.GetModels();
 end;
 
-procedure TOllamaMainView.ClearResponse;
+procedure TOllamaMainView.Settings;
 begin
-  mmResponse.Lines.Clear;
-  lbPromptTokens.Caption := '0';
-  lbNumTokensResponse.Caption := '0';
-  lbTotalTokens.Caption := '0';
-  lbServiceModel.Caption := '';
+  TMSMCPCloudAI1.Service := TTMSMCPCloudAIService.aiOllama;
+  TMSMCPCloudAI1.Settings.OllamaModel := cBoxModel.Text;
+  TMSMCPCloudAI1.Settings.OllamaHost := edtHost.Text;
+  TMSMCPCloudAI1.Settings.OllamaPath := edtPath.Text;
+  TMSMCPCloudAI1.Settings.OllamaPort := StrToIntDef(edtPort.Text, 11434);
+
+  TMSMCPCloudAI1.Settings.Temperature := StrToFloatDef(edtTemperature.Text, 0);
 end;
 
 procedure TOllamaMainView.btnExecuteClick(Sender: TObject);
@@ -167,9 +140,8 @@ begin
     Exit;
   end;
 
-  Self.ClearResponse;
+  mmResponse.Lines.Clear;
   Self.Settings;
-  Self.ModelsScreenToComponent;
 
   TMSMCPCloudAI1.Context.Text := mmQuestion.Lines.Text;
   TMSMCPCloudAI1.Execute();
