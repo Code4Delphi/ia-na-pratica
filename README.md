@@ -44,6 +44,7 @@ Você poderá acompanhar esta série através de nossa playlist:
 - [IA na Prática 24 - Toolsets Personalizadas | POO | Criando componentes em tempo de execução](https://www.youtube.com/watch?v=h8HAE36PYmg&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 - [IA na Prática 25 - Ollama | IA Offline | Instalação e configuração](https://www.youtube.com/watch?v=GwXEut0yUIY&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 - [IA na Prática 26 - Ollama com Delphi (IA Offline)](https://www.youtube.com/watch?v=B7-j-IbsOp8&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+- [IA na Prática 27 - Ollama conexão externa via IP e alteração de porta](https://www.youtube.com/watch?v=8OdoJ1xNgqI&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 
 ## IAs disponíveis
 Abaixo, apresentamos um guia rápido com os principais provedores de IA disponíveis, seus sites e links para geração de chaves de API.
