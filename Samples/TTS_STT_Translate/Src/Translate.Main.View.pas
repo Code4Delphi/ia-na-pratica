@@ -28,7 +28,6 @@ type
     btnStopRecording: TButton;
     Splitter1: TSplitter;
     ProgressBar1: TProgressBar;
-    cBoxLanguage: TComboBox;
     TMSMCPCloudAI1: TTMSMCPCloudAI;
     ckSpeakAudioRecording: TCheckBox;
     gBoxResponse: TGroupBox;
@@ -48,6 +47,10 @@ type
     btnStopTalking: TButton;
     btnLoadAudio: TButton;
     OpenDialog1: TOpenDialog;
+    pnOpcoesTranslate: TPanel;
+    cBoxLanguage: TComboBox;
+    Label1: TLabel;
+    btnTranslate: TButton;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure btnStartRecordingClick(Sender: TObject);
@@ -59,13 +62,14 @@ type
       AHttpResult: string);
     procedure btnStopTalkingClick(Sender: TObject);
     procedure btnLoadAudioClick(Sender: TObject);
+    procedure btnTranslateClick(Sender: TObject);
   private
     FAudioRecorder: TAudioRecorder;
     procedure ScreenRecordingOn;
     procedure ScreenRecordingOff;
     procedure ClearResponse;
     function GetLanguage: string;
-    procedure DoTranslate(Text, Language: string);
+    procedure DoTranslate(const AText, ALanguage: string);
   public
 
   end;
@@ -165,33 +169,25 @@ begin
   btnStopTalking.Enabled := False;
 end;
 
+procedure TTranslateMainView.btnLoadAudioClick(Sender: TObject);
+begin
+  if not OpenDialog1.Execute then
+    Exit;
+
+  TMSMCPCloudAI1.Transcribe(OpenDialog1.FileName, Self.GetLanguage); //'en'
+
+  if ckSpeakAudioRecording.Checked then
+  begin
+    btnStopTalking.Enabled := True;
+    FAudioRecorder.PlayMP3FromFile(OpenDialog1.FileName);
+  end;
+end;
+
 procedure TTranslateMainView.TMSMCPCloudAI1SpeechAudio(Sender: TObject; HttpStatusCode: Integer; HttpResult: string;
   SoundBuffer: TMemoryStream);
 begin
   btnStopTalking.Enabled := True;
   FAudioRecorder.PlayMP3FromStream(SoundBuffer);
-end;
-
-procedure TTranslateMainView.TMSMCPCloudAI1TranscribeAudio(Sender: TObject; HttpStatusCode: Integer; HttpResult, Text: string);
-begin
-  if HttpStatusCode div 100 <> 2 then
-  begin
-    mmTanscription.Lines.Text := 'Error: ' + HttpStatusCode.ToString + sLineBreak + HttpResult;
-    Self.ScreenRecordingOff;
-    Exit;
-  end;
-
-  mmTanscription.Lines.Text := Text;
-//  TMSMCPCloudAI1.Context.Text := Text;
-//  TMSMCPCloudAI1.Execute;
-  Self.DoTranslate(Text, 'en')
-end;
-
-procedure TTranslateMainView.DoTranslate(Text, Language: string);
-begin
-  TMSMCPCloudAI1.AssistantRole.Text := 'You are a translator that literally translates this text to '+ language;
-  TMSMCPCloudAI1.Context.Text := Text;
-  TMSMCPCloudAI1.Execute;
 end;
 
 procedure TTranslateMainView.TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse; AHttpStatusCode: Integer;
@@ -214,18 +210,29 @@ begin
     TMSMCPCloudAI1.Speak(AResponse.Content.Text);
 end;
 
-procedure TTranslateMainView.btnLoadAudioClick(Sender: TObject);
+procedure TTranslateMainView.TMSMCPCloudAI1TranscribeAudio(Sender: TObject; HttpStatusCode: Integer; HttpResult, Text: string);
 begin
-  if not OpenDialog1.Execute then
-    Exit;
-
-  TMSMCPCloudAI1.Transcribe(OpenDialog1.FileName, Self.GetLanguage); //'en'
-
-  if ckSpeakAudioRecording.Checked then
+  if HttpStatusCode div 100 <> 2 then
   begin
-    btnStopTalking.Enabled := True;
-    FAudioRecorder.PlayMP3FromFile(OpenDialog1.FileName);
+    mmTanscription.Lines.Text := 'Error: ' + HttpStatusCode.ToString + sLineBreak + HttpResult;
+    Self.ScreenRecordingOff;
+    Exit;
   end;
+
+  mmTanscription.Lines.Text := Text;
+  Self.DoTranslate(Text, Self.GetLanguage);
+end;
+
+procedure TTranslateMainView.btnTranslateClick(Sender: TObject);
+begin
+  Self.DoTranslate(mmTanscription.Lines.Text, Self.GetLanguage);
+end;
+
+procedure TTranslateMainView.DoTranslate(const AText, ALanguage: string);
+begin
+  TMSMCPCloudAI1.AssistantRole.Text := 'You are a translator that literally translates this text to '+ ALanguage;
+  TMSMCPCloudAI1.Context.Text := AText;
+  TMSMCPCloudAI1.Execute;
 end;
 
 end.

@@ -17,7 +17,7 @@ object TranslateMainView: TTranslateMainView
   TextHeight = 15
   object Splitter1: TSplitter
     Left = 0
-    Top = 273
+    Top = 314
     Width = 845
     Height = 8
     Cursor = crVSplit
@@ -46,7 +46,7 @@ object TranslateMainView: TTranslateMainView
         39)
       object btnStartRecording: TButton
         AlignWithMargins = True
-        Left = 127
+        Left = 4
         Top = 4
         Width = 90
         Height = 31
@@ -55,10 +55,11 @@ object TranslateMainView: TTranslateMainView
         Caption = 'Start recording'
         TabOrder = 0
         OnClick = btnStartRecordingClick
+        ExplicitLeft = 127
       end
       object btnStopRecording: TButton
         AlignWithMargins = True
-        Left = 223
+        Left = 100
         Top = 4
         Width = 90
         Height = 31
@@ -67,10 +68,11 @@ object TranslateMainView: TTranslateMainView
         Caption = 'Stop recording'
         TabOrder = 1
         OnClick = btnStopRecordingClick
+        ExplicitLeft = 223
       end
       object ProgressBar1: TProgressBar
         AlignWithMargins = True
-        Left = 320
+        Left = 197
         Top = 9
         Width = 129
         Height = 21
@@ -84,27 +86,7 @@ object TranslateMainView: TTranslateMainView
         SmoothReverse = True
         State = pbsPaused
         TabOrder = 2
-      end
-      object cBoxLanguage: TComboBox
-        AlignWithMargins = True
-        Left = 4
-        Top = 9
-        Width = 117
-        Height = 23
-        Margins.Top = 8
-        Align = alLeft
-        DropDownCount = 15
-        TabOrder = 3
-        Text = 'Auto  '
-        Items.Strings = (
-          'Auto  '
-          'Ingl'#234's - EN'
-          'Portugu'#234's - PT'
-          'Espanhol - ES'
-          'Franc'#234's - FR'
-          'Italiano - IT'
-          'Japon'#234's - JA'
-          #193'rabe - AR')
+        ExplicitLeft = 320
       end
       object ckSpeakAudioRecording: TCheckBox
         Left = 690
@@ -114,7 +96,7 @@ object TranslateMainView: TTranslateMainView
         Cursor = crHandPoint
         Anchors = [akTop, akRight]
         Caption = 'Speak audio recording'
-        TabOrder = 4
+        TabOrder = 3
       end
       object ckSpeakResponse: TCheckBox
         Left = 690
@@ -126,31 +108,33 @@ object TranslateMainView: TTranslateMainView
         Caption = 'Speak response'
         Checked = True
         State = cbChecked
-        TabOrder = 5
+        TabOrder = 4
       end
       object btnStopTalking: TButton
         AlignWithMargins = True
-        Left = 552
+        Left = 429
         Top = 4
         Width = 90
         Height = 31
         Cursor = crHandPoint
         Align = alLeft
         Caption = 'Stop talking'
-        TabOrder = 6
+        TabOrder = 5
         OnClick = btnStopTalkingClick
+        ExplicitLeft = 552
       end
       object btnLoadAudio: TButton
         AlignWithMargins = True
-        Left = 456
+        Left = 333
         Top = 4
         Width = 90
         Height = 31
         Cursor = crHandPoint
         Align = alLeft
         Caption = 'Load audio'
-        TabOrder = 7
+        TabOrder = 6
         OnClick = btnLoadAudioClick
+        ExplicitLeft = 456
       end
     end
     object gBoxTanscription: TGroupBox
@@ -174,33 +158,39 @@ object TranslateMainView: TTranslateMainView
         Lines.Strings = (
           '')
         TabOrder = 0
+        ExplicitLeft = 2
+        ExplicitTop = 16
       end
     end
   end
   object gBoxResponse: TGroupBox
     Left = 0
-    Top = 281
+    Top = 322
     Width = 845
-    Height = 417
+    Height = 376
     Align = alClient
     Caption = ' Response '
     Padding.Left = 1
     Padding.Right = 1
     Padding.Bottom = 1
     TabOrder = 1
+    ExplicitTop = 281
+    ExplicitHeight = 417
     object mmResponse: TMemo
       Left = 3
       Top = 17
       Width = 839
-      Height = 374
+      Height = 333
       Align = alClient
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
+      ExplicitLeft = 2
+      ExplicitTop = 13
     end
     object pnResponseDetails: TPanel
       Left = 3
-      Top = 391
+      Top = 350
       Width = 839
       Height = 23
       Align = alBottom
@@ -208,6 +198,7 @@ object TranslateMainView: TTranslateMainView
       BevelKind = bkTile
       BevelOuter = bvNone
       TabOrder = 1
+      ExplicitTop = 391
       object Label9: TLabel
         Left = 174
         Top = 0
@@ -294,6 +285,65 @@ object TranslateMainView: TTranslateMainView
         Layout = tlCenter
         ExplicitLeft = 675
       end
+    end
+  end
+  object pnOpcoesTranslate: TPanel
+    Left = 0
+    Top = 273
+    Width = 845
+    Height = 41
+    Align = alTop
+    Padding.Top = 6
+    Padding.Bottom = 6
+    TabOrder = 2
+    ExplicitTop = 274
+    object Label1: TLabel
+      Left = 1
+      Top = 7
+      Width = 125
+      Height = 27
+      Align = alLeft
+      Caption = ' Speak in the language: '
+      Layout = tlCenter
+      ExplicitTop = 1
+      ExplicitHeight = 15
+    end
+    object cBoxLanguage: TComboBox
+      AlignWithMargins = True
+      Left = 129
+      Top = 10
+      Width = 117
+      Height = 23
+      Margins.Bottom = 0
+      Align = alLeft
+      DropDownCount = 15
+      ItemIndex = 0
+      TabOrder = 0
+      Text = 'Ingl'#234's - EN'
+      Items.Strings = (
+        'Ingl'#234's - EN'
+        'Portugu'#234's - PT'
+        'Espanhol - ES'
+        'Franc'#234's - FR'
+        'Italiano - IT'
+        'Japon'#234's - JA'
+        #193'rabe - AR')
+      ExplicitLeft = 102
+      ExplicitTop = 6
+    end
+    object btnTranslate: TButton
+      AlignWithMargins = True
+      Left = 252
+      Top = 7
+      Width = 145
+      Height = 27
+      Margins.Top = 0
+      Margins.Bottom = 0
+      Align = alLeft
+      Caption = 'Translate'
+      TabOrder = 1
+      OnClick = btnTranslateClick
+      ExplicitTop = 11
     end
   end
   object TMSMCPCloudAI1: TTMSMCPCloudAI
