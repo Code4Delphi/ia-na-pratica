@@ -27,6 +27,9 @@
         <Projects Include="TTS_STT_Map\TTS_STT_Map.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="TTS_STT_Translate\TTS_STT_Translate.dproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="Toolsets\Toolsets.dproj">
             <Dependencies/>
         </Projects>
@@ -39,7 +42,7 @@
         <Projects Include="Ollama\Ollama.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="TTS_STT_Translate\TTS_STT_Translate.dproj">
+        <Projects Include="TokenUsageTracking\TokenUsageTracking.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -122,6 +125,15 @@
     <Target Name="TTS_STT_Map:Make">
         <MSBuild Projects="TTS_STT_Map\TTS_STT_Map.dproj" Targets="Make"/>
     </Target>
+    <Target Name="TTS_STT_Translate">
+        <MSBuild Projects="TTS_STT_Translate\TTS_STT_Translate.dproj"/>
+    </Target>
+    <Target Name="TTS_STT_Translate:Clean">
+        <MSBuild Projects="TTS_STT_Translate\TTS_STT_Translate.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TTS_STT_Translate:Make">
+        <MSBuild Projects="TTS_STT_Translate\TTS_STT_Translate.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Toolsets">
         <MSBuild Projects="Toolsets\Toolsets.dproj"/>
     </Target>
@@ -158,23 +170,23 @@
     <Target Name="Ollama:Make">
         <MSBuild Projects="Ollama\Ollama.dproj" Targets="Make"/>
     </Target>
-    <Target Name="TTS_STT_Translate">
-        <MSBuild Projects="TTS_STT_Translate\TTS_STT_Translate.dproj"/>
+    <Target Name="TokenUsageTracking">
+        <MSBuild Projects="TokenUsageTracking\TokenUsageTracking.dproj"/>
     </Target>
-    <Target Name="TTS_STT_Translate:Clean">
-        <MSBuild Projects="TTS_STT_Translate\TTS_STT_Translate.dproj" Targets="Clean"/>
+    <Target Name="TokenUsageTracking:Clean">
+        <MSBuild Projects="TokenUsageTracking\TokenUsageTracking.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="TTS_STT_Translate:Make">
-        <MSBuild Projects="TTS_STT_Translate\TTS_STT_Translate.dproj" Targets="Make"/>
+    <Target Name="TokenUsageTracking:Make">
+        <MSBuild Projects="TokenUsageTracking\TokenUsageTracking.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="IAChat;Models;APIKey;FunctionCalling;Images;RAG;TTS_STT;TTS_STT_Map;Toolsets;ToolsetsRAD;ToolsetsPOO;Ollama;TTS_STT_Translate"/>
+        <CallTarget Targets="IAChat;Models;APIKey;FunctionCalling;Images;RAG;TTS_STT;TTS_STT_Map;TTS_STT_Translate;Toolsets;ToolsetsRAD;ToolsetsPOO;Ollama;TokenUsageTracking"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="IAChat:Clean;Models:Clean;APIKey:Clean;FunctionCalling:Clean;Images:Clean;RAG:Clean;TTS_STT:Clean;TTS_STT_Map:Clean;Toolsets:Clean;ToolsetsRAD:Clean;ToolsetsPOO:Clean;Ollama:Clean;TTS_STT_Translate:Clean"/>
+        <CallTarget Targets="IAChat:Clean;Models:Clean;APIKey:Clean;FunctionCalling:Clean;Images:Clean;RAG:Clean;TTS_STT:Clean;TTS_STT_Map:Clean;TTS_STT_Translate:Clean;Toolsets:Clean;ToolsetsRAD:Clean;ToolsetsPOO:Clean;Ollama:Clean;TokenUsageTracking:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="IAChat:Make;Models:Make;APIKey:Make;FunctionCalling:Make;Images:Make;RAG:Make;TTS_STT:Make;TTS_STT_Map:Make;Toolsets:Make;ToolsetsRAD:Make;ToolsetsPOO:Make;Ollama:Make;TTS_STT_Translate:Make"/>
+        <CallTarget Targets="IAChat:Make;Models:Make;APIKey:Make;FunctionCalling:Make;Images:Make;RAG:Make;TTS_STT:Make;TTS_STT_Map:Make;TTS_STT_Translate:Make;Toolsets:Make;ToolsetsRAD:Make;ToolsetsPOO:Make;Ollama:Make;TokenUsageTracking:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

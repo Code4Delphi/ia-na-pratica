@@ -1,8 +1,10 @@
 object TokenUsageTrackingMainView: TTokenUsageTrackingMainView
   Left = 0
   Top = 0
-  Caption = 'AI in practice: Token Usage Tracking'
-  ClientHeight = 698
+  Caption = 
+    'AI in practice: Token Usage Tracking (Rastreamento de uso de tok' +
+    'en)'
+  ClientHeight = 499
   ClientWidth = 845
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -14,203 +16,384 @@ object TokenUsageTrackingMainView: TTokenUsageTrackingMainView
   Position = poScreenCenter
   OnCreate = FormCreate
   TextHeight = 15
-  object Splitter1: TSplitter
-    Left = 0
-    Top = 314
-    Width = 845
-    Height = 8
-    Cursor = crVSplit
-    Align = alTop
-    Beveled = True
-    ExplicitTop = 161
-    ExplicitWidth = 780
-  end
   object pnTop: TPanel
     Left = 0
     Top = 0
     Width = 845
-    Height = 273
+    Height = 65
     Align = alTop
-    BevelInner = bvLowered
     TabOrder = 0
-    object pnButtonsTop: TPanel
-      Left = 2
-      Top = 2
-      Width = 841
-      Height = 39
-      Align = alTop
+    ExplicitLeft = -180
+    ExplicitWidth = 1025
+    object Label1: TLabel
+      Left = 18
+      Top = 7
+      Width = 50
+      Height = 15
+      Caption = 'IA service'
+    end
+    object Label13: TLabel
+      Left = 221
+      Top = 7
+      Width = 67
+      Height = 15
+      Caption = 'Temperature'
+    end
+    object Label14: TLabel
+      Left = 344
+      Top = 7
+      Width = 110
+      Height = 15
+      Caption = 'Max tokens response'
+    end
+    object cBoxIAService: TComboBox
+      Left = 18
+      Top = 24
+      Width = 201
+      Height = 23
+      Style = csDropDownList
       TabOrder = 0
+    end
+    object ckGerarLogs: TCheckBox
+      Left = 473
+      Top = 27
+      Width = 76
+      Height = 17
+      Caption = 'Gerar Log'
+      TabOrder = 1
+    end
+    object edtTemperature: TEdit
+      Left = 221
+      Top = 24
+      Width = 121
+      Height = 23
+      MaxLength = 3
+      NumbersOnly = True
+      TabOrder = 2
+      Text = '0'
+    end
+    object ckWebSearch: TCheckBox
+      Left = 554
+      Top = 27
+      Width = 87
+      Height = 17
+      Caption = 'Web Search'
+      TabOrder = 3
+    end
+    object edtMaxTokens: TEdit
+      Left = 344
+      Top = 24
+      Width = 125
+      Height = 23
+      MaxLength = 3
+      NumbersOnly = True
+      TabOrder = 4
+      Text = '0'
+    end
+  end
+  object pnBoth: TPanel
+    Left = 0
+    Top = 65
+    Width = 845
+    Height = 168
+    Align = alTop
+    Caption = 'pnBoth'
+    TabOrder = 1
+    ExplicitLeft = -180
+    ExplicitWidth = 1025
+    object gBoxQuestion: TGroupBox
+      Left = 1
+      Top = 1
+      Width = 843
+      Height = 134
+      Align = alClient
+      Caption = ' Prompt / question '
+      Padding.Left = 1
+      Padding.Right = 1
+      Padding.Bottom = 1
+      TabOrder = 0
+      ExplicitWidth = 1023
+      object mmQuestion: TMemo
+        Left = 3
+        Top = 17
+        Width = 837
+        Height = 114
+        Align = alClient
+        BorderStyle = bsNone
+        Lines.Strings = (
+          'Ol'#225' quem '#233' voc'#234' e quem '#233' o seu fabricante?')
+        TabOrder = 0
+        ExplicitWidth = 1017
+      end
+    end
+    object Panel1: TPanel
+      Left = 1
+      Top = 135
+      Width = 843
+      Height = 32
+      Align = alBottom
+      Padding.Top = 2
+      Padding.Right = 2
+      Padding.Bottom = 2
+      TabOrder = 1
+      ExplicitWidth = 1023
+      object btnExecute: TBitBtn
+        Left = 1
+        Top = 3
+        Width = 102
+        Height = 26
+        Align = alLeft
+        Caption = 'Execute'
+        TabOrder = 0
+        OnClick = btnExecuteClick
+      end
       object ProgressBar1: TProgressBar
         AlignWithMargins = True
-        Left = 5
-        Top = 9
-        Width = 129
-        Height = 21
-        Margins.Left = 4
-        Margins.Top = 8
-        Margins.Right = 4
-        Margins.Bottom = 8
+        Left = 109
+        Top = 7
+        Width = 200
+        Height = 18
+        Margins.Left = 6
+        Margins.Top = 4
+        Margins.Right = 6
+        Margins.Bottom = 4
         Align = alLeft
         Smooth = True
         Style = pbstMarquee
         SmoothReverse = True
         State = pbsPaused
-        TabOrder = 0
-        ExplicitLeft = 197
-      end
-    end
-    object gBoxTanscription: TGroupBox
-      Left = 2
-      Top = 41
-      Width = 841
-      Height = 230
-      Align = alClient
-      Caption = ' Audio transcription  '
-      Padding.Left = 1
-      Padding.Right = 1
-      Padding.Bottom = 1
-      TabOrder = 1
-      object mmTanscription: TMemo
-        Left = 3
-        Top = 17
-        Width = 835
-        Height = 210
-        Align = alClient
-        BorderStyle = bsNone
-        Lines.Strings = (
-          '')
-        TabOrder = 0
+        TabOrder = 1
       end
     end
   end
   object gBoxResponse: TGroupBox
     Left = 0
-    Top = 322
+    Top = 233
     Width = 845
-    Height = 376
+    Height = 164
     Align = alClient
     Caption = ' Response '
     Padding.Left = 1
     Padding.Right = 1
     Padding.Bottom = 1
-    TabOrder = 1
+    TabOrder = 2
+    ExplicitLeft = 1
+    ExplicitTop = 232
+    ExplicitHeight = 266
     object mmResponse: TMemo
       Left = 3
       Top = 17
       Width = 839
-      Height = 333
+      Height = 144
       Align = alClient
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
-    end
-    object pnResponseDetails: TPanel
-      Left = 3
-      Top = 350
-      Width = 839
-      Height = 23
-      Align = alBottom
-      BevelEdges = [beTop]
-      BevelKind = bkTile
-      BevelOuter = bvNone
-      TabOrder = 1
-      object Label9: TLabel
-        Left = 174
-        Top = 0
-        Width = 93
-        Height = 21
-        Hint = 'N'#186' de tokens que a resposta cont'#233'm: '
-        Align = alLeft
-        Caption = 'Tokens response: '
-        ParentShowHint = False
-        ShowHint = True
-        Layout = tlCenter
-        ExplicitHeight = 15
-      end
-      object lbNumTokensResponse: TLabel
-        Left = 267
-        Top = 0
-        Width = 90
-        Height = 21
-        Align = alLeft
-        AutoSize = False
-        Caption = '0'
-        Layout = tlCenter
-        ExplicitLeft = 370
-      end
-      object Label10: TLabel
-        Left = 0
-        Top = 0
-        Width = 84
-        Height = 21
-        Align = alLeft
-        Caption = 'Prompt tokens: '
-        Layout = tlCenter
-        ExplicitHeight = 15
-      end
-      object lbPromptTokens: TLabel
-        Left = 84
-        Top = 0
-        Width = 90
-        Height = 21
-        Align = alLeft
-        AutoSize = False
-        Caption = '0'
-        Layout = tlCenter
-        ExplicitLeft = 83
-      end
-      object Label11: TLabel
-        Left = 517
-        Top = 0
-        Width = 90
-        Height = 21
-        Align = alLeft
-        Caption = 'Model response: '
-        Layout = tlCenter
-        ExplicitHeight = 15
-      end
-      object lbServiceModel: TLabel
-        Left = 607
-        Top = 0
-        Width = 5
-        Height = 21
-        Align = alLeft
-        Caption = '-'
-        Layout = tlCenter
-        ExplicitHeight = 15
-      end
-      object Label12: TLabel
-        Left = 357
-        Top = 0
-        Width = 70
-        Height = 21
-        Align = alLeft
-        Caption = 'Total tokens: '
-        Layout = tlCenter
-        ExplicitHeight = 15
-      end
-      object lbTotalTokens: TLabel
-        Left = 427
-        Top = 0
-        Width = 90
-        Height = 21
-        Align = alLeft
-        AutoSize = False
-        Caption = '0'
-        Layout = tlCenter
-        ExplicitLeft = 675
-      end
+      ExplicitLeft = 2
+      ExplicitTop = 16
     end
   end
-  object pnOpcoesTranslate: TPanel
+  object gBoxTokensConsumedCurrentRequest: TGroupBox
     Left = 0
-    Top = 273
+    Top = 397
     Width = 845
-    Height = 41
-    Align = alTop
-    Padding.Top = 6
-    Padding.Bottom = 6
-    TabOrder = 2
+    Height = 51
+    Align = alBottom
+    Caption = ' Tokens consumed in the current request '
+    Padding.Left = 5
+    TabOrder = 3
+    ExplicitLeft = 1
+    ExplicitTop = 400
+    object Label9: TLabel
+      Left = 181
+      Top = 17
+      Width = 93
+      Height = 32
+      Hint = 'N'#186' de tokens que a resposta cont'#233'm: '
+      Align = alLeft
+      Caption = 'Tokens response: '
+      ParentShowHint = False
+      ShowHint = True
+      Layout = tlCenter
+      ExplicitLeft = 176
+      ExplicitHeight = 15
+    end
+    object lbNumTokensResponse: TLabel
+      Left = 274
+      Top = 17
+      Width = 90
+      Height = 32
+      Align = alLeft
+      AutoSize = False
+      Caption = '0'
+      Layout = tlCenter
+      ExplicitLeft = 370
+      ExplicitTop = 0
+      ExplicitHeight = 21
+    end
+    object Label10: TLabel
+      Left = 7
+      Top = 17
+      Width = 84
+      Height = 32
+      Align = alLeft
+      Caption = 'Prompt tokens: '
+      Layout = tlCenter
+      ExplicitLeft = 2
+      ExplicitHeight = 15
+    end
+    object lbPromptTokens: TLabel
+      Left = 91
+      Top = 17
+      Width = 90
+      Height = 32
+      Align = alLeft
+      AutoSize = False
+      Caption = '0'
+      Layout = tlCenter
+      ExplicitLeft = 83
+      ExplicitTop = 0
+      ExplicitHeight = 21
+    end
+    object Label11: TLabel
+      Left = 524
+      Top = 17
+      Width = 90
+      Height = 32
+      Align = alLeft
+      Caption = 'Model response: '
+      Layout = tlCenter
+      ExplicitLeft = 519
+      ExplicitHeight = 15
+    end
+    object lbServiceModel: TLabel
+      Left = 614
+      Top = 17
+      Width = 5
+      Height = 32
+      Align = alLeft
+      Caption = '-'
+      Layout = tlCenter
+      ExplicitLeft = 609
+      ExplicitHeight = 15
+    end
+    object Label12: TLabel
+      Left = 364
+      Top = 17
+      Width = 70
+      Height = 32
+      Align = alLeft
+      Caption = 'Total tokens: '
+      Layout = tlCenter
+      ExplicitLeft = 359
+      ExplicitHeight = 15
+    end
+    object lbTotalTokens: TLabel
+      Left = 434
+      Top = 17
+      Width = 90
+      Height = 32
+      Align = alLeft
+      AutoSize = False
+      Caption = '0'
+      Layout = tlCenter
+      ExplicitLeft = 675
+      ExplicitTop = 0
+      ExplicitHeight = 21
+    end
+  end
+  object gBoxTokensUsedSession: TGroupBox
+    Left = 0
+    Top = 448
+    Width = 845
+    Height = 51
+    Align = alBottom
+    Caption = ' Total number of tokens used during a session '
+    Padding.Left = 5
+    TabOrder = 4
+    ExplicitLeft = 1
+    ExplicitTop = 451
+    object Label2: TLabel
+      Left = 181
+      Top = 17
+      Width = 93
+      Height = 32
+      Hint = 'N'#186' de tokens que a resposta cont'#233'm: '
+      Align = alLeft
+      Caption = 'Tokens response: '
+      ParentShowHint = False
+      ShowHint = True
+      Layout = tlCenter
+      ExplicitHeight = 15
+    end
+    object lbNumTokensResponseUsedSession: TLabel
+      Left = 274
+      Top = 17
+      Width = 90
+      Height = 32
+      Align = alLeft
+      AutoSize = False
+      Caption = '0'
+      Layout = tlCenter
+      ExplicitLeft = 280
+    end
+    object Label4: TLabel
+      Left = 7
+      Top = 17
+      Width = 84
+      Height = 32
+      Align = alLeft
+      Caption = 'Prompt tokens: '
+      Layout = tlCenter
+      ExplicitHeight = 15
+    end
+    object lbPromptTokensUsedSession: TLabel
+      Left = 91
+      Top = 17
+      Width = 90
+      Height = 32
+      Align = alLeft
+      AutoSize = False
+      Caption = '0'
+      Layout = tlCenter
+      ExplicitLeft = 83
+      ExplicitTop = 0
+      ExplicitHeight = 21
+    end
+    object Label8: TLabel
+      Left = 364
+      Top = 17
+      Width = 70
+      Height = 32
+      Align = alLeft
+      Caption = 'Total tokens: '
+      Layout = tlCenter
+      ExplicitHeight = 15
+    end
+    object lbTotalTokensUsedSession: TLabel
+      Left = 434
+      Top = 17
+      Width = 90
+      Height = 32
+      Align = alLeft
+      AutoSize = False
+      Caption = '0'
+      Layout = tlCenter
+      ExplicitLeft = 675
+      ExplicitTop = 0
+      ExplicitHeight = 21
+    end
+    object btnUsageReset: TButton
+      Left = 768
+      Top = 17
+      Width = 75
+      Height = 32
+      Align = alRight
+      Caption = 'Usage Reset'
+      TabOrder = 0
+      OnClick = btnUsageResetClick
+      ExplicitLeft = 769
+    end
   end
   object TMSMCPCloudAI1: TTMSMCPCloudAI
     Service = aiOpenAI
@@ -231,11 +414,5 @@ object TokenUsageTrackingMainView: TTokenUsageTrackingMainView
     OnExecuted = TMSMCPCloudAI1Executed
     Left = 624
     Top = 136
-  end
-  object OpenDialog1: TOpenDialog
-    DefaultExt = 'mp3'
-    Filter = 'Arquivos MP3 (*.mp3)|*.mp3|Todos os arquivos (*.*)|*.*'
-    Left = 624
-    Top = 72
   end
 end
