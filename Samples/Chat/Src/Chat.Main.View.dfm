@@ -78,7 +78,7 @@ object ChatMainView: TChatMainView
         object Label8: TLabel
           Left = 16
           Top = 259
-          Width = 52
+          Width = 51
           Height = 15
           Caption = 'Perplexity'
         end
@@ -215,7 +215,7 @@ object ChatMainView: TChatMainView
         object Label21: TLabel
           Left = 16
           Top = 259
-          Width = 52
+          Width = 51
           Height = 15
           Caption = 'Perplexity'
         end
@@ -300,14 +300,14 @@ object ChatMainView: TChatMainView
         object Label13: TLabel
           Left = 221
           Top = 7
-          Width = 66
+          Width = 67
           Height = 15
           Caption = 'Temperature'
         end
         object Label14: TLabel
           Left = 344
           Top = 7
-          Width = 111
+          Width = 110
           Height = 15
           Caption = 'Max tokens response'
         end
@@ -407,6 +407,7 @@ object ChatMainView: TChatMainView
             Caption = 'Execute'
             TabOrder = 0
             OnClick = btnExecuteClick
+            ExplicitLeft = -2
           end
           object ProgressBar1: TProgressBar
             AlignWithMargins = True
@@ -438,6 +439,7 @@ object ChatMainView: TChatMainView
         Padding.Right = 1
         Padding.Bottom = 1
         TabOrder = 2
+        ExplicitLeft = 1
         object mmResponse: TMemo
           Left = 3
           Top = 17
@@ -447,8 +449,6 @@ object ChatMainView: TChatMainView
           BorderStyle = bsNone
           ScrollBars = ssVertical
           TabOrder = 0
-          ExplicitLeft = 2
-          ExplicitTop = 13
         end
         object pnResponseDetails: TPanel
           Left = 3
@@ -463,7 +463,7 @@ object ChatMainView: TChatMainView
           object Label9: TLabel
             Left = 174
             Top = 0
-            Width = 92
+            Width = 93
             Height = 21
             Hint = 'N'#186' de tokens que a resposta cont'#233'm: '
             Align = alLeft
@@ -474,7 +474,7 @@ object ChatMainView: TChatMainView
             ExplicitHeight = 15
           end
           object lbNumTokensResponse: TLabel
-            Left = 266
+            Left = 267
             Top = 0
             Width = 90
             Height = 21
@@ -506,40 +506,40 @@ object ChatMainView: TChatMainView
             ExplicitLeft = 83
           end
           object Label11: TLabel
-            Left = 515
+            Left = 517
             Top = 0
             Width = 90
             Height = 21
             Align = alLeft
             Caption = 'Model response: '
             Layout = tlCenter
-            ExplicitLeft = 517
+            ExplicitLeft = 515
             ExplicitHeight = 15
           end
           object lbServiceModel: TLabel
-            Left = 605
+            Left = 607
             Top = 0
             Width = 5
             Height = 21
             Align = alLeft
             Caption = '-'
             Layout = tlCenter
-            ExplicitLeft = 607
+            ExplicitLeft = 605
             ExplicitHeight = 15
           end
           object Label12: TLabel
-            Left = 356
+            Left = 357
             Top = 0
-            Width = 69
+            Width = 70
             Height = 21
             Align = alLeft
             Caption = 'Total tokens: '
             Layout = tlCenter
-            ExplicitLeft = 357
+            ExplicitLeft = 356
             ExplicitHeight = 15
           end
           object lbTotalTokens: TLabel
-            Left = 425
+            Left = 427
             Top = 0
             Width = 90
             Height = 21
@@ -562,6 +562,7 @@ object ChatMainView: TChatMainView
     Service = aiOpenAI
     Settings.GeminiModel = 'gemini-1.5-flash-latest'
     Settings.OpenAIModel = 'gpt-4o'
+    Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
     Settings.GrokModel = 'grok-3'
     Settings.ClaudeModel = 'claude-3-5-sonnet-20241022'
     Settings.OllamaModel = 'tinyllama'
