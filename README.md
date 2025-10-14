@@ -12,6 +12,10 @@ saremos componentes que abstraem toda a complexidade técnica, permitindo que vo
 
 Obs.: Nos primeiros vídeos o componente utilizado era o [TMSFNCCloudAI](https://www.tmssoftware.com/site/tmsfnccloudpack.asp). Porém, após o lançamento do TMS AI Studio, todos os componentes para interação com IA passaram a ser os componentes do TMS AI Studio. Portanto, ao invés de usar o TMSFNCCloudAI, deve ser utilizado o componente TMSMCPCloudAI.
 
+## Fontes de exemplos de MCP
+- [Fontes com exemplos de MCP Servers](https://github.com/Code4Delphi/mcp-servers)
+- [Fontes com exemplos de MCP Clients](https://github.com/Code4Delphi/mcp-client)
+
 ## Vídeos de demonstração
 Você poderá acompanhar esta série através de nossa playlist:
 👉 [Playlist IA na Prática](https://www.youtube.com/playlist?list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
