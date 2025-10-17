@@ -54,6 +54,8 @@ Você poderá acompanhar esta série através de nossa playlist:
     - [Repositório MCP Server com RTTI (CEP-RTTI)](https://github.com/Code4Delphi/mcp-servers/tree/master/CEP-RTTI)
 - [IA na Prática 30 - MCP Server Attributes - Custom Attributes disponíveis](https://www.youtube.com/watch?v=gNrumsTnHWc&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
     - [Repositório MCP Server Attributes - Custom Attributes disponíveis](https://github.com/Code4Delphi/mcp-servers/tree/master/Attributes-MCP-RTTI)
+- [IA na Prática 31 - MCP Server para CRUD com Attributes e múltiplos objetos](https://www.youtube.com/watch?v=1Zw_e7vWSs8&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+    - [Repositório CRUD RTTI](https://github.com/Code4Delphi/mcp-servers/tree/master/CRUD-RTTI)
 
 ## IAs disponíveis
 Abaixo, apresentamos um guia rápido com os principais provedores de IA disponíveis, seus sites e links para geração de chaves de API.
