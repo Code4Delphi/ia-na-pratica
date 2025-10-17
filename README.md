@@ -52,6 +52,8 @@ Você poderá acompanhar esta série através de nossa playlist:
 - [IA na Prática 28 - Tradução de áudio e rastreamento de uso de tokens](https://www.youtube.com/watch?v=oI2EBgHfzZQ&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 - [IA na Prática 29 - MCP Server com RTTI - Transforme classes e métodos em MCP Servers](https://www.youtube.com/watch?v=zc5Bza73nJs&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
     - [Repositório MCP Server com RTTI (CEP-RTTI)](https://github.com/Code4Delphi/mcp-servers/tree/master/CEP-RTTI)
+- [IA na Prática 29 - MCP Server com RTTI - Transforme classes e métodos em MCP Servers](https://www.youtube.com/watch?v=gNrumsTnHWc&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+    - [Repositório MCP Server Attributes - Custom Attributes disponíveis](https://github.com/Code4Delphi/mcp-servers/tree/master/Attributes-MCP-RTTI)
 
 ## IAs disponíveis
 Abaixo, apresentamos um guia rápido com os principais provedores de IA disponíveis, seus sites e links para geração de chaves de API.
