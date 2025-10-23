@@ -56,7 +56,7 @@ Você poderá acompanhar esta série através de nossa playlist:
     - [Repositório MCP Server Attributes - Custom Attributes disponíveis](https://github.com/Code4Delphi/mcp-servers/tree/master/Attributes-MCP-RTTI)
 - [IA na Prática 31 - MCP Server para CRUD com Attributes e múltiplos objetos](https://www.youtube.com/watch?v=1Zw_e7vWSs8&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
     - [Repositório CRUD RTTI](https://github.com/Code4Delphi/mcp-servers/tree/master/CRUD-RTTI)
-- [IA na Prática 32 — Consumindo nossos MCPs pelo ChatGPT (via interface web)](https://www.youtube.com/watch?v=FYV_lnKZ-Bw&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+- [IA na Prática 32 - Consumindo nossos MCPs pelo ChatGPT (via interface web)](https://www.youtube.com/watch?v=FYV_lnKZ-Bw&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
     - [Repositório MCP Database HTTP](https://github.com/Code4Delphi/mcp-servers/tree/master/Database-HTTP)
 
 ## IAs disponíveis
