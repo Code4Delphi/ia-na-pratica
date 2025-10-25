@@ -58,6 +58,8 @@ Você poderá acompanhar esta série através de nossa playlist:
     - [Repositório CRUD RTTI](https://github.com/Code4Delphi/mcp-servers/tree/master/CRUD-RTTI)
 - [IA na Prática 32 - Como usar MCPs próprios diretamente no ChatGPT (via interface web)](https://www.youtube.com/watch?v=FYV_lnKZ-Bw&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
     - [Repositório MCP Database HTTP](https://github.com/Code4Delphi/mcp-servers/tree/master/Database-HTTP)
+- [IA na Prática 33 - Criando MCP Server de forma RAD – Acessando vários MCPs no ChatGPT](https://www.youtube.com/watch?v=iF6ZpPiFrGI&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+    - [Repositório MCP Filesystem HTTP](https://github.com/Code4Delphi/mcp-servers/tree/master/FileSystem-HTTP)
 
 ## IAs disponíveis
 Abaixo, apresentamos um guia rápido com os principais provedores de IA disponíveis, seus sites e links para geração de chaves de API.
