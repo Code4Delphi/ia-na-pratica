@@ -60,6 +60,8 @@ Você poderá acompanhar esta série através de nossa playlist:
     - [Repositório MCP Database HTTP](https://github.com/Code4Delphi/mcp-servers/tree/master/Database-HTTP)
 - [IA na Prática 33 - Criando MCP Server de forma RAD – Acessando vários MCPs no ChatGPT](https://www.youtube.com/watch?v=iF6ZpPiFrGI&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
     - [Repositório MCP Filesystem HTTP](https://github.com/Code4Delphi/mcp-servers/tree/master/FileSystem-HTTP)
+- [IA na Prática 34 - Consumindo MCP Server com Claude AI (via interface web)](https://www.youtube.com/watch?v=SsxdfEZOSOg&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+- [IA na Prática 35 - Consumindo MCP Server pelo VS Code](https://www.youtube.com/watch?v=AN1kyzxiyo0&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 
 ## IAs disponíveis
 Abaixo, apresentamos um guia rápido com os principais provedores de IA disponíveis, seus sites e links para geração de chaves de API.
