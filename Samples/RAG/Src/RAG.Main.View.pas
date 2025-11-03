@@ -21,6 +21,7 @@ uses
   Vcl.Buttons,
   Vcl.Grids,
   Vcl.DBGrids,
+  ShellAPI,
   Datasnap.DBClient,
   TMS.MCP.CustomComponent,
   TMS.MCP.CloudBase,
@@ -64,6 +65,7 @@ type
     ClientDataSet1URL: TStringField;
     ClientDataSet1MimeType: TStringField;
     DataSource1: TDataSource;
+    btnOpenStorageOpenAi: TButton;
     procedure FormCreate(Sender: TObject);
     procedure btnExecuteClick(Sender: TObject);
     procedure TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse; AHttpStatusCode: Integer;
@@ -76,6 +78,7 @@ type
     procedure cBoxIAServiceChange(Sender: TObject);
     procedure TMSMCPCloudAI1FileUpload(Sender: TObject; HttpStatusCode: Integer; HttpResult: string; Index: Integer);
     procedure TMSMCPCloudAI1FileDeleted(Sender: TObject; HttpStatusCode: Integer; HttpResult: string; Index: Integer);
+    procedure btnOpenStorageOpenAiClick(Sender: TObject);
   private
     procedure GetListFilesAI;
     procedure ComponentToDataSet(const AIndex: Integer);
@@ -98,7 +101,7 @@ begin
   TMSMCPCloudAI1.Settings.WebSearch := False;
 
   cBoxIAService.Items.Assign(TMSMCPCloudAI1.GetServices(True));
-  cBoxIAService.ItemIndex := 2;
+  cBoxIAService.ItemIndex := 6;
   TMSMCPCloudAI1.Service := TTMSMCPCloudAIService(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
 end;
 
@@ -223,6 +226,11 @@ begin
   end;
 
   Self.GetListFilesAI;
+end;
+
+procedure TRAGMainView.btnOpenStorageOpenAiClick(Sender: TObject);
+begin
+  ShellExecute(0, 'open', PChar('https://platform.openai.com/storage'), nil, nil, SW_SHOWNORMAL);
 end;
 
 end.

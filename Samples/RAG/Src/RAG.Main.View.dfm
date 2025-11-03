@@ -33,6 +33,9 @@ object RAGMainView: TRAGMainView
     Height = 65
     Align = alTop
     TabOrder = 0
+    DesignSize = (
+      994
+      65)
     object Label1: TLabel
       Left = 18
       Top = 8
@@ -79,6 +82,17 @@ object RAGMainView: TRAGMainView
       Caption = 'Delete'
       TabOrder = 3
       OnClick = btnDeleteClick
+    end
+    object btnOpenStorageOpenAi: TButton
+      Left = 832
+      Top = 21
+      Width = 158
+      Height = 25
+      Cursor = crHandPoint
+      Anchors = [akTop, akRight]
+      Caption = 'Open storage (OpenAi)'
+      TabOrder = 4
+      OnClick = btnOpenStorageOpenAiClick
     end
   end
   object pnBoth: TPanel
@@ -235,7 +249,6 @@ object RAGMainView: TRAGMainView
         Align = alLeft
         Caption = 'Model response: '
         Layout = tlCenter
-        ExplicitLeft = 515
         ExplicitHeight = 15
       end
       object lbServiceModel: TLabel
@@ -246,7 +259,6 @@ object RAGMainView: TRAGMainView
         Align = alLeft
         Caption = '-'
         Layout = tlCenter
-        ExplicitLeft = 605
         ExplicitHeight = 15
       end
       object Label12: TLabel
@@ -257,7 +269,6 @@ object RAGMainView: TRAGMainView
         Align = alLeft
         Caption = 'Total tokens: '
         Layout = tlCenter
-        ExplicitLeft = 356
         ExplicitHeight = 15
       end
       object lbTotalTokens: TLabel
@@ -337,7 +348,7 @@ object RAGMainView: TRAGMainView
   end
   object TMSMCPCloudAI1: TTMSMCPCloudAI
     Service = aiOpenAI
-    Settings.GeminiModel = 'gemini-1.5-flash-latest'
+    Settings.GeminiModel = 'gemini-2.5-flash'
     Settings.OpenAIModel = 'gpt-4o'
     Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
     Settings.OpenAITranscribeModel = 'whisper-1'
@@ -355,16 +366,16 @@ object RAGMainView: TRAGMainView
     OnGetFiles = TMSMCPCloudAI1GetFiles
     OnFileDeleted = TMSMCPCloudAI1FileDeleted
     OnFileUpload = TMSMCPCloudAI1FileUpload
-    Left = 529
-    Top = 10
+    Left = 505
+    Top = 146
   end
   object OpenDialog1: TOpenDialog
     Filter = 
       'PDF files (*.pdf)|*.pdf|Text files (*.txt)|*.txt|CSV files (*.cs' +
       'v)|*.csv|All files (*.*)|*.*'
     FilterIndex = 4
-    Left = 626
-    Top = 10
+    Left = 602
+    Top = 146
   end
   object ClientDataSet1: TClientDataSet
     PersistDataPacket.Data = {
@@ -408,8 +419,8 @@ object RAGMainView: TRAGMainView
     IndexDefs = <>
     Params = <>
     StoreDefs = True
-    Left = 722
-    Top = 10
+    Left = 698
+    Top = 146
     object ClientDataSet1Index: TIntegerField
       FieldName = 'Index'
     end
@@ -435,7 +446,7 @@ object RAGMainView: TRAGMainView
   end
   object DataSource1: TDataSource
     DataSet = ClientDataSet1
-    Left = 804
-    Top = 10
+    Left = 780
+    Top = 146
   end
 end

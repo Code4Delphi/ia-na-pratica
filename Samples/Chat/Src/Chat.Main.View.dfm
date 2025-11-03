@@ -2,7 +2,7 @@ object ChatMainView: TChatMainView
   Left = 0
   Top = 0
   Caption = 'IA na pr'#225'tica: Chat'
-  ClientHeight = 558
+  ClientHeight = 614
   ClientWidth = 1033
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -18,21 +18,23 @@ object ChatMainView: TChatMainView
     Left = 0
     Top = 0
     Width = 1033
-    Height = 558
+    Height = 614
     ActivePage = tabChat
     Align = alClient
     TabOrder = 0
+    ExplicitHeight = 558
     object tabAPIKeys: TTabSheet
       Caption = 'API Keys'
       object pnAPIKeysBack: TPanel
         Left = 0
         Top = 0
         Width = 1025
-        Height = 528
+        Height = 584
         Align = alClient
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 0
+        ExplicitHeight = 528
         object Label2: TLabel
           Left = 16
           Top = 19
@@ -165,11 +167,12 @@ object ChatMainView: TChatMainView
         Left = 0
         Top = 0
         Width = 1025
-        Height = 528
+        Height = 584
         Align = alClient
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 0
+        ExplicitHeight = 528
         object Label15: TLabel
           Left = 16
           Top = 19
@@ -431,26 +434,29 @@ object ChatMainView: TChatMainView
         Left = 0
         Top = 238
         Width = 1025
-        Height = 290
+        Height = 346
         Align = alClient
         Caption = ' Response '
         Padding.Left = 1
         Padding.Right = 1
         Padding.Bottom = 1
         TabOrder = 2
+        ExplicitHeight = 290
         object mmResponse: TMemo
           Left = 3
           Top = 17
           Width = 1019
-          Height = 247
+          Height = 303
           Align = alClient
           BorderStyle = bsNone
           ScrollBars = ssVertical
           TabOrder = 0
+          ExplicitLeft = 2
+          ExplicitTop = 13
         end
         object pnResponseDetails: TPanel
           Left = 3
-          Top = 264
+          Top = 320
           Width = 1019
           Height = 23
           Align = alBottom
@@ -458,6 +464,7 @@ object ChatMainView: TChatMainView
           BevelKind = bkTile
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitTop = 264
           object Label9: TLabel
             Left = 174
             Top = 0
@@ -550,7 +557,7 @@ object ChatMainView: TChatMainView
   end
   object TMSMCPCloudAI1: TTMSMCPCloudAI
     Service = aiOpenAI
-    Settings.GeminiModel = 'gemini-1.5-flash-latest'
+    Settings.GeminiModel = 'gemini-2.5-flash'
     Settings.OpenAIModel = 'gpt-4o'
     Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
     Settings.OpenAITranscribeModel = 'whisper-1'
