@@ -22,7 +22,6 @@ object ChatMainView: TChatMainView
     ActivePage = tabChat
     Align = alClient
     TabOrder = 0
-    ExplicitHeight = 558
     object tabAPIKeys: TTabSheet
       Caption = 'API Keys'
       object pnAPIKeysBack: TPanel
@@ -34,7 +33,6 @@ object ChatMainView: TChatMainView
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 0
-        ExplicitHeight = 528
         object Label2: TLabel
           Left = 16
           Top = 19
@@ -172,7 +170,6 @@ object ChatMainView: TChatMainView
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 0
-        ExplicitHeight = 528
         object Label15: TLabel
           Left = 16
           Top = 19
@@ -441,7 +438,6 @@ object ChatMainView: TChatMainView
         Padding.Right = 1
         Padding.Bottom = 1
         TabOrder = 2
-        ExplicitHeight = 290
         object mmResponse: TMemo
           Left = 3
           Top = 17
@@ -451,8 +447,6 @@ object ChatMainView: TChatMainView
           BorderStyle = bsNone
           ScrollBars = ssVertical
           TabOrder = 0
-          ExplicitLeft = 2
-          ExplicitTop = 13
         end
         object pnResponseDetails: TPanel
           Left = 3
@@ -464,7 +458,6 @@ object ChatMainView: TChatMainView
           BevelKind = bkTile
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitTop = 264
           object Label9: TLabel
             Left = 174
             Top = 0
