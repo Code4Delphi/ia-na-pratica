@@ -299,8 +299,6 @@ object ImagesMainView: TImagesMainView
         Padding.Right = 2
         Padding.Bottom = 2
         TabOrder = 0
-        ExplicitLeft = 4
-        ExplicitTop = -6
         object btnLoadImage1: TButton
           Left = 2
           Top = 2
@@ -361,31 +359,31 @@ object ImagesMainView: TImagesMainView
       end
     end
   end
-  object TMSFNCCloudAI1: TTMSFNCCloudAI
-    Left = 696
-    Top = 48
-    Width = 26
-    Height = 26
-    Visible = True
-    Service = aiOpenAI
-    Settings.GeminiModel = 'gemini-1.5-flash-latest'
-    Settings.OpenAIModel = 'gpt-4o'
-    Settings.GrokModel = 'grok-beta'
-    Settings.ClaudeModel = 'claude-3-5-sonnet-20241022'
-    Settings.OllamaModel = 'llama3.2:latest'
-    Settings.DeepSeekModel = 'deepseek-chat'
-    Settings.PerplexityModel = 'llama-3.1-sonar-small-128k-online'
-    Settings.OllamaHost = 'localhost'
-    Settings.OllamaPath = '/api/chat'
-    Settings.MistralModel = 'mistral-large-latest'
-    Tools = <>
-    OnExecuted = TMSFNCCloudAI1Executed
-  end
   object OpenDialog1: TOpenDialog
     Filter = 
       'JPEG files|*.jpg|PNG files|*.png|WebP files|*.webp|All image fil' +
       'es|*.*'
-    Left = 800
-    Top = 48
+    Left = 824
+    Top = 184
+  end
+  object TMSMCPCloudAI1: TTMSMCPCloudAI
+    Service = aiOpenAI
+    Settings.GeminiModel = 'gemini-1.5-flash-latest'
+    Settings.OpenAIModel = 'gpt-4o'
+    Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
+    Settings.OpenAITranscribeModel = 'whisper-1'
+    Settings.GrokModel = 'grok-3'
+    Settings.ClaudeModel = 'claude-sonnet-4-20250514'
+    Settings.OllamaModel = 'llama3.2:latest'
+    Settings.DeepSeekModel = 'deepseek-chat'
+    Settings.PerplexityModel = 'sonar-pro'
+    Settings.OllamaHost = 'localhost'
+    Settings.OllamaPath = '/api/chat'
+    Settings.MistralModel = 'mistral-large-latest'
+    Settings.MistralTranscribeModel = 'voxtral-mini-2507'
+    Tools = <>
+    OnExecuted = TMSMCPCloudAI1Executed
+    Left = 723
+    Top = 175
   end
 end
