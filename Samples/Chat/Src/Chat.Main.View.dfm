@@ -407,7 +407,6 @@ object ChatMainView: TChatMainView
             Caption = 'Execute'
             TabOrder = 0
             OnClick = btnExecuteClick
-            ExplicitLeft = -2
           end
           object ProgressBar1: TProgressBar
             AlignWithMargins = True
@@ -439,7 +438,6 @@ object ChatMainView: TChatMainView
         Padding.Right = 1
         Padding.Bottom = 1
         TabOrder = 2
-        ExplicitLeft = 1
         object mmResponse: TMemo
           Left = 3
           Top = 17
@@ -513,7 +511,6 @@ object ChatMainView: TChatMainView
             Align = alLeft
             Caption = 'Model response: '
             Layout = tlCenter
-            ExplicitLeft = 515
             ExplicitHeight = 15
           end
           object lbServiceModel: TLabel
@@ -524,7 +521,6 @@ object ChatMainView: TChatMainView
             Align = alLeft
             Caption = '-'
             Layout = tlCenter
-            ExplicitLeft = 605
             ExplicitHeight = 15
           end
           object Label12: TLabel
@@ -535,7 +531,6 @@ object ChatMainView: TChatMainView
             Align = alLeft
             Caption = 'Total tokens: '
             Layout = tlCenter
-            ExplicitLeft = 356
             ExplicitHeight = 15
           end
           object lbTotalTokens: TLabel
@@ -553,25 +548,24 @@ object ChatMainView: TChatMainView
       end
     end
   end
-  object TMSFNCCloudAI1: TTMSFNCCloudAI
-    Left = 680
-    Top = 47
-    Width = 26
-    Height = 26
-    Visible = True
+  object TMSMCPCloudAI1: TTMSMCPCloudAI
     Service = aiOpenAI
     Settings.GeminiModel = 'gemini-1.5-flash-latest'
     Settings.OpenAIModel = 'gpt-4o'
     Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
+    Settings.OpenAITranscribeModel = 'whisper-1'
     Settings.GrokModel = 'grok-3'
-    Settings.ClaudeModel = 'claude-3-5-sonnet-20241022'
-    Settings.OllamaModel = 'tinyllama'
+    Settings.ClaudeModel = 'claude-sonnet-4-20250514'
+    Settings.OllamaModel = 'llama3.2:latest'
     Settings.DeepSeekModel = 'deepseek-chat'
-    Settings.PerplexityModel = 'llama-3.1-sonar-small-128k-online'
+    Settings.PerplexityModel = 'sonar-pro'
     Settings.OllamaHost = 'localhost'
     Settings.OllamaPath = '/api/chat'
     Settings.MistralModel = 'mistral-large-latest'
+    Settings.MistralTranscribeModel = 'voxtral-mini-2507'
     Tools = <>
-    OnExecuted = TMSFNCCloudAI1Executed
+    OnExecuted = TMSMCPCloudAI1Executed
+    Left = 677
+    Top = 116
   end
 end
