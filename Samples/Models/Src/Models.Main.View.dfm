@@ -36,69 +36,6 @@ object ModelsMainView: TModelsMainView
       Style = csDropDownList
       TabOrder = 0
     end
-    object TMSFNCCloudAI1: TTMSFNCCloudAI
-      Left = 536
-      Top = 14
-      Width = 26
-      Height = 26
-      Visible = True
-      Service = aiOpenAI
-      Settings.GeminiModel = 'gemini-1.5-flash-latest'
-      Settings.OpenAIModel = 'gpt-4o'
-      Settings.GrokModel = 'grok-3'
-      Settings.ClaudeModel = 'claude-3-5-sonnet-20241022'
-      Settings.OllamaModel = 'llama3.2:latest'
-      Settings.DeepSeekModel = 'deepseek-chat'
-      Settings.PerplexityModel = 'llama-3.1-sonar-small-128k-online'
-      Settings.OllamaHost = 'localhost'
-      Settings.OllamaPath = '/api/chat'
-      Settings.MistralModel = 'mistral-large-latest'
-      Tools = <
-        item
-          Name = 'GetEstoqueProduto'
-          Description = 'Retorne o estoque do produto informado'
-          Parameters = <
-            item
-              ArrayProperties = <>
-              Name = 'IdProduto'
-              Type = ptNumber
-              Description = 'Id do produto'
-              Properties = <>
-            end>
-        end
-        item
-          Name = 'GetEndereco'
-          Description = 'Qual o endere'#231'o do CEP informado'
-          Parameters = <
-            item
-              ArrayProperties = <>
-              Name = 'CEP'
-              Type = ptString
-              Description = 'CEP a ser consultado'
-              Properties = <>
-            end>
-        end
-        item
-          Name = 'PeriodoVenda'
-          Description = 'Retorne os dados das vendas do periodo informado'
-          Parameters = <
-            item
-              ArrayProperties = <>
-              Name = 'DataIni'
-              Type = ptString
-              Description = 'Data inicial do periodo de filtro da venda'
-              Properties = <>
-            end
-            item
-              ArrayProperties = <>
-              Name = 'DataFim'
-              Type = ptString
-              Description = 'Data final do periodo de filtro da venda'
-              Properties = <>
-            end>
-        end>
-      OnGetModels = TMSFNCCloudAI1GetModels
-    end
     object btnShowModels: TButton
       Left = 225
       Top = 25
@@ -106,7 +43,7 @@ object ModelsMainView: TModelsMainView
       Height = 25
       Cursor = crHandPoint
       Caption = 'Show Models'
-      TabOrder = 2
+      TabOrder = 1
       OnClick = btnShowModelsClick
     end
     object ProgressBar1: TProgressBar
@@ -118,7 +55,7 @@ object ModelsMainView: TModelsMainView
       Style = pbstMarquee
       SmoothReverse = True
       State = pbsPaused
-      TabOrder = 3
+      TabOrder = 2
     end
   end
   object gBoxResponse: TGroupBox
@@ -131,7 +68,7 @@ object ModelsMainView: TModelsMainView
     Padding.Left = 1
     Padding.Right = 1
     Padding.Bottom = 1
-    TabOrder = 2
+    TabOrder = 1
     object mmResponse: TMemo
       Left = 3
       Top = 17
@@ -171,5 +108,25 @@ object ModelsMainView: TModelsMainView
         ExplicitHeight = 15
       end
     end
+  end
+  object TMSMCPCloudAI1: TTMSMCPCloudAI
+    Service = aiOpenAI
+    Settings.GeminiModel = 'gemini-1.5-flash-latest'
+    Settings.OpenAIModel = 'gpt-4o'
+    Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
+    Settings.OpenAITranscribeModel = 'whisper-1'
+    Settings.GrokModel = 'grok-3'
+    Settings.ClaudeModel = 'claude-sonnet-4-20250514'
+    Settings.OllamaModel = 'llama3.2:latest'
+    Settings.DeepSeekModel = 'deepseek-chat'
+    Settings.PerplexityModel = 'sonar-pro'
+    Settings.OllamaHost = 'localhost'
+    Settings.OllamaPath = '/api/chat'
+    Settings.MistralModel = 'mistral-large-latest'
+    Settings.MistralTranscribeModel = 'voxtral-mini-2507'
+    Tools = <>
+    OnGetModels = TMSMCPCloudAI1GetModels
+    Left = 512
+    Top = 25
   end
 end

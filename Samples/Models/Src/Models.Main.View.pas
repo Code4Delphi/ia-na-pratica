@@ -12,19 +12,18 @@ uses
   Vcl.Controls,
   Vcl.Forms,
   Vcl.Dialogs,
-  VCL.TMSFNCCustomComponent,
-  VCL.TMSFNCCloudBase,
-  VCL.TMSFNCCloudAI,
   Vcl.StdCtrls,
   Vcl.ExtCtrls,
-  Vcl.ComCtrls;
+  Vcl.ComCtrls,
+  TMS.MCP.CustomComponent,
+  TMS.MCP.CloudBase,
+  TMS.MCP.CloudAI;
 
 type
   TModelsMainView = class(TForm)
     pnTop: TPanel;
     Label1: TLabel;
     cBoxIAService: TComboBox;
-    TMSFNCCloudAI1: TTMSFNCCloudAI;
     gBoxResponse: TGroupBox;
     mmResponse: TMemo;
     btnShowModels: TButton;
@@ -32,9 +31,10 @@ type
     pnBottom: TPanel;
     Label2: TLabel;
     lbTotalModels: TLabel;
+    TMSMCPCloudAI1: TTMSMCPCloudAI;
     procedure FormCreate(Sender: TObject);
     procedure btnShowModelsClick(Sender: TObject);
-    procedure TMSFNCCloudAI1GetModels(Sender: TObject; AResponse: TTMSFNCCloudAIResponse; AHttpStatusCode: Integer;
+    procedure TMSMCPCloudAI1GetModels(Sender: TObject; AResponse: TTMSMCPCloudAIResponse; AHttpStatusCode: Integer;
       AHttpResult: string);
   private
 
@@ -52,9 +52,9 @@ implementation
 procedure TModelsMainView.FormCreate(Sender: TObject);
 begin
   ReportMemoryLeaksOnShutdown := True;
-  TMSFNCCloudAI1.APIKeys.LoadFromFile('..\..\Files\aikeys.cfg', 'PasswordTest');
+  TMSMCPCloudAI1.APIKeys.LoadFromFile('..\..\Files\aikeys.cfg', 'PasswordTest');
 
-  cBoxIAService.Items.Assign(TMSFNCCloudAI1.GetServices(True));
+  cBoxIAService.Items.Assign(TMSMCPCloudAI1.GetServices(True));
   cBoxIAService.ItemIndex := 2;
 end;
 
@@ -63,11 +63,11 @@ begin
   ProgressBar1.State := pbsNormal;
   lbTotalModels.Caption := '0';
 
-  TMSFNCCloudAI1.Service := TTMSFNCCloudAIService(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
-  TMSFNCCloudAI1.GetModels();
+  TMSMCPCloudAI1.Service := TTMSMCPCloudAIService(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
+  TMSMCPCloudAI1.GetModels();
 end;
 
-procedure TModelsMainView.TMSFNCCloudAI1GetModels(Sender: TObject; AResponse: TTMSFNCCloudAIResponse;
+procedure TModelsMainView.TMSMCPCloudAI1GetModels(Sender: TObject; AResponse: TTMSMCPCloudAIResponse;
   AHttpStatusCode: Integer; AHttpResult: string);
 begin
   ProgressBar1.State := pbsPaused;
@@ -77,8 +77,8 @@ begin
     Exit;
   end;
 
-  mmResponse.Text := TMSFNCCloudAI1.Models.Text;
-  lbTotalModels.Caption := TMSFNCCloudAI1.Models.Count.ToString;
+  mmResponse.Text := TMSMCPCloudAI1.Models.Text;
+  lbTotalModels.Caption := TMSMCPCloudAI1.Models.Count.ToString;
 end;
 
 end.
