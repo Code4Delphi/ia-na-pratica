@@ -46,86 +46,6 @@ object MainView: TMainView
       Style = csDropDownList
       TabOrder = 0
     end
-    object TMSFNCCloudAI1: TTMSFNCCloudAI
-      Left = 480
-      Top = 8
-      Width = 26
-      Height = 26
-      Visible = True
-      Service = aiOpenAI
-      Settings.GeminiModel = 'gemini-1.5-flash-latest'
-      Settings.OpenAIModel = 'gpt-4o'
-      Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
-      Settings.GrokModel = 'grok-3'
-      Settings.ClaudeModel = 'claude-3-5-sonnet-20241022'
-      Settings.OllamaModel = 'llama3.2:latest'
-      Settings.DeepSeekModel = 'deepseek-chat'
-      Settings.PerplexityModel = 'llama-3.1-sonar-small-128k-online'
-      Settings.OllamaHost = 'localhost'
-      Settings.OllamaPath = '/api/chat'
-      Settings.MistralModel = 'mistral-large-latest'
-      Tools = <
-        item
-          Name = 'GetEstoqueProduto'
-          Description = 'Retorne o estoque do produto informado'
-          Parameters = <
-            item
-              ArrayProperties = <>
-              Name = 'IdProduto'
-              Type = ptNumber
-              Description = 'Id do produto'
-              Properties = <>
-            end>
-          OnExecute = TMSFNCCloudAI1Tools0Execute
-        end
-        item
-          Name = 'IdCliente'
-          Description = 'Retorne os dados do cliente pelo ID informado'
-          Parameters = <
-            item
-              ArrayProperties = <>
-              Name = 'IdCliente'
-              Type = ptNumber
-              Description = 'Id do cliente'
-              Properties = <>
-            end>
-          OnExecute = TMSFNCCloudAI1Tools1Execute
-        end
-        item
-          Name = 'PeriodoVenda'
-          Description = 'Retorne os dados das vendas do periodo informado'
-          Parameters = <
-            item
-              ArrayProperties = <>
-              Name = 'DataIni'
-              Type = ptString
-              Description = 'Data inicial do periodo de filtro da venda'
-              Properties = <>
-            end
-            item
-              ArrayProperties = <>
-              Name = 'DataFim'
-              Type = ptString
-              Description = 'Data final do periodo de filtro da venda'
-              Properties = <>
-            end>
-          OnExecute = TMSFNCCloudAI1Tools2Execute
-        end
-        item
-          Name = 'GetEndereco'
-          Description = 'Qual o endere'#231'o do CEP informado'
-          Parameters = <
-            item
-              ArrayProperties = <>
-              Name = 'CEP'
-              Type = ptString
-              Description = 'CEP a ser consultado'
-              Properties = <>
-            end>
-          OnExecute = TMSFNCCloudAI1Tools3Execute
-        end>
-      OnExecuted = TMSFNCCloudAI1Executed
-    end
   end
   object pnBoth: TPanel
     Left = 0
@@ -306,7 +226,6 @@ object MainView: TMainView
       Padding.Right = 2
       Padding.Bottom = 2
       TabOrder = 1
-      ExplicitLeft = 2
       object btnExecute: TBitBtn
         Left = 1
         Top = 3
@@ -358,5 +277,84 @@ object MainView: TMainView
       ScrollBars = ssVertical
       TabOrder = 0
     end
+  end
+  object TMSMCPCloudAI1: TTMSMCPCloudAI
+    Service = aiOpenAI
+    Settings.GeminiModel = 'gemini-1.5-flash-latest'
+    Settings.OpenAIModel = 'gpt-4o'
+    Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
+    Settings.OpenAITranscribeModel = 'whisper-1'
+    Settings.GrokModel = 'grok-3'
+    Settings.ClaudeModel = 'claude-sonnet-4-20250514'
+    Settings.OllamaModel = 'llama3.2:latest'
+    Settings.DeepSeekModel = 'deepseek-chat'
+    Settings.PerplexityModel = 'sonar-pro'
+    Settings.OllamaHost = 'localhost'
+    Settings.OllamaPath = '/api/chat'
+    Settings.MistralModel = 'mistral-large-latest'
+    Settings.MistralTranscribeModel = 'voxtral-mini-2507'
+    Tools = <
+      item
+        Name = 'GetEstoqueProduto'
+        Description = 'Retorne o estoque do produto informado'
+        Parameters = <
+          item
+            ArrayProperties = <>
+            Name = 'IdProduto'
+            Type = ptNumber
+            Description = 'Id do produto'
+            Properties = <>
+          end>
+        OnExecute = TMSMCPCloudAI1Tools0Execute
+      end
+      item
+        Name = 'IdCliente'
+        Description = 'Retorne os dados do cliente pelo ID informado'
+        Parameters = <
+          item
+            ArrayProperties = <>
+            Name = 'IdCliente'
+            Type = ptNumber
+            Description = 'Id do cliente'
+            Properties = <>
+          end>
+        OnExecute = TMSMCPCloudAI1Tools1Execute
+      end
+      item
+        Name = 'PeriodoVenda'
+        Description = 'Retorne os dados das vendas do periodo informado'
+        Parameters = <
+          item
+            ArrayProperties = <>
+            Name = 'DataIni'
+            Type = ptString
+            Description = 'Data inicial do periodo de filtro da venda'
+            Properties = <>
+          end
+          item
+            ArrayProperties = <>
+            Name = 'DataFim'
+            Type = ptString
+            Description = 'Data final do periodo de filtro da venda'
+            Properties = <>
+          end>
+        OnExecute = TMSMCPCloudAI1Tools2Execute
+      end
+      item
+        Name = 'GetEndereco'
+        Description = 'Qual o endere'#231'o do CEP informado'
+        Parameters = <
+          item
+            ArrayProperties = <>
+            Name = 'CEP'
+            Type = ptString
+            Description = 'CEP a ser consultado'
+            Properties = <>
+          end>
+        OnExecute = TMSMCPCloudAI1Tools3Execute
+      end>
+    OnExecuted = TMSMCPCloudAI1Executed
+    Left = 489
+    Top = 82
   end
 end
