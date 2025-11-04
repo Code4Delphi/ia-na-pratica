@@ -378,9 +378,9 @@ object ChatMainView: TChatMainView
           TabOrder = 0
           object mmQuestion: TMemo
             Left = 3
-            Top = 17
+            Top = 2
             Width = 1017
-            Height = 114
+            Height = 129
             Align = alClient
             BorderStyle = bsNone
             Lines.Strings = (

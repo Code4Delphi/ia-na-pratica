@@ -23,8 +23,6 @@ object TokenUsageTrackingMainView: TTokenUsageTrackingMainView
     Height = 65
     Align = alTop
     TabOrder = 0
-    ExplicitLeft = -180
-    ExplicitWidth = 1025
     object Label1: TLabel
       Left = 18
       Top = 7
@@ -99,8 +97,6 @@ object TokenUsageTrackingMainView: TTokenUsageTrackingMainView
     Align = alTop
     Caption = 'pnBoth'
     TabOrder = 1
-    ExplicitLeft = -180
-    ExplicitWidth = 1025
     object gBoxQuestion: TGroupBox
       Left = 1
       Top = 1
@@ -112,7 +108,6 @@ object TokenUsageTrackingMainView: TTokenUsageTrackingMainView
       Padding.Right = 1
       Padding.Bottom = 1
       TabOrder = 0
-      ExplicitWidth = 1023
       object mmQuestion: TMemo
         Left = 3
         Top = 17
@@ -123,7 +118,6 @@ object TokenUsageTrackingMainView: TTokenUsageTrackingMainView
         Lines.Strings = (
           'Ol'#225' quem '#233' voc'#234' e quem '#233' o seu fabricante?')
         TabOrder = 0
-        ExplicitWidth = 1017
       end
     end
     object Panel1: TPanel
@@ -136,7 +130,6 @@ object TokenUsageTrackingMainView: TTokenUsageTrackingMainView
       Padding.Right = 2
       Padding.Bottom = 2
       TabOrder = 1
-      ExplicitWidth = 1023
       object btnExecute: TBitBtn
         Left = 1
         Top = 3
@@ -177,9 +170,6 @@ object TokenUsageTrackingMainView: TTokenUsageTrackingMainView
     Padding.Right = 1
     Padding.Bottom = 1
     TabOrder = 2
-    ExplicitLeft = 1
-    ExplicitTop = 232
-    ExplicitHeight = 266
     object mmResponse: TMemo
       Left = 3
       Top = 17
@@ -189,8 +179,6 @@ object TokenUsageTrackingMainView: TTokenUsageTrackingMainView
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
-      ExplicitLeft = 2
-      ExplicitTop = 16
     end
   end
   object gBoxTokensConsumedCurrentRequest: TGroupBox
@@ -202,8 +190,6 @@ object TokenUsageTrackingMainView: TTokenUsageTrackingMainView
     Caption = ' Tokens consumed in the current request '
     Padding.Left = 5
     TabOrder = 3
-    ExplicitLeft = 1
-    ExplicitTop = 400
     object Label9: TLabel
       Left = 181
       Top = 17
@@ -215,7 +201,6 @@ object TokenUsageTrackingMainView: TTokenUsageTrackingMainView
       ParentShowHint = False
       ShowHint = True
       Layout = tlCenter
-      ExplicitLeft = 176
       ExplicitHeight = 15
     end
     object lbNumTokensResponse: TLabel
@@ -239,7 +224,6 @@ object TokenUsageTrackingMainView: TTokenUsageTrackingMainView
       Align = alLeft
       Caption = 'Prompt tokens: '
       Layout = tlCenter
-      ExplicitLeft = 2
       ExplicitHeight = 15
     end
     object lbPromptTokens: TLabel
@@ -263,7 +247,6 @@ object TokenUsageTrackingMainView: TTokenUsageTrackingMainView
       Align = alLeft
       Caption = 'Model response: '
       Layout = tlCenter
-      ExplicitLeft = 519
       ExplicitHeight = 15
     end
     object lbServiceModel: TLabel
@@ -274,7 +257,6 @@ object TokenUsageTrackingMainView: TTokenUsageTrackingMainView
       Align = alLeft
       Caption = '-'
       Layout = tlCenter
-      ExplicitLeft = 609
       ExplicitHeight = 15
     end
     object Label12: TLabel
@@ -285,7 +267,6 @@ object TokenUsageTrackingMainView: TTokenUsageTrackingMainView
       Align = alLeft
       Caption = 'Total tokens: '
       Layout = tlCenter
-      ExplicitLeft = 359
       ExplicitHeight = 15
     end
     object lbTotalTokens: TLabel
@@ -311,8 +292,6 @@ object TokenUsageTrackingMainView: TTokenUsageTrackingMainView
     Caption = ' Total number of tokens used during a session '
     Padding.Left = 5
     TabOrder = 4
-    ExplicitLeft = 1
-    ExplicitTop = 451
     object Label2: TLabel
       Left = 181
       Top = 17
@@ -392,7 +371,6 @@ object TokenUsageTrackingMainView: TTokenUsageTrackingMainView
       Caption = 'Usage Reset'
       TabOrder = 0
       OnClick = btnUsageResetClick
-      ExplicitLeft = 769
     end
   end
   object TMSMCPCloudAI1: TTMSMCPCloudAI
@@ -402,7 +380,7 @@ object TokenUsageTrackingMainView: TTokenUsageTrackingMainView
     Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
     Settings.OpenAITranscribeModel = 'whisper-1'
     Settings.GrokModel = 'grok-beta'
-    Settings.ClaudeModel = 'claude-3-5-sonnet-20241022'
+    Settings.ClaudeModel = 'claude-sonnet-4-20250514'
     Settings.OllamaModel = 'llama3.2:latest'
     Settings.DeepSeekModel = 'deepseek-chat'
     Settings.PerplexityModel = 'llama-3.1-sonar-small-128k-online'
