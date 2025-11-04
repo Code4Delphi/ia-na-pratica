@@ -75,6 +75,8 @@ object MainView: TMainView
         Lines.Strings = (
           'Ol'#225' quem '#233' voc'#234' e quem '#233' o seu fabricante?')
         TabOrder = 0
+        ExplicitLeft = 4
+        ExplicitTop = 11
       end
       object gBoxDefaultsPrompts: TGroupBox
         Left = 3
@@ -276,6 +278,8 @@ object MainView: TMainView
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
+      ExplicitLeft = 4
+      ExplicitTop = 16
     end
   end
   object TMSMCPCloudAI1: TTMSMCPCloudAI
