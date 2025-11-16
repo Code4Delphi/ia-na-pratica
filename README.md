@@ -64,7 +64,7 @@ Você poderá acompanhar esta série através de nossa playlist:
 - [IA na Prática 35 - Consumindo MCP Server pelo VS Code](https://www.youtube.com/watch?v=AN1kyzxiyo0&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 - [IA na Prática 36 - Resumo dia ACBr 2025 | MCP Emissor de NF-e](https://www.youtube.com/watch?v=3tsavn5gydA&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
     - [Repositório MCP Server ACBrNFe para emissão de NFe](https://github.com/Code4Delphi/MCP-Server-ACBrNFe)
-- [IA na Prática 37 - MPC ACBrNFe | MCP Emissor de NF-e](https://www.youtube.com/watch?v=d-7BzxGD2co&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+- [IA na Prática 37 - MCP ACBrNFe | MCP Emissor de NF-e](https://www.youtube.com/watch?v=d-7BzxGD2co&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
     - [Repositório MCP Server ACBrNFe para emissão de NFe](https://github.com/Code4Delphi/MCP-Server-ACBrNFe)
 
 ## IAs disponíveis
