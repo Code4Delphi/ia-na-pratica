@@ -87,7 +87,6 @@ type
     edtModelPerplexity: TEdit;
     TMSMCPCloudAI1: TTMSMCPCloudAI;
     procedure FormCreate(Sender: TObject);
-    procedure cBoxIAServiceChange(Sender: TObject);
     procedure btnExecuteClick(Sender: TObject);
     procedure btnSaveKeysClick(Sender: TObject);
     procedure btnLoadKeysClick(Sender: TObject);
@@ -123,7 +122,6 @@ begin
   //CARREGAR IAS DISPONIVEIS
   cBoxIAService.Items.Assign(TMSMCPCloudAI1.GetServices(True));
   cBoxIAService.ItemIndex := 6;
-  cBoxIAServiceChange(cBoxIAService);
 
   Self.Settings;
   Self.ModelsComponentToScreen;
@@ -197,14 +195,6 @@ begin
   TMSMCPCloudAI1.Settings.PerplexityModel := edtModelPerplexity.Text;
 end;
 
-procedure TChatMainView.cBoxIAServiceChange(Sender: TObject);
-var
-  i: Integer;
-begin
-  i := Integer(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
-  TMSMCPCloudAI1.Service := TTMSMCPCloudAIService(i);
-end;
-
 procedure TChatMainView.ClearResponse;
 begin
   mmResponse.Lines.Clear;
@@ -216,6 +206,8 @@ end;
 
 procedure TChatMainView.btnExecuteClick(Sender: TObject);
 begin
+  TMSMCPCloudAI1.Service := TTMSMCPCloudAIService(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
+
   Self.ClearResponse;
   Self.Settings;
   Self.ModelsScreenToComponent;

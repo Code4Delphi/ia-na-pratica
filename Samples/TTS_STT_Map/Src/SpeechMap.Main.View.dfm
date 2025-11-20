@@ -85,7 +85,7 @@ object SpeechMapMainView: TSpeechMapMainView
         Left = 4
         Top = 9
         Width = 145
-        Height = 21
+        Height = 26
         Margins.Top = 8
         Align = alLeft
         DropDownCount = 15
@@ -170,7 +170,6 @@ object SpeechMapMainView: TSpeechMapMainView
         Lines.Strings = (
           '')
         TabOrder = 0
-        ExplicitHeight = 39
       end
     end
     object gBoxResponse: TGroupBox
