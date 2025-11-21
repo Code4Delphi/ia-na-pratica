@@ -66,6 +66,8 @@ Você poderá acompanhar esta série através de nossa playlist:
     - [Repositório MCP Server ACBrNFe para emissão de NFe](https://github.com/Code4Delphi/MCP-Server-ACBrNFe)
 - [IA na Prática 37 - MCP ACBrNFe | MCP Emissor de NF-e](https://www.youtube.com/watch?v=d-7BzxGD2co&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
     - [Repositório MCP Server ACBrNFe para emissão de NFe](https://github.com/Code4Delphi/MCP-Server-ACBrNFe)
+- [IA na Prática 38 - Adicionando Tool para Reenvio de NF-e ao MCP ACBrNFe](https://www.youtube.com/watch?v=q-pickE_EFU&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+- [IA na Prática 39 - MCP ACBrNFe com N8N](https://www.youtube.com/watch?v=1vYP4We9JDU&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 
 ## IAs disponíveis
 Abaixo, apresentamos um guia rápido com os principais provedores de IA disponíveis, seus sites e links para geração de chaves de API.
