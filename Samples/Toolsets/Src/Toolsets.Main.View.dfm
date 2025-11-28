@@ -19,10 +19,9 @@ object ToolsetsMainView: TToolsetsMainView
     Top = 0
     Width = 1033
     Height = 645
-    ActivePage = tabChat
+    ActivePage = TabSheet1
     Align = alClient
     TabOrder = 0
-    ExplicitHeight = 558
     object tabAPIKeys: TTabSheet
       Caption = 'API Keys'
       object pnAPIKeysBack: TPanel
@@ -34,7 +33,6 @@ object ToolsetsMainView: TToolsetsMainView
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 0
-        ExplicitHeight = 528
         object Label2: TLabel
           Left = 16
           Top = 19
@@ -172,7 +170,6 @@ object ToolsetsMainView: TToolsetsMainView
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 0
-        ExplicitHeight = 528
         object Label15: TLabel
           Left = 16
           Top = 19
@@ -284,10 +281,7 @@ object ToolsetsMainView: TToolsetsMainView
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitLeft = 424
-        ExplicitTop = 248
-        ExplicitWidth = 185
-        ExplicitHeight = 41
+        ExplicitLeft = -3
         object Label22: TLabel
           Left = 26
           Top = 14
@@ -564,7 +558,6 @@ object ToolsetsMainView: TToolsetsMainView
         Padding.Right = 1
         Padding.Bottom = 1
         TabOrder = 2
-        ExplicitHeight = 290
         object pnResponseDetails: TPanel
           Left = 3
           Top = 351
@@ -575,18 +568,18 @@ object ToolsetsMainView: TToolsetsMainView
           BevelKind = bkTile
           BevelOuter = bvNone
           TabOrder = 0
-          ExplicitTop = 264
           object Label9: TLabel
             Left = 174
             Top = 0
             Width = 93
-            Height = 15
+            Height = 21
             Hint = 'N'#186' de tokens que a resposta cont'#233'm: '
             Align = alLeft
             Caption = 'Tokens response: '
             ParentShowHint = False
             ShowHint = True
             Layout = tlCenter
+            ExplicitHeight = 15
           end
           object lbNumTokensResponse: TLabel
             Left = 267
@@ -603,10 +596,11 @@ object ToolsetsMainView: TToolsetsMainView
             Left = 0
             Top = 0
             Width = 84
-            Height = 15
+            Height = 21
             Align = alLeft
             Caption = 'Prompt tokens: '
             Layout = tlCenter
+            ExplicitHeight = 15
           end
           object lbPromptTokens: TLabel
             Left = 84
@@ -623,28 +617,31 @@ object ToolsetsMainView: TToolsetsMainView
             Left = 517
             Top = 0
             Width = 90
-            Height = 15
+            Height = 21
             Align = alLeft
             Caption = 'Model response: '
             Layout = tlCenter
+            ExplicitHeight = 15
           end
           object lbServiceModel: TLabel
             Left = 607
             Top = 0
             Width = 5
-            Height = 15
+            Height = 21
             Align = alLeft
             Caption = '-'
             Layout = tlCenter
+            ExplicitHeight = 15
           end
           object Label12: TLabel
             Left = 357
             Top = 0
             Width = 70
-            Height = 15
+            Height = 21
             Align = alLeft
             Caption = 'Total tokens: '
             Layout = tlCenter
+            ExplicitHeight = 15
           end
           object lbTotalTokens: TLabel
             Left = 427
@@ -667,7 +664,6 @@ object ToolsetsMainView: TToolsetsMainView
           BorderStyle = bsNone
           ScrollBars = ssVertical
           TabOrder = 1
-          ExplicitHeight = 247
         end
       end
     end
@@ -683,16 +679,15 @@ object ToolsetsMainView: TToolsetsMainView
     Connection = FDConnection1
     SQL.Strings = (
       'select '
-      'vendas.id,'
+      'vendas.id as VendaID,'
       'vendas.data,'
       'vendas.id_cliente,'
       'clientes.nome as ClienteNome,'
-      'clientes.email,'
+      'clientes.email as ClienteNome,'
       'vendas.total '
       'from vendas'
       'inner join clientes on vendas.id_cliente = clientes.Id'
-      'order by vendas.id desc'
-      'limit 10')
+      'limit 10 offset 290')
     Left = 669
     Top = 304
   end
@@ -860,7 +855,7 @@ object ToolsetsMainView: TToolsetsMainView
           end>
       end>
     DataSource = DataSource1
-    Left = 852
+    Left = 860
     Top = 304
   end
   object TMSMCPCloudAIFileSystem1: TTMSMCPCloudAIFileSystem
@@ -1041,8 +1036,8 @@ object ToolsetsMainView: TToolsetsMainView
             Properties = <>
           end>
       end>
-    Left = 645
-    Top = 116
+    Left = 861
+    Top = 220
   end
   object TMSMCPCloudAI1: TTMSMCPCloudAI
     Service = aiOpenAI
@@ -1061,8 +1056,8 @@ object ToolsetsMainView: TToolsetsMainView
     Settings.MistralTranscribeModel = 'voxtral-mini-2507'
     Tools = <>
     OnExecuted = TMSMCPCloudAI1Executed
-    Left = 501
-    Top = 116
+    Left = 861
+    Top = 156
   end
   object TMSMCPCloudAIEmail1: TTMSMCPCloudAIEmail
     AI = TMSMCPCloudAI1
@@ -1113,8 +1108,8 @@ object ToolsetsMainView: TToolsetsMainView
     SMPTPort = 0
     PopPort = 0
     PopUseSSL = False
-    Left = 620
-    Top = 392
+    Left = 860
+    Top = 384
   end
   object PopupMenu1: TPopupMenu
     Left = 965
@@ -1161,17 +1156,19 @@ object ToolsetsMainView: TToolsetsMainView
       OnClick = AddPromptsTeste1Click
     end
     object Enviarumemailcomnomedos5primeirosclientes1: TMenuItem
-      Caption = 'Enviar um email com nome dos 5 primeiros clientes'
+      Caption = 'Enviar um email com as 2 '#250'ltimas vendas'
       Hint = 
-        'Enviar um email com nome dos 5 primeiros clientes para o destina' +
-        'tario: contato@code4delphi.com.br (n'#227'o use acentos na mensagem)'
+        'Enviar um email com as 2 '#250'ltimas vendas para o destinatario: con' +
+        'tato@code4delphi.com.br (n'#227'o use acentos na mensagem)'
       OnClick = AddPromptsTeste1Click
     end
     object Enviarumemailparaos2primeirosclientes1: TMenuItem
-      Caption = 'Enviar um email para os 2 primeiros clientes'
+      Caption = 
+        'Enviar um email com o ID e Total das 2 '#250'ltimas vendas para o ema' +
+        'il do cliente'
       Hint = 
-        'Enviar um email para os 2 primeiros clientes convidando para se ' +
-        'inscrever no canal da Code4Delphi (n'#227'o use acentos na mensagem)'
+        'Enviar um email com o ID e Total das 2 '#250'ltimas vendas para o ema' +
+        'il do cliente (n'#227'o use acentos na mensagem)'
       OnClick = AddPromptsTeste1Click
     end
     object N3: TMenuItem

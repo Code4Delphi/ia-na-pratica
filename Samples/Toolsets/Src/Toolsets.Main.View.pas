@@ -217,7 +217,7 @@ end;
 procedure TToolsetsMainView.ProcessDatabaseConnection;
 begin
   try
-    FDConnection1.Params.Database := '..\BD\dados.db';
+    FDConnection1.Params.Database := '..\BD\toolsets.db';
     FDQuery1.Open;
   except on E: Exception do
     ShowMessage('Não foi possível buscar os dados no banco. ' + sLineBreak +
