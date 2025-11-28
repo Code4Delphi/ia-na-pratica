@@ -45,6 +45,9 @@
         <Projects Include="TokenUsageTracking\TokenUsageTracking.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="AIBrowserReporter\AIBrowserTool.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -179,14 +182,23 @@
     <Target Name="TokenUsageTracking:Make">
         <MSBuild Projects="TokenUsageTracking\TokenUsageTracking.dproj" Targets="Make"/>
     </Target>
+    <Target Name="AIBrowserTool">
+        <MSBuild Projects="AIBrowserReporter\AIBrowserTool.dproj"/>
+    </Target>
+    <Target Name="AIBrowserTool:Clean">
+        <MSBuild Projects="AIBrowserReporter\AIBrowserTool.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AIBrowserTool:Make">
+        <MSBuild Projects="AIBrowserReporter\AIBrowserTool.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="IAChat;Models;APIKey;FunctionCalling;Images;RAG;TTS_STT;TTS_STT_Map;TTS_STT_Translate;Toolsets;ToolsetsRAD;ToolsetsPOO;Ollama;TokenUsageTracking"/>
+        <CallTarget Targets="IAChat;Models;APIKey;FunctionCalling;Images;RAG;TTS_STT;TTS_STT_Map;TTS_STT_Translate;Toolsets;ToolsetsRAD;ToolsetsPOO;Ollama;TokenUsageTracking;AIBrowserTool"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="IAChat:Clean;Models:Clean;APIKey:Clean;FunctionCalling:Clean;Images:Clean;RAG:Clean;TTS_STT:Clean;TTS_STT_Map:Clean;TTS_STT_Translate:Clean;Toolsets:Clean;ToolsetsRAD:Clean;ToolsetsPOO:Clean;Ollama:Clean;TokenUsageTracking:Clean"/>
+        <CallTarget Targets="IAChat:Clean;Models:Clean;APIKey:Clean;FunctionCalling:Clean;Images:Clean;RAG:Clean;TTS_STT:Clean;TTS_STT_Map:Clean;TTS_STT_Translate:Clean;Toolsets:Clean;ToolsetsRAD:Clean;ToolsetsPOO:Clean;Ollama:Clean;TokenUsageTracking:Clean;AIBrowserTool:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="IAChat:Make;Models:Make;APIKey:Make;FunctionCalling:Make;Images:Make;RAG:Make;TTS_STT:Make;TTS_STT_Map:Make;TTS_STT_Translate:Make;Toolsets:Make;ToolsetsRAD:Make;ToolsetsPOO:Make;Ollama:Make;TokenUsageTracking:Make"/>
+        <CallTarget Targets="IAChat:Make;Models:Make;APIKey:Make;FunctionCalling:Make;Images:Make;RAG:Make;TTS_STT:Make;TTS_STT_Map:Make;TTS_STT_Translate:Make;Toolsets:Make;ToolsetsRAD:Make;ToolsetsPOO:Make;Ollama:Make;TokenUsageTracking:Make;AIBrowserTool:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
