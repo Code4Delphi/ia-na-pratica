@@ -40,7 +40,7 @@ uses
   TMS.MCP.CloudAIToolSets,
   TMS.MCP.CloudAI,
   TMS.MCP.CustomComponent,
-  TMS.MCP.CloudBase;
+  TMS.MCP.CloudBase, Vcl.Mask, Vcl.DBCtrls, Vcl.Menus;
 
 type
   TToolsetsMainView = class(TForm)
@@ -114,6 +114,31 @@ type
     TMSMCPCloudAI1: TTMSMCPCloudAI;
     mmResponse: TMemo;
     TMSMCPCloudAIEmail1: TTMSMCPCloudAIEmail;
+    TabSheet1: TTabSheet;
+    pnSMTP: TPanel;
+    Label22: TLabel;
+    Label23: TLabel;
+    Label24: TLabel;
+    Label25: TLabel;
+    Label26: TLabel;
+    edtHost: TEdit;
+    edtUsername: TEdit;
+    edtPort: TEdit;
+    edtPassword: TEdit;
+    edtSendFrom: TEdit;
+    PopupMenu1: TPopupMenu;
+    AddPromptsTeste1: TMenuItem;
+    N1: TMenuItem;
+    Listaros3primeirosclientes1: TMenuItem;
+    N2: TMenuItem;
+    Enviaremailteste1: TMenuItem;
+    Enviarumemailcomnomedos5primeirosclientes1: TMenuItem;
+    Enviarumemailparaos2primeirosclientes1: TMenuItem;
+    N3: TMenuItem;
+    Listarnomesdepastasearquivos1: TMenuItem;
+    N4: TMenuItem;
+    MostreocontedodoarquivoTest01txt1: TMenuItem;
+    Oquevocpodefazercomaspastasearquivos1: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure cBoxIAServiceChange(Sender: TObject);
     procedure btnExecuteClick(Sender: TObject);
@@ -121,6 +146,7 @@ type
     procedure btnLoadKeysClick(Sender: TObject);
     procedure TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse; AHttpStatusCode: Integer;
       AHttpResult: string);
+    procedure AddPromptsTeste1Click(Sender: TObject);
   private
     procedure LoadKeys;
     procedure SaveKeys;
@@ -130,6 +156,7 @@ type
     procedure ModelsScreenToComponent;
     procedure ProcessDatabaseConnection;
     procedure ConfigDadosEmail;
+    procedure SetDefaultsEmail;
   public
 
   end;
@@ -155,18 +182,26 @@ begin
 
   Self.Settings;
   Self.ModelsComponentToScreen;
-
   Self.ProcessDatabaseConnection;
-  Self.ConfigDadosEmail;
+  Self.SetDefaultsEmail;
+end;
+
+procedure TToolsetsMainView.SetDefaultsEmail;
+begin
+  edtHost.Text := TMSMCPCloudAIEmail1.SMTPHost;
+  edtUsername.Text := TMSMCPCloudAIEmail1.SMPTUserName;
+  edtPort.Text := TMSMCPCloudAIEmail1.SMPTPort.ToString;
+  edtPassword.Text := TMSMCPCloudAIEmail1.SMTPPassword;
+  edtSendFrom.Text := TMSMCPCloudAIEmail1.SMTPSendFrom;
 end;
 
 procedure TToolsetsMainView.ConfigDadosEmail;
 begin
-  TMSMCPCloudAIEmail1.SMTPHost := 'smtp.mailserver.com';
-  TMSMCPCloudAIEmail1.SMPTUserName := 'noreply@myapp.com';
-  TMSMCPCloudAIEmail1.SMTPPassword := 'mypassword';
-  TMSMCPCloudAIEmail1.SMTPSendFrom := 'noreply@myapp.com';
-  TMSMCPCloudAIEmail1.SMPTPort := 0; //587 / 465;
+  TMSMCPCloudAIEmail1.SMTPHost := edtHost.Text;
+  TMSMCPCloudAIEmail1.SMPTUserName := edtUsername.Text;
+  TMSMCPCloudAIEmail1.SMPTPort := StrToIntDef(edtPort.Text, 0); //587 / 465;
+  TMSMCPCloudAIEmail1.SMTPPassword := edtPassword.Text;
+  TMSMCPCloudAIEmail1.SMTPSendFrom := edtSendFrom.Text;
 end;
 
 procedure TToolsetsMainView.Settings;
@@ -182,7 +217,7 @@ end;
 procedure TToolsetsMainView.ProcessDatabaseConnection;
 begin
   try
-    FDConnection1.Params.Database := '..\BD\dados.db';
+    FDConnection1.Params.Database := '..\BD\toolsets.db';
     FDQuery1.Open;
   except on E: Exception do
     ShowMessage('Não foi possível buscar os dados no banco. ' + sLineBreak +
@@ -282,11 +317,20 @@ begin
   lbServiceModel.Caption := '';
 end;
 
+procedure TToolsetsMainView.AddPromptsTeste1Click(Sender: TObject);
+begin
+  if TMenuItem(Sender).Hint.Trim.IsEmpty then
+    Exit;
+
+  mmQuestion.Lines.Text := TMenuItem(Sender).Hint.Trim;
+end;
+
 procedure TToolsetsMainView.btnExecuteClick(Sender: TObject);
 begin
   Self.ClearResponse;
   Self.Settings;
   Self.ModelsScreenToComponent;
+  Self.ConfigDadosEmail;
 
   TMSMCPCloudAI1.Context.Text := mmQuestion.Lines.Text;
   TMSMCPCloudAI1.Execute();

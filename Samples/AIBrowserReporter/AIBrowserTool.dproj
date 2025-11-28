@@ -1,15 +1,15 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{3E07CD0E-7F97-4F95-8694-52F58298D2AE}</ProjectGuid>
+        <ProjectGuid>{6026266E-D64F-4DC6-BFE4-E0C15237E85F}</ProjectGuid>
         <ProjectVersion>20.3</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
-        <ProjectName Condition="'$(ProjectName)'==''">Models</ProjectName>
+        <ProjectName Condition="'$(ProjectName)'==''">AIBrowserTool</ProjectName>
         <TargetedPlatforms>3</TargetedPlatforms>
         <AppType>Application</AppType>
-        <MainSource>Models.dpr</MainSource>
+        <MainSource>AIBrowserTool.dpr</MainSource>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -59,8 +59,8 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
-        <DCC_DcuOutput>.\DCU\$(Platform)\$(Config)</DCC_DcuOutput>
-        <DCC_ExeOutput>.\Bin</DCC_ExeOutput>
+        <DCC_DcuOutput>.\$(Platform)\$(Config)</DCC_DcuOutput>
+        <DCC_ExeOutput>.\$(Platform)\$(Config)</DCC_ExeOutput>
         <DCC_E>false</DCC_E>
         <DCC_N>false</DCC_N>
         <DCC_S>false</DCC_S>
@@ -70,12 +70,10 @@
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
-        <SanitizedProjectName>Models</SanitizedProjectName>
-        <VerInfo_Locale>1046</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <SanitizedProjectName>AIBrowserTool</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
-        <DCC_UsePackage>vclwinx;DataSnapServer;ACBr_BPeDabpeESCPOS;ACBr_TCP;ACBr_ONE;ACBr_NFCom;fs29;fmx;vclie;DbxCommonDriver;bindengine;IndyIPCommon;VCLRESTComponents;DBXMSSQLDriver;FireDACCommonODBC;emsclient;bsfd103Rio;ACBr_OpenSSL;appanalytics;IndyProtocols;vclx;Skia.Package.RTL;aurelius;dbxcds;vcledge;FMX_FlexCel_Components;FmxTeeUI;VCLTMSFNCChartPkgDXE15;ACBr_BoletoRL;FlexCel_Pdf;DBXFirebirdDriver;ACBr_CTeDacteFR;FMXTMSFNCChartPkgDXE15;ACBr_NFCeECFVirtual;ACBr_DCeDACERL;FireDACSqliteDriver;DbxClientDriver;soapmidas;ACBr_NF3eDANF3eESCPOS;TeeUI;ACBr_PagFor;dbexpress;ACBr_Reinf;ACBr_NFSeXDanfseFPDF;inet;ACBr_BoletoFPDF;vcltouch;FMX_FlexCel_Core;FireDACDBXDriver;ACBr_NF3eDANF3eRL;fmxdae;tmsbcl;VCL_FlexCel_Core;CustomIPTransport;FireDACMSSQLDriver;C4DDateEdit;ZCore;ACBr_NFSeX;ZParseSql;C4DWizard;ACBr_NFe;frxPDF29;ACBr_CTeDacteRL;C4DMaskEdit;IndySystem;ACBr_Diversos;ACBr_GNREGuiaRL;BossExperts;frxe29;ZipMasterR;ACBr_NFSeXDanfseRL;ACBr_SAT;ACBr_CIOT;VirtualTreesR;ACBr_TEFD;fsDB29;VDOPrint;vclFireDAC;ACBr_SPED;ACBr_CTe;ACBr_SATWS;FireDACCommon;DataSnapServerMidas;FireDACODBCDriver;emsserverresource;ACBr_SEF2;ACBr_LCDPR;ACBr_SATExtratoFPDF;FlexCel_Render;DelphiAIDeveloper;ZComponent;bindcompdbx;rtl;FireDACMySQLDriver;ACBr_NFeDanfeFR;ACBr_DCe;VCL_FlexCel_Components;TMSFNCPushNotificationsPkgDXE15;frce;ACBr_BPe;DBXSqliteDriver;ACBr_Sintegra;DBXSybaseASEDriver;TMSWEBCorePkgDXE15;ACBr_Serial;ACBr_Comum;ACBr_MDFe;ACBr_NFeDanfeESCPOS;vclimg;DataSnapFireDAC;inetdbxpress;FireDAC;xmlrtl;dsnap;xdata;FireDACDb2Driver;DBXOracleDriver;DBXInformixDriver;ACBr_SATECFVirtual;fmxobj;bindcompvclsmp;DataSnapNativeClient;frx29;ACBr_SATExtratoFR;DatasnapConnectorsFreePascal;FMXTMSFNCUIPackPkgDXE15;frxIntIOIndy29;ACBr_NF3e;ACBr_PAF;ACBr_OpenDelivery;ACBr_NFeDanfeFPDF;ACBr_MDFeDamdfeFR;TMSFNCCorePkgDXE15;ACBr_SPEDImportar;FMXTMSFNCCorePkgDXE15;emshosting;sparkle;MSNPopUp_D104;frxDB29;FireDACCommonDriver;ACBr_ADRCST;ACBr_MTER;IndyIPClient;frxHTML29;bindcompvclwinx;ACBr_Convenio115;emsedge;bindcompfmx;inetdb;FireDACASADriver;ACBr_LFD;Tee;vclactnband;fmxFireDAC;FireDACInfxDriver;DBXMySQLDriver;fsADO29;VclSmp;ACBr_Ponto;DataSnapCommon;fmxase;DBXOdbcDriver;dbrtl;FireDACOracleDriver;Skia.Package.FMX;ACBre_Social;TeeDB;FlexCel_XlsAdapter;FireDACMSAccDriver;frxcs29;DataSnapIndy10ServerTransport;FMXTMSFNCCloudPackPkgDXE15;DataSnapConnectors;ACBr_ANe;ACBr_SATExtratoRL;vcldsnap;DBXInterBaseDriver;FireDACMongoDBDriver;ACBR_DeSTDA;PngComponentsD;ACBr_GNRE;ACBr_EDI;FireDACTDataDriver;Skia.Package.VCL;VCLTMSFNCUIPackPkgDXE15;vcldb;ACBr_Integrador;ACBr_PIXCD;FlexCel_Core;ACBr_BoletoFR;bindcomp;inetstn;IndyCore;RESTBackendComponents;ZPlain;frxIntIO29;FireDACADSDriver;RESTComponents;ACBr_NFSeXDANFSeFR;IndyIPServer;vcl;dsnapxml;adortl;dsnapcon;DataSnapClient;DataSnapProviderClient;ACBr_MDFeDamdfeRL;frxADO29;DBXDb2Driver;ACBr_Boleto;emsclientfiredac;FireDACPgDriver;FireDACDSDriver;ACBr_BlocoX;ACBrBaaS;tethering;ACBr_SATExtratoESCPOS;ZDbc;bindcompvcl;ACBr_GTIN;CloudService;DBXSybaseASADriver;ACBr_OFX;VCLTMSFNCCloudPackPkgDXE15;ACBr_PAFNFCe;FMXTee;ACBr_DebitoAutomatico;ACBr_NFeDanfeRL;TMSWEBCorePkgLibDXE15;DSPack_DXE2;ACBr_GNREGuiaFR;VCLTMSFNCCorePkgDXE15;soaprtl;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_UsePackage>vclwinx;TMSFNCCorePkgDXE15;FMXTMSFNCCorePkgDXE15;fmx;TMSAIStudioPkgDXE15;vclie;DbxCommonDriver;bindengine;IndyIPCommon;VCLRESTComponents;FireDACCommonODBC;FireDACCommonDriver;appanalytics;IndyProtocols;vclx;Skia.Package.RTL;IndyIPClient;dbxcds;vcledge;bindcompvclwinx;VCLTMSFNCChartPkgDXE15;bindcompfmx;TMSVCLUIPackPkgExDXE15;FMXTMSFNCChartPkgDXE15;inetdb;FireDACSqliteDriver;DbxClientDriver;soapmidas;TMSAIStudioPkgExtensionsDXE15;vclactnband;TMSVCLUIPackPkgXlsDXE15;fmxFireDAC;dbexpress;DBXMySQLDriver;VclSmp;inet;vcltouch;fmxase;TMSVCLUIPackPkgWizDXE15;dbrtl;Skia.Package.FMX;fmxdae;FireDACMSAccDriver;CustomIPTransport;FMXTMSFNCCloudPackPkgDXE15;FMXTMSFNCMapsPkgDXE15;vcldsnap;DBXInterBaseDriver;IndySystem;Skia.Package.VCL;VCLTMSFNCGanttChartPkgDXE15;VCLTMSFNCUIPackPkgDXE15;vcldb;vclFireDAC;bindcomp;FireDACCommon;inetstn;IndyCore;RESTBackendComponents;TMSMQTTPkgDXE15;bindcompdbx;rtl;FireDACMySQLDriver;FireDACADSDriver;RESTComponents;DBXSqliteDriver;vcl;IndyIPServer;dsnapxml;dsnapcon;adortl;VCLTMSFNCMapsPkgDXE15;TMSVCLUIPackPkgDXE15;TMSWEBCorePkgDXE15;TMSMQTTPkgDEDXE15;vclimg;FireDACPgDriver;FireDAC;inetdbxpress;FMXTMSFNCGanttChartPkgDXE15;xmlrtl;tethering;bindcompvcl;dsnap;CloudService;VCLTMSFNCCloudPackPkgDXE15;fmxobj;bindcompvclsmp;TMSWEBCorePkgLibDXE15;VCLTMSFNCCorePkgDXE15;soaprtl;FMXTMSFNCUIPackPkgDXE15;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
@@ -84,7 +82,7 @@
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
-        <DCC_UsePackage>vclwinx;DataSnapServer;fmx;vclie;DbxCommonDriver;bindengine;IndyIPCommon;VCLRESTComponents;DBXMSSQLDriver;FireDACCommonODBC;emsclient;appanalytics;IndyProtocols;vclx;dbxcds;vcledge;FMX_FlexCel_Components;FmxTeeUI;VCLTMSFNCChartPkgDXE15;FlexCel_Pdf;DBXFirebirdDriver;FMXTMSFNCChartPkgDXE15;FireDACSqliteDriver;DbxClientDriver;soapmidas;TeeUI;dbexpress;inet;vcltouch;FMX_FlexCel_Core;FireDACDBXDriver;fmxdae;VCL_FlexCel_Core;CustomIPTransport;FireDACMSSQLDriver;ZCore;ZParseSql;IndySystem;ZipMasterR;VirtualTreesR;vclFireDAC;FireDACCommon;DataSnapServerMidas;FireDACODBCDriver;emsserverresource;FlexCel_Render;ZComponent;bindcompdbx;rtl;FireDACMySQLDriver;VCL_FlexCel_Components;TMSFNCPushNotificationsPkgDXE15;DBXSqliteDriver;DBXSybaseASEDriver;vclimg;DataSnapFireDAC;inetdbxpress;FireDAC;xmlrtl;dsnap;FireDACDb2Driver;DBXOracleDriver;DBXInformixDriver;fmxobj;bindcompvclsmp;DataSnapNativeClient;DatasnapConnectorsFreePascal;FMXTMSFNCUIPackPkgDXE15;TMSFNCCorePkgDXE15;FMXTMSFNCCorePkgDXE15;emshosting;FireDACCommonDriver;IndyIPClient;bindcompvclwinx;emsedge;bindcompfmx;inetdb;FireDACASADriver;Tee;vclactnband;fmxFireDAC;FireDACInfxDriver;DBXMySQLDriver;VclSmp;DataSnapCommon;fmxase;DBXOdbcDriver;dbrtl;FireDACOracleDriver;TeeDB;FlexCel_XlsAdapter;FireDACMSAccDriver;DataSnapIndy10ServerTransport;FMXTMSFNCCloudPackPkgDXE15;DataSnapConnectors;vcldsnap;DBXInterBaseDriver;FireDACMongoDBDriver;PngComponentsD;FireDACTDataDriver;Skia.Package.VCL;VCLTMSFNCUIPackPkgDXE15;vcldb;FlexCel_Core;bindcomp;inetstn;IndyCore;RESTBackendComponents;ZPlain;FireDACADSDriver;RESTComponents;IndyIPServer;vcl;dsnapxml;adortl;dsnapcon;DataSnapClient;DataSnapProviderClient;DBXDb2Driver;emsclientfiredac;FireDACPgDriver;FireDACDSDriver;tethering;ZDbc;bindcompvcl;CloudService;DBXSybaseASADriver;VCLTMSFNCCloudPackPkgDXE15;FMXTee;DSPack_DXE2;VCLTMSFNCCorePkgDXE15;soaprtl;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_UsePackage>vclwinx;TMSFNCCorePkgDXE15;FMXTMSFNCCorePkgDXE15;fmx;TMSAIStudioPkgDXE15;vclie;DbxCommonDriver;bindengine;IndyIPCommon;VCLRESTComponents;FireDACCommonODBC;FireDACCommonDriver;appanalytics;IndyProtocols;vclx;IndyIPClient;dbxcds;vcledge;bindcompvclwinx;VCLTMSFNCChartPkgDXE15;bindcompfmx;TMSVCLUIPackPkgExDXE15;FMXTMSFNCChartPkgDXE15;inetdb;FireDACSqliteDriver;DbxClientDriver;soapmidas;TMSAIStudioPkgExtensionsDXE15;vclactnband;TMSVCLUIPackPkgXlsDXE15;fmxFireDAC;dbexpress;DBXMySQLDriver;VclSmp;inet;vcltouch;fmxase;dbrtl;fmxdae;FireDACMSAccDriver;CustomIPTransport;FMXTMSFNCCloudPackPkgDXE15;FMXTMSFNCMapsPkgDXE15;vcldsnap;DBXInterBaseDriver;IndySystem;Skia.Package.VCL;VCLTMSFNCGanttChartPkgDXE15;VCLTMSFNCUIPackPkgDXE15;vcldb;vclFireDAC;bindcomp;FireDACCommon;inetstn;IndyCore;RESTBackendComponents;bindcompdbx;rtl;FireDACMySQLDriver;FireDACADSDriver;RESTComponents;DBXSqliteDriver;vcl;IndyIPServer;dsnapxml;dsnapcon;adortl;VCLTMSFNCMapsPkgDXE15;TMSVCLUIPackPkgDXE15;TMSWEBCorePkgDXE15;vclimg;FireDACPgDriver;FireDAC;inetdbxpress;FMXTMSFNCGanttChartPkgDXE15;xmlrtl;tethering;bindcompvcl;dsnap;CloudService;VCLTMSFNCCloudPackPkgDXE15;fmxobj;bindcompvclsmp;TMSWEBCorePkgLibDXE15;VCLTMSFNCCorePkgDXE15;soaprtl;FMXTMSFNCUIPackPkgDXE15;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
@@ -105,9 +103,6 @@
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
-        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Locale>1033</VerInfo_Locale>
-        <Icon_MainIcon>Models_Icon.ico</Icon_MainIcon>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
@@ -128,10 +123,11 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="Src\Models.Main.View.pas">
-            <Form>ModelsMainView</Form>
+        <DCCReference Include="BrowserTool.View.pas">
+            <Form>BrowserToolView</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="TMS.MCP.CloudAIBrowserTool.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -150,17 +146,13 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">Models.dpr</Source>
+                    <Source Name="MainSource">AIBrowserTool.dpr</Source>
                 </Source>
-                <Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k290.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp290.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
-                </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="5">
-                <DeployFile LocalName="Bin\Models.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="Win32\Debug\AIBrowserTool.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>Models.exe</RemoteName>
+                        <RemoteName>AIBrowserTool.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

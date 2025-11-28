@@ -1,8 +1,8 @@
 object ToolsetsMainView: TToolsetsMainView
   Left = 0
   Top = 0
-  Caption = 'IA na pr'#225'tica: Toolsets'
-  ClientHeight = 558
+  Caption = 'IA na pr'#225'tica Toolsets: FileSystem, DataSet e Email'
+  ClientHeight = 645
   ClientWidth = 1033
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -18,8 +18,8 @@ object ToolsetsMainView: TToolsetsMainView
     Left = 0
     Top = 0
     Width = 1033
-    Height = 558
-    ActivePage = tabChat
+    Height = 645
+    ActivePage = TabSheet1
     Align = alClient
     TabOrder = 0
     object tabAPIKeys: TTabSheet
@@ -28,7 +28,7 @@ object ToolsetsMainView: TToolsetsMainView
         Left = 0
         Top = 0
         Width = 1025
-        Height = 528
+        Height = 615
         Align = alClient
         BevelOuter = bvNone
         ParentBackground = False
@@ -165,7 +165,7 @@ object ToolsetsMainView: TToolsetsMainView
         Left = 0
         Top = 0
         Width = 1025
-        Height = 528
+        Height = 615
         Align = alClient
         BevelOuter = bvNone
         ParentBackground = False
@@ -267,6 +267,125 @@ object ToolsetsMainView: TToolsetsMainView
           Width = 697
           Height = 23
           TabOrder = 6
+        end
+      end
+    end
+    object TabSheet1: TTabSheet
+      Caption = 'SMTP E-mail'
+      ImageIndex = 3
+      object pnSMTP: TPanel
+        Left = 0
+        Top = 0
+        Width = 1025
+        Height = 615
+        Align = alClient
+        BevelOuter = bvNone
+        TabOrder = 0
+        ExplicitLeft = -3
+        object Label22: TLabel
+          Left = 26
+          Top = 14
+          Width = 117
+          Height = 14
+          Hint = 'Exemplo: smtp.gmail.com'
+          Caption = 'Host (servidor SMTP)'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+        end
+        object Label23: TLabel
+          Left = 26
+          Top = 59
+          Width = 113
+          Height = 14
+          Caption = 'Usu'#225'rio (User name)'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label24: TLabel
+          Left = 26
+          Top = 108
+          Width = 135
+          Height = 14
+          Caption = 'Porta (587 TLS) (465 SSL)'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label25: TLabel
+          Left = 26
+          Top = 157
+          Width = 197
+          Height = 14
+          Caption = 'Password ou token de autentica'#231#227'o'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label26: TLabel
+          Left = 26
+          Top = 202
+          Width = 57
+          Height = 14
+          Caption = 'SendFrom'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object edtHost: TEdit
+          Left = 26
+          Top = 30
+          Width = 287
+          Height = 23
+          TabOrder = 0
+        end
+        object edtUsername: TEdit
+          Left = 26
+          Top = 75
+          Width = 287
+          Height = 23
+          TabOrder = 1
+        end
+        object edtPort: TEdit
+          Left = 26
+          Top = 124
+          Width = 287
+          Height = 23
+          NumbersOnly = True
+          TabOrder = 2
+        end
+        object edtPassword: TEdit
+          Left = 26
+          Top = 173
+          Width = 287
+          Height = 23
+          PasswordChar = '*'
+          TabOrder = 3
+        end
+        object edtSendFrom: TEdit
+          Left = 26
+          Top = 219
+          Width = 287
+          Height = 23
+          TabOrder = 4
         end
       end
     end
@@ -385,9 +504,8 @@ object ToolsetsMainView: TToolsetsMainView
             BorderStyle = bsNone
             Lines.Strings = (
               'Ol'#225' quem '#233' voc'#234' e quem '#233' o seu fabricante?')
+            PopupMenu = PopupMenu1
             TabOrder = 0
-            ExplicitLeft = 2
-            ExplicitTop = 16
           end
         end
         object Panel1: TPanel
@@ -433,7 +551,7 @@ object ToolsetsMainView: TToolsetsMainView
         Left = 0
         Top = 238
         Width = 1025
-        Height = 290
+        Height = 377
         Align = alClient
         Caption = ' Response '
         Padding.Left = 1
@@ -442,7 +560,7 @@ object ToolsetsMainView: TToolsetsMainView
         TabOrder = 2
         object pnResponseDetails: TPanel
           Left = 3
-          Top = 264
+          Top = 351
           Width = 1019
           Height = 23
           Align = alBottom
@@ -541,13 +659,11 @@ object ToolsetsMainView: TToolsetsMainView
           Left = 3
           Top = 17
           Width = 1019
-          Height = 247
+          Height = 334
           Align = alClient
           BorderStyle = bsNone
           ScrollBars = ssVertical
           TabOrder = 1
-          ExplicitLeft = 2
-          ExplicitTop = 13
         end
       end
     end
@@ -563,16 +679,15 @@ object ToolsetsMainView: TToolsetsMainView
     Connection = FDConnection1
     SQL.Strings = (
       'select '
-      'vendas.id,'
+      'vendas.id as VendaID,'
       'vendas.data,'
       'vendas.id_cliente,'
       'clientes.nome as ClienteNome,'
-      'clientes.email,'
+      'clientes.email as ClienteNome,'
       'vendas.total '
       'from vendas'
       'inner join clientes on vendas.id_cliente = clientes.Id'
-      'order by vendas.id desc'
-      'limit 10')
+      'limit 10 offset 290')
     Left = 669
     Top = 304
   end
@@ -740,7 +855,7 @@ object ToolsetsMainView: TToolsetsMainView
           end>
       end>
     DataSource = DataSource1
-    Left = 852
+    Left = 860
     Top = 304
   end
   object TMSMCPCloudAIFileSystem1: TTMSMCPCloudAIFileSystem
@@ -921,26 +1036,28 @@ object ToolsetsMainView: TToolsetsMainView
             Properties = <>
           end>
       end>
-    Left = 789
-    Top = 116
+    Left = 861
+    Top = 220
   end
   object TMSMCPCloudAI1: TTMSMCPCloudAI
     Service = aiOpenAI
     Settings.GeminiModel = 'gemini-1.5-flash-latest'
     Settings.OpenAIModel = 'gpt-4o'
     Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
+    Settings.OpenAITranscribeModel = 'whisper-1'
     Settings.GrokModel = 'grok-3'
-    Settings.ClaudeModel = 'claude-3-5-sonnet-20241022'
+    Settings.ClaudeModel = 'claude-sonnet-4-20250514'
     Settings.OllamaModel = 'llama3.2:latest'
     Settings.DeepSeekModel = 'deepseek-chat'
     Settings.PerplexityModel = 'sonar-pro'
     Settings.OllamaHost = 'localhost'
     Settings.OllamaPath = '/api/chat'
     Settings.MistralModel = 'mistral-large-latest'
+    Settings.MistralTranscribeModel = 'voxtral-mini-2507'
     Tools = <>
     OnExecuted = TMSMCPCloudAI1Executed
-    Left = 789
-    Top = 44
+    Left = 861
+    Top = 156
   end
   object TMSMCPCloudAIEmail1: TTMSMCPCloudAIEmail
     AI = TMSMCPCloudAI1
@@ -991,7 +1108,71 @@ object ToolsetsMainView: TToolsetsMainView
     SMPTPort = 0
     PopPort = 0
     PopUseSSL = False
-    Left = 620
-    Top = 392
+    Left = 860
+    Top = 384
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 965
+    Top = 116
+    object AddPromptsTeste1: TMenuItem
+      Caption = 'Add prompts de testes'
+      OnClick = AddPromptsTeste1Click
+    end
+    object N1: TMenuItem
+      Caption = '-'
+    end
+    object Listarnomesdepastasearquivos1: TMenuItem
+      Caption = 'Listar nomes de pastas e arquivos'
+      Hint = 'Listar nomes de pastas e arquivos da pasta: C:\TempIA'
+      OnClick = AddPromptsTeste1Click
+    end
+    object MostreocontedodoarquivoTest01txt1: TMenuItem
+      Caption = 'Mostre o conte'#250'do do arquivo Test01.txt'
+      Hint = 'Mostre o conte'#250'do do arquivo C:\TempIA\Test01.txt'
+      OnClick = AddPromptsTeste1Click
+    end
+    object Oquevocpodefazercomaspastasearquivos1: TMenuItem
+      Caption = 'O que voc'#234' pode fazer com as pastas e arquivos?'
+      Hint = 'O que voc'#234' pode fazer com as pastas e arquivos?'
+      OnClick = AddPromptsTeste1Click
+    end
+    object N2: TMenuItem
+      Caption = '-'
+    end
+    object Listaros3primeirosclientes1: TMenuItem
+      Caption = 'Listar os 3 primeiros clientes'
+      Hint = 'Listar os 3 primeiros clientes'
+      OnClick = AddPromptsTeste1Click
+    end
+    object N4: TMenuItem
+      Caption = '-'
+    end
+    object Enviaremailteste1: TMenuItem
+      Caption = 'Enviar email com mensagem teste'
+      Hint = 
+        'Enviar um email convidando para se inscrever no canal da Code4De' +
+        'lphi para o destinatario: contato@code4delphi.com.br. (n'#227'o use a' +
+        'centos na mensagem)'
+      OnClick = AddPromptsTeste1Click
+    end
+    object Enviarumemailcomnomedos5primeirosclientes1: TMenuItem
+      Caption = 'Enviar um email com as 2 '#250'ltimas vendas'
+      Hint = 
+        'Enviar um email com as 2 '#250'ltimas vendas para o destinatario: con' +
+        'tato@code4delphi.com.br (n'#227'o use acentos na mensagem)'
+      OnClick = AddPromptsTeste1Click
+    end
+    object Enviarumemailparaos2primeirosclientes1: TMenuItem
+      Caption = 
+        'Enviar um email com o ID e Total das 2 '#250'ltimas vendas para o ema' +
+        'il do cliente'
+      Hint = 
+        'Enviar um email com o ID e Total das 2 '#250'ltimas vendas para o ema' +
+        'il do cliente (n'#227'o use acentos na mensagem)'
+      OnClick = AddPromptsTeste1Click
+    end
+    object N3: TMenuItem
+      Caption = '-'
+    end
   end
 end

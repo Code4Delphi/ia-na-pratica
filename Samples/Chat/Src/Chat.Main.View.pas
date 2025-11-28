@@ -14,11 +14,11 @@ uses
   Vcl.Dialogs,
   Vcl.StdCtrls,
   Vcl.ExtCtrls,
-  VCL.TMSFNCCustomComponent,
-  VCL.TMSFNCCloudBase,
-  VCL.TMSFNCCloudAI,
   Vcl.Buttons,
-  Vcl.ComCtrls;
+  Vcl.ComCtrls,
+  TMS.MCP.CustomComponent,
+  TMS.MCP.CloudBase,
+  TMS.MCP.CloudAI;
 
 type
   TChatMainView = class(TForm)
@@ -37,7 +37,6 @@ type
     tabAPIKeys: TTabSheet;
     tabChat: TTabSheet;
     ProgressBar1: TProgressBar;
-    TMSFNCCloudAI1: TTMSFNCCloudAI;
     pnAPIKeysBack: TPanel;
     Label2: TLabel;
     Label3: TLabel;
@@ -86,13 +85,13 @@ type
     edtModelMistral: TEdit;
     edtModelOpenAI: TEdit;
     edtModelPerplexity: TEdit;
+    TMSMCPCloudAI1: TTMSMCPCloudAI;
     procedure FormCreate(Sender: TObject);
-    procedure cBoxIAServiceChange(Sender: TObject);
     procedure btnExecuteClick(Sender: TObject);
-    procedure TMSFNCCloudAI1Executed(Sender: TObject; AResponse: TTMSFNCCloudAIResponse; AHttpStatusCode: Integer;
-      AHttpResult: string);
     procedure btnSaveKeysClick(Sender: TObject);
     procedure btnLoadKeysClick(Sender: TObject);
+    procedure TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse; AHttpStatusCode: Integer;
+      AHttpResult: string);
   private
     procedure LoadKeys;
     procedure SaveKeys;
@@ -121,9 +120,8 @@ begin
   Self.LoadKeys;
 
   //CARREGAR IAS DISPONIVEIS
-  cBoxIAService.Items.Assign(TMSFNCCloudAI1.GetServices(True));
+  cBoxIAService.Items.Assign(TMSMCPCloudAI1.GetServices(True));
   cBoxIAService.ItemIndex := 6;
-  cBoxIAServiceChange(cBoxIAService);
 
   Self.Settings;
   Self.ModelsComponentToScreen;
@@ -131,12 +129,12 @@ end;
 
 procedure TChatMainView.Settings;
 begin
-  TMSFNCCloudAI1.Logging := ckGerarLogs.Checked;
-  TMSFNCCloudAI1.LogFileName := '..\..\Files\Chat.log';
+  TMSMCPCloudAI1.Logging := ckGerarLogs.Checked;
+  TMSMCPCloudAI1.LogFileName := '..\..\Files\Chat.log';
 
-  TMSFNCCloudAI1.Settings.Temperature := StrToIntDef(edtTemperature.Text, 0);
-  TMSFNCCloudAI1.Settings.MaxTokens := StrToIntDef(edtMaxTokens.Text, 0);
-  TMSFNCCloudAI1.Settings.WebSearch := ckWebSearch.Checked;
+  TMSMCPCloudAI1.Settings.Temperature := StrToIntDef(edtTemperature.Text, 0);
+  TMSMCPCloudAI1.Settings.MaxTokens := StrToIntDef(edtMaxTokens.Text, 0);
+  TMSMCPCloudAI1.Settings.WebSearch := ckWebSearch.Checked;
 end;
 
 procedure TChatMainView.btnLoadKeysClick(Sender: TObject);
@@ -151,58 +149,50 @@ end;
 
 procedure TChatMainView.LoadKeys;
 begin
-  TMSFNCCloudAI1.APIKeys.LoadFromFile(KEYS_FILE, KEYS_PASSWORD);
+  TMSMCPCloudAI1.APIKeys.LoadFromFile(KEYS_FILE, KEYS_PASSWORD);
 
-  edtKeyClaude.Text := TMSFNCCloudAI1.APIKeys.Claude;
-  edtKeyDeepSeek.Text := TMSFNCCloudAI1.APIKeys.DeepSeek;
-  edtKeyGemini.Text := TMSFNCCloudAI1.APIKeys.Gemini;
-  edtKeyGrok.Text := TMSFNCCloudAI1.APIKeys.Grok;
-  edtKeyMistral.Text := TMSFNCCloudAI1.APIKeys.Mistral;
-  edtKeyOpenAI.Text := TMSFNCCloudAI1.APIKeys.OpenAI;
-  edtKeyPerplexity.Text := TMSFNCCloudAI1.APIKeys.Perplexity;
+  edtKeyClaude.Text := TMSMCPCloudAI1.APIKeys.Claude;
+  edtKeyDeepSeek.Text := TMSMCPCloudAI1.APIKeys.DeepSeek;
+  edtKeyGemini.Text := TMSMCPCloudAI1.APIKeys.Gemini;
+  edtKeyGrok.Text := TMSMCPCloudAI1.APIKeys.Grok;
+  edtKeyMistral.Text := TMSMCPCloudAI1.APIKeys.Mistral;
+  edtKeyOpenAI.Text := TMSMCPCloudAI1.APIKeys.OpenAI;
+  edtKeyPerplexity.Text := TMSMCPCloudAI1.APIKeys.Perplexity;
 end;
 
 procedure TChatMainView.SaveKeys;
 begin
-  TMSFNCCloudAI1.APIKeys.Claude := edtKeyClaude.Text;
-  TMSFNCCloudAI1.APIKeys.DeepSeek := edtKeyDeepSeek.Text;
-  TMSFNCCloudAI1.APIKeys.Gemini := edtKeyGemini.Text;
-  TMSFNCCloudAI1.APIKeys.Grok := edtKeyGrok.Text;
-  TMSFNCCloudAI1.APIKeys.Mistral := edtKeyMistral.Text;
-  TMSFNCCloudAI1.APIKeys.OpenAI := edtKeyOpenAI.Text;
-  TMSFNCCloudAI1.APIKeys.Perplexity := edtKeyPerplexity.Text;
+  TMSMCPCloudAI1.APIKeys.Claude := edtKeyClaude.Text;
+  TMSMCPCloudAI1.APIKeys.DeepSeek := edtKeyDeepSeek.Text;
+  TMSMCPCloudAI1.APIKeys.Gemini := edtKeyGemini.Text;
+  TMSMCPCloudAI1.APIKeys.Grok := edtKeyGrok.Text;
+  TMSMCPCloudAI1.APIKeys.Mistral := edtKeyMistral.Text;
+  TMSMCPCloudAI1.APIKeys.OpenAI := edtKeyOpenAI.Text;
+  TMSMCPCloudAI1.APIKeys.Perplexity := edtKeyPerplexity.Text;
 
-  TMSFNCCloudAI1.APIKeys.SaveToFile(KEYS_FILE, KEYS_PASSWORD);
+  TMSMCPCloudAI1.APIKeys.SaveToFile(KEYS_FILE, KEYS_PASSWORD);
 end;
 
 procedure TChatMainView.ModelsComponentToScreen;
 begin
-  edtModelClaude.Text := TMSFNCCloudAI1.Settings.ClaudeModel;
-  edtModelDeepSeek.Text := TMSFNCCloudAI1.Settings.DeepSeekModel;
-  edtModelGemini.Text := TMSFNCCloudAI1.Settings.GeminiModel;
-  edtModelGrok.Text := TMSFNCCloudAI1.Settings.GrokModel;
-  edtModelMistral.Text := TMSFNCCloudAI1.Settings.MistralModel;
-  edtModelOpenAI.Text := TMSFNCCloudAI1.Settings.OpenAIModel;
-  edtModelPerplexity.Text := TMSFNCCloudAI1.Settings.PerplexityModel;
+  edtModelClaude.Text := TMSMCPCloudAI1.Settings.ClaudeModel;
+  edtModelDeepSeek.Text := TMSMCPCloudAI1.Settings.DeepSeekModel;
+  edtModelGemini.Text := TMSMCPCloudAI1.Settings.GeminiModel;
+  edtModelGrok.Text := TMSMCPCloudAI1.Settings.GrokModel;
+  edtModelMistral.Text := TMSMCPCloudAI1.Settings.MistralModel;
+  edtModelOpenAI.Text := TMSMCPCloudAI1.Settings.OpenAIModel;
+  edtModelPerplexity.Text := TMSMCPCloudAI1.Settings.PerplexityModel;
 end;
 
 procedure TChatMainView.ModelsScreenToComponent;
 begin
-  TMSFNCCloudAI1.Settings.ClaudeModel := edtModelClaude.Text;
-  TMSFNCCloudAI1.Settings.DeepSeekModel := edtModelDeepSeek.Text;
-  TMSFNCCloudAI1.Settings.GeminiModel := edtModelGemini.Text;
-  TMSFNCCloudAI1.Settings.GrokModel := edtModelGrok.Text;
-  TMSFNCCloudAI1.Settings.MistralModel := edtModelMistral.Text;
-  TMSFNCCloudAI1.Settings.OpenAIModel := edtModelOpenAI.Text;
-  TMSFNCCloudAI1.Settings.PerplexityModel := edtModelPerplexity.Text;
-end;
-
-procedure TChatMainView.cBoxIAServiceChange(Sender: TObject);
-var
-  i: Integer;
-begin
-  i := Integer(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
-  TMSFNCCloudAI1.Service := TTMSFNCCloudAIService(i);
+  TMSMCPCloudAI1.Settings.ClaudeModel := edtModelClaude.Text;
+  TMSMCPCloudAI1.Settings.DeepSeekModel := edtModelDeepSeek.Text;
+  TMSMCPCloudAI1.Settings.GeminiModel := edtModelGemini.Text;
+  TMSMCPCloudAI1.Settings.GrokModel := edtModelGrok.Text;
+  TMSMCPCloudAI1.Settings.MistralModel := edtModelMistral.Text;
+  TMSMCPCloudAI1.Settings.OpenAIModel := edtModelOpenAI.Text;
+  TMSMCPCloudAI1.Settings.PerplexityModel := edtModelPerplexity.Text;
 end;
 
 procedure TChatMainView.ClearResponse;
@@ -216,17 +206,19 @@ end;
 
 procedure TChatMainView.btnExecuteClick(Sender: TObject);
 begin
+  TMSMCPCloudAI1.Service := TTMSMCPCloudAIService(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
+
   Self.ClearResponse;
   Self.Settings;
   Self.ModelsScreenToComponent;
 
-  TMSFNCCloudAI1.Context.Text := mmQuestion.Lines.Text;
-  TMSFNCCloudAI1.Execute();
+  TMSMCPCloudAI1.Context.Text := mmQuestion.Lines.Text;
+  TMSMCPCloudAI1.Execute();
   ProgressBar1.State := pbsNormal;
 end;
 
-procedure TChatMainView.TMSFNCCloudAI1Executed(Sender: TObject; AResponse: TTMSFNCCloudAIResponse; AHttpStatusCode: Integer;
-  AHttpResult: string);
+procedure TChatMainView.TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse;
+  AHttpStatusCode: Integer; AHttpResult: string);
 begin
   ProgressBar1.State := pbsPaused;
   if AHttpStatusCode <> 200 then
@@ -241,5 +233,6 @@ begin
   lbTotalTokens.Caption := AResponse.TotalTokens.ToString;
   lbServiceModel.Caption := AResponse.ServiceModel;
 end;
+
 
 end.

@@ -2,7 +2,7 @@ object ChatMainView: TChatMainView
   Left = 0
   Top = 0
   Caption = 'IA na pr'#225'tica: Chat'
-  ClientHeight = 558
+  ClientHeight = 614
   ClientWidth = 1033
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -18,17 +18,19 @@ object ChatMainView: TChatMainView
     Left = 0
     Top = 0
     Width = 1033
-    Height = 558
+    Height = 614
     ActivePage = tabChat
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 1031
+    ExplicitHeight = 606
     object tabAPIKeys: TTabSheet
       Caption = 'API Keys'
       object pnAPIKeysBack: TPanel
         Left = 0
         Top = 0
         Width = 1025
-        Height = 528
+        Height = 584
         Align = alClient
         BevelOuter = bvNone
         ParentBackground = False
@@ -165,7 +167,7 @@ object ChatMainView: TChatMainView
         Left = 0
         Top = 0
         Width = 1025
-        Height = 528
+        Height = 584
         Align = alClient
         BevelOuter = bvNone
         ParentBackground = False
@@ -290,6 +292,7 @@ object ChatMainView: TChatMainView
         Height = 65
         Align = alTop
         TabOrder = 0
+        ExplicitWidth = 1023
         object Label1: TLabel
           Left = 18
           Top = 7
@@ -318,7 +321,6 @@ object ChatMainView: TChatMainView
           Height = 23
           Style = csDropDownList
           TabOrder = 0
-          OnChange = cBoxIAServiceChange
         end
         object ckGerarLogs: TCheckBox
           Left = 473
@@ -365,6 +367,7 @@ object ChatMainView: TChatMainView
         Align = alTop
         Caption = 'pnBoth'
         TabOrder = 1
+        ExplicitWidth = 1023
         object gBoxQuestion: TGroupBox
           Left = 1
           Top = 1
@@ -376,6 +379,7 @@ object ChatMainView: TChatMainView
           Padding.Right = 1
           Padding.Bottom = 1
           TabOrder = 0
+          ExplicitWidth = 1021
           object mmQuestion: TMemo
             Left = 3
             Top = 17
@@ -386,6 +390,7 @@ object ChatMainView: TChatMainView
             Lines.Strings = (
               'Ol'#225' quem '#233' voc'#234' e quem '#233' o seu fabricante?')
             TabOrder = 0
+            ExplicitWidth = 1015
           end
         end
         object Panel1: TPanel
@@ -398,6 +403,7 @@ object ChatMainView: TChatMainView
           Padding.Right = 2
           Padding.Bottom = 2
           TabOrder = 1
+          ExplicitWidth = 1021
           object btnExecute: TBitBtn
             Left = 1
             Top = 3
@@ -407,7 +413,6 @@ object ChatMainView: TChatMainView
             Caption = 'Execute'
             TabOrder = 0
             OnClick = btnExecuteClick
-            ExplicitLeft = -2
           end
           object ProgressBar1: TProgressBar
             AlignWithMargins = True
@@ -432,27 +437,30 @@ object ChatMainView: TChatMainView
         Left = 0
         Top = 238
         Width = 1025
-        Height = 290
+        Height = 346
         Align = alClient
         Caption = ' Response '
         Padding.Left = 1
         Padding.Right = 1
         Padding.Bottom = 1
         TabOrder = 2
-        ExplicitLeft = 1
+        ExplicitWidth = 1023
+        ExplicitHeight = 338
         object mmResponse: TMemo
           Left = 3
           Top = 17
           Width = 1019
-          Height = 247
+          Height = 303
           Align = alClient
           BorderStyle = bsNone
           ScrollBars = ssVertical
           TabOrder = 0
+          ExplicitWidth = 1017
+          ExplicitHeight = 295
         end
         object pnResponseDetails: TPanel
           Left = 3
-          Top = 264
+          Top = 320
           Width = 1019
           Height = 23
           Align = alBottom
@@ -460,6 +468,8 @@ object ChatMainView: TChatMainView
           BevelKind = bkTile
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitTop = 312
+          ExplicitWidth = 1017
           object Label9: TLabel
             Left = 174
             Top = 0
@@ -513,7 +523,6 @@ object ChatMainView: TChatMainView
             Align = alLeft
             Caption = 'Model response: '
             Layout = tlCenter
-            ExplicitLeft = 515
             ExplicitHeight = 15
           end
           object lbServiceModel: TLabel
@@ -524,7 +533,6 @@ object ChatMainView: TChatMainView
             Align = alLeft
             Caption = '-'
             Layout = tlCenter
-            ExplicitLeft = 605
             ExplicitHeight = 15
           end
           object Label12: TLabel
@@ -535,7 +543,6 @@ object ChatMainView: TChatMainView
             Align = alLeft
             Caption = 'Total tokens: '
             Layout = tlCenter
-            ExplicitLeft = 356
             ExplicitHeight = 15
           end
           object lbTotalTokens: TLabel
@@ -553,25 +560,24 @@ object ChatMainView: TChatMainView
       end
     end
   end
-  object TMSFNCCloudAI1: TTMSFNCCloudAI
-    Left = 680
-    Top = 47
-    Width = 26
-    Height = 26
-    Visible = True
+  object TMSMCPCloudAI1: TTMSMCPCloudAI
     Service = aiOpenAI
-    Settings.GeminiModel = 'gemini-1.5-flash-latest'
+    Settings.GeminiModel = 'gemini-2.5-flash'
     Settings.OpenAIModel = 'gpt-4o'
     Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
+    Settings.OpenAITranscribeModel = 'whisper-1'
     Settings.GrokModel = 'grok-3'
-    Settings.ClaudeModel = 'claude-3-5-sonnet-20241022'
-    Settings.OllamaModel = 'tinyllama'
+    Settings.ClaudeModel = 'claude-sonnet-4-20250514'
+    Settings.OllamaModel = 'llama3.2:latest'
     Settings.DeepSeekModel = 'deepseek-chat'
-    Settings.PerplexityModel = 'llama-3.1-sonar-small-128k-online'
+    Settings.PerplexityModel = 'sonar-pro'
     Settings.OllamaHost = 'localhost'
     Settings.OllamaPath = '/api/chat'
     Settings.MistralModel = 'mistral-large-latest'
+    Settings.MistralTranscribeModel = 'voxtral-mini-2507'
     Tools = <>
-    OnExecuted = TMSFNCCloudAI1Executed
+    OnExecuted = TMSMCPCloudAI1Executed
+    Left = 677
+    Top = 116
   end
 end

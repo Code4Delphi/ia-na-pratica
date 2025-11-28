@@ -18,10 +18,10 @@ uses
   Vcl.ExtCtrls,
   Vcl.ComCtrls,
   Vcl.Buttons,
-  VCL.TMSFNCCustomComponent,
-  VCL.TMSFNCCloudBase,
-  VCL.TMSFNCCloudAI,
-  uDM;
+  uDM,
+  TMS.MCP.CustomComponent,
+  TMS.MCP.CloudBase,
+  TMS.MCP.CloudAI;
 
 type
   TMainView = class(TForm)
@@ -37,7 +37,6 @@ type
     Splitter1: TSplitter;
     gBoxResponse: TGroupBox;
     mmResponse: TMemo;
-    TMSFNCCloudAI1: TTMSFNCCloudAI;
     gBoxDefaultsPrompts: TGroupBox;
     pnDefaultsPrompts01: TPanel;
     btnDadosCliente: TButton;
@@ -52,13 +51,9 @@ type
     btnVendasPeriodoClienteMaisVendas: TButton;
     btnVendasPeriodoEmailMaisVendas: TButton;
     btnVendasDoDiaX: TButton;
+    TMSMCPCloudAI1: TTMSMCPCloudAI;
     procedure FormCreate(Sender: TObject);
     procedure btnExecuteClick(Sender: TObject);
-    procedure TMSFNCCloudAI1Executed(Sender: TObject; AResponse: TTMSFNCCloudAIResponse; AHttpStatusCode: Integer;
-      AHttpResult: string);
-    procedure TMSFNCCloudAI1Tools0Execute(Sender: TObject; Args: TJSONObject; var Result: string);
-    procedure TMSFNCCloudAI1Tools1Execute(Sender: TObject; Args: TJSONObject; var Result: string);
-    procedure TMSFNCCloudAI1Tools2Execute(Sender: TObject; Args: TJSONObject; var Result: string);
     procedure btnVendasPeriodoClick(Sender: TObject);
     procedure btnVendasPeriodoDetalhandoClick(Sender: TObject);
     procedure btnDadosClienteClick(Sender: TObject);
@@ -68,8 +63,13 @@ type
     procedure btnAPIViaCepMaisInternetClick(Sender: TObject);
     procedure btnVendasPeriodoClienteMaisVendasClick(Sender: TObject);
     procedure btnVendasPeriodoEmailMaisVendasClick(Sender: TObject);
-    procedure TMSFNCCloudAI1Tools3Execute(Sender: TObject; Args: TJSONObject; var Result: string);
     procedure btnVendasDoDiaXClick(Sender: TObject);
+    procedure TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse; AHttpStatusCode: Integer;
+      AHttpResult: string);
+    procedure TMSMCPCloudAI1Tools0Execute(Sender: TObject; Args: TJSONObject; var Result: string);
+    procedure TMSMCPCloudAI1Tools1Execute(Sender: TObject; Args: TJSONObject; var Result: string);
+    procedure TMSMCPCloudAI1Tools2Execute(Sender: TObject; Args: TJSONObject; var Result: string);
+    procedure TMSMCPCloudAI1Tools3Execute(Sender: TObject; Args: TJSONObject; var Result: string);
   private
     function GetEndereco(const ACEP: string): string;
   public
@@ -87,11 +87,11 @@ procedure TMainView.FormCreate(Sender: TObject);
 begin
   ReportMemoryLeaksOnShutdown := True;
 
-  TMSFNCCloudAI1.APIKeys.LoadFromFile('..\..\Files\aikeys.cfg', 'PasswordTest');
-  TMSFNCCloudAI1.Settings.WebSearch := True;
+  TMSMCPCloudAI1.APIKeys.LoadFromFile('..\..\Files\aikeys.cfg', 'PasswordTest');
+  TMSMCPCloudAI1.Settings.WebSearch := True;
 
-  cBoxIAService.Items.Assign(TMSFNCCloudAI1.GetServices(True));
-  cBoxIAService.ItemIndex := 0;
+  cBoxIAService.Items.Assign(TMSMCPCloudAI1.GetServices(True));
+  cBoxIAService.ItemIndex := 6;
 end;
 
 procedure TMainView.btnDadosProdutoClick(Sender: TObject);
@@ -156,15 +156,37 @@ end;
 
 procedure TMainView.btnExecuteClick(Sender: TObject);
 begin
-  TMSFNCCloudAI1.Service := TTMSFNCCloudAIService(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
+  TMSMCPCloudAI1.Service := TTMSMCPCloudAIService(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
 
   mmResponse.Text := 'Processando...';
-  TMSFNCCloudAI1.Context := mmQuestion.Lines;
-  TMSFNCCloudAI1.Execute();
+  TMSMCPCloudAI1.Context := mmQuestion.Lines;
+  TMSMCPCloudAI1.Execute();
   ProgressBar1.State := pbsNormal;
 end;
 
-procedure TMainView.TMSFNCCloudAI1Executed(Sender: TObject; AResponse: TTMSFNCCloudAIResponse; AHttpStatusCode: Integer;
+function TMainView.GetEndereco(const ACEP: string): string;
+var
+  LRequest: TTMSMCPCloudBase;
+  LResult: string;
+begin
+  LRequest := TTMSMCPCloudBase.Create;
+  try
+    LRequest.Request.Host := 'https://viacep.com.br/ws/';
+    LRequest.Request.Path := Format('%s/json', [ACEP.Replace('-', '', [])]);
+
+    LRequest.ExecuteRequest(
+      procedure(const ARequestResult: TTMSMCPCloudBaseRequestResult)
+      begin
+        LResult := ARequestResult.ResultString;
+      end, nil, False);
+
+    Result := LResult;
+  finally
+    LRequest.Free;
+  end;
+end;
+
+procedure TMainView.TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse; AHttpStatusCode: Integer;
   AHttpResult: string);
 begin
   ProgressBar1.State := pbsPaused;
@@ -178,7 +200,7 @@ begin
   mmResponse.Lines := AResponse.Content;
 end;
 
-procedure TMainView.TMSFNCCloudAI1Tools0Execute(Sender: TObject; Args: TJSONObject; var Result: string);
+procedure TMainView.TMSMCPCloudAI1Tools0Execute(Sender: TObject; Args: TJSONObject; var Result: string);
 var
   LIdProduto: Integer;
 begin
@@ -202,7 +224,7 @@ begin
     'Preço: ' + DM.TBProdutospreco.AsString;
 end;
 
-procedure TMainView.TMSFNCCloudAI1Tools1Execute(Sender: TObject; Args: TJSONObject; var Result: string);
+procedure TMainView.TMSMCPCloudAI1Tools1Execute(Sender: TObject; Args: TJSONObject; var Result: string);
 var
   LIdCLiente: Integer;
 begin
@@ -223,7 +245,7 @@ begin
   Result := DM.TBClientesId.AsString + ' - ' +  DM.TBClientesnome.AsString;
 end;
 
-procedure TMainView.TMSFNCCloudAI1Tools2Execute(Sender: TObject; Args: TJSONObject; var Result: string);
+procedure TMainView.TMSMCPCloudAI1Tools2Execute(Sender: TObject; Args: TJSONObject; var Result: string);
 var
   LDataIni: TDate;
   LDataFim: TDate;
@@ -254,31 +276,9 @@ begin
   end;
 end;
 
-procedure TMainView.TMSFNCCloudAI1Tools3Execute(Sender: TObject; Args: TJSONObject; var Result: string);
+procedure TMainView.TMSMCPCloudAI1Tools3Execute(Sender: TObject; Args: TJSONObject; var Result: string);
 begin
   Result := Self.GetEndereco(Args.GetValue<string>('CEP'));
-end;
-
-function TMainView.GetEndereco(const ACEP: string): string;
-var
-  LRequest: TTMSFNCCloudBase;
-  LResult: string;
-begin
-  LRequest := TTMSFNCCloudBase.Create;
-  try
-    LRequest.Request.Host := 'https://viacep.com.br/ws/';
-    LRequest.Request.Path := Format('%s/json', [ACEP.Replace('-', '', [])]);
-
-    LRequest.ExecuteRequest(
-      procedure(const ARequestResult: TTMSFNCCloudBaseRequestResult)
-      begin
-        LResult := ARequestResult.ResultString;
-      end, nil, False);
-
-    Result := LResult;
-  finally
-    LRequest.Free;
-  end;
 end;
 
 end.

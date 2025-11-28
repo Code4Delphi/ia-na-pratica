@@ -47,7 +47,7 @@ uses
   TMS.MCP.CloudAI,
   TMS.MCP.CustomComponent,
   TMS.MCP.CloudBase,  
-  AudioRecorder;
+  AudioRecorder, Vcl.Buttons;
 
 type
   TSpeechMapMainView = class(TForm)
@@ -58,7 +58,6 @@ type
     pnButtonsTop: TPanel;
     btnStartRecording: TButton;
     btnStopRecording: TButton;
-    ProgressBar1: TProgressBar;
     cBoxLanguage: TComboBox;
     ckSpeakAudioRecording: TCheckBox;
     ckSpeakResponse: TCheckBox;
@@ -68,6 +67,9 @@ type
     gBoxResponse: TGroupBox;
     mmResponse: TMemo;
     btnStopTalking: TButton;
+    Panel1: TPanel;
+    btnExecute: TBitBtn;
+    ProgressBar1: TProgressBar;
     procedure FormCreate(Sender: TObject);
     procedure btnAddExampleTextClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -80,10 +82,12 @@ type
     procedure TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse; AHttpStatusCode: Integer;
       AHttpResult: string);
     procedure btnStopTalkingClick(Sender: TObject);
+    procedure btnExecuteClick(Sender: TObject);
   private
     procedure ScreenRecordingOff;
     procedure ScreenRecordingOn;
     function GetLanguage: string;
+    procedure AIExecute;
   public
     FAudioRecorder: TAudioRecorder;
     procedure InitTools;
@@ -99,8 +103,9 @@ implementation
 {$R *.dfm}
 
 const
-  //GENERATE THE API KEY: https://openrouteservice.org/dev/#/api-docs
-  KEY_OPENROUTE = 'ADD_API_KEY';
+  //GENERATE THE API KEY: https://account.heigit.org/manage/key
+  //DOCS https://openrouteservice.org/dev/#/api-docs
+  KEY_OPENROUTE = 'INSERT_API_KEY';
 
 procedure TSpeechMapMainView.FormCreate(Sender: TObject);
 begin
@@ -186,9 +191,8 @@ end;
 
 procedure TSpeechMapMainView.btnAddExampleTextClick(Sender: TObject);
 begin
-  mmTanscription.Lines.Text := 'Show the route from Madrid to Salamanca';
-  TMSMCPCloudAI1.Context.Text := mmTanscription.Lines.Text;
-  TMSMCPCloudAI1.Execute;
+  //mmTanscription.Lines.Text := 'Show the route from Madrid to Salamanca';
+  mmTanscription.Lines.Text := 'Mostrar trajeto entre São Paulo e Rio de Janeiro';
 end;
 
 procedure TSpeechMapMainView.btnStopTalkingClick(Sender: TObject);
@@ -348,8 +352,7 @@ begin
   end;
 
   mmTanscription.Lines.Text := Text;
-  TMSMCPCloudAI1.Context.Text := Text;
-  TMSMCPCloudAI1.Execute;
+  Self.AIExecute;
 end;
 
 procedure TSpeechMapMainView.TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse;
@@ -366,6 +369,24 @@ begin
 
   if ckSpeakResponse.Checked then
     TMSMCPCloudAI1.Speak(AResponse.Content.Text);
+end;
+
+procedure TSpeechMapMainView.btnExecuteClick(Sender: TObject);
+begin
+  Self.AIExecute;
+end;
+
+procedure TSpeechMapMainView.AIExecute;
+begin
+  if TMSFNCDirections1.APIKey.Trim.Equals('INSERT_API_KEY') then
+  begin
+    ShowMessage('Para marcações no mapa a APIKey deve ser informada no componente TMSFNCDirections1' + sLineBreak +
+      'GENERATE THE API KEY: https://account.heigit.org/manage/key');
+  end;
+
+  TMSMCPCloudAI1.Context.Text := mmTanscription.Lines.Text;
+  TMSMCPCloudAI1.Execute;
+  ProgressBar1.State := pbsNormal;
 end;
 
 end.
