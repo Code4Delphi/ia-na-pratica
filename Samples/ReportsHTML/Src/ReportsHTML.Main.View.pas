@@ -62,12 +62,20 @@ type
     Splitter1: TSplitter;
     PopupMenu1: TPopupMenu;
     Listartabelasdobanco1: TMenuItem;
+    Crieumrelatriocomas10ltimasvendas1: TMenuItem;
+    N1: TMenuItem;
+    N2: TMenuItem;
+    Crieumgrficodepizzacomadataeototaldasvendasde01062025a300620251: TMenuItem;
+    CrieumrelatriodeclientescompaginaoeopoparaDownload1: TMenuItem;
+    Panel2: TPanel;
+    imgPopupQuestions: TImage;
     procedure FormCreate(Sender: TObject);
     procedure TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse; AHttpStatusCode: Integer;
       AHttpResult: string);
     procedure btnExecuteClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure Listartabelasdobanco1Click(Sender: TObject);
+    procedure imgPopupQuestionsClick(Sender: TObject);
   private
     procedure ClearResponse;
     procedure Settings;
@@ -94,13 +102,13 @@ procedure TReportsHTMLMainView.FormCreate(Sender: TObject);
 begin
   ReportMemoryLeaksOnShutdown := True;
 
-  FBrowserTool := TTMSMCPCloudAIBrowser.Create(Self);
-  FBrowserTool.Browser := TMSFNCWebBrowser1;
-  FBrowserTool.AI := TMSMCPCloudAI1;
-
   TMSMCPCloudAI1.APIKeys.LoadFromFile(KEYS_FILE, KEYS_PASSWORD);
   cBoxIAService.Items.Assign(TMSMCPCloudAI1.GetServices(True));
   cBoxIAService.ItemIndex := 6;
+
+  FBrowserTool := TTMSMCPCloudAIBrowser.Create(Self);
+  FBrowserTool.Browser := TMSFNCWebBrowser1;
+  FBrowserTool.AI := TMSMCPCloudAI1;
 
   Self.Settings;
   Self.DefineTools;
@@ -109,6 +117,11 @@ end;
 procedure TReportsHTMLMainView.FormDestroy(Sender: TObject);
 begin
   FBrowserTool.Free;
+end;
+
+procedure TReportsHTMLMainView.imgPopupQuestionsClick(Sender: TObject);
+begin
+  PopupMenu1.Popup(Mouse.CursorPos.X, Mouse.CursorPos.Y);
 end;
 
 procedure TReportsHTMLMainView.Listartabelasdobanco1Click(Sender: TObject);
@@ -134,8 +147,8 @@ begin
   lbServiceModel.Caption := '';
 end;
 
-procedure TReportsHTMLMainView.TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse; AHttpStatusCode: Integer;
-  AHttpResult: string);
+procedure TReportsHTMLMainView.TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse;
+  AHttpStatusCode: Integer; AHttpResult: string);
 begin
   ProgressBar1.State := pbsPaused;
 

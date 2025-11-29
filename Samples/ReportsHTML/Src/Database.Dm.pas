@@ -22,14 +22,14 @@ uses
   FireDAC.DatS,
   FireDAC.DApt.Intf,
   FireDAC.DApt,
-  Data.DB,
   FireDAC.Comp.DataSet,
   FireDAC.Comp.Client,
-  TMS.MCP.Helpers,
   FireDAC.Stan.ExprFuncs,
   FireDAC.Phys.SQLiteWrapper.Stat,
   FireDAC.Phys.SQLiteDef,
-  FireDAC.Phys.SQLite;
+  FireDAC.Phys.SQLite,
+  Data.DB,
+  TMS.MCP.Helpers;
 
 type
   TDatabaseDm = class(TDataModule)

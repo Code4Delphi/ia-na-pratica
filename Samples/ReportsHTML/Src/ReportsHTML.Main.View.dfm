@@ -1,11 +1,9 @@
 object ReportsHTMLMainView: TReportsHTMLMainView
   Left = 0
   Top = 0
-  Caption = 
-    'AI in practice: Token Usage Tracking (Rastreamento de uso de tok' +
-    'en)'
-  ClientHeight = 669
-  ClientWidth = 984
+  Caption = 'AI in practice: Charts and reports using data from the database.'
+  ClientHeight = 677
+  ClientWidth = 985
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,7 +18,7 @@ object ReportsHTMLMainView: TReportsHTMLMainView
   object Splitter1: TSplitter
     Left = 0
     Top = 265
-    Width = 984
+    Width = 985
     Height = 5
     Cursor = crVSplit
     Align = alTop
@@ -30,11 +28,11 @@ object ReportsHTMLMainView: TReportsHTMLMainView
   object pnTop: TPanel
     Left = 0
     Top = 0
-    Width = 984
+    Width = 985
     Height = 65
     Align = alTop
     TabOrder = 0
-    ExplicitWidth = 881
+    ExplicitWidth = 984
     object Label1: TLabel
       Left = 18
       Top = 7
@@ -96,16 +94,16 @@ object ReportsHTMLMainView: TReportsHTMLMainView
   object pnBoth: TPanel
     Left = 0
     Top = 65
-    Width = 984
+    Width = 985
     Height = 107
     Align = alTop
     Caption = 'pnBoth'
     TabOrder = 1
-    ExplicitWidth = 881
+    ExplicitWidth = 984
     object gBoxQuestion: TGroupBox
       Left = 1
       Top = 1
-      Width = 982
+      Width = 983
       Height = 73
       Align = alClient
       Caption = ' Prompt / question '
@@ -113,12 +111,14 @@ object ReportsHTMLMainView: TReportsHTMLMainView
       Padding.Right = 1
       Padding.Bottom = 1
       TabOrder = 0
-      ExplicitWidth = 879
-      ExplicitHeight = 86
+      ExplicitWidth = 982
+      DesignSize = (
+        983
+        73)
       object mmQuestion: TMemo
         Left = 3
         Top = 17
-        Width = 976
+        Width = 977
         Height = 53
         Align = alClient
         BorderStyle = bsNone
@@ -126,22 +126,76 @@ object ReportsHTMLMainView: TReportsHTMLMainView
           'Ol'#225' quem '#233' voc'#234' e quem '#233' o seu fabricante?')
         PopupMenu = PopupMenu1
         TabOrder = 0
-        ExplicitWidth = 873
-        ExplicitHeight = 66
+        ExplicitWidth = 976
+      end
+      object Panel2: TPanel
+        Left = 961
+        Top = 9
+        Width = 17
+        Height = 20
+        Anchors = [akTop, akRight]
+        BevelOuter = bvNone
+        TabOrder = 1
+        object imgPopupQuestions: TImage
+          Tag = 33
+          Left = 0
+          Top = 0
+          Width = 16
+          Height = 16
+          AutoSize = True
+          Picture.Data = {
+            07544269746D617036040000424D360400000000000036000000280000001000
+            000010000000010020000000000000040000C40E0000C40E0000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000FF000000FF000000FF000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000FF000000FF000000FF000000FFCACACAFF000000FF000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000FF000000FF000000FF9D9D9DFF000000FF000000FF000000000000
+            00000000000000000000B78183FFB78183FFB78183FFB78183FFB78183FFB781
+            83FF000000FFFFFFFFFFE3E3E3FF040404FF000000FF000000FF000000000000
+            00000000000000000000E1C0AEFFFFF7EBFFFBF3EBFFFBF3EBFFFBF3EBFFFBF3
+            EBFF000000FFFFFFFFFFFFFFFFFFE3E3E3FF000000FF000000FF000000000000
+            00000000000000000000E9C6B1FFFFFCF4FFEBCCB8FFEBCCB8FFEBCCB8FFEBCC
+            B8FF000000FFFFFFFFFFFFFFFFFFE3E3E3FF000000FF000000FF000000000000
+            00000000000000000000E9C6B1FFEBCCB8FFEBCCB8FFEBCCB8FFEBCCB8FFEBCC
+            B8FF000000FFFFFFFFFFE3E3E3FF000000FF000000FF00000000000000000000
+            00000000000000000000E9C6B1FFEBCCB8FFFBF3EBFFFBF3EBFFFBF3EBFFFBF3
+            EBFF000000FFE3E3E3FF000000FFE3E3E3FF000000FF00000000000000000000
+            00000000000000000000E9C6B1FFEBCCB8FFEBCCB8FFEBCCB8FFEBCCB8FFEBCC
+            B8FF000000FF000000FFE3E3E3FFFFFFFFFF000000FF00000000000000000000
+            00000000000000000000E9C6B1FFFFFFFFFFEBCCB8FFEBCCB8FFEBCCB8FFEBCC
+            B8FFEBCCB8FFFBF3EBFFFBF3EBFFFBF3EBFFB78183FF00000000000000000000
+            00000000000000000000E9C6B1FFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFDFFFDF9
+            F4FFFBF3EBFFFBF3EBFFFBF3EBFFFBF3EBFFB78183FF00000000000000000000
+            00000000000000000000E9C6B1FFFFFFFFFF800000FF800000FF800000FF8000
+            00FFFDF8F3FFFBF3EBFFFBF3EBFFFBF3EBFFB78183FF00000000000000000000
+            00000000000000000000E9C6B1FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFEFCFFFFFEF9FFFBF3EBFFFBF3EBFFB78183FF00000000000000000000
+            00000000000000000000E9C6B1FFFFFFFFFF800000FF800000FF800000FF8000
+            00FF800000FFFFFFFFFFFBF3EBFFFBF3EBFFB78183FF00000000000000000000
+            00000000000000000000E9C6B1FFFCF7F4FFFCF7F3FFFBF6F3FFFBF6F3FFFAF5
+            F3FFF9F5F3FFF9F5F3FFFBF3EBFFFBF3EBFFB78183FF00000000000000000000
+            00000000000000000000E9C6B1FFE9C6B1FFE9C6B1FFE9C6B1FFE9C6B1FFE9C6
+            B1FFE9C6B1FFE9C6B1FFE9C6B1FFE9C7B2FFB78183FF00000000000000000000
+            0000}
+          PopupMenu = PopupMenu1
+          Transparent = True
+          OnClick = imgPopupQuestionsClick
+        end
       end
     end
     object Panel1: TPanel
       Left = 1
       Top = 74
-      Width = 982
+      Width = 983
       Height = 32
       Align = alBottom
       Padding.Top = 2
       Padding.Right = 2
       Padding.Bottom = 2
       TabOrder = 1
-      ExplicitTop = 87
-      ExplicitWidth = 879
+      ExplicitWidth = 982
       object btnExecute: TBitBtn
         Left = 1
         Top = 3
@@ -174,7 +228,7 @@ object ReportsHTMLMainView: TReportsHTMLMainView
   object gBoxResponse: TGroupBox
     Left = 0
     Top = 172
-    Width = 984
+    Width = 985
     Height = 93
     Align = alTop
     Caption = ' Response '
@@ -182,32 +236,31 @@ object ReportsHTMLMainView: TReportsHTMLMainView
     Padding.Right = 1
     Padding.Bottom = 1
     TabOrder = 2
-    ExplicitWidth = 881
+    ExplicitWidth = 984
     object mmResponse: TMemo
       Left = 3
       Top = 17
-      Width = 978
+      Width = 979
       Height = 73
       Align = alClient
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
-      ExplicitWidth = 875
-      ExplicitHeight = 52
+      ExplicitWidth = 978
     end
   end
   object pnResponseDetails: TPanel
     Left = 0
-    Top = 646
-    Width = 984
+    Top = 654
+    Width = 985
     Height = 23
     Align = alBottom
     BevelEdges = [beTop]
     BevelKind = bkTile
     BevelOuter = bvNone
     TabOrder = 3
-    ExplicitTop = 659
-    ExplicitWidth = 881
+    ExplicitTop = 646
+    ExplicitWidth = 984
     object Label9: TLabel
       Left = 174
       Top = 0
@@ -298,15 +351,14 @@ object ReportsHTMLMainView: TReportsHTMLMainView
   object TMSFNCWebBrowser1: TTMSFNCWebBrowser
     Left = 0
     Top = 270
-    Width = 984
-    Height = 376
+    Width = 985
+    Height = 384
     Align = alClient
     ParentDoubleBuffered = False
     DoubleBuffered = True
     TabOrder = 4
-    ExplicitTop = 257
-    ExplicitWidth = 881
-    ExplicitHeight = 402
+    ExplicitWidth = 984
+    ExplicitHeight = 376
   end
   object TMSMCPCloudAI1: TTMSMCPCloudAI
     APIKeys.OpenAI = 
@@ -319,7 +371,7 @@ object ReportsHTMLMainView: TReportsHTMLMainView
     Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
     Settings.OpenAITranscribeModel = 'whisper-1'
     Settings.GrokModel = 'grok-3'
-    Settings.ClaudeModel = 'claude-3-5-sonnet-20241022'
+    Settings.ClaudeModel = 'claude-sonnet-4-5-20250929'
     Settings.OllamaModel = 'llama3.2:latest'
     Settings.DeepSeekModel = 'deepseek-chat'
     Settings.PerplexityModel = 'sonar-pro'
@@ -333,11 +385,45 @@ object ReportsHTMLMainView: TReportsHTMLMainView
     Top = 96
   end
   object PopupMenu1: TPopupMenu
-    Left = 632
-    Top = 96
+    Left = 904
+    Top = 88
     object Listartabelasdobanco1: TMenuItem
       Caption = 'Listar tabelas do banco'
       Hint = 'Listar tabelas do banco'
+      OnClick = Listartabelasdobanco1Click
+    end
+    object N1: TMenuItem
+      Caption = '-'
+    end
+    object CrieumrelatriodeclientescompaginaoeopoparaDownload1: TMenuItem
+      Caption = 
+        'Crie um relat'#243'rio de clientes com pagina'#231#227'o e op'#231#227'o para Downloa' +
+        'd'
+      Hint = 
+        'Crie um relat'#243'rio de clientes e exiba-o em HTML como uma tabela ' +
+        'moderna que fa'#231'a a pagina'#231#227'o de 10 em 10 e com op'#231#227'o para downlo' +
+        'ad, impress'#227'o, consulta e ordena'#231#227'o, usando o estilo Dark do Boo' +
+        'tstrap, e abra-o no navegador'
+      OnClick = Listartabelasdobanco1Click
+    end
+    object Crieumrelatriocomas10ltimasvendas1: TMenuItem
+      Caption = 'Crie um relat'#243'rio com as 10 '#250'ltimas vendas'
+      Hint = 
+        '- Crie um relat'#243'rio com as 10 '#250'ltimas vendas. Exiba-o em HTML co' +
+        'mo uma tabela moderna e elegante, usando o estilo Dark do Bootst' +
+        'rap, e abra-o no navegador'
+      OnClick = Listartabelasdobanco1Click
+    end
+    object N2: TMenuItem
+      Caption = '-'
+    end
+    object Crieumgrficodepizzacomadataeototaldasvendasde01062025a300620251: TMenuItem
+      Caption = 
+        'Crie um gr'#225'fico de pizza com a data e o total das vendas de 01/0' +
+        '6/2025 a 30/06/202'
+      Hint = 
+        'Crie um gr'#225'fico de pizza do Google com cores dark, com a data e ' +
+        'o total das vendas de 01/06/2025 a 30/06/2025'
       OnClick = Listartabelasdobanco1Click
     end
   end
