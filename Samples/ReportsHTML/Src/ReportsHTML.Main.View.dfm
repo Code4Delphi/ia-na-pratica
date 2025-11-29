@@ -32,7 +32,6 @@ object ReportsHTMLMainView: TReportsHTMLMainView
     Height = 65
     Align = alTop
     TabOrder = 0
-    ExplicitWidth = 984
     object Label1: TLabel
       Left = 18
       Top = 7
@@ -99,7 +98,6 @@ object ReportsHTMLMainView: TReportsHTMLMainView
     Align = alTop
     Caption = 'pnBoth'
     TabOrder = 1
-    ExplicitWidth = 984
     object gBoxQuestion: TGroupBox
       Left = 1
       Top = 1
@@ -111,7 +109,6 @@ object ReportsHTMLMainView: TReportsHTMLMainView
       Padding.Right = 1
       Padding.Bottom = 1
       TabOrder = 0
-      ExplicitWidth = 982
       DesignSize = (
         983
         73)
@@ -126,7 +123,6 @@ object ReportsHTMLMainView: TReportsHTMLMainView
           'Ol'#225' quem '#233' voc'#234' e quem '#233' o seu fabricante?')
         PopupMenu = PopupMenu1
         TabOrder = 0
-        ExplicitWidth = 976
       end
       object Panel2: TPanel
         Left = 961
@@ -195,7 +191,6 @@ object ReportsHTMLMainView: TReportsHTMLMainView
       Padding.Right = 2
       Padding.Bottom = 2
       TabOrder = 1
-      ExplicitWidth = 982
       object btnExecute: TBitBtn
         Left = 1
         Top = 3
@@ -236,7 +231,6 @@ object ReportsHTMLMainView: TReportsHTMLMainView
     Padding.Right = 1
     Padding.Bottom = 1
     TabOrder = 2
-    ExplicitWidth = 984
     object mmResponse: TMemo
       Left = 3
       Top = 17
@@ -246,7 +240,8 @@ object ReportsHTMLMainView: TReportsHTMLMainView
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
-      ExplicitWidth = 978
+      ExplicitLeft = 4
+      ExplicitTop = 16
     end
   end
   object pnResponseDetails: TPanel
@@ -259,8 +254,6 @@ object ReportsHTMLMainView: TReportsHTMLMainView
     BevelKind = bkTile
     BevelOuter = bvNone
     TabOrder = 3
-    ExplicitTop = 646
-    ExplicitWidth = 984
     object Label9: TLabel
       Left = 174
       Top = 0
@@ -357,8 +350,6 @@ object ReportsHTMLMainView: TReportsHTMLMainView
     ParentDoubleBuffered = False
     DoubleBuffered = True
     TabOrder = 4
-    ExplicitWidth = 984
-    ExplicitHeight = 376
   end
   object TMSMCPCloudAI1: TTMSMCPCloudAI
     APIKeys.OpenAI = 
@@ -366,7 +357,7 @@ object ReportsHTMLMainView: TReportsHTMLMainView
       'H75uKh4vc-h4rgKC7BT3BlbkFJCI87u1sLjzJg1-ewn2vp0vx2Sflqp3NpPmDAnG' +
       'ZM_YEvEf22CFuQ06-vOklE4qt6vKLTeMtCQA'
     Service = aiClaude
-    Settings.GeminiModel = 'gemini-1.5-flash-latest'
+    Settings.GeminiModel = 'gemini-2.5-pro'
     Settings.OpenAIModel = 'gpt-4o'
     Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
     Settings.OpenAITranscribeModel = 'whisper-1'
@@ -402,8 +393,8 @@ object ReportsHTMLMainView: TReportsHTMLMainView
       Hint = 
         'Crie um relat'#243'rio de clientes e exiba-o em HTML como uma tabela ' +
         'moderna que fa'#231'a a pagina'#231#227'o de 10 em 10 e com op'#231#227'o para downlo' +
-        'ad, impress'#227'o, consulta e ordena'#231#227'o, usando o estilo Dark do Boo' +
-        'tstrap, e abra-o no navegador'
+        'ad em CSV, impress'#227'o, consulta e ordena'#231#227'o. Usando o estilo Dark' +
+        ' do Bootstrap, e abra-o no navegador'
       OnClick = Listartabelasdobanco1Click
     end
     object Crieumrelatriocomas10ltimasvendas1: TMenuItem
