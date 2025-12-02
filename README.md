@@ -71,7 +71,7 @@ Você poderá acompanhar esta série através de nossa playlist:
 - [IA na Prática 40 - Geração de gráficos e relatórios (HTML demo)](https://www.youtube.com/watch?v=EDaociZBb6U&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
     - [Repositório com demo](https://github.com/Code4Delphi/ia-na-pratica/tree/master/Samples/AIBrowserReporter)
 - [IA na Prática 41 - Relatórios e Gráficos HTML a partir do Banco de Dados](https://www.youtube.com/watch?v=cOoKAaSrOB0&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP) 
-    - [Repositório com demo](https://github.com/Code4Delphi/ia-na-pratica/tree/master/Samples/ReportsHTML)
+    - [Demo de gráficos e relatórios em HTML com paginação, busca, ordenação e opção de exportação](https://github.com/Code4Delphi/ia-na-pratica/tree/master/Samples/ReportsHTML)
       
 ## IAs disponíveis
 Abaixo, apresentamos um guia rápido com os principais provedores de IA disponíveis, seus sites e links para geração de chaves de API.
