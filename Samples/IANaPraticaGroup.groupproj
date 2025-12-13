@@ -51,6 +51,12 @@
         <Projects Include="ReportsHTML\ReportsHTML.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="ReportsExcel\ReportsExcel.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="ReportsPDF\ReportsPDF.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -203,14 +209,32 @@
     <Target Name="ReportsHTML:Make">
         <MSBuild Projects="ReportsHTML\ReportsHTML.dproj" Targets="Make"/>
     </Target>
+    <Target Name="ReportsExcel">
+        <MSBuild Projects="ReportsExcel\ReportsExcel.dproj"/>
+    </Target>
+    <Target Name="ReportsExcel:Clean">
+        <MSBuild Projects="ReportsExcel\ReportsExcel.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ReportsExcel:Make">
+        <MSBuild Projects="ReportsExcel\ReportsExcel.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ReportsPDF">
+        <MSBuild Projects="ReportsPDF\ReportsPDF.dproj"/>
+    </Target>
+    <Target Name="ReportsPDF:Clean">
+        <MSBuild Projects="ReportsPDF\ReportsPDF.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ReportsPDF:Make">
+        <MSBuild Projects="ReportsPDF\ReportsPDF.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="IAChat;Models;APIKey;FunctionCalling;Images;RAG;TTS_STT;TTS_STT_Map;TTS_STT_Translate;Toolsets;ToolsetsRAD;ToolsetsPOO;Ollama;TokenUsageTracking;AIBrowserTool;ReportsHTML"/>
+        <CallTarget Targets="IAChat;Models;APIKey;FunctionCalling;Images;RAG;TTS_STT;TTS_STT_Map;TTS_STT_Translate;Toolsets;ToolsetsRAD;ToolsetsPOO;Ollama;TokenUsageTracking;AIBrowserTool;ReportsHTML;ReportsExcel;ReportsPDF"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="IAChat:Clean;Models:Clean;APIKey:Clean;FunctionCalling:Clean;Images:Clean;RAG:Clean;TTS_STT:Clean;TTS_STT_Map:Clean;TTS_STT_Translate:Clean;Toolsets:Clean;ToolsetsRAD:Clean;ToolsetsPOO:Clean;Ollama:Clean;TokenUsageTracking:Clean;AIBrowserTool:Clean;ReportsHTML:Clean"/>
+        <CallTarget Targets="IAChat:Clean;Models:Clean;APIKey:Clean;FunctionCalling:Clean;Images:Clean;RAG:Clean;TTS_STT:Clean;TTS_STT_Map:Clean;TTS_STT_Translate:Clean;Toolsets:Clean;ToolsetsRAD:Clean;ToolsetsPOO:Clean;Ollama:Clean;TokenUsageTracking:Clean;AIBrowserTool:Clean;ReportsHTML:Clean;ReportsExcel:Clean;ReportsPDF:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="IAChat:Make;Models:Make;APIKey:Make;FunctionCalling:Make;Images:Make;RAG:Make;TTS_STT:Make;TTS_STT_Map:Make;TTS_STT_Translate:Make;Toolsets:Make;ToolsetsRAD:Make;ToolsetsPOO:Make;Ollama:Make;TokenUsageTracking:Make;AIBrowserTool:Make;ReportsHTML:Make"/>
+        <CallTarget Targets="IAChat:Make;Models:Make;APIKey:Make;FunctionCalling:Make;Images:Make;RAG:Make;TTS_STT:Make;TTS_STT_Map:Make;TTS_STT_Translate:Make;Toolsets:Make;ToolsetsRAD:Make;ToolsetsPOO:Make;Ollama:Make;TokenUsageTracking:Make;AIBrowserTool:Make;ReportsHTML:Make;ReportsExcel:Make;ReportsPDF:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

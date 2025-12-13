@@ -1,7 +1,9 @@
-object ReportsHTMLMainView: TReportsHTMLMainView
+object ReportsExcelMainView: TReportsExcelMainView
   Left = 0
   Top = 0
-  Caption = 'AI in practice: Charts and reports using data from the database.'
+  Caption = 
+    'AI in practice: Relat'#243'rios em Excel utilizando dados do banco de' +
+    ' dados.'
   ClientHeight = 677
   ClientWidth = 985
   Color = clBtnFace
@@ -17,7 +19,7 @@ object ReportsHTMLMainView: TReportsHTMLMainView
   TextHeight = 15
   object Splitter1: TSplitter
     Left = 0
-    Top = 265
+    Top = 172
     Width = 985
     Height = 5
     Cursor = crVSplit
@@ -222,10 +224,10 @@ object ReportsHTMLMainView: TReportsHTMLMainView
   end
   object gBoxResponse: TGroupBox
     Left = 0
-    Top = 172
+    Top = 177
     Width = 985
-    Height = 93
-    Align = alTop
+    Height = 477
+    Align = alClient
     Caption = ' Response '
     Padding.Left = 1
     Padding.Right = 1
@@ -235,13 +237,11 @@ object ReportsHTMLMainView: TReportsHTMLMainView
       Left = 3
       Top = 17
       Width = 979
-      Height = 73
+      Height = 457
       Align = alClient
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
-      ExplicitLeft = 4
-      ExplicitTop = 16
     end
   end
   object pnResponseDetails: TPanel
@@ -341,16 +341,6 @@ object ReportsHTMLMainView: TReportsHTMLMainView
       ExplicitLeft = 675
     end
   end
-  object TMSFNCWebBrowser1: TTMSFNCWebBrowser
-    Left = 0
-    Top = 270
-    Width = 985
-    Height = 384
-    Align = alClient
-    ParentDoubleBuffered = False
-    DoubleBuffered = True
-    TabOrder = 4
-  end
   object TMSMCPCloudAI1: TTMSMCPCloudAI
     APIKeys.OpenAI = 
       'sk-proj-hFSIgcNgEVdv-luOBTIJz13qDigwFefFw0vIgyuExdO-nLoNQHpNfpvM' +
@@ -387,34 +377,13 @@ object ReportsHTMLMainView: TReportsHTMLMainView
       Caption = '-'
     end
     object CrieumrelatriodeclientescompaginaoeopoparaDownload1: TMenuItem
-      Caption = 
-        'Crie um relat'#243'rio de clientes com pagina'#231#227'o e op'#231#227'o para Downloa' +
-        'd'
-      Hint = 
-        'Crie um relat'#243'rio de clientes e exiba-o em HTML como uma tabela ' +
-        'moderna que fa'#231'a a pagina'#231#227'o de 10 em 10 e com op'#231#227'o para downlo' +
-        'ad em CSV, impress'#227'o, consulta e ordena'#231#227'o. Usando o estilo Dark' +
-        ' do Bootstrap, e abra-o no navegador'
+      Caption = 'Crie um relat'#243'rio de clientes'
+      Hint = 'Crie um relat'#243'rio de clientes'
       OnClick = Listartabelasdobanco1Click
     end
     object Crieumrelatriocomas10ltimasvendas1: TMenuItem
       Caption = 'Crie um relat'#243'rio com as 10 '#250'ltimas vendas'
-      Hint = 
-        '- Crie um relat'#243'rio com as 10 '#250'ltimas vendas. Exiba-o em HTML co' +
-        'mo uma tabela moderna e elegante, usando o estilo Dark do Bootst' +
-        'rap, e abra-o no navegador'
-      OnClick = Listartabelasdobanco1Click
-    end
-    object N2: TMenuItem
-      Caption = '-'
-    end
-    object Crieumgrficodepizzacomadataeototaldasvendasde01062025a300620251: TMenuItem
-      Caption = 
-        'Crie um gr'#225'fico de pizza com a data e o total das vendas de 01/0' +
-        '6/2025 a 30/06/202'
-      Hint = 
-        'Crie um gr'#225'fico de pizza do Google com cores dark, com a data e ' +
-        'o total das vendas de 01/06/2025 a 30/06/2025'
+      Hint = 'Crie um relat'#243'rio com as 10 '#250'ltimas vendas'
       OnClick = Listartabelasdobanco1Click
     end
   end
