@@ -29,7 +29,8 @@ uses
   TMS.MCP.CloudBase,
   TMS.MCP.CloudAI,
   TMS.MCP.Helpers,
-  TMS.MCP.CloudAIExcelTool;
+  ToolSet.Database,
+  ToolSet.Excel;
 
 type
   TReportsExcelMainView = class(TForm)
@@ -76,14 +77,10 @@ type
     procedure imgPopupQuestionsClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private
-    FExcelTool: TTMSMCPCloudAIExcelTool;
+    FToolSetDatabase: TToolSetDatabase;
+    FToolSetExcel: TToolSetExcel;
     procedure ClearResponse;
     procedure Settings;
-    procedure DefineTools;
-    procedure DefineToolRunQuery;
-    procedure DefineToolGetTables;
-    procedure DefineToolGetTableInfo;
-    function GetPrompt: string;
   public
 
   end;
@@ -107,16 +104,19 @@ begin
   cBoxIAService.Items.Assign(TMSMCPCloudAI1.GetServices(True));
   cBoxIAService.ItemIndex := 6;
 
-  FExcelTool := TTMSMCPCloudAIExcelTool.Create(Self);
-  FExcelTool.AI := TMSMCPCloudAI1;
+  FToolSetDatabase := TToolSetDatabase.Create(Self);
+  FToolSetDatabase.AI := TMSMCPCloudAI1;
+
+  FToolSetExcel := TToolSetExcel.Create(Self);
+  FToolSetExcel.AI := TMSMCPCloudAI1;
 
   Self.Settings;
-  Self.DefineTools;
 end;
 
 procedure TReportsExcelMainView.FormDestroy(Sender: TObject);
 begin
-  FExcelTool.Free;
+  FToolSetExcel.Free;
+  FToolSetDatabase.Free;
 end;
 
 procedure TReportsExcelMainView.imgPopupQuestionsClick(Sender: TObject);
@@ -155,74 +155,9 @@ begin
   TMSMCPCloudAI1.Service := TTMSMCPCloudAIService(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
 
   mmResponse.Text := 'Processando...';
-  TMSMCPCloudAI1.Context.Text := Self.GetPrompt;
+  TMSMCPCloudAI1.Context.Text := FToolSetExcel.ConfigPrompt(mmQuestion.Lines.Text);
   TMSMCPCloudAI1.Execute;
   ProgressBar1.State := pbsNormal;
-end;
-
-function TReportsExcelMainView.GetPrompt: string;
-const
-//  PROMPT_EXCEL = '. Retorne os dados no formato CSV usando ; como separador. '+
-//    'Retone apenas o CSV sempre com o marcador "```csv" no inicio e sem nenhuma descrição ou observação';
-  PROMPT_EXCEL = '. Retorne os dados no formato CSV usando ; como separador. ' +
-    'Retorne o CSV para que sejá gerando um relatório no Excel';
-begin
-  Result := mmQuestion.Lines.Text;
-  if Result.ToLower.Contains('relatório') or Result.ToLower.Contains('report')then
-    Result := Result + sLineBreak +  PROMPT_EXCEL;
-end;
-
-procedure TReportsExcelMainView.DefineTools;
-begin
-  Self.DefineToolRunQuery;
-  Self.DefineToolGetTables;
-  Self.DefineToolGetTableInfo;
-end;
-
-procedure TReportsExcelMainView.DefineToolRunQuery;
-var
-  LTool: TTMSMCPCloudAITool;
-  LParam: TTMSMCPCloudAIParameter;
-begin
-  LTool := TMSMCPCloudAI1.Tools.Add;
-  LTool.Name := 'RunQuery';
-  LTool.Description := 'Execute an SQL query';
-
-  LParam := LTool.Parameters.Add;
-  LParam.Name := 'sql';
-  LParam.&Type := TTMSMCPCloudAIParameterType.ptString;
-  LParam.Required := True;
-  LParam.Description := 'SQL query to execute (SELECT queries only)';
-
-  LTool.OnExecute := DatabaseDm.RunSQLQuery;
-end;
-
-procedure TReportsExcelMainView.DefineToolGetTables;
-var
-  LTool: TTMSMCPCloudAITool;
-begin
-  LTool := TMSMCPCloudAI1.Tools.Add;
-  LTool.Name := 'GetTables';
-  LTool.Description := 'Get a list of available tables';
-  LTool.OnExecute := DatabaseDm.GetTableList;
-end;
-
-procedure TReportsExcelMainView.DefineToolGetTableInfo;
-var
-  LTool: TTMSMCPCloudAITool;
-  LParam: TTMSMCPCloudAIParameter;
-begin
-  LTool := TMSMCPCloudAI1.Tools.Add;
-  LTool.Name := 'GetTableInfo';
-  LTool.Description := 'Get information about a table';
-
-  LParam := LTool.Parameters.Add;
-  LParam.Name := 'tableName';
-  LParam.&Type := TTMSMCPCloudAIParameterType.ptString;
-  LParam.Required := True;
-  LParam.Description := 'Name of the table to get information about';
-
-  LTool.OnExecute := DatabaseDm.GetTableInfo;
 end;
 
 procedure TReportsExcelMainView.TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse;

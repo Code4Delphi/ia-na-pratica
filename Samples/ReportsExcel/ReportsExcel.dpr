@@ -4,7 +4,8 @@ uses
   Vcl.Forms,
   ReportsExcel.Main.View in 'Src\ReportsExcel.Main.View.pas' {ReportsExcelMainView},
   Database.Dm in 'Src\Database.Dm.pas' {DatabaseDm: TDataModule},
-  TMS.MCP.CloudAIExcelTool in 'Src\TMS.MCP.CloudAIExcelTool.pas';
+  ToolSet.Excel in 'Src\ToolSet.Excel.pas',
+  ToolSet.Database in 'Src\ToolSet.Database.pas';
 
 {$R *.res}
 

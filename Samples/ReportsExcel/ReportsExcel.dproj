@@ -136,7 +136,8 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="Src\TMS.MCP.CloudAIExcelTool.pas"/>
+        <DCCReference Include="Src\ToolSet.Excel.pas"/>
+        <DCCReference Include="Src\ToolSet.Database.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

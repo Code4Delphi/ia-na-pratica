@@ -1,4 +1,4 @@
-unit TMS.MCP.CloudAIExcelTool;
+unit ToolSet.Excel;
 
 interface
 
@@ -11,18 +11,18 @@ uses
   TMS.MCP.CloudAI;
 
 type
-  TTMSMCPCloudAIExcelTool = class(TTMSMCPCloudAIToolSet)
+  TToolSetExcel = class(TTMSMCPCloudAIToolSet)
   private
-
   protected
     procedure DoLoadCSV(Sender: TObject; Args: TJSONObject; var Result: string);
   public
     procedure DefineTools; override;
+    function ConfigPrompt(const APrompt: string): string;
   end;
 
 implementation
 
-procedure TTMSMCPCloudAIExcelTool.DefineTools;
+procedure TToolSetExcel.DefineTools;
 var
   LTool: TTMSMCPCloudAITool;
   LParameter: TTMSMCPCloudAIParameter;
@@ -45,7 +45,7 @@ begin
   EndUpdate;
 end;
 
-procedure TTMSMCPCloudAIExcelTool.DoLoadCSV(Sender: TObject; Args: TJSONObject; var Result: string);
+procedure TToolSetExcel.DoLoadCSV(Sender: TObject; Args: TJSONObject; var Result: string);
 var
   LCSV: string;
   LFileName: string;
@@ -58,7 +58,7 @@ begin
   var LSaveDialog := TSaveDialog.Create(nil);
   try
     LSaveDialog.DefaultExt := 'csv';
-    LSaveDialog.Filter := 'Arquivos CSV (*.csv)|*.csv';
+    LSaveDialog.Filter := 'Files CSV (*.csv)|*.csv';
     if not LSaveDialog.Execute then
       Exit;
 
@@ -80,6 +80,16 @@ begin
   end;
 
   ShellExecute(0, 'open', PChar(LFileName), nil, nil, 1);
+end;
+
+function TToolSetExcel.ConfigPrompt(const APrompt: string): string;
+const
+  PROMPT_EXCEL = '. Retorne os dados no formato CSV usando ; como separador. ' +
+    'Retorne o CSV para que seja gerando um relatório no Excel';
+begin
+  Result := APrompt;
+  if Result.ToLower.Contains('relatório') or Result.ToLower.Contains('report')then
+    Result := Result + sLineBreak + PROMPT_EXCEL;
 end;
 
 end.
