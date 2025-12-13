@@ -30,7 +30,7 @@ uses
   TMS.MCP.CloudAI,
   TMS.MCP.Helpers,
   ToolSet.Database,
-  ToolSet.Excel;
+  ToolSet.Excel, Vcl.Imaging.pngimage;
 
 type
   TReportsExcelMainView = class(TForm)
@@ -68,6 +68,9 @@ type
     CrieumrelatriodeclientescompaginaoeopoparaDownload1: TMenuItem;
     Panel2: TPanel;
     imgPopupQuestions: TImage;
+    CrieumrelatriodeclientescomCdigoNomeeEmail1: TMenuItem;
+    N2: TMenuItem;
+    Image1: TImage;
     procedure FormCreate(Sender: TObject);
     procedure TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse; AHttpStatusCode: Integer;
       AHttpResult: string);
