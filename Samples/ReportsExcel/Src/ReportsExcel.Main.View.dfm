@@ -15,6 +15,7 @@ object ReportsExcelMainView: TReportsExcelMainView
   KeyPreview = True
   Position = poScreenCenter
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   TextHeight = 15
   object Splitter1: TSplitter
     Left = 0
@@ -232,21 +233,15 @@ object ReportsExcelMainView: TReportsExcelMainView
     Padding.Right = 1
     Padding.Bottom = 1
     TabOrder = 2
-    ExplicitLeft = 1
-    ExplicitTop = 396
-    ExplicitHeight = 93
     object mmResponse: TMemo
       Left = 3
-      Top = 2
+      Top = 17
       Width = 979
-      Height = 472
+      Height = 457
       Align = alClient
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
-      ExplicitLeft = -21
-      ExplicitTop = 16
-      ExplicitHeight = 457
     end
   end
   object pnResponseDetails: TPanel

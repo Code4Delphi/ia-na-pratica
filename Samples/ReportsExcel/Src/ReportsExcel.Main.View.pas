@@ -17,17 +17,19 @@ uses
   Vcl.StdCtrls,
   Vcl.ComCtrls,
   Vcl.Buttons,
+  Vcl.Menus,
   VCL.TMSFNCTypes,
   VCL.TMSFNCUtils,
   VCL.TMSFNCGraphics,
   VCL.TMSFNCGraphicsTypes,
   VCL.TMSFNCCustomControl,
   ShellAPI,
+  Database.Dm,
   TMS.MCP.CustomComponent,
   TMS.MCP.CloudBase,
   TMS.MCP.CloudAI,
   TMS.MCP.Helpers,
-  Database.Dm, Vcl.Menus;
+  TMS.MCP.CloudAIExcelTool;
 
 type
   TReportsExcelMainView = class(TForm)
@@ -72,7 +74,9 @@ type
     procedure btnExecuteClick(Sender: TObject);
     procedure Listartabelasdobanco1Click(Sender: TObject);
     procedure imgPopupQuestionsClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
+    FExcelTool: TTMSMCPCloudAIExcelTool;
     procedure ClearResponse;
     procedure Settings;
     procedure DefineTools;
@@ -80,7 +84,6 @@ type
     procedure DefineToolGetTables;
     procedure DefineToolGetTableInfo;
     function GetPrompt: string;
-    procedure ProcessarRetorno;
   public
 
   end;
@@ -104,8 +107,16 @@ begin
   cBoxIAService.Items.Assign(TMSMCPCloudAI1.GetServices(True));
   cBoxIAService.ItemIndex := 6;
 
+  FExcelTool := TTMSMCPCloudAIExcelTool.Create(Self);
+  FExcelTool.AI := TMSMCPCloudAI1;
+
   Self.Settings;
   Self.DefineTools;
+end;
+
+procedure TReportsExcelMainView.FormDestroy(Sender: TObject);
+begin
+  FExcelTool.Free;
 end;
 
 procedure TReportsExcelMainView.imgPopupQuestionsClick(Sender: TObject);
@@ -151,8 +162,10 @@ end;
 
 function TReportsExcelMainView.GetPrompt: string;
 const
-  PROMPT_EXCEL = '. Retorne os dados no formato CSV usando ; como separador. '+
-    'Retone apenas o CSV sempre com o marcador "```csv" no inicio e sem nenhuma descrição ou observação';
+//  PROMPT_EXCEL = '. Retorne os dados no formato CSV usando ; como separador. '+
+//    'Retone apenas o CSV sempre com o marcador "```csv" no inicio e sem nenhuma descrição ou observação';
+  PROMPT_EXCEL = '. Retorne os dados no formato CSV usando ; como separador. ' +
+    'Retorne o CSV para que sejá gerando um relatório no Excel';
 begin
   Result := mmQuestion.Lines.Text;
   if Result.ToLower.Contains('relatório') or Result.ToLower.Contains('report')then
@@ -224,29 +237,11 @@ begin
   end;
 
   mmResponse.Lines.Text := AResponse.Content.Text;
-  Self.ProcessarRetorno;
   lbServiceModel.Caption := AResponse.ServiceModel;
 
   lbPromptTokens.Caption := AResponse.PromptTokens.ToString;
   lbNumTokensResponse.Caption := AResponse.CompletionTokens.ToString;
   lbTotalTokens.Caption := AResponse.TotalTokens.ToString;
-end;
-
-procedure TReportsExcelMainView.ProcessarRetorno;
-begin
-  if not mmResponse.Lines.Text.ToLower.Contains('```csv')then
-    Exit;
-
-  if not SaveDialog1.Execute then
-    Exit;
-
-  if ExtractFileExt(SaveDialog1.FileName).Trim.IsEmpty then
-    SaveDialog1.FileName := SaveDialog1.FileName + '.csv';
-
-  mmResponse.Lines.Text := mmResponse.Lines.Text.Replace('```csv', '').Replace('```', '');
-  mmResponse.Lines.SaveToFile(SaveDialog1.FileName);
-
-  ShellExecute(0, 'open', PChar(SaveDialog1.FileName), nil, nil, SW_SHOWNORMAL);
 end;
 
 end.
