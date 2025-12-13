@@ -1,9 +1,9 @@
-object ReportsExcelMainView: TReportsExcelMainView
+object ReportsPDFMainView: TReportsPDFMainView
   Left = 0
   Top = 0
   Caption = 
-    'AI in practice: Relat'#243'rios em Excel utilizando dados do banco de' +
-    ' dados.'
+    'AI in practice: Relat'#243'rios em PDF utilizando dados do banco de d' +
+    'ados'
   ClientHeight = 677
   ClientWidth = 985
   Color = clBtnFace
@@ -235,13 +235,16 @@ object ReportsExcelMainView: TReportsExcelMainView
     TabOrder = 2
     object mmResponse: TMemo
       Left = 3
-      Top = 17
+      Top = 2
       Width = 979
-      Height = 457
+      Height = 472
       Align = alClient
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
+      ExplicitLeft = 2
+      ExplicitTop = 16
+      ExplicitHeight = 457
     end
   end
   object pnResponseDetails: TPanel

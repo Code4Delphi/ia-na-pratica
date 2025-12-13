@@ -1,4 +1,4 @@
-unit ReportsExcel.Main.View;
+unit ReportsPDF.Main.View;
 
 interface
 
@@ -30,10 +30,10 @@ uses
   TMS.MCP.CloudAI,
   TMS.MCP.Helpers,
   ToolSet.Database,
-  ToolSet.Excel;
+  ToolSet.PDF;
 
 type
-  TReportsExcelMainView = class(TForm)
+  TReportsPDFMainView = class(TForm)
     pnTop: TPanel;
     Label1: TLabel;
     Label13: TLabel;
@@ -77,7 +77,7 @@ type
     procedure FormDestroy(Sender: TObject);
   private
     FToolSetDatabase: TToolSetDatabase;
-    FToolSetExcel: TToolSetExcel;
+    FToolSetPDF: TToolSetPDF;
     procedure ClearResponse;
     procedure Settings;
   public
@@ -85,7 +85,7 @@ type
   end;
 
 var
-  ReportsExcelMainView: TReportsExcelMainView;
+  ReportsPDFMainView: TReportsPDFMainView;
 
 implementation
 
@@ -95,7 +95,7 @@ const
   KEYS_FILE = '..\..\Files\aikeys.cfg';
   KEYS_PASSWORD = 'PasswordTest';
 
-procedure TReportsExcelMainView.FormCreate(Sender: TObject);
+procedure TReportsPDFMainView.FormCreate(Sender: TObject);
 begin
   ReportMemoryLeaksOnShutdown := True;
 
@@ -106,29 +106,29 @@ begin
   FToolSetDatabase := TToolSetDatabase.Create(Self);
   FToolSetDatabase.AI := TMSMCPCloudAI1;
 
-  FToolSetExcel := TToolSetExcel.Create(Self);
-  FToolSetExcel.AI := TMSMCPCloudAI1;
+  FToolSetPDF := TToolSetPDF.Create(Self);
+  FToolSetPDF.AI := TMSMCPCloudAI1;
 
   Self.Settings;
 end;
 
-procedure TReportsExcelMainView.FormDestroy(Sender: TObject);
+procedure TReportsPDFMainView.FormDestroy(Sender: TObject);
 begin
-  FToolSetExcel.Free;
+  FToolSetPDF.Free;
   FToolSetDatabase.Free;
 end;
 
-procedure TReportsExcelMainView.imgPopupQuestionsClick(Sender: TObject);
+procedure TReportsPDFMainView.imgPopupQuestionsClick(Sender: TObject);
 begin
   PopupMenu1.Popup(Mouse.CursorPos.X, Mouse.CursorPos.Y);
 end;
 
-procedure TReportsExcelMainView.Listartabelasdobanco1Click(Sender: TObject);
+procedure TReportsPDFMainView.Listartabelasdobanco1Click(Sender: TObject);
 begin
   mmQuestion.Lines.Text := TMenuItem(Sender).Hint;
 end;
 
-procedure TReportsExcelMainView.Settings;
+procedure TReportsPDFMainView.Settings;
 begin
   TMSMCPCloudAI1.Logging := ckGerarLogs.Checked;
   TMSMCPCloudAI1.LogFileName := '..\..\Files\Chat.log';
@@ -137,7 +137,7 @@ begin
   TMSMCPCloudAI1.Settings.MaxTokens := StrToIntDef(edtMaxTokens.Text, 0);
 end;
 
-procedure TReportsExcelMainView.ClearResponse;
+procedure TReportsPDFMainView.ClearResponse;
 begin
   mmResponse.Lines.Clear;
   lbPromptTokens.Caption := '0';
@@ -146,7 +146,7 @@ begin
   lbServiceModel.Caption := '';
 end;
 
-procedure TReportsExcelMainView.btnExecuteClick(Sender: TObject);
+procedure TReportsPDFMainView.btnExecuteClick(Sender: TObject);
 begin
   Self.ClearResponse;
   Self.Settings;
@@ -154,12 +154,12 @@ begin
   TMSMCPCloudAI1.Service := TTMSMCPCloudAIService(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
 
   mmResponse.Text := 'Processando...';
-  TMSMCPCloudAI1.Context.Text := FToolSetExcel.ConfigPrompt(mmQuestion.Lines.Text);
+  TMSMCPCloudAI1.Context.Text := FToolSetPDF.ConfigPrompt(mmQuestion.Lines.Text);
   TMSMCPCloudAI1.Execute;
   ProgressBar1.State := pbsNormal;
 end;
 
-procedure TReportsExcelMainView.TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse;
+procedure TReportsPDFMainView.TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse;
   AHttpStatusCode: Integer; AHttpResult: string);
 begin
   ProgressBar1.State := pbsPaused;

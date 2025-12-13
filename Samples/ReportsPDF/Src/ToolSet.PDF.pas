@@ -1,4 +1,4 @@
-unit ToolSet.Excel;
+unit ToolSet.PDF;
 
 interface
 
@@ -11,10 +11,10 @@ uses
   TMS.MCP.CloudAI;
 
 type
-  TToolSetExcel = class(TTMSMCPCloudAIToolSet)
+  TToolSetPDF = class(TTMSMCPCloudAIToolSet)
   private
   protected
-    procedure DoLoadCSV(Sender: TObject; Args: TJSONObject; var Result: string);
+    procedure DoLoadJSON(Sender: TObject; Args: TJSONObject; var Result: string);
   public
     procedure DefineTools; override;
     function ConfigPrompt(const APrompt: string): string;
@@ -22,7 +22,7 @@ type
 
 implementation
 
-procedure TToolSetExcel.DefineTools;
+procedure TToolSetPDF.DefineTools;
 var
   LTool: TTMSMCPCloudAITool;
   LParameter: TTMSMCPCloudAIParameter;
@@ -31,34 +31,34 @@ begin
   BeginUpdate;
 
   LTool := Tools.Add;
-  LTool.Description := 'Load the returned CSV file to generate the Excel report';
-  LTool.Name := 'LoadCSV';
+  LTool.Description := 'Carrega o conteúdo JSON retornado para gerar o relatório em PDF'; //'Load the returned JSON file to generate the PDF report';
+  LTool.Name := 'LoadJSON';
 
   LParameter := LTool.Parameters.Add;
   LParameter.&Type := ptString;
   LParameter.Required := true;
-  LParameter.Name := 'csv';
-  LParameter.Description := 'CSV returned to generate the Excel report';
+  LParameter.Name := 'JSON';
+  LParameter.Description := 'JSON retornado'; //'JSON returned to generate the PDF report';
 
-  LTool.OnExecute := DoLoadCSV;
+  LTool.OnExecute := DoLoadJSON;
 
   EndUpdate;
 end;
 
-procedure TToolSetExcel.DoLoadCSV(Sender: TObject; Args: TJSONObject; var Result: string);
+procedure TToolSetPDF.DoLoadJSON(Sender: TObject; Args: TJSONObject; var Result: string);
 var
-  LCSV: string;
+  LJSON: string;
   LFileName: string;
 begin
   if not Assigned(Args) or (Args.Count <= 0) then
     Exit;
 
-  LCSV := Args.GetValue<string>('csv');
+  LJSON := Args.GetValue<string>('JSON');
 
   var LSaveDialog := TSaveDialog.Create(nil);
   try
-    LSaveDialog.DefaultExt := 'csv';
-    LSaveDialog.Filter := 'Files CSV (*.csv)|*.csv';
+    LSaveDialog.DefaultExt := 'json';
+    LSaveDialog.Filter := 'Files JSON (*.json)|*.json';
     if not LSaveDialog.Execute then
       Exit;
 
@@ -68,12 +68,13 @@ begin
   end;
 
   if ExtractFileExt(LFileName).Trim.IsEmpty then
-    LFileName := LFileName+ '.csv';
+    LFileName := LFileName+ '.json';
 
-  LCSV := LCSV.Replace('```csv', '').Replace('```', '');
+  LJSON := LJSON.Replace('```json', '').Replace('```', '');
+  ShowMessage(LJSON);
   var LStr := TStringList.Create;
   try
-    LStr.Add(LCSV);
+    LStr.Add(LJSON);
     LStr.SaveToFile(LFileName);
   finally
     LStr.Free;
@@ -82,14 +83,13 @@ begin
   ShellExecute(0, 'open', PChar(LFileName), nil, nil, 1);
 end;
 
-function TToolSetExcel.ConfigPrompt(const APrompt: string): string;
+function TToolSetPDF.ConfigPrompt(const APrompt: string): string;
 const
-  PROMPT_EXCEL = '. Return the data in CSV format using a semicolon (;) as a separator. ' +
-    'Return the CSV so that a report can be generated in Excel.';
+  PROMPT_PDF = '. Retorne os dados no formato JSON diretamente em um array com nome "dados" para a tool "LoadJSON"';
 begin
   Result := APrompt;
   if Result.ToLower.Contains('relatório') or Result.ToLower.Contains('report')then
-    Result := Result + sLineBreak + PROMPT_EXCEL;
+    Result := Result + sLineBreak + PROMPT_PDF;
 end;
 
 end.
