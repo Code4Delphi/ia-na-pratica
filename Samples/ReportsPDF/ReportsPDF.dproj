@@ -138,6 +138,7 @@
         </DCCReference>
         <DCCReference Include="Src\ToolSet.PDF.pas"/>
         <DCCReference Include="Src\ToolSet.Database.pas"/>
+        <DCCReference Include="Src\fpdf.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
