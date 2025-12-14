@@ -1887,7 +1887,7 @@ object ReportsPDFMainView: TReportsPDFMainView
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
-      ExplicitLeft = 2
+      ExplicitLeft = 4
       ExplicitTop = 16
     end
   end
