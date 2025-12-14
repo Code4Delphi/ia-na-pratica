@@ -71,6 +71,7 @@ type
     Image1: TImage;
     N2: TMenuItem;
     CrieumrelatriodeclientescomCdigoNomeeEmail1: TMenuItem;
+    Crieumrelatriocomas10ltimasvendascomNmeroNomeclienteDatanoformatoddmmyyyyeTotal1: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse; AHttpStatusCode: Integer;
       AHttpResult: string);

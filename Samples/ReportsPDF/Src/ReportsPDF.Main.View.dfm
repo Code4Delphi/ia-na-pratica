@@ -2028,17 +2028,26 @@ object ReportsPDFMainView: TReportsPDFMainView
       Hint = 'Crie um relat'#243'rio de clientes'
       OnClick = Listartabelasdobanco1Click
     end
-    object Crieumrelatriocomas10ltimasvendas1: TMenuItem
-      Caption = 'Crie um relat'#243'rio com as 10 '#250'ltimas vendas'
-      Hint = 'Crie um relat'#243'rio com as 10 '#250'ltimas vendas'
+    object CrieumrelatriodeclientescomCdigoNomeeEmail1: TMenuItem
+      Caption = 'Crie um relat'#243'rio de clientes com C'#243'digo, Nome e Email'
+      Hint = 'Crie um relat'#243'rio de clientes com C'#243'digo, Nome e Email'
       OnClick = Listartabelasdobanco1Click
     end
     object N2: TMenuItem
       Caption = '-'
     end
-    object CrieumrelatriodeclientescomCdigoNomeeEmail1: TMenuItem
-      Caption = 'Crie um relat'#243'rio de clientes com C'#243'digo, Nome e Email'
-      Hint = 'Crie um relat'#243'rio de clientes com C'#243'digo, Nome e Email'
+    object Crieumrelatriocomas10ltimasvendas1: TMenuItem
+      Caption = 'Crie um relat'#243'rio com as 10 '#250'ltimas vendas'
+      Hint = 'Crie um relat'#243'rio com as 10 '#250'ltimas vendas'
+      OnClick = Listartabelasdobanco1Click
+    end
+    object Crieumrelatriocomas10ltimasvendascomNmeroNomeclienteDatanoformatoddmmyyyyeTotal1: TMenuItem
+      Caption = 
+        'Crie um relat'#243'rio com as 10 '#250'ltimas vendas com N'#250'mero, Nome clie' +
+        'nte, Data e Total'
+      Hint = 
+        'Crie um relat'#243'rio com as 10 '#250'ltimas vendas com N'#250'mero, Nome clie' +
+        'nte, Data (no formato dd/mm/yyyy) e Total'
       OnClick = Listartabelasdobanco1Click
     end
   end
