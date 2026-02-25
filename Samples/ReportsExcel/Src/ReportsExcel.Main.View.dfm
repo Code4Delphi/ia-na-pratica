@@ -307,8 +307,6 @@ object ReportsExcelMainView: TReportsExcelMainView
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
-      ExplicitLeft = 2
-      ExplicitTop = 16
     end
   end
   object pnResponseDetails: TPanel
@@ -409,10 +407,6 @@ object ReportsExcelMainView: TReportsExcelMainView
     end
   end
   object TMSMCPCloudAI1: TTMSMCPCloudAI
-    APIKeys.OpenAI = 
-      'sk-proj-hFSIgcNgEVdv-luOBTIJz13qDigwFefFw0vIgyuExdO-nLoNQHpNfpvM' +
-      'H75uKh4vc-h4rgKC7BT3BlbkFJCI87u1sLjzJg1-ewn2vp0vx2Sflqp3NpPmDAnG' +
-      'ZM_YEvEf22CFuQ06-vOklE4qt6vKLTeMtCQA'
     Service = aiClaude
     Settings.GeminiModel = 'gemini-2.5-pro'
     Settings.OpenAIModel = 'gpt-4o'
