@@ -6,6 +6,12 @@ saremos componentes que abstraem toda a complexidade técnica, permitindo que vo
 
 ![IA-na pratica-900x900](https://github.com/user-attachments/assets/3b0dea30-0473-414c-a006-2983ac2093f2)
 
+## 🏷️ Cupom de desconto
+- Use este cupom exclusivo e tenha 30% de desconto em qualquer produto da TMS:
+```
+2026Code4Delphi30
+```
+
 ## Componente utilizado
 - [TMS AI Studio](https://www.tmssoftware.com/site/tmsaistudio.asp)
 - [Documentação](https://download.tmssoftware.com/doc/tmsaistudio/)
