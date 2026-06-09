@@ -186,7 +186,19 @@ Abaixo, apresentamos um guia rápido com os principais provedores de IA disponí
       <strong>Ollama (IA OffLine)</strong><br>
       Framework open‑source para baixar, configurar e rodar LLMs diretamente na sua máquina. <br>
       <a href="https://ollama.com" target="_blank">https://ollama.com</a>
-      <!-- - Criação de API Key: <a href="https://ollama.com" target="_blank">https://ollama.com</a> -->
+    </td>
+  </tr>
+</table>
+
+<table style="margin-bottom: 10px; width: 100%;">
+  <tr>
+    <td style="width: 64px; text-align: center; vertical-align: middle; padding: 4px;">
+      <img src="https://code4delphi.com.br/img/LLMs-Logos/128x128/llamacpp-128x128.png" width="48">
+    </td>
+    <td style="width: calc(100% - 64px); vertical-align: top; text-align: left; padding: 4px; line-height: 1.4;">
+      <strong>Llama.cpp (IA OffLine)</strong><br>
+      llama.cpp é uma biblioteca open source para rodar modelos de IA localmente. Ela permite executar LLMs como Llama, Mistral, Qwen e outros no CPU ou GPU. <a href="https://www.tmssoftware.com/site/blog.asp?post=2445&srsltid=AfmBOop_gupW5Pbe0pPQB-TV9vlt28yoewP_cJ6sQWhdTto9d4__3YkX" target="_blank"> Ver mais detalhes sobre Llama.cpp </a> <br>
+      <a href="https://github.com/ggml-org/llama.cpp" target="_blank">https://github.com/ggml-org/llama.cpp</a>
     </td>
   </tr>
 </table>
