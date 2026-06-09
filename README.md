@@ -197,7 +197,7 @@ Abaixo, apresentamos um guia rápido com os principais provedores de IA disponí
     </td>
     <td style="width: calc(100% - 64px); vertical-align: top; text-align: left; padding: 4px; line-height: 1.4;">
       <strong>Llama.cpp (IA OffLine)</strong><br>
-      llama.cpp é uma biblioteca open source para rodar modelos de IA localmente. Ela permite executar LLMs como Llama, Mistral, Qwen e outros no CPU ou GPU. <a href="https://www.tmssoftware.com/site/blog.asp?post=2445&srsltid=AfmBOop_gupW5Pbe0pPQB-TV9vlt28yoewP_cJ6sQWhdTto9d4__3YkX" target="_blank"> Ver mais detalhes sobre Llama.cpp </a> <br>
+      llama.cpp é uma biblioteca open source para rodar modelos de IA localmente. <a href="https://www.tmssoftware.com/site/blog.asp?post=2445&srsltid=AfmBOop_gupW5Pbe0pPQB-TV9vlt28yoewP_cJ6sQWhdTto9d4__3YkX" target="_blank"> Ver mais detalhes sobre Llama.cpp </a> <br>
       <a href="https://github.com/ggml-org/llama.cpp" target="_blank">https://github.com/ggml-org/llama.cpp</a>
     </td>
   </tr>
