@@ -4,7 +4,7 @@ Estamos iniciando uma nova série de vídeos práticos, mostrando como integrar 
 
 saremos componentes que abstraem toda a complexidade técnica, permitindo que você foque no uso real da IA em suas aplicações Delphi, inclusive em sistemas ERP. Desde funcionalidades básicas com LLMs até recursos avançados como **RAG** (Retrieval-Augmented Generation), **MCP** (Model Context Protocol), **Agents**, **Function Calling**, modelos **Multimodais**, **TTS** (Text-to-Speech), **STT** (Speech-to-Text), **Toolsets** (conjuntos de ferramentas) entre outros.
 
-![IA-na pratica-900x900](https://github.com/user-attachments/assets/3b0dea30-0473-414c-a006-2983ac2093f2)
+<img width="1280" height="720" alt="IA-na pratica-00" src="https://github.com/user-attachments/assets/2c99289f-4872-492f-a961-6bfd54d3f671" />
 
 ## 🏷️ Cupom de desconto
 - Use este cupom exclusivo e tenha 30% de desconto em qualquer produto da TMS:
