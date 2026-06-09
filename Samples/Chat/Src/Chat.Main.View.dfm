@@ -3,7 +3,7 @@ object ChatMainView: TChatMainView
   Top = 0
   Caption = 'IA na pr'#225'tica: Chat'
   ClientHeight = 614
-  ClientWidth = 1033
+  ClientWidth = 595
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,31 +11,33 @@ object ChatMainView: TChatMainView
   Font.Name = 'Segoe UI'
   Font.Style = []
   KeyPreview = True
-  Position = poScreenCenter
+  Position = poDesigned
   OnCreate = FormCreate
   TextHeight = 15
   object PageControl1: TPageControl
     Left = 0
     Top = 0
-    Width = 1033
+    Width = 595
     Height = 614
     ActivePage = tabChat
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 1033
     object tabAPIKeys: TTabSheet
       Caption = 'API Keys'
       object pnAPIKeysBack: TPanel
         Left = 0
         Top = 0
-        Width = 1025
+        Width = 587
         Height = 584
         Align = alClient
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 0
         ExplicitTop = 3
+        ExplicitWidth = 1025
         DesignSize = (
-          1025
+          587
           584)
         object Label2: TLabel
           Left = 16
@@ -89,68 +91,75 @@ object ChatMainView: TChatMainView
         object edtKeyClaude: TEdit
           Left = 80
           Top = 16
-          Width = 929
+          Width = 491
           Height = 23
           Anchors = [akLeft, akTop, akRight]
           PasswordChar = '*'
           TabOrder = 0
+          ExplicitWidth = 929
         end
         object edtKeyDeepSeek: TEdit
           Left = 80
           Top = 56
-          Width = 929
+          Width = 491
           Height = 23
           Anchors = [akLeft, akTop, akRight]
           PasswordChar = '*'
           TabOrder = 1
+          ExplicitWidth = 929
         end
         object edtKeyGemini: TEdit
           Left = 80
           Top = 96
-          Width = 929
+          Width = 491
           Height = 23
           Anchors = [akLeft, akTop, akRight]
           PasswordChar = '*'
           TabOrder = 2
+          ExplicitWidth = 929
         end
         object edtKeyGrok: TEdit
           Left = 80
           Top = 136
-          Width = 929
+          Width = 491
           Height = 23
           Anchors = [akLeft, akTop, akRight]
           PasswordChar = '*'
           TabOrder = 3
+          ExplicitWidth = 929
         end
         object edtKeyMistral: TEdit
           Left = 80
           Top = 176
-          Width = 929
+          Width = 491
           Height = 23
           Anchors = [akLeft, akTop, akRight]
           PasswordChar = '*'
           TabOrder = 4
+          ExplicitWidth = 929
         end
         object edtKeyOpenAI: TEdit
           Left = 80
           Top = 216
-          Width = 929
+          Width = 491
           Height = 23
           Anchors = [akLeft, akTop, akRight]
           PasswordChar = '*'
           TabOrder = 5
+          ExplicitWidth = 929
         end
         object edtKeyPerplexity: TEdit
           Left = 80
           Top = 256
-          Width = 929
+          Width = 491
           Height = 23
           Anchors = [akLeft, akTop, akRight]
           PasswordChar = '*'
           TabOrder = 6
+          ExplicitWidth = 929
         end
         object btnLoadKeys: TButton
-          Left = 853
+          Left = 415
           Top = 297
           Width = 75
           Height = 25
@@ -158,9 +167,10 @@ object ChatMainView: TChatMainView
           Caption = 'Load'
           TabOrder = 7
           OnClick = btnLoadKeysClick
+          ExplicitLeft = 853
         end
         object btnSaveKeys: TButton
-          Left = 934
+          Left = 496
           Top = 297
           Width = 75
           Height = 25
@@ -168,6 +178,7 @@ object ChatMainView: TChatMainView
           Caption = 'Save'
           TabOrder = 8
           OnClick = btnSaveKeysClick
+          ExplicitLeft = 934
         end
       end
     end
@@ -177,15 +188,16 @@ object ChatMainView: TChatMainView
       object pnModelsBack: TPanel
         Left = 0
         Top = 0
-        Width = 1025
+        Width = 587
         Height = 584
         Align = alClient
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 0
         ExplicitTop = 3
+        ExplicitWidth = 1025
         DesignSize = (
-          1025
+          587
           584)
         object Label15: TLabel
           Left = 16
@@ -239,58 +251,65 @@ object ChatMainView: TChatMainView
         object edtModelClaude: TEdit
           Left = 80
           Top = 16
-          Width = 929
+          Width = 491
           Height = 23
           Anchors = [akLeft, akTop, akRight]
           TabOrder = 0
+          ExplicitWidth = 929
         end
         object edtModelDeepSeek: TEdit
           Left = 80
           Top = 56
-          Width = 929
+          Width = 491
           Height = 23
           Anchors = [akLeft, akTop, akRight]
           TabOrder = 1
+          ExplicitWidth = 929
         end
         object edtModelGemini: TEdit
           Left = 80
           Top = 96
-          Width = 929
+          Width = 491
           Height = 23
           Anchors = [akLeft, akTop, akRight]
           TabOrder = 2
+          ExplicitWidth = 929
         end
         object edtModelGrok: TEdit
           Left = 80
           Top = 136
-          Width = 929
+          Width = 491
           Height = 23
           Anchors = [akLeft, akTop, akRight]
           TabOrder = 3
+          ExplicitWidth = 929
         end
         object edtModelMistral: TEdit
           Left = 80
           Top = 176
-          Width = 929
+          Width = 491
           Height = 23
           Anchors = [akLeft, akTop, akRight]
           TabOrder = 4
+          ExplicitWidth = 929
         end
         object edtModelOpenAI: TEdit
           Left = 80
           Top = 216
-          Width = 929
+          Width = 491
           Height = 23
           Anchors = [akLeft, akTop, akRight]
           TabOrder = 5
+          ExplicitWidth = 929
         end
         object edtModelPerplexity: TEdit
           Left = 80
           Top = 256
-          Width = 929
+          Width = 491
           Height = 23
           Anchors = [akLeft, akTop, akRight]
           TabOrder = 6
+          ExplicitWidth = 929
         end
       end
     end
@@ -300,7 +319,7 @@ object ChatMainView: TChatMainView
       object Splitter1: TSplitter
         Left = 0
         Top = 233
-        Width = 1025
+        Width = 587
         Height = 5
         Cursor = crVSplit
         Align = alTop
@@ -310,41 +329,43 @@ object ChatMainView: TChatMainView
       object pnTop: TPanel
         Left = 0
         Top = 0
-        Width = 1025
+        Width = 587
         Height = 65
         Align = alTop
         TabOrder = 0
+        ExplicitLeft = 1
+        ExplicitTop = -5
         object Label1: TLabel
-          Left = 18
+          Left = 10
           Top = 7
           Width = 50
           Height = 15
           Caption = 'IA service'
         end
         object Label13: TLabel
-          Left = 221
+          Left = 208
           Top = 7
           Width = 67
           Height = 15
           Caption = 'Temperature'
         end
         object Label14: TLabel
-          Left = 344
+          Left = 286
           Top = 7
           Width = 110
           Height = 15
           Caption = 'Max tokens response'
         end
         object cBoxIAService: TComboBox
-          Left = 18
+          Left = 10
           Top = 24
-          Width = 201
+          Width = 196
           Height = 23
           Style = csDropDownList
           TabOrder = 0
         end
         object ckGerarLogs: TCheckBox
-          Left = 473
+          Left = 413
           Top = 27
           Width = 76
           Height = 17
@@ -352,9 +373,9 @@ object ChatMainView: TChatMainView
           TabOrder = 1
         end
         object edtTemperature: TEdit
-          Left = 221
+          Left = 208
           Top = 24
-          Width = 121
+          Width = 76
           Height = 23
           MaxLength = 3
           NumbersOnly = True
@@ -362,7 +383,7 @@ object ChatMainView: TChatMainView
           Text = '0'
         end
         object ckWebSearch: TCheckBox
-          Left = 554
+          Left = 494
           Top = 27
           Width = 87
           Height = 17
@@ -370,9 +391,9 @@ object ChatMainView: TChatMainView
           TabOrder = 3
         end
         object edtMaxTokens: TEdit
-          Left = 344
+          Left = 286
           Top = 24
-          Width = 125
+          Width = 120
           Height = 23
           MaxLength = 3
           NumbersOnly = True
@@ -383,15 +404,16 @@ object ChatMainView: TChatMainView
       object pnBoth: TPanel
         Left = 0
         Top = 65
-        Width = 1025
+        Width = 587
         Height = 168
         Align = alTop
         Caption = 'pnBoth'
         TabOrder = 1
+        ExplicitWidth = 1025
         object gBoxQuestion: TGroupBox
           Left = 1
           Top = 1
-          Width = 1023
+          Width = 585
           Height = 134
           Align = alClient
           Caption = ' Prompt / question '
@@ -399,28 +421,31 @@ object ChatMainView: TChatMainView
           Padding.Right = 1
           Padding.Bottom = 1
           TabOrder = 0
+          ExplicitWidth = 1023
           object mmQuestion: TMemo
             Left = 3
             Top = 17
-            Width = 1017
+            Width = 579
             Height = 114
             Align = alClient
             BorderStyle = bsNone
             Lines.Strings = (
               'Ol'#225' quem '#233' voc'#234' e quem '#233' o seu fabricante?')
             TabOrder = 0
+            ExplicitWidth = 1017
           end
         end
         object Panel1: TPanel
           Left = 1
           Top = 135
-          Width = 1023
+          Width = 585
           Height = 32
           Align = alBottom
           Padding.Top = 2
           Padding.Right = 2
           Padding.Bottom = 2
           TabOrder = 1
+          ExplicitWidth = 1023
           object btnExecute: TBitBtn
             Left = 1
             Top = 3
@@ -453,7 +478,7 @@ object ChatMainView: TChatMainView
       object gBoxResponse: TGroupBox
         Left = 0
         Top = 238
-        Width = 1025
+        Width = 587
         Height = 346
         Align = alClient
         Caption = ' Response '
@@ -461,28 +486,32 @@ object ChatMainView: TChatMainView
         Padding.Right = 1
         Padding.Bottom = 1
         TabOrder = 2
+        ExplicitWidth = 1025
         object mmResponse: TMemo
           Left = 3
           Top = 17
-          Width = 1019
+          Width = 581
           Height = 303
           Align = alClient
           BorderStyle = bsNone
           ScrollBars = ssVertical
           TabOrder = 0
+          ExplicitLeft = 2
+          ExplicitTop = 13
         end
         object pnResponseDetails: TPanel
           Left = 3
           Top = 320
-          Width = 1019
+          Width = 581
           Height = 23
           Align = alBottom
           BevelEdges = [beTop]
           BevelKind = bkTile
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitWidth = 1019
           object Label9: TLabel
-            Left = 174
+            Left = 119
             Top = 0
             Width = 93
             Height = 21
@@ -492,18 +521,18 @@ object ChatMainView: TChatMainView
             ParentShowHint = False
             ShowHint = True
             Layout = tlCenter
+            ExplicitLeft = 174
             ExplicitHeight = 15
           end
           object lbNumTokensResponse: TLabel
-            Left = 267
+            Left = 212
             Top = 0
-            Width = 90
+            Width = 35
             Height = 21
             Align = alLeft
             AutoSize = False
             Caption = '0'
             Layout = tlCenter
-            ExplicitLeft = 370
           end
           object Label10: TLabel
             Left = 0
@@ -518,54 +547,55 @@ object ChatMainView: TChatMainView
           object lbPromptTokens: TLabel
             Left = 84
             Top = 0
-            Width = 90
+            Width = 35
             Height = 21
             Align = alLeft
             AutoSize = False
             Caption = '0'
             Layout = tlCenter
-            ExplicitLeft = 83
           end
           object Label11: TLabel
-            Left = 517
+            Left = 352
             Top = 0
             Width = 90
             Height = 21
             Align = alLeft
             Caption = 'Model response: '
             Layout = tlCenter
+            ExplicitLeft = 517
             ExplicitHeight = 15
           end
           object lbServiceModel: TLabel
-            Left = 607
+            Left = 442
             Top = 0
             Width = 5
             Height = 21
             Align = alLeft
             Caption = '-'
             Layout = tlCenter
+            ExplicitLeft = 607
             ExplicitHeight = 15
           end
           object Label12: TLabel
-            Left = 357
+            Left = 247
             Top = 0
             Width = 70
             Height = 21
             Align = alLeft
             Caption = 'Total tokens: '
             Layout = tlCenter
+            ExplicitLeft = 357
             ExplicitHeight = 15
           end
           object lbTotalTokens: TLabel
-            Left = 427
+            Left = 317
             Top = 0
-            Width = 90
+            Width = 35
             Height = 21
             Align = alLeft
             AutoSize = False
             Caption = '0'
             Layout = tlCenter
-            ExplicitLeft = 675
           end
         end
       end
@@ -590,7 +620,7 @@ object ChatMainView: TChatMainView
     Settings.MistralTranscribeModel = 'voxtral-mini-2507'
     Tools = <>
     OnExecuted = TMSMCPCloudAI1Executed
-    Left = 61
-    Top = 332
+    Left = 237
+    Top = 340
   end
 end
