@@ -2,7 +2,7 @@
 
 Estamos iniciando uma nova série de vídeos práticos, mostrando como integrar e utilizar as principais IAs (inteligências artificiais) do mercado com Delphi, de forma simples e eficiente.
 
-saremos componentes que abstraem toda a complexidade técnica, permitindo que você foque no uso real da IA em suas aplicações Delphi, inclusive em sistemas ERP. Desde funcionalidades básicas com LLMs até recursos avançados como **RAG** (Retrieval-Augmented Generation), **MCP** (Model Context Protocol), **Agents**, **Function Calling**, modelos **Multimodais**, **TTS** (Text-to-Speech), **STT** (Speech-to-Text), **Toolsets** (conjuntos de ferramentas) entre outros.
+saremos componentes que abstraem toda a complexidade técnica, permitindo que você foque no uso real da IA em suas aplicações Delphi, inclusive em sistemas ERP. Desde funcionalidades básicas com LLMs até recursos avançados como **RAG** (Retrieval-Augmented Generation), **MCP** (Model Context Protocol), **Agents**, **Function Calling/Tool Calling**, modelos **Multimodais**, **TTS** (Text-to-Speech), **STT** (Speech-to-Text), **Toolsets** (conjuntos de ferramentas) entre outros.
 
 <img width="1280" height="720" alt="IA-na pratica-00" src="https://github.com/user-attachments/assets/2c99289f-4872-492f-a961-6bfd54d3f671" />
 
@@ -27,7 +27,7 @@ Você poderá acompanhar esta série através de nossa playlist:
 👉 [Playlist IA na Prática](https://www.youtube.com/playlist?list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 - [IA na Pratica 01 - Múltiplas IAs, apenas um Componente](https://www.youtube.com/watch?v=dN0pgO141OY&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 - [IA na Pratica 02 - Gerenciando API Keys e Models disponíveis](https://www.youtube.com/watch?v=UFZVhgtkcBM&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
-- [IA na Prática 03 - Function Calling - IA Chamando funções](https://www.youtube.com/watch?v=LZVjg2NTlJE&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+- [IA na Prática 03 - Function/Tool Calling - IA Chamando funções](https://www.youtube.com/watch?v=LZVjg2NTlJE&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 - [IA na Prática 04 - Multimodal](https://www.youtube.com/watch?v=l21c8a3GwiA&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 - [IA na Prática 05 - MCP Server e Client](https://www.youtube.com/watch?v=G7H9_hGQ3Q8&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
 - [IA na Prática 06 - Criando MCP Server com Delphi](https://www.youtube.com/watch?v=fS77DYcTerg&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
