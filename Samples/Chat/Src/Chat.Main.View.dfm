@@ -2,7 +2,7 @@ object ChatMainView: TChatMainView
   Left = 0
   Top = 0
   Caption = 'IA na pr'#225'tica: Chat'
-  ClientHeight = 614
+  ClientHeight = 716
   ClientWidth = 595
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -18,25 +18,27 @@ object ChatMainView: TChatMainView
     Left = 0
     Top = 0
     Width = 595
-    Height = 614
+    Height = 716
     Cursor = crHandPoint
     ActivePage = tabChat
     Align = alClient
     TabOrder = 0
+    ExplicitHeight = 614
     object tabAPIKeys: TTabSheet
       Caption = 'API Keys'
       object pnAPIKeysBack: TPanel
         Left = 0
         Top = 0
         Width = 587
-        Height = 584
+        Height = 686
         Align = alClient
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 0
+        ExplicitHeight = 584
         DesignSize = (
           587
-          584)
+          686)
         object Label2: TLabel
           Left = 16
           Top = 19
@@ -180,14 +182,15 @@ object ChatMainView: TChatMainView
         Left = 0
         Top = 0
         Width = 587
-        Height = 584
+        Height = 686
         Align = alClient
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 0
+        ExplicitHeight = 584
         DesignSize = (
           587
-          584)
+          686)
         object Label15: TLabel
           Left = 16
           Top = 19
@@ -300,7 +303,7 @@ object ChatMainView: TChatMainView
       ImageIndex = 1
       object Splitter1: TSplitter
         Left = 0
-        Top = 233
+        Top = 281
         Width = 587
         Height = 5
         Cursor = crVSplit
@@ -342,6 +345,7 @@ object ChatMainView: TChatMainView
           Width = 196
           Height = 23
           Style = csDropDownList
+          DropDownCount = 15
           TabOrder = 0
         end
         object ckGerarLogs: TCheckBox
@@ -387,7 +391,7 @@ object ChatMainView: TChatMainView
         Left = 0
         Top = 65
         Width = 587
-        Height = 168
+        Height = 216
         Align = alTop
         Caption = 'pnBoth'
         TabOrder = 1
@@ -395,28 +399,30 @@ object ChatMainView: TChatMainView
           Left = 1
           Top = 1
           Width = 585
-          Height = 134
+          Height = 182
           Align = alClient
           Caption = ' Prompt / question '
           Padding.Left = 1
           Padding.Right = 1
           Padding.Bottom = 1
           TabOrder = 0
+          ExplicitHeight = 134
           object mmQuestion: TMemo
             Left = 3
             Top = 17
             Width = 579
-            Height = 114
+            Height = 162
             Align = alClient
             BorderStyle = bsNone
             Lines.Strings = (
               'Ol'#225' quem '#233' voc'#234' e quem '#233' o seu fabricante?')
             TabOrder = 0
+            ExplicitHeight = 114
           end
         end
         object Panel1: TPanel
           Left = 1
-          Top = 135
+          Top = 183
           Width = 585
           Height = 32
           Align = alBottom
@@ -424,6 +430,7 @@ object ChatMainView: TChatMainView
           Padding.Right = 2
           Padding.Bottom = 2
           TabOrder = 1
+          ExplicitTop = 135
           object btnExecute: TBitBtn
             Left = 1
             Top = 3
@@ -447,37 +454,38 @@ object ChatMainView: TChatMainView
             Margins.Bottom = 4
             Align = alLeft
             Smooth = True
-            Style = pbstMarquee
             SmoothReverse = True
-            State = pbsPaused
             TabOrder = 1
           end
         end
       end
       object gBoxResponse: TGroupBox
         Left = 0
-        Top = 238
+        Top = 286
         Width = 587
-        Height = 346
+        Height = 400
         Align = alClient
         Caption = ' Response '
         Padding.Left = 1
         Padding.Right = 1
         Padding.Bottom = 1
         TabOrder = 2
+        ExplicitTop = 238
+        ExplicitHeight = 346
         object mmResponse: TMemo
           Left = 3
           Top = 17
           Width = 581
-          Height = 303
+          Height = 357
           Align = alClient
           BorderStyle = bsNone
           ScrollBars = ssVertical
           TabOrder = 0
+          ExplicitHeight = 303
         end
         object pnResponseDetails: TPanel
           Left = 3
-          Top = 320
+          Top = 374
           Width = 581
           Height = 23
           Align = alBottom
@@ -485,6 +493,7 @@ object ChatMainView: TChatMainView
           BevelKind = bkTile
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitTop = 320
           object Label9: TLabel
             Left = 119
             Top = 0

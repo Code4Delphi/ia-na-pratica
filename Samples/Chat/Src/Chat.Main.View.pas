@@ -120,7 +120,7 @@ begin
   Self.LoadKeys;
 
   //CARREGAR IAS DISPONIVEIS
-  cBoxIAService.Items.Assign(TMSMCPCloudAI1.GetServices(True));
+  cBoxIAService.Items.Assign(TMSMCPCloudAI1.GetServices());
   cBoxIAService.ItemIndex := 7;
 
   Self.Settings;
@@ -214,13 +214,13 @@ begin
 
   TMSMCPCloudAI1.Context.Text := mmQuestion.Lines.Text;
   TMSMCPCloudAI1.Execute();
-  ProgressBar1.State := pbsNormal;
+  ProgressBar1.Style := pbstMarquee;
 end;
 
 procedure TChatMainView.TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse;
   AHttpStatusCode: Integer; AHttpResult: string);
 begin
-  ProgressBar1.State := pbsPaused;
+  ProgressBar1.Style := pbstNormal;
   if AHttpStatusCode <> 200 then
   begin
     mmResponse.Lines.Text := 'HTTP error code: ' + AHttpStatusCode.ToString + sLineBreak + AHttpResult;
@@ -228,6 +228,7 @@ begin
   end;
 
   mmResponse.Lines.Text := AResponse.Content.Text;
+
   lbPromptTokens.Caption := AResponse.PromptTokens.ToString;
   lbNumTokensResponse.Caption := AResponse.CompletionTokens.ToString;
   lbTotalTokens.Caption := AResponse.TotalTokens.ToString;

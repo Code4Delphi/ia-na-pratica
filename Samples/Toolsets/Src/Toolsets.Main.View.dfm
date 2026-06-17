@@ -2,8 +2,8 @@ object ToolsetsMainView: TToolsetsMainView
   Left = 0
   Top = 0
   Caption = 'IA na pr'#225'tica Toolsets: FileSystem, DataSet e Email'
-  ClientHeight = 645
-  ClientWidth = 1033
+  ClientHeight = 705
+  ClientWidth = 595
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,28 +11,32 @@ object ToolsetsMainView: TToolsetsMainView
   Font.Name = 'Segoe UI'
   Font.Style = []
   KeyPreview = True
-  Position = poScreenCenter
+  Position = poDesigned
   OnCreate = FormCreate
   TextHeight = 15
   object PageControl1: TPageControl
     Left = 0
     Top = 0
-    Width = 1033
-    Height = 645
-    ActivePage = TabSheet1
+    Width = 595
+    Height = 705
+    ActivePage = tabChat
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 1033
+    ExplicitHeight = 645
     object tabAPIKeys: TTabSheet
       Caption = 'API Keys'
       object pnAPIKeysBack: TPanel
         Left = 0
         Top = 0
-        Width = 1025
-        Height = 615
+        Width = 587
+        Height = 675
         Align = alClient
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 0
+        ExplicitWidth = 1025
+        ExplicitHeight = 615
         object Label2: TLabel
           Left = 16
           Top = 19
@@ -164,12 +168,14 @@ object ToolsetsMainView: TToolsetsMainView
       object pnModelsBack: TPanel
         Left = 0
         Top = 0
-        Width = 1025
-        Height = 615
+        Width = 587
+        Height = 675
         Align = alClient
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 0
+        ExplicitWidth = 1025
+        ExplicitHeight = 615
         object Label15: TLabel
           Left = 16
           Top = 19
@@ -276,12 +282,13 @@ object ToolsetsMainView: TToolsetsMainView
       object pnSMTP: TPanel
         Left = 0
         Top = 0
-        Width = 1025
-        Height = 615
+        Width = 587
+        Height = 675
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitLeft = -3
+        ExplicitWidth = 1025
+        ExplicitHeight = 615
         object Label22: TLabel
           Left = 26
           Top = 14
@@ -395,7 +402,7 @@ object ToolsetsMainView: TToolsetsMainView
       object Splitter1: TSplitter
         Left = 0
         Top = 233
-        Width = 1025
+        Width = 587
         Height = 5
         Cursor = crVSplit
         Align = alTop
@@ -405,52 +412,53 @@ object ToolsetsMainView: TToolsetsMainView
       object pnTop: TPanel
         Left = 0
         Top = 0
-        Width = 1025
+        Width = 587
         Height = 65
         Align = alTop
         TabOrder = 0
+        ExplicitWidth = 1025
         object Label1: TLabel
-          Left = 18
-          Top = 7
+          Left = 13
+          Top = 8
           Width = 50
           Height = 15
           Caption = 'IA service'
         end
         object Label13: TLabel
-          Left = 221
-          Top = 7
+          Left = 196
+          Top = 8
           Width = 67
           Height = 15
           Caption = 'Temperature'
         end
         object Label14: TLabel
-          Left = 344
-          Top = 7
+          Left = 276
+          Top = 9
           Width = 110
           Height = 15
           Caption = 'Max tokens response'
         end
         object cBoxIAService: TComboBox
-          Left = 18
-          Top = 24
-          Width = 201
+          Left = 13
+          Top = 25
+          Width = 181
           Height = 23
           Style = csDropDownList
           TabOrder = 0
           OnChange = cBoxIAServiceChange
         end
         object ckGerarLogs: TCheckBox
-          Left = 473
-          Top = 27
+          Left = 407
+          Top = 28
           Width = 76
           Height = 17
           Caption = 'Gerar Log'
           TabOrder = 1
         end
         object edtTemperature: TEdit
-          Left = 221
-          Top = 24
-          Width = 121
+          Left = 196
+          Top = 25
+          Width = 78
           Height = 23
           MaxLength = 3
           NumbersOnly = True
@@ -458,16 +466,16 @@ object ToolsetsMainView: TToolsetsMainView
           Text = '0'
         end
         object ckWebSearch: TCheckBox
-          Left = 554
-          Top = 27
-          Width = 87
+          Left = 485
+          Top = 29
+          Width = 88
           Height = 17
           Caption = 'Web Search'
           TabOrder = 3
         end
         object edtMaxTokens: TEdit
-          Left = 344
-          Top = 24
+          Left = 276
+          Top = 25
           Width = 125
           Height = 23
           MaxLength = 3
@@ -479,15 +487,16 @@ object ToolsetsMainView: TToolsetsMainView
       object pnBoth: TPanel
         Left = 0
         Top = 65
-        Width = 1025
+        Width = 587
         Height = 168
         Align = alTop
         Caption = 'pnBoth'
         TabOrder = 1
+        ExplicitWidth = 1025
         object gBoxQuestion: TGroupBox
           Left = 1
           Top = 1
-          Width = 1023
+          Width = 585
           Height = 134
           Align = alClient
           Caption = ' Prompt / question '
@@ -495,29 +504,32 @@ object ToolsetsMainView: TToolsetsMainView
           Padding.Right = 1
           Padding.Bottom = 1
           TabOrder = 0
+          ExplicitWidth = 1023
           object mmQuestion: TMemo
             Left = 3
             Top = 17
-            Width = 1017
+            Width = 579
             Height = 114
             Align = alClient
             BorderStyle = bsNone
             Lines.Strings = (
-              'Ol'#225' quem '#233' voc'#234' e quem '#233' o seu fabricante?')
+              'Listar as 5 vendas mais recentes')
             PopupMenu = PopupMenu1
             TabOrder = 0
+            ExplicitWidth = 1017
           end
         end
         object Panel1: TPanel
           Left = 1
           Top = 135
-          Width = 1023
+          Width = 585
           Height = 32
           Align = alBottom
           Padding.Top = 2
           Padding.Right = 2
           Padding.Bottom = 2
           TabOrder = 1
+          ExplicitWidth = 1023
           object btnExecute: TBitBtn
             Left = 1
             Top = 3
@@ -550,26 +562,30 @@ object ToolsetsMainView: TToolsetsMainView
       object gBoxResponse: TGroupBox
         Left = 0
         Top = 238
-        Width = 1025
-        Height = 377
+        Width = 587
+        Height = 437
         Align = alClient
         Caption = ' Response '
         Padding.Left = 1
         Padding.Right = 1
         Padding.Bottom = 1
         TabOrder = 2
+        ExplicitWidth = 1025
+        ExplicitHeight = 377
         object pnResponseDetails: TPanel
           Left = 3
-          Top = 351
-          Width = 1019
+          Top = 411
+          Width = 581
           Height = 23
           Align = alBottom
           BevelEdges = [beTop]
           BevelKind = bkTile
           BevelOuter = bvNone
           TabOrder = 0
+          ExplicitTop = 351
+          ExplicitWidth = 1019
           object Label9: TLabel
-            Left = 174
+            Left = 134
             Top = 0
             Width = 93
             Height = 21
@@ -579,18 +595,18 @@ object ToolsetsMainView: TToolsetsMainView
             ParentShowHint = False
             ShowHint = True
             Layout = tlCenter
+            ExplicitLeft = 174
             ExplicitHeight = 15
           end
           object lbNumTokensResponse: TLabel
-            Left = 267
+            Left = 227
             Top = 0
-            Width = 90
+            Width = 50
             Height = 21
             Align = alLeft
             AutoSize = False
             Caption = '0'
             Layout = tlCenter
-            ExplicitLeft = 370
           end
           object Label10: TLabel
             Left = 0
@@ -605,75 +621,81 @@ object ToolsetsMainView: TToolsetsMainView
           object lbPromptTokens: TLabel
             Left = 84
             Top = 0
-            Width = 90
+            Width = 50
             Height = 21
             Align = alLeft
             AutoSize = False
             Caption = '0'
             Layout = tlCenter
-            ExplicitLeft = 83
           end
           object Label11: TLabel
-            Left = 517
+            Left = 397
             Top = 0
             Width = 90
             Height = 21
             Align = alLeft
             Caption = 'Model response: '
             Layout = tlCenter
+            ExplicitLeft = 517
             ExplicitHeight = 15
           end
           object lbServiceModel: TLabel
-            Left = 607
+            Left = 487
             Top = 0
             Width = 5
             Height = 21
             Align = alLeft
             Caption = '-'
             Layout = tlCenter
+            ExplicitLeft = 607
             ExplicitHeight = 15
           end
           object Label12: TLabel
-            Left = 357
+            Left = 277
             Top = 0
             Width = 70
             Height = 21
             Align = alLeft
             Caption = 'Total tokens: '
             Layout = tlCenter
+            ExplicitLeft = 357
             ExplicitHeight = 15
           end
           object lbTotalTokens: TLabel
-            Left = 427
+            Left = 347
             Top = 0
-            Width = 90
+            Width = 50
             Height = 21
             Align = alLeft
             AutoSize = False
             Caption = '0'
             Layout = tlCenter
-            ExplicitLeft = 675
           end
         end
         object mmResponse: TMemo
           Left = 3
           Top = 17
-          Width = 1019
-          Height = 334
+          Width = 581
+          Height = 394
           Align = alClient
           BorderStyle = bsNone
           ScrollBars = ssVertical
           TabOrder = 1
+          ExplicitLeft = 2
+          ExplicitTop = 13
         end
       end
     end
   end
   object FDConnection1: TFDConnection
     Params.Strings = (
+      
+        'Database=C:\Code4D\Cursos\TMS\IA-na-pratica\Samples\Toolsets\BD\' +
+        'toolsets.db'
       'DriverID=SQLite')
     LoginPrompt = False
-    Left = 592
-    Top = 304
+    Left = 40
+    Top = 336
   end
   object FDQuery1: TFDQuery
     Connection = FDConnection1
@@ -687,14 +709,14 @@ object ToolsetsMainView: TToolsetsMainView
       'vendas.total '
       'from vendas'
       'inner join clientes on vendas.id_cliente = clientes.Id'
-      'limit 10 offset 290')
-    Left = 669
-    Top = 304
+      'limit 5')
+    Left = 117
+    Top = 336
   end
   object DataSource1: TDataSource
     DataSet = FDQuery1
-    Left = 738
-    Top = 304
+    Left = 186
+    Top = 336
   end
   object TMSMCPCloudAIDataSet1: TTMSMCPCloudAIDataSet
     AI = TMSMCPCloudAI1
@@ -855,8 +877,8 @@ object ToolsetsMainView: TToolsetsMainView
           end>
       end>
     DataSource = DataSource1
-    Left = 860
-    Top = 304
+    Left = 188
+    Top = 400
   end
   object TMSMCPCloudAIFileSystem1: TTMSMCPCloudAIFileSystem
     AI = TMSMCPCloudAI1
@@ -1040,7 +1062,7 @@ object ToolsetsMainView: TToolsetsMainView
     Top = 220
   end
   object TMSMCPCloudAI1: TTMSMCPCloudAI
-    Service = aiOpenAI
+    Service = aiClaude
     Settings.GeminiModel = 'gemini-1.5-flash-latest'
     Settings.OpenAIModel = 'gpt-4o'
     Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
@@ -1052,12 +1074,14 @@ object ToolsetsMainView: TToolsetsMainView
     Settings.PerplexityModel = 'sonar-pro'
     Settings.OllamaHost = 'localhost'
     Settings.OllamaPath = '/api/chat'
+    Settings.LlamaCppHost = 'localhost'
+    Settings.LlamaCppPath = '/v1/chat/completions'
     Settings.MistralModel = 'mistral-large-latest'
     Settings.MistralTranscribeModel = 'voxtral-mini-2507'
     Tools = <>
     OnExecuted = TMSMCPCloudAI1Executed
-    Left = 861
-    Top = 156
+    Left = 53
+    Top = 400
   end
   object TMSMCPCloudAIEmail1: TTMSMCPCloudAIEmail
     AI = TMSMCPCloudAI1
