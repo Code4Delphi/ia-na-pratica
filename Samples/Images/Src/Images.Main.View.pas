@@ -28,16 +28,10 @@ type
     gBoxQuestion: TGroupBox;
     mmQuestion: TMemo;
     gBoxDefaultsPrompts: TGroupBox;
-    pnDefaultsPrompts01: TPanel;
-    btnCompareAsImagens: TButton;
-    btnDescrevaImagem1: TButton;
     Panel1: TPanel;
-    btnExecute: TBitBtn;
-    ProgressBar1: TProgressBar;
     pnImagesBack: TPanel;
     gBoxResponse: TGroupBox;
     mmResponse: TMemo;
-    Splitter1: TSplitter;
     pnImagem01: TPanel;
     pnImagem02: TPanel;
     Splitter2: TSplitter;
@@ -47,14 +41,20 @@ type
     Image2: TImage;
     btnLoadImage1: TButton;
     btnLoadImage2: TButton;
+    OpenDialog1: TOpenDialog;
+    TMSMCPCloudAI1: TTMSMCPCloudAI;
+    Panel3: TPanel;
     ckAddImagem1: TCheckBox;
     ckAddImagem2: TCheckBox;
-    OpenDialog1: TOpenDialog;
+    Panel4: TPanel;
     Label1: TLabel;
     cBoxIAService: TComboBox;
-    pnDefaultsPrompts02: TPanel;
+    btnExecute: TBitBtn;
+    ProgressBar1: TProgressBar;
+    btnDescrevaImagem1: TButton;
+    btnCompareAsImagens: TButton;
     btnVendasPeriodo: TButton;
-    TMSMCPCloudAI1: TTMSMCPCloudAI;
+    btnQtdCamisas: TButton;
     procedure FormCreate(Sender: TObject);
     procedure btnDescrevaImagem1Click(Sender: TObject);
     procedure btnCompareAsImagensClick(Sender: TObject);
@@ -90,24 +90,7 @@ begin
   //TMSMCPCloudAI1.Settings.WebSearch := True;
 
   cBoxIAService.Items.Assign(TMSMCPCloudAI1.GetServices(True));
-  cBoxIAService.ItemIndex := 0;
-end;
-
-procedure TImagesMainView.btnExecuteClick(Sender: TObject);
-begin
-  TMSMCPCloudAI1.Service := TTMSMCPCloudAIService(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
-
-  TMSMCPCloudAI1.Files.Clear;
-  if ckAddImagem1.Checked then
-    TMSMCPCloudAI1.AddFile(FFileNameImg1, aiftImage);
-
-  if ckAddImagem2.Checked then
-    TMSMCPCloudAI1.AddFile(FFileNameImg2, aiftImage);
-
-  TMSMCPCloudAI1.Context := mmQuestion.Lines;
-  TMSMCPCloudAI1.Execute;
-
-  ProgressBar1.State := pbsNormal;
+  cBoxIAService.ItemIndex := 7;
 end;
 
 procedure TImagesMainView.btnLoadImage1Click(Sender: TObject);
@@ -117,15 +100,6 @@ begin
 
   FFileNameImg1 := OpenDialog1.FileName;
   Image1.Picture.LoadFromFile(OpenDialog1.FileName);
-end;
-
-procedure TImagesMainView.btnLoadImage2Click(Sender: TObject);
-begin
-  if not OpenDialog1.Execute then
-    Exit;
-
-  FFileNameImg2 := OpenDialog1.FileName;
-  Image2.Picture.LoadFromFile(OpenDialog1.FileName);
 end;
 
 procedure TImagesMainView.btnDescrevaImagem1Click(Sender: TObject);
@@ -147,6 +121,31 @@ begin
   mmQuestion.Text := 'Extrair o texto da imagem';
   ckAddImagem1.Checked := True;
   ckAddImagem2.Checked := False;
+end;
+procedure TImagesMainView.btnLoadImage2Click(Sender: TObject);
+begin
+  if not OpenDialog1.Execute then
+    Exit;
+
+  FFileNameImg2 := OpenDialog1.FileName;
+  Image2.Picture.LoadFromFile(OpenDialog1.FileName);
+end;
+
+procedure TImagesMainView.btnExecuteClick(Sender: TObject);
+begin
+  TMSMCPCloudAI1.Service := TTMSMCPCloudAIService(cBoxIAService.Items.Objects[cBoxIAService.ItemIndex]);
+
+  TMSMCPCloudAI1.Files.Clear;
+  if ckAddImagem1.Checked then
+    TMSMCPCloudAI1.AddFile(FFileNameImg1, aiftImage);
+
+  if ckAddImagem2.Checked then
+    TMSMCPCloudAI1.AddFile(FFileNameImg2, aiftImage);
+
+  TMSMCPCloudAI1.Context := mmQuestion.Lines;
+  TMSMCPCloudAI1.Execute;
+
+  ProgressBar1.State := pbsNormal;
 end;
 
 procedure TImagesMainView.TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse;

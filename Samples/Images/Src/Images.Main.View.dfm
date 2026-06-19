@@ -2,8 +2,8 @@ object ImagesMainView: TImagesMainView
   Left = 0
   Top = 0
   Caption = 'IA na pr'#225'tica: Multimodal - Imagens'
-  ClientHeight = 705
-  ClientWidth = 1273
+  ClientHeight = 716
+  ClientWidth = 595
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,32 +11,26 @@ object ImagesMainView: TImagesMainView
   Font.Name = 'Segoe UI'
   Font.Style = []
   KeyPreview = True
-  Position = poScreenCenter
+  Position = poDesigned
   OnCreate = FormCreate
   TextHeight = 15
-  object Splitter1: TSplitter
-    Left = 353
-    Top = 0
-    Width = 10
-    Height = 705
-    Beveled = True
-    Color = clMedGray
-    ParentColor = False
-    ExplicitLeft = 350
-  end
   object pnBoth: TPanel
-    Left = 363
-    Top = 0
-    Width = 910
-    Height = 705
+    Left = 0
+    Top = 279
+    Width = 595
+    Height = 437
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
+    ExplicitLeft = 363
+    ExplicitTop = 0
+    ExplicitWidth = 910
+    ExplicitHeight = 705
     object gBoxQuestion: TGroupBox
       Left = 0
       Top = 0
-      Width = 910
-      Height = 96
+      Width = 595
+      Height = 145
       Align = alTop
       Caption = ' Prompt / question '
       Padding.Left = 1
@@ -46,220 +40,258 @@ object ImagesMainView: TImagesMainView
       object mmQuestion: TMemo
         Left = 3
         Top = 17
-        Width = 637
-        Height = 76
+        Width = 437
+        Height = 125
         Align = alClient
         BorderStyle = bsNone
         Lines.Strings = (
           'Descreva a imagem')
         TabOrder = 0
+        ExplicitWidth = 350
       end
       object gBoxDefaultsPrompts: TGroupBox
-        Left = 640
+        Left = 440
         Top = 17
-        Width = 267
-        Height = 76
+        Width = 152
+        Height = 125
         Align = alRight
         Caption = ' Defaults  Prompts '
         TabOrder = 1
-        object pnDefaultsPrompts01: TPanel
-          Left = 2
+        object btnDescrevaImagem1: TButton
+          AlignWithMargins = True
+          Left = 5
           Top = 17
-          Width = 263
-          Height = 27
+          Width = 142
+          Height = 24
+          Margins.Top = 0
+          Margins.Bottom = 2
           Align = alTop
-          BevelOuter = bvNone
-          Padding.Bottom = 3
+          Caption = 'Descreva a imagem 1'
           TabOrder = 0
-          object btnCompareAsImagens: TButton
-            AlignWithMargins = True
-            Left = 132
-            Top = 0
-            Width = 129
-            Height = 24
-            Margins.Left = 0
-            Margins.Top = 0
-            Margins.Bottom = 0
-            Align = alLeft
-            Caption = 'Compare as imagens'
-            TabOrder = 0
-            OnClick = btnCompareAsImagensClick
-          end
-          object btnDescrevaImagem1: TButton
-            AlignWithMargins = True
-            Left = 0
-            Top = 0
-            Width = 129
-            Height = 24
-            Margins.Left = 0
-            Margins.Top = 0
-            Margins.Bottom = 0
-            Align = alLeft
-            Caption = 'Descreva a imagem 1'
-            TabOrder = 1
-            OnClick = btnDescrevaImagem1Click
-          end
+          OnClick = btnDescrevaImagem1Click
+          ExplicitWidth = 257
         end
-        object pnDefaultsPrompts02: TPanel
-          Left = 2
-          Top = 44
-          Width = 263
-          Height = 27
+        object btnCompareAsImagens: TButton
+          AlignWithMargins = True
+          Left = 5
+          Top = 43
+          Width = 142
+          Height = 24
+          Margins.Top = 0
+          Margins.Bottom = 2
           Align = alTop
-          BevelOuter = bvNone
-          Padding.Bottom = 3
+          Caption = 'Compare as imagens'
           TabOrder = 1
-          object btnVendasPeriodo: TButton
-            Left = 0
-            Top = 0
-            Width = 129
-            Height = 24
-            Hint = 'Extrair o texto da imagem 1'
-            Align = alLeft
-            Caption = 'Oceriza'#231#227'o - OCR'
-            TabOrder = 0
-            OnClick = btnVendasPeriodoClick
-          end
-          object btnQtdCamisas: TButton
-            Left = 129
-            Top = 0
-            Width = 129
-            Height = 24
-            Hint = 'Extrair o texto da imagem 1'
-            Align = alLeft
-            Caption = 'Quantidade camisas'
-            TabOrder = 1
-          end
+          OnClick = btnCompareAsImagensClick
+          ExplicitWidth = 257
+        end
+        object btnVendasPeriodo: TButton
+          AlignWithMargins = True
+          Left = 5
+          Top = 69
+          Width = 142
+          Height = 24
+          Hint = 'Extrair o texto da imagem 1'
+          Margins.Top = 0
+          Margins.Bottom = 2
+          Align = alTop
+          Caption = 'Oceriza'#231#227'o - OCR'
+          TabOrder = 2
+          OnClick = btnVendasPeriodoClick
+          ExplicitWidth = 257
+        end
+        object btnQtdCamisas: TButton
+          AlignWithMargins = True
+          Left = 5
+          Top = 95
+          Width = 142
+          Height = 24
+          Hint = 'Extrair o texto da imagem 1'
+          Margins.Top = 0
+          Margins.Bottom = 2
+          Align = alTop
+          Caption = 'Quantidade camisas'
+          TabOrder = 3
+          ExplicitWidth = 257
         end
       end
     end
     object Panel1: TPanel
       Left = 0
-      Top = 96
-      Width = 910
-      Height = 31
+      Top = 145
+      Width = 595
+      Height = 53
       Align = alTop
       Padding.Top = 2
       Padding.Right = 2
       Padding.Bottom = 2
       TabOrder = 1
-      object Label1: TLabel
-        Left = 221
-        Top = 3
-        Width = 56
-        Height = 25
-        Align = alLeft
-        Caption = 'IA service: '
-        Layout = tlCenter
-        ExplicitHeight = 15
-      end
-      object btnExecute: TBitBtn
-        AlignWithMargins = True
-        Left = 488
-        Top = 3
-        Width = 102
-        Height = 25
-        Cursor = crHandPoint
-        Margins.Left = 10
-        Margins.Top = 0
-        Margins.Right = 0
-        Margins.Bottom = 0
-        Align = alLeft
-        Caption = 'Execute'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Segoe UI'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 0
-        OnClick = btnExecuteClick
-      end
-      object ProgressBar1: TProgressBar
-        AlignWithMargins = True
-        Left = 596
-        Top = 7
-        Width = 200
-        Height = 17
-        Margins.Left = 6
-        Margins.Top = 4
-        Margins.Right = 6
-        Margins.Bottom = 4
-        Align = alLeft
-        Smooth = True
-        Style = pbstMarquee
-        SmoothReverse = True
-        State = pbsPaused
-        TabOrder = 1
-      end
-      object ckAddImagem1: TCheckBox
+      ExplicitTop = 96
+      ExplicitWidth = 585
+      object Panel3: TPanel
         Left = 1
         Top = 3
-        Width = 110
-        Height = 25
-        Align = alLeft
-        Caption = 'Add imagem 1'
-        Checked = True
-        State = cbChecked
-        TabOrder = 2
+        Width = 591
+        Height = 22
+        Align = alTop
+        BevelOuter = bvNone
+        Padding.Left = 10
+        TabOrder = 0
+        ExplicitLeft = 6
+        ExplicitTop = 1
+        ExplicitWidth = 581
+        object ckAddImagem1: TCheckBox
+          Left = 10
+          Top = 0
+          Width = 110
+          Height = 22
+          Align = alLeft
+          Caption = 'Add imagem 1'
+          Checked = True
+          State = cbChecked
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 3
+          ExplicitHeight = 25
+        end
+        object ckAddImagem2: TCheckBox
+          Left = 120
+          Top = 0
+          Width = 110
+          Height = 22
+          Align = alLeft
+          Caption = 'Add imagem 2'
+          TabOrder = 1
+          ExplicitLeft = 111
+          ExplicitTop = 3
+          ExplicitHeight = 25
+        end
       end
-      object ckAddImagem2: TCheckBox
-        Left = 111
-        Top = 3
-        Width = 110
-        Height = 25
-        Align = alLeft
-        Caption = 'Add imagem 2'
-        TabOrder = 3
-      end
-      object cBoxIAService: TComboBox
-        Left = 277
-        Top = 3
-        Width = 201
-        Height = 23
-        Align = alLeft
-        Style = csDropDownList
-        TabOrder = 4
+      object Panel4: TPanel
+        Left = 1
+        Top = 25
+        Width = 591
+        Height = 26
+        Align = alTop
+        BevelOuter = bvNone
+        Padding.Left = 10
+        TabOrder = 1
+        ExplicitLeft = 6
+        ExplicitTop = 21
+        ExplicitWidth = 581
+        object Label1: TLabel
+          Left = 10
+          Top = 0
+          Width = 56
+          Height = 26
+          Align = alLeft
+          Caption = 'IA service: '
+          Layout = tlCenter
+          ExplicitLeft = 1
+          ExplicitTop = 1
+          ExplicitHeight = 15
+        end
+        object cBoxIAService: TComboBox
+          Left = 66
+          Top = 0
+          Width = 201
+          Height = 23
+          Align = alLeft
+          Style = csDropDownList
+          DropDownCount = 15
+          TabOrder = 0
+          ExplicitLeft = 63
+          ExplicitTop = 6
+        end
+        object btnExecute: TBitBtn
+          AlignWithMargins = True
+          Left = 277
+          Top = 0
+          Width = 102
+          Height = 23
+          Cursor = crHandPoint
+          Margins.Left = 10
+          Margins.Top = 0
+          Margins.Right = 0
+          Align = alLeft
+          Caption = 'Execute'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 1
+          OnClick = btnExecuteClick
+          ExplicitLeft = 547
+          ExplicitTop = 3
+          ExplicitHeight = 24
+        end
+        object ProgressBar1: TProgressBar
+          AlignWithMargins = True
+          Left = 385
+          Top = 4
+          Width = 200
+          Height = 18
+          Margins.Left = 6
+          Margins.Top = 4
+          Margins.Right = 6
+          Margins.Bottom = 4
+          Align = alLeft
+          Smooth = True
+          Style = pbstMarquee
+          SmoothReverse = True
+          State = pbsPaused
+          TabOrder = 2
+          ExplicitLeft = 487
+          ExplicitTop = -3
+          ExplicitHeight = 16
+        end
       end
     end
     object gBoxResponse: TGroupBox
       Left = 0
-      Top = 127
-      Width = 910
-      Height = 578
+      Top = 198
+      Width = 595
+      Height = 239
       Align = alClient
       Caption = ' Response '
       Padding.Left = 1
       Padding.Right = 1
       Padding.Bottom = 1
       TabOrder = 2
+      ExplicitTop = 127
+      ExplicitWidth = 910
+      ExplicitHeight = 578
       object mmResponse: TMemo
         Left = 3
         Top = 17
-        Width = 904
-        Height = 558
+        Width = 589
+        Height = 219
         Align = alClient
         BorderStyle = bsNone
         ScrollBars = ssVertical
         TabOrder = 0
+        ExplicitLeft = 2
+        ExplicitHeight = 243
       end
     end
   end
   object pnImagesBack: TPanel
     Left = 0
     Top = 0
-    Width = 353
-    Height = 705
-    Align = alLeft
+    Width = 595
+    Height = 279
+    Align = alTop
     BevelOuter = bvNone
     TabOrder = 1
     object Splitter2: TSplitter
       Left = 0
-      Top = 353
-      Width = 353
+      Top = 198
+      Width = 595
       Height = 10
       Cursor = crVSplit
-      Align = alTop
+      Align = alBottom
       Beveled = True
       Color = clMedGray
       ParentColor = False
@@ -269,26 +301,26 @@ object ImagesMainView: TImagesMainView
     object pnImagem01: TPanel
       Left = 0
       Top = 0
-      Width = 353
-      Height = 353
-      Align = alTop
+      Width = 595
+      Height = 198
+      Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitHeight = 219
       object Image1: TImage
         Left = 0
         Top = 32
-        Width = 353
-        Height = 321
+        Width = 595
+        Height = 166
         Align = alClient
         Center = True
         Proportional = True
-        ExplicitLeft = 4
-        ExplicitTop = 34
+        ExplicitHeight = 154
       end
       object Panel2: TPanel
         Left = 0
         Top = 0
-        Width = 353
+        Width = 595
         Height = 32
         Align = alTop
         BevelEdges = [beBottom]
@@ -299,6 +331,7 @@ object ImagesMainView: TImagesMainView
         Padding.Right = 2
         Padding.Bottom = 2
         TabOrder = 0
+        ExplicitWidth = 353
         object btnLoadImage1: TButton
           Left = 2
           Top = 2
@@ -313,29 +346,29 @@ object ImagesMainView: TImagesMainView
     end
     object pnImagem02: TPanel
       Left = 0
-      Top = 363
-      Width = 353
-      Height = 342
-      Align = alClient
+      Top = 208
+      Width = 595
+      Height = 71
+      Align = alBottom
       BevelOuter = bvNone
       TabOrder = 1
       object Image2: TImage
         Left = 0
         Top = 32
-        Width = 353
-        Height = 310
+        Width = 595
+        Height = 39
         Align = alClient
         Center = True
         Proportional = True
         Stretch = True
-        ExplicitTop = 33
-        ExplicitWidth = 488
-        ExplicitHeight = 264
+        ExplicitTop = 34
+        ExplicitWidth = 1273
+        ExplicitHeight = 181
       end
       object Panel5: TPanel
         Left = 0
         Top = 0
-        Width = 353
+        Width = 595
         Height = 32
         Align = alTop
         BevelEdges = [beBottom]
@@ -346,6 +379,7 @@ object ImagesMainView: TImagesMainView
         Padding.Right = 2
         Padding.Bottom = 2
         TabOrder = 0
+        ExplicitWidth = 353
         object btnLoadImage2: TButton
           Left = 2
           Top = 2
@@ -363,8 +397,8 @@ object ImagesMainView: TImagesMainView
     Filter = 
       'JPEG files|*.jpg|PNG files|*.png|WebP files|*.webp|All image fil' +
       'es|*.*'
-    Left = 824
-    Top = 184
+    Left = 648
+    Top = 80
   end
   object TMSMCPCloudAI1: TTMSMCPCloudAI
     Service = aiOpenAI
@@ -379,11 +413,13 @@ object ImagesMainView: TImagesMainView
     Settings.PerplexityModel = 'sonar-pro'
     Settings.OllamaHost = 'localhost'
     Settings.OllamaPath = '/api/chat'
+    Settings.LlamaCppHost = 'localhost'
+    Settings.LlamaCppPath = '/v1/chat/completions'
     Settings.MistralModel = 'mistral-large-latest'
     Settings.MistralTranscribeModel = 'voxtral-mini-2507'
     Tools = <>
     OnExecuted = TMSMCPCloudAI1Executed
-    Left = 723
-    Top = 175
+    Left = 107
+    Top = 503
   end
 end
