@@ -4,9 +4,10 @@ object DM: TDM
   Width = 640
   object FDConnection1: TFDConnection
     Params.Strings = (
-      'Database=C:\Code4D\Projetos\IA-na-pratica\Samples\BD\dados.db'
+      
+        'Database=C:\Code4D\Cursos\TMS\AI\IA-na-pratica\Samples\BD\dados.' +
+        'db'
       'DriverID=SQLite')
-    Connected = True
     LoginPrompt = False
     Left = 128
     Top = 88

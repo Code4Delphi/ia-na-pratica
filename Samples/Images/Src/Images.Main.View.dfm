@@ -2,7 +2,7 @@ object ImagesMainView: TImagesMainView
   Left = 0
   Top = 0
   Caption = 'IA na pr'#225'tica: Multimodal - Imagens'
-  ClientHeight = 713
+  ClientHeight = 833
   ClientWidth = 595
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -16,9 +16,9 @@ object ImagesMainView: TImagesMainView
   TextHeight = 15
   object pnBoth: TPanel
     Left = 0
-    Top = 448
+    Top = 526
     Width = 595
-    Height = 265
+    Height = 307
     Margins.Top = 20
     Align = alBottom
     BevelOuter = bvNone
@@ -98,22 +98,24 @@ object ImagesMainView: TImagesMainView
       Left = 0
       Top = 40
       Width = 595
-      Height = 225
+      Height = 267
       Align = alClient
       Caption = ' Response '
       Padding.Left = 1
       Padding.Right = 1
       Padding.Bottom = 1
       TabOrder = 1
+      ExplicitHeight = 225
       object mmResponse: TMemo
         Left = 3
         Top = 17
         Width = 589
-        Height = 205
+        Height = 247
         Align = alClient
         BorderStyle = bsNone
         ScrollBars = ssVertical
         TabOrder = 0
+        ExplicitHeight = 205
       end
     end
   end
@@ -121,27 +123,30 @@ object ImagesMainView: TImagesMainView
     Left = 0
     Top = 0
     Width = 595
-    Height = 383
+    Height = 461
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 1
+    ExplicitHeight = 383
     object pnImagem01: TPanel
       Left = 0
       Top = 0
       Width = 595
-      Height = 383
+      Height = 461
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitHeight = 383
       object Image1: TImage
         Left = 0
         Top = 32
         Width = 595
-        Height = 351
+        Height = 429
         Align = alClient
         Center = True
         Proportional = True
         ExplicitTop = 34
+        ExplicitHeight = 351
       end
       object Panel2: TPanel
         Left = 0
@@ -173,12 +178,13 @@ object ImagesMainView: TImagesMainView
   end
   object Panel3: TPanel
     Left = 0
-    Top = 383
+    Top = 461
     Width = 595
     Height = 65
     Align = alBottom
     Caption = 'Panel3'
     TabOrder = 2
+    ExplicitTop = 383
     object gBoxQuestion: TGroupBox
       Left = 1
       Top = 1
@@ -195,7 +201,7 @@ object ImagesMainView: TImagesMainView
         Align = alClient
         BorderStyle = bsNone
         Lines.Strings = (
-          'Qual a Quantidade e Cores das camisas?')
+          'Qual a quantidade e cores das camisas?')
         TabOrder = 0
       end
     end
