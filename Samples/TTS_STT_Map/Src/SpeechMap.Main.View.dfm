@@ -37,8 +37,6 @@ object SpeechMapMainView: TSpeechMapMainView
     Options.DefaultLatitude = 40.689247000000000000
     Options.DefaultLongitude = -74.044501999999990000
     Options.DefaultZoomLevel = 12.000000000000000000
-    ExplicitTop = 249
-    ExplicitHeight = 420
   end
   object pnTop: TPanel
     Left = 0
@@ -85,7 +83,7 @@ object SpeechMapMainView: TSpeechMapMainView
         Left = 4
         Top = 9
         Width = 145
-        Height = 26
+        Height = 21
         Margins.Top = 8
         Align = alLeft
         DropDownCount = 15
@@ -131,8 +129,6 @@ object SpeechMapMainView: TSpeechMapMainView
         Caption = 'Add example text'
         TabOrder = 5
         OnClick = btnAddExampleTextClick
-        ExplicitLeft = 705
-        ExplicitTop = 2
       end
       object btnStopTalking: TButton
         AlignWithMargins = True
@@ -145,7 +141,6 @@ object SpeechMapMainView: TSpeechMapMainView
         Caption = 'Stop talking'
         TabOrder = 6
         OnClick = btnStopTalkingClick
-        ExplicitLeft = 744
       end
     end
     object gBoxTanscription: TGroupBox
@@ -159,7 +154,6 @@ object SpeechMapMainView: TSpeechMapMainView
       Padding.Right = 1
       Padding.Bottom = 1
       TabOrder = 1
-      ExplicitHeight = 71
       object mmTanscription: TMemo
         Left = 3
         Top = 15
@@ -192,7 +186,6 @@ object SpeechMapMainView: TSpeechMapMainView
         BorderStyle = bsNone
         ScrollBars = ssVertical
         TabOrder = 0
-        ExplicitHeight = 82
       end
     end
     object Panel1: TPanel
@@ -202,7 +195,6 @@ object SpeechMapMainView: TSpeechMapMainView
       Height = 35
       Align = alBottom
       TabOrder = 3
-      ExplicitTop = 112
       object btnExecute: TBitBtn
         AlignWithMargins = True
         Left = 4
@@ -213,9 +205,6 @@ object SpeechMapMainView: TSpeechMapMainView
         Caption = 'Execute'
         TabOrder = 0
         OnClick = btnExecuteClick
-        ExplicitLeft = 1
-        ExplicitTop = 3
-        ExplicitHeight = 26
       end
       object ProgressBar1: TProgressBar
         AlignWithMargins = True
@@ -233,8 +222,6 @@ object SpeechMapMainView: TSpeechMapMainView
         SmoothReverse = True
         State = pbsPaused
         TabOrder = 1
-        ExplicitLeft = 410
-        ExplicitHeight = 21
       end
     end
   end
@@ -259,6 +246,8 @@ object SpeechMapMainView: TSpeechMapMainView
     Settings.PerplexityModel = 'llama-3.1-sonar-small-128k-online'
     Settings.OllamaHost = 'localhost'
     Settings.OllamaPath = '/api/chat'
+    Settings.LlamaCppHost = 'localhost'
+    Settings.LlamaCppPath = '/v1/chat/completions'
     Settings.MistralModel = 'mistral-large-latest'
     Settings.MistralTranscribeModel = 'voxtral-mini-2507'
     Tools = <>

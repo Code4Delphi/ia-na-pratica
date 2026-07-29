@@ -19,7 +19,7 @@ object ToolsetsMainView: TToolsetsMainView
     Top = 0
     Width = 1033
     Height = 645
-    ActivePage = TabSheet1
+    ActivePage = tabChat
     Align = alClient
     TabOrder = 0
     object tabAPIKeys: TTabSheet
@@ -281,7 +281,6 @@ object ToolsetsMainView: TToolsetsMainView
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitLeft = -3
         object Label22: TLabel
           Left = 26
           Top = 14
@@ -455,7 +454,7 @@ object ToolsetsMainView: TToolsetsMainView
           MaxLength = 3
           NumbersOnly = True
           TabOrder = 2
-          Text = '0'
+          Text = '1'
         end
         object ckWebSearch: TCheckBox
           Left = 554
@@ -664,6 +663,8 @@ object ToolsetsMainView: TToolsetsMainView
           BorderStyle = bsNone
           ScrollBars = ssVertical
           TabOrder = 1
+          ExplicitLeft = 2
+          ExplicitTop = 13
         end
       end
     end
@@ -1046,12 +1047,14 @@ object ToolsetsMainView: TToolsetsMainView
     Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
     Settings.OpenAITranscribeModel = 'whisper-1'
     Settings.GrokModel = 'grok-3'
-    Settings.ClaudeModel = 'claude-sonnet-4-20250514'
+    Settings.ClaudeModel = 'claude-sonnet-5'
     Settings.OllamaModel = 'llama3.2:latest'
     Settings.DeepSeekModel = 'deepseek-chat'
     Settings.PerplexityModel = 'sonar-pro'
     Settings.OllamaHost = 'localhost'
     Settings.OllamaPath = '/api/chat'
+    Settings.LlamaCppHost = 'localhost'
+    Settings.LlamaCppPath = '/v1/chat/completions'
     Settings.MistralModel = 'mistral-large-latest'
     Settings.MistralTranscribeModel = 'voxtral-mini-2507'
     Tools = <>
@@ -1112,8 +1115,8 @@ object ToolsetsMainView: TToolsetsMainView
     Top = 384
   end
   object PopupMenu1: TPopupMenu
-    Left = 965
-    Top = 116
+    Left = 269
+    Top = 140
     object AddPromptsTeste1: TMenuItem
       Caption = 'Add prompts de testes'
       OnClick = AddPromptsTeste1Click

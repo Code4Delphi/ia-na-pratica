@@ -33,7 +33,6 @@ object ChatMainView: TChatMainView
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 0
-        ExplicitTop = 3
         DesignSize = (
           1025
           584)
@@ -183,7 +182,6 @@ object ChatMainView: TChatMainView
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 0
-        ExplicitTop = 3
         DesignSize = (
           1025
           584)
@@ -578,7 +576,7 @@ object ChatMainView: TChatMainView
     Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
     Settings.OpenAITranscribeModel = 'whisper-1'
     Settings.GrokModel = 'grok-3'
-    Settings.ClaudeModel = 'claude-sonnet-4-20250514'
+    Settings.ClaudeModel = 'claude-sonnet-5'
     Settings.OllamaModel = 'llama3.2:latest'
     Settings.DeepSeekModel = 'deepseek-chat'
     Settings.PerplexityModel = 'sonar-pro'

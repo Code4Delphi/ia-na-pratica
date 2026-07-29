@@ -323,14 +323,13 @@ object ReportsExcelMainView: TReportsExcelMainView
       Left = 174
       Top = 0
       Width = 93
-      Height = 21
+      Height = 15
       Hint = 'N'#186' de tokens que a resposta cont'#233'm: '
       Align = alLeft
       Caption = 'Tokens response: '
       ParentShowHint = False
       ShowHint = True
       Layout = tlCenter
-      ExplicitHeight = 15
     end
     object lbNumTokensResponse: TLabel
       Left = 267
@@ -347,11 +346,10 @@ object ReportsExcelMainView: TReportsExcelMainView
       Left = 0
       Top = 0
       Width = 84
-      Height = 21
+      Height = 15
       Align = alLeft
       Caption = 'Prompt tokens: '
       Layout = tlCenter
-      ExplicitHeight = 15
     end
     object lbPromptTokens: TLabel
       Left = 84
@@ -368,31 +366,28 @@ object ReportsExcelMainView: TReportsExcelMainView
       Left = 517
       Top = 0
       Width = 90
-      Height = 21
+      Height = 15
       Align = alLeft
       Caption = 'Model response: '
       Layout = tlCenter
-      ExplicitHeight = 15
     end
     object lbServiceModel: TLabel
       Left = 607
       Top = 0
       Width = 5
-      Height = 21
+      Height = 15
       Align = alLeft
       Caption = '-'
       Layout = tlCenter
-      ExplicitHeight = 15
     end
     object Label12: TLabel
       Left = 357
       Top = 0
       Width = 70
-      Height = 21
+      Height = 15
       Align = alLeft
       Caption = 'Total tokens: '
       Layout = tlCenter
-      ExplicitHeight = 15
     end
     object lbTotalTokens: TLabel
       Left = 427
@@ -413,12 +408,14 @@ object ReportsExcelMainView: TReportsExcelMainView
     Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
     Settings.OpenAITranscribeModel = 'whisper-1'
     Settings.GrokModel = 'grok-3'
-    Settings.ClaudeModel = 'claude-sonnet-4-5-20250929'
+    Settings.ClaudeModel = 'claude-sonnet-5'
     Settings.OllamaModel = 'llama3.2:latest'
     Settings.DeepSeekModel = 'deepseek-chat'
     Settings.PerplexityModel = 'sonar-pro'
     Settings.OllamaHost = 'localhost'
     Settings.OllamaPath = '/api/chat'
+    Settings.LlamaCppHost = 'localhost'
+    Settings.LlamaCppPath = '/v1/chat/completions'
     Settings.MistralModel = 'mistral-large-latest'
     Settings.MistralTranscribeModel = 'voxtral-mini-2507'
     Tools = <>

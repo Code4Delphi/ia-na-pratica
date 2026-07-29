@@ -194,14 +194,13 @@ object TokenUsageTrackingMainView: TTokenUsageTrackingMainView
       Left = 181
       Top = 17
       Width = 93
-      Height = 32
+      Height = 15
       Hint = 'N'#186' de tokens que a resposta cont'#233'm: '
       Align = alLeft
       Caption = 'Tokens response: '
       ParentShowHint = False
       ShowHint = True
       Layout = tlCenter
-      ExplicitHeight = 15
     end
     object lbNumTokensResponse: TLabel
       Left = 274
@@ -220,11 +219,10 @@ object TokenUsageTrackingMainView: TTokenUsageTrackingMainView
       Left = 7
       Top = 17
       Width = 84
-      Height = 32
+      Height = 15
       Align = alLeft
       Caption = 'Prompt tokens: '
       Layout = tlCenter
-      ExplicitHeight = 15
     end
     object lbPromptTokens: TLabel
       Left = 91
@@ -243,31 +241,28 @@ object TokenUsageTrackingMainView: TTokenUsageTrackingMainView
       Left = 524
       Top = 17
       Width = 90
-      Height = 32
+      Height = 15
       Align = alLeft
       Caption = 'Model response: '
       Layout = tlCenter
-      ExplicitHeight = 15
     end
     object lbServiceModel: TLabel
       Left = 614
       Top = 17
       Width = 5
-      Height = 32
+      Height = 15
       Align = alLeft
       Caption = '-'
       Layout = tlCenter
-      ExplicitHeight = 15
     end
     object Label12: TLabel
       Left = 364
       Top = 17
       Width = 70
-      Height = 32
+      Height = 15
       Align = alLeft
       Caption = 'Total tokens: '
       Layout = tlCenter
-      ExplicitHeight = 15
     end
     object lbTotalTokens: TLabel
       Left = 434
@@ -296,14 +291,13 @@ object TokenUsageTrackingMainView: TTokenUsageTrackingMainView
       Left = 181
       Top = 17
       Width = 93
-      Height = 32
+      Height = 15
       Hint = 'N'#186' de tokens que a resposta cont'#233'm: '
       Align = alLeft
       Caption = 'Tokens response: '
       ParentShowHint = False
       ShowHint = True
       Layout = tlCenter
-      ExplicitHeight = 15
     end
     object lbNumTokensResponseUsedSession: TLabel
       Left = 274
@@ -320,11 +314,10 @@ object TokenUsageTrackingMainView: TTokenUsageTrackingMainView
       Left = 7
       Top = 17
       Width = 84
-      Height = 32
+      Height = 15
       Align = alLeft
       Caption = 'Prompt tokens: '
       Layout = tlCenter
-      ExplicitHeight = 15
     end
     object lbPromptTokensUsedSession: TLabel
       Left = 91
@@ -343,11 +336,10 @@ object TokenUsageTrackingMainView: TTokenUsageTrackingMainView
       Left = 364
       Top = 17
       Width = 70
-      Height = 32
+      Height = 15
       Align = alLeft
       Caption = 'Total tokens: '
       Layout = tlCenter
-      ExplicitHeight = 15
     end
     object lbTotalTokensUsedSession: TLabel
       Left = 434
@@ -386,6 +378,8 @@ object TokenUsageTrackingMainView: TTokenUsageTrackingMainView
     Settings.PerplexityModel = 'llama-3.1-sonar-small-128k-online'
     Settings.OllamaHost = 'localhost'
     Settings.OllamaPath = '/api/chat'
+    Settings.LlamaCppHost = 'localhost'
+    Settings.LlamaCppPath = '/v1/chat/completions'
     Settings.MistralModel = 'mistral-large-latest'
     Settings.MistralTranscribeModel = 'voxtral-mini-2507'
     Tools = <>

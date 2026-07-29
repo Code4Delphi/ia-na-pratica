@@ -81,7 +81,7 @@ begin
 
   TMSMCPCloudAI1.APIKeys.LoadFromFile('..\..\Files\aikeys.cfg', 'PasswordTest');
   cBoxIAService.Items.Assign(TMSMCPCloudAI1.GetServices(True));
-  cBoxIAService.ItemIndex := 6;
+  cBoxIAService.ItemIndex := 7;
 
   Self.Settings;
 end;

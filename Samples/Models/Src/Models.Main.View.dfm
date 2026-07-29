@@ -116,7 +116,7 @@ object ModelsMainView: TModelsMainView
     Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
     Settings.OpenAITranscribeModel = 'whisper-1'
     Settings.GrokModel = 'grok-3'
-    Settings.ClaudeModel = 'claude-sonnet-4-20250514'
+    Settings.ClaudeModel = 'claude-sonnet-5'
     Settings.OllamaModel = 'llama3.2:latest'
     Settings.DeepSeekModel = 'deepseek-chat'
     Settings.PerplexityModel = 'sonar-pro'

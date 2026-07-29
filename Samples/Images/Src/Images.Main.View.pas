@@ -64,6 +64,7 @@ type
     procedure btnVendasPeriodoClick(Sender: TObject);
     procedure TMSMCPCloudAI1Executed(Sender: TObject; AResponse: TTMSMCPCloudAIResponse; AHttpStatusCode: Integer;
       AHttpResult: string);
+    procedure btnQtdCamisasClick(Sender: TObject);
   private
     FFileNameImg1: string;
     FFileNameImg2: string;
@@ -126,6 +127,13 @@ begin
 
   FFileNameImg2 := OpenDialog1.FileName;
   Image2.Picture.LoadFromFile(OpenDialog1.FileName);
+end;
+
+procedure TImagesMainView.btnQtdCamisasClick(Sender: TObject);
+begin
+  mmQuestion.Text := 'Quais são as quantidades e as cores das camisas na imagem?';
+  ckAddImagem1.Checked := True;
+  ckAddImagem2.Checked := False;
 end;
 
 procedure TImagesMainView.btnDescrevaImagem1Click(Sender: TObject);

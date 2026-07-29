@@ -121,7 +121,7 @@ begin
 
   //CARREGAR IAS DISPONIVEIS
   cBoxIAService.Items.Assign(TMSMCPCloudAI1.GetServices(True));
-  cBoxIAService.ItemIndex := 6;
+  cBoxIAService.ItemIndex := 7;
 
   Self.Settings;
   Self.ModelsComponentToScreen;
@@ -133,6 +133,11 @@ begin
   TMSMCPCloudAI1.LogFileName := '..\..\Files\Chat.log';
 
   TMSMCPCloudAI1.Settings.Temperature := StrToIntDef(edtTemperature.Text, 0);
+
+  if TMSMCPCloudAI1.Settings.Temperature = 0 then
+    if cBoxIAService.ItemIndex = 3 then //Claude
+      TMSMCPCloudAI1.Settings.Temperature := 1;
+
   TMSMCPCloudAI1.Settings.MaxTokens := StrToIntDef(edtMaxTokens.Text, 0);
   TMSMCPCloudAI1.Settings.WebSearch := ckWebSearch.Checked;
 end;

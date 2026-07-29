@@ -1887,8 +1887,6 @@ object ReportsPDFMainView: TReportsPDFMainView
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
-      ExplicitLeft = 4
-      ExplicitTop = 16
     end
   end
   object pnResponseDetails: TPanel
@@ -1995,12 +1993,14 @@ object ReportsPDFMainView: TReportsPDFMainView
     Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
     Settings.OpenAITranscribeModel = 'whisper-1'
     Settings.GrokModel = 'grok-3'
-    Settings.ClaudeModel = 'claude-sonnet-4-5-20250929'
+    Settings.ClaudeModel = 'claude-sonnet-5'
     Settings.OllamaModel = 'llama3.2:latest'
     Settings.DeepSeekModel = 'deepseek-chat'
     Settings.PerplexityModel = 'sonar-pro'
     Settings.OllamaHost = 'localhost'
     Settings.OllamaPath = '/api/chat'
+    Settings.LlamaCppHost = 'localhost'
+    Settings.LlamaCppPath = '/v1/chat/completions'
     Settings.MistralModel = 'mistral-large-latest'
     Settings.MistralTranscribeModel = 'voxtral-mini-2507'
     Tools = <>

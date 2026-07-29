@@ -75,8 +75,6 @@ object MainView: TMainView
         Lines.Strings = (
           'Ol'#225' quem '#233' voc'#234' e quem '#233' o seu fabricante?')
         TabOrder = 0
-        ExplicitLeft = 4
-        ExplicitTop = 11
       end
       object gBoxDefaultsPrompts: TGroupBox
         Left = 3
@@ -278,8 +276,6 @@ object MainView: TMainView
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
-      ExplicitLeft = 4
-      ExplicitTop = 16
     end
   end
   object TMSMCPCloudAI1: TTMSMCPCloudAI
@@ -289,14 +285,17 @@ object MainView: TMainView
     Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
     Settings.OpenAITranscribeModel = 'whisper-1'
     Settings.GrokModel = 'grok-3'
-    Settings.ClaudeModel = 'claude-sonnet-4-20250514'
+    Settings.ClaudeModel = 'claude-sonnet-5'
     Settings.OllamaModel = 'llama3.2:latest'
     Settings.DeepSeekModel = 'deepseek-chat'
     Settings.PerplexityModel = 'sonar-pro'
     Settings.OllamaHost = 'localhost'
     Settings.OllamaPath = '/api/chat'
+    Settings.LlamaCppHost = 'localhost'
+    Settings.LlamaCppPath = '/v1/chat/completions'
     Settings.MistralModel = 'mistral-large-latest'
     Settings.MistralTranscribeModel = 'voxtral-mini-2507'
+    Settings.Temperature = 1.000000000000000000
     Tools = <
       item
         Name = 'GetEstoqueProduto'
