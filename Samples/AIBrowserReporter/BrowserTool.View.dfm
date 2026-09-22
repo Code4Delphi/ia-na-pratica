@@ -1,7 +1,7 @@
 object BrowserToolView: TBrowserToolView
   Left = 0
   Top = 0
-  Caption = 'AI browser tool interface demo'
+  Caption = 'AI browser tool interface demo - Charts'
   ClientHeight = 757
   ClientWidth = 966
   Color = clBtnFace
@@ -34628,12 +34628,14 @@ object BrowserToolView: TBrowserToolView
     Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
     Settings.OpenAITranscribeModel = 'whisper-1'
     Settings.GrokModel = 'grok-3'
-    Settings.ClaudeModel = 'claude-3-5-sonnet-20241022'
+    Settings.ClaudeModel = 'claude-sonnet-5'
     Settings.OllamaModel = 'llama3.2:latest'
     Settings.DeepSeekModel = 'deepseek-chat'
     Settings.PerplexityModel = 'sonar-pro'
     Settings.OllamaHost = 'localhost'
     Settings.OllamaPath = '/api/chat'
+    Settings.LlamaCppHost = 'localhost'
+    Settings.LlamaCppPath = '/v1/chat/completions'
     Settings.MistralModel = 'mistral-large-latest'
     Settings.MistralTranscribeModel = 'voxtral-mini-2507'
     Tools = <>

@@ -104,7 +104,7 @@ begin
 
   TMSMCPCloudAI1.APIKeys.LoadFromFile(KEYS_FILE, KEYS_PASSWORD);
   cBoxIAService.Items.Assign(TMSMCPCloudAI1.GetServices(True));
-  cBoxIAService.ItemIndex := 6;
+  cBoxIAService.ItemIndex := 7;
 
   FToolSetDatabase := TToolSetDatabase.Create(Self);
   FToolSetDatabase.AI := TMSMCPCloudAI1;

@@ -110,25 +110,34 @@ object ImagesMainView: TImagesMainView
           Padding.Bottom = 3
           TabOrder = 1
           object btnVendasPeriodo: TButton
+            AlignWithMargins = True
             Left = 0
             Top = 0
             Width = 129
             Height = 24
             Hint = 'Extrair o texto da imagem 1'
+            Margins.Left = 0
+            Margins.Top = 0
+            Margins.Bottom = 0
             Align = alLeft
             Caption = 'Oceriza'#231#227'o - OCR'
             TabOrder = 0
             OnClick = btnVendasPeriodoClick
           end
           object btnQtdCamisas: TButton
-            Left = 129
+            AlignWithMargins = True
+            Left = 132
             Top = 0
             Width = 129
             Height = 24
             Hint = 'Extrair o texto da imagem 1'
+            Margins.Left = 0
+            Margins.Top = 0
+            Margins.Bottom = 0
             Align = alLeft
             Caption = 'Quantidade camisas'
             TabOrder = 1
+            OnClick = btnQtdCamisasClick
           end
         end
       end
@@ -373,14 +382,17 @@ object ImagesMainView: TImagesMainView
     Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
     Settings.OpenAITranscribeModel = 'whisper-1'
     Settings.GrokModel = 'grok-3'
-    Settings.ClaudeModel = 'claude-sonnet-4-20250514'
+    Settings.ClaudeModel = 'claude-sonnet-5'
     Settings.OllamaModel = 'llama3.2:latest'
     Settings.DeepSeekModel = 'deepseek-chat'
     Settings.PerplexityModel = 'sonar-pro'
     Settings.OllamaHost = 'localhost'
     Settings.OllamaPath = '/api/chat'
+    Settings.LlamaCppHost = 'localhost'
+    Settings.LlamaCppPath = '/v1/chat/completions'
     Settings.MistralModel = 'mistral-large-latest'
     Settings.MistralTranscribeModel = 'voxtral-mini-2507'
+    Settings.Temperature = 1.000000000000000000
     Tools = <>
     OnExecuted = TMSMCPCloudAI1Executed
     Left = 723

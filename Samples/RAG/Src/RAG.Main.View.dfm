@@ -200,14 +200,13 @@ object RAGMainView: TRAGMainView
         Left = 174
         Top = 0
         Width = 93
-        Height = 21
+        Height = 15
         Hint = 'N'#186' de tokens que a resposta cont'#233'm: '
         Align = alLeft
         Caption = 'Tokens response: '
         ParentShowHint = False
         ShowHint = True
         Layout = tlCenter
-        ExplicitHeight = 15
       end
       object lbNumTokensResponse: TLabel
         Left = 267
@@ -224,11 +223,10 @@ object RAGMainView: TRAGMainView
         Left = 0
         Top = 0
         Width = 84
-        Height = 21
+        Height = 15
         Align = alLeft
         Caption = 'Prompt tokens: '
         Layout = tlCenter
-        ExplicitHeight = 15
       end
       object lbPromptTokens: TLabel
         Left = 84
@@ -245,31 +243,28 @@ object RAGMainView: TRAGMainView
         Left = 517
         Top = 0
         Width = 90
-        Height = 21
+        Height = 15
         Align = alLeft
         Caption = 'Model response: '
         Layout = tlCenter
-        ExplicitHeight = 15
       end
       object lbServiceModel: TLabel
         Left = 607
         Top = 0
         Width = 5
-        Height = 21
+        Height = 15
         Align = alLeft
         Caption = '-'
         Layout = tlCenter
-        ExplicitHeight = 15
       end
       object Label12: TLabel
         Left = 357
         Top = 0
         Width = 70
-        Height = 21
+        Height = 15
         Align = alLeft
         Caption = 'Total tokens: '
         Layout = tlCenter
-        ExplicitHeight = 15
       end
       object lbTotalTokens: TLabel
         Left = 427
@@ -359,6 +354,8 @@ object RAGMainView: TRAGMainView
     Settings.PerplexityModel = 'llama-3.1-sonar-small-128k-online'
     Settings.OllamaHost = 'localhost'
     Settings.OllamaPath = '/api/chat'
+    Settings.LlamaCppHost = 'localhost'
+    Settings.LlamaCppPath = '/v1/chat/completions'
     Settings.MistralModel = 'mistral-large-latest'
     Settings.MistralTranscribeModel = 'voxtral-mini-2507'
     Tools = <>

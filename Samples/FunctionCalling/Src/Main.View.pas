@@ -85,13 +85,13 @@ implementation
 
 procedure TMainView.FormCreate(Sender: TObject);
 begin
-  ReportMemoryLeaksOnShutdown := True;
+  FormatSettings.ShortDateFormat := 'yyyy-MM-dd';
 
   TMSMCPCloudAI1.APIKeys.LoadFromFile('..\..\Files\aikeys.cfg', 'PasswordTest');
   TMSMCPCloudAI1.Settings.WebSearch := True;
 
   cBoxIAService.Items.Assign(TMSMCPCloudAI1.GetServices(True));
-  cBoxIAService.ItemIndex := 6;
+  cBoxIAService.ItemIndex := 7;
 end;
 
 procedure TMainView.btnDadosProdutoClick(Sender: TObject);

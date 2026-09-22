@@ -86,6 +86,10 @@ type
     edtModelOpenAI: TEdit;
     edtModelPerplexity: TEdit;
     TMSMCPCloudAI1: TTMSMCPCloudAI;
+    Label22: TLabel;
+    edtKeyOpenRouter: TEdit;
+    Label23: TLabel;
+    edtModelOpenRouter: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure btnExecuteClick(Sender: TObject);
     procedure btnSaveKeysClick(Sender: TObject);
@@ -121,7 +125,7 @@ begin
 
   //CARREGAR IAS DISPONIVEIS
   cBoxIAService.Items.Assign(TMSMCPCloudAI1.GetServices(True));
-  cBoxIAService.ItemIndex := 6;
+  cBoxIAService.ItemIndex := 7;
 
   Self.Settings;
   Self.ModelsComponentToScreen;
@@ -133,6 +137,11 @@ begin
   TMSMCPCloudAI1.LogFileName := '..\..\Files\Chat.log';
 
   TMSMCPCloudAI1.Settings.Temperature := StrToIntDef(edtTemperature.Text, 0);
+
+  if TMSMCPCloudAI1.Settings.Temperature = 0 then
+    if cBoxIAService.ItemIndex = 3 then //Claude
+      TMSMCPCloudAI1.Settings.Temperature := 1;
+
   TMSMCPCloudAI1.Settings.MaxTokens := StrToIntDef(edtMaxTokens.Text, 0);
   TMSMCPCloudAI1.Settings.WebSearch := ckWebSearch.Checked;
 end;
@@ -158,6 +167,7 @@ begin
   edtKeyMistral.Text := TMSMCPCloudAI1.APIKeys.Mistral;
   edtKeyOpenAI.Text := TMSMCPCloudAI1.APIKeys.OpenAI;
   edtKeyPerplexity.Text := TMSMCPCloudAI1.APIKeys.Perplexity;
+  edtKeyOpenRouter.Text := TMSMCPCloudAI1.APIKeys.OpenRouter;
 end;
 
 procedure TChatMainView.SaveKeys;
@@ -169,6 +179,7 @@ begin
   TMSMCPCloudAI1.APIKeys.Mistral := edtKeyMistral.Text;
   TMSMCPCloudAI1.APIKeys.OpenAI := edtKeyOpenAI.Text;
   TMSMCPCloudAI1.APIKeys.Perplexity := edtKeyPerplexity.Text;
+  TMSMCPCloudAI1.APIKeys.OpenRouter := edtKeyOpenRouter.Text;
 
   TMSMCPCloudAI1.APIKeys.SaveToFile(KEYS_FILE, KEYS_PASSWORD);
 end;
@@ -182,6 +193,7 @@ begin
   edtModelMistral.Text := TMSMCPCloudAI1.Settings.MistralModel;
   edtModelOpenAI.Text := TMSMCPCloudAI1.Settings.OpenAIModel;
   edtModelPerplexity.Text := TMSMCPCloudAI1.Settings.PerplexityModel;
+  edtModelOpenRouter.Text := TMSMCPCloudAI1.Settings.OpenRouterModel;
 end;
 
 procedure TChatMainView.ModelsScreenToComponent;
@@ -193,6 +205,7 @@ begin
   TMSMCPCloudAI1.Settings.MistralModel := edtModelMistral.Text;
   TMSMCPCloudAI1.Settings.OpenAIModel := edtModelOpenAI.Text;
   TMSMCPCloudAI1.Settings.PerplexityModel := edtModelPerplexity.Text;
+  TMSMCPCloudAI1.Settings.OpenRouterModel := edtModelOpenRouter.Text;
 end;
 
 procedure TChatMainView.ClearResponse;

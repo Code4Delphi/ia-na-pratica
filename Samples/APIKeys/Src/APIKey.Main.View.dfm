@@ -2,7 +2,7 @@ object APIKeyMainView: TAPIKeyMainView
   Left = 0
   Top = 0
   Caption = 'IA na pr'#225'tica: API Keys'
-  ClientHeight = 390
+  ClientHeight = 422
   ClientWidth = 801
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -18,11 +18,15 @@ object APIKeyMainView: TAPIKeyMainView
     Left = 0
     Top = 0
     Width = 801
-    Height = 361
+    Height = 393
     Align = alClient
     BevelOuter = bvNone
     ParentBackground = False
     TabOrder = 0
+    ExplicitTop = -1
+    DesignSize = (
+      801
+      393)
     object Label2: TLabel
       Left = 18
       Top = 32
@@ -71,6 +75,15 @@ object APIKeyMainView: TAPIKeyMainView
       Width = 51
       Height = 15
       Caption = 'Perplexity'
+    end
+    object Label22: TLabel
+      Left = 2
+      Top = 310
+      Width = 67
+      Height = 15
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'OpenRouter'
     end
     object edtKeyClaude: TEdit
       Left = 82
@@ -130,7 +143,7 @@ object APIKeyMainView: TAPIKeyMainView
     end
     object btnLoadKeys: TButton
       Left = 623
-      Top = 310
+      Top = 342
       Width = 75
       Height = 25
       Caption = 'Load'
@@ -139,41 +152,32 @@ object APIKeyMainView: TAPIKeyMainView
     end
     object btnSaveKeys: TButton
       Left = 704
-      Top = 310
+      Top = 342
       Width = 75
       Height = 25
       Caption = 'Save'
       TabOrder = 8
       OnClick = btnSaveKeysClick
     end
-    object TMSFNCCloudAI1: TTMSFNCCloudAI
-      Left = 520
-      Top = 272
-      Width = 26
-      Height = 26
-      Visible = True
-      Service = aiOpenAI
-      Settings.GeminiModel = 'gemini-1.5-flash-latest'
-      Settings.OpenAIModel = 'gpt-4o'
-      Settings.GrokModel = 'grok-beta'
-      Settings.ClaudeModel = 'claude-3-5-sonnet-20241022'
-      Settings.OllamaModel = 'llama3.2:latest'
-      Settings.DeepSeekModel = 'deepseek-chat'
-      Settings.PerplexityModel = 'llama-3.1-sonar-small-128k-online'
-      Settings.OllamaHost = 'localhost'
-      Settings.OllamaPath = '/api/chat'
-      Settings.MistralModel = 'mistral-large-latest'
-      Tools = <>
+    object edtKeyOpenRouter: TEdit
+      Left = 82
+      Top = 307
+      Width = 697
+      Height = 23
+      Anchors = [akLeft, akTop, akRight]
+      PasswordChar = '*'
+      TabOrder = 9
     end
   end
   object pnBottom: TPanel
     Left = 0
-    Top = 361
+    Top = 393
     Width = 801
     Height = 29
     Align = alBottom
     BevelInner = bvLowered
-    TabOrder = 2
+    TabOrder = 1
+    ExplicitTop = 361
     object Label1: TLabel
       Left = 2
       Top = 2
@@ -205,5 +209,30 @@ object APIKeyMainView: TAPIKeyMainView
       TabOrder = 0
       OnClick = btnOpenFolderClick
     end
+  end
+  object TMSMCPCloudAI1: TTMSMCPCloudAI
+    APIKeys.OpenRouter = 
+      'sk-or-v1-775421e70a70972f9187ad4b94887bed77c8824bc358f45c2e78af7' +
+      'e5447c0e4'
+    Service = aiOpenAI
+    Settings.GeminiModel = 'gemini-2.5-flash'
+    Settings.OpenAIModel = 'gpt-4o'
+    Settings.OpenAISoundModel = 'gpt-4o-mini-tts'
+    Settings.OpenAITranscribeModel = 'whisper-1'
+    Settings.GrokModel = 'grok-3'
+    Settings.ClaudeModel = 'claude-sonnet-5'
+    Settings.OllamaModel = 'llama3.2:latest'
+    Settings.DeepSeekModel = 'deepseek-chat'
+    Settings.PerplexityModel = 'sonar-pro'
+    Settings.OllamaHost = 'localhost'
+    Settings.OllamaPath = '/api/chat'
+    Settings.LlamaCppHost = 'localhost'
+    Settings.LlamaCppPath = '/v1/chat/completions'
+    Settings.MistralModel = 'mistral-large-latest'
+    Settings.MistralTranscribeModel = 'voxtral-mini-2507'
+    Settings.OpenRouterModel = 'z-ai/glm-5.3-flash'
+    Tools = <>
+    Left = 317
+    Top = 186
   end
 end
