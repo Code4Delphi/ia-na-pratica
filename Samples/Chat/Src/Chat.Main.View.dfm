@@ -19,7 +19,7 @@ object ChatMainView: TChatMainView
     Top = 0
     Width = 1033
     Height = 614
-    ActivePage = tabAPIKeys
+    ActivePage = tabChat
     Align = alClient
     TabOrder = 0
     object tabAPIKeys: TTabSheet
@@ -33,6 +33,7 @@ object ChatMainView: TChatMainView
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 0
+        ExplicitLeft = -3
         DesignSize = (
           1025
           584)
