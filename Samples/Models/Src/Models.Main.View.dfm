@@ -34,6 +34,7 @@ object ModelsMainView: TModelsMainView
       Width = 201
       Height = 23
       Style = csDropDownList
+      DropDownCount = 15
       TabOrder = 0
     end
     object btnShowModels: TButton
@@ -78,6 +79,8 @@ object ModelsMainView: TModelsMainView
       BorderStyle = bsNone
       ScrollBars = ssVertical
       TabOrder = 0
+      ExplicitLeft = 2
+      ExplicitTop = 13
     end
     object pnBottom: TPanel
       Left = 3
@@ -122,8 +125,11 @@ object ModelsMainView: TModelsMainView
     Settings.PerplexityModel = 'sonar-pro'
     Settings.OllamaHost = 'localhost'
     Settings.OllamaPath = '/api/chat'
+    Settings.LlamaCppHost = 'localhost'
+    Settings.LlamaCppPath = '/v1/chat/completions'
     Settings.MistralModel = 'mistral-large-latest'
     Settings.MistralTranscribeModel = 'voxtral-mini-2507'
+    Settings.OpenRouterModel = 'z-ai/glm-5.3-flash'
     Tools = <>
     OnGetModels = TMSMCPCloudAI1GetModels
     Left = 512

@@ -19,7 +19,7 @@ object ChatMainView: TChatMainView
     Top = 0
     Width = 1033
     Height = 614
-    ActivePage = tabChat
+    ActivePage = tabAPIKeys
     Align = alClient
     TabOrder = 0
     object tabAPIKeys: TTabSheet
@@ -37,53 +37,76 @@ object ChatMainView: TChatMainView
           1025
           584)
         object Label2: TLabel
-          Left = 16
+          Left = 9
           Top = 19
-          Width = 37
+          Width = 67
           Height = 15
+          Alignment = taRightJustify
+          AutoSize = False
           Caption = 'Claude'
         end
         object Label3: TLabel
-          Left = 16
+          Left = 9
           Top = 59
-          Width = 51
+          Width = 67
           Height = 15
+          Alignment = taRightJustify
+          AutoSize = False
           Caption = 'DeepSeek'
         end
         object Label4: TLabel
-          Left = 16
+          Left = 9
           Top = 99
-          Width = 38
+          Width = 67
           Height = 15
+          Alignment = taRightJustify
+          AutoSize = False
           Caption = 'Gemini'
         end
         object Label5: TLabel
-          Left = 16
+          Left = 9
           Top = 139
-          Width = 25
+          Width = 67
           Height = 15
+          Alignment = taRightJustify
+          AutoSize = False
           Caption = 'Grok'
         end
         object Label6: TLabel
-          Left = 16
+          Left = 9
           Top = 179
-          Width = 36
+          Width = 67
           Height = 15
+          Alignment = taRightJustify
+          AutoSize = False
           Caption = 'Mistral'
         end
         object Label7: TLabel
-          Left = 16
+          Left = 9
           Top = 219
-          Width = 40
+          Width = 67
           Height = 15
+          Alignment = taRightJustify
+          AutoSize = False
           Caption = 'OpenAI'
         end
         object Label8: TLabel
-          Left = 16
+          Left = 9
           Top = 259
-          Width = 51
+          Width = 67
           Height = 15
+          Alignment = taRightJustify
+          AutoSize = False
           Caption = 'Perplexity'
+        end
+        object Label22: TLabel
+          Left = 9
+          Top = 299
+          Width = 67
+          Height = 15
+          Alignment = taRightJustify
+          AutoSize = False
+          Caption = 'OpenRouter'
         end
         object edtKeyClaude: TEdit
           Left = 80
@@ -150,7 +173,7 @@ object ChatMainView: TChatMainView
         end
         object btnLoadKeys: TButton
           Left = 853
-          Top = 297
+          Top = 345
           Width = 75
           Height = 25
           Anchors = [akTop, akRight]
@@ -160,13 +183,22 @@ object ChatMainView: TChatMainView
         end
         object btnSaveKeys: TButton
           Left = 934
-          Top = 297
+          Top = 345
           Width = 75
           Height = 25
           Anchors = [akTop, akRight]
           Caption = 'Save'
           TabOrder = 8
           OnClick = btnSaveKeysClick
+        end
+        object edtKeyOpenRouter: TEdit
+          Left = 80
+          Top = 296
+          Width = 929
+          Height = 23
+          Anchors = [akLeft, akTop, akRight]
+          PasswordChar = '*'
+          TabOrder = 9
         end
       end
     end
@@ -186,53 +218,76 @@ object ChatMainView: TChatMainView
           1025
           584)
         object Label15: TLabel
-          Left = 16
+          Left = 8
           Top = 19
-          Width = 37
+          Width = 67
           Height = 15
+          Alignment = taRightJustify
+          AutoSize = False
           Caption = 'Claude'
         end
         object Label16: TLabel
-          Left = 16
+          Left = 8
           Top = 59
-          Width = 51
+          Width = 67
           Height = 15
+          Alignment = taRightJustify
+          AutoSize = False
           Caption = 'DeepSeek'
         end
         object Label17: TLabel
-          Left = 16
+          Left = 8
           Top = 99
-          Width = 38
+          Width = 67
           Height = 15
+          Alignment = taRightJustify
+          AutoSize = False
           Caption = 'Gemini'
         end
         object Label18: TLabel
-          Left = 16
+          Left = 8
           Top = 139
-          Width = 25
+          Width = 67
           Height = 15
+          Alignment = taRightJustify
+          AutoSize = False
           Caption = 'Grok'
         end
         object Label19: TLabel
-          Left = 16
+          Left = 8
           Top = 179
-          Width = 36
+          Width = 67
           Height = 15
+          Alignment = taRightJustify
+          AutoSize = False
           Caption = 'Mistral'
         end
         object Label20: TLabel
-          Left = 16
+          Left = 8
           Top = 219
-          Width = 40
+          Width = 67
           Height = 15
+          Alignment = taRightJustify
+          AutoSize = False
           Caption = 'OpenAI'
         end
         object Label21: TLabel
-          Left = 16
+          Left = 8
           Top = 259
-          Width = 51
+          Width = 67
           Height = 15
+          Alignment = taRightJustify
+          AutoSize = False
           Caption = 'Perplexity'
+        end
+        object Label23: TLabel
+          Left = 8
+          Top = 305
+          Width = 67
+          Height = 15
+          Alignment = taRightJustify
+          AutoSize = False
+          Caption = 'OpenRouter'
         end
         object edtModelClaude: TEdit
           Left = 80
@@ -283,12 +338,20 @@ object ChatMainView: TChatMainView
           TabOrder = 5
         end
         object edtModelPerplexity: TEdit
-          Left = 80
+          Left = 81
           Top = 256
           Width = 929
           Height = 23
           Anchors = [akLeft, akTop, akRight]
           TabOrder = 6
+        end
+        object edtModelOpenRouter: TEdit
+          Left = 80
+          Top = 301
+          Width = 929
+          Height = 23
+          Anchors = [akLeft, akTop, akRight]
+          TabOrder = 7
         end
       end
     end
@@ -339,6 +402,7 @@ object ChatMainView: TChatMainView
           Width = 201
           Height = 23
           Style = csDropDownList
+          DropDownCount = 15
           TabOrder = 0
         end
         object ckGerarLogs: TCheckBox
@@ -570,6 +634,9 @@ object ChatMainView: TChatMainView
     end
   end
   object TMSMCPCloudAI1: TTMSMCPCloudAI
+    APIKeys.OpenRouter = 
+      'sk-or-v1-775421e70a70972f9187ad4b94887bed77c8824bc358f45c2e78af7' +
+      'e5447c0e4'
     Service = aiOpenAI
     Settings.GeminiModel = 'gemini-2.5-flash'
     Settings.OpenAIModel = 'gpt-4o'
@@ -586,9 +653,10 @@ object ChatMainView: TChatMainView
     Settings.LlamaCppPath = '/v1/chat/completions'
     Settings.MistralModel = 'mistral-large-latest'
     Settings.MistralTranscribeModel = 'voxtral-mini-2507'
+    Settings.OpenRouterModel = 'z-ai/glm-5.3-flash'
     Tools = <>
     OnExecuted = TMSMCPCloudAI1Executed
     Left = 61
-    Top = 332
+    Top = 420
   end
 end
