@@ -82,6 +82,8 @@ Você poderá acompanhar esta série através de nossa playlist:
     - [Repositório com demo](https://github.com/Code4Delphi/ia-na-pratica/tree/master/Samples/ReportsExcel)
 - [IA na Prática 43 - Gerando relatórios em PDF (usando FPDF)](https://www.youtube.com/watch?v=YT6ak8ASB0M&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
     - [Repositório com demo](https://github.com/Code4Delphi/ia-na-pratica/tree/master/Samples/ReportsPDF)
+- [IA em aplicações Delphi | Tira-dúvidas e exemplos práticos sobre IA em suas aplicações](https://www.youtube.com/watch?v=J3zu8hE7Opw&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
+- [IA na Prática 45 - OpenRouter no Delphi: Vários MODELOS GRATUITOS e Pagos em um só Lugar](https://www.youtube.com/watch?v=QbtaIweRIU8&list=PLLHSz4dOnnN237tIxJI10E5cy1dgXJxgP)
       
 ## IAs disponíveis
 Abaixo, apresentamos um guia rápido com os principais provedores de IA disponíveis, seus sites e links para geração de chaves de API.
