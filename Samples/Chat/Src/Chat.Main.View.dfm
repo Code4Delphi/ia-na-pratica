@@ -19,7 +19,7 @@ object ChatMainView: TChatMainView
     Top = 0
     Width = 1033
     Height = 614
-    ActivePage = tabChat
+    ActivePage = tabModels
     Align = alClient
     TabOrder = 0
     object tabAPIKeys: TTabSheet
@@ -33,7 +33,6 @@ object ChatMainView: TChatMainView
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = -3
         DesignSize = (
           1025
           584)
@@ -533,6 +532,8 @@ object ChatMainView: TChatMainView
           BorderStyle = bsNone
           ScrollBars = ssVertical
           TabOrder = 0
+          ExplicitLeft = 2
+          ExplicitTop = 13
         end
         object pnResponseDetails: TPanel
           Left = 3
@@ -635,9 +636,6 @@ object ChatMainView: TChatMainView
     end
   end
   object TMSMCPCloudAI1: TTMSMCPCloudAI
-    APIKeys.OpenRouter = 
-      'sk-or-v1-775421e70a70972f9187ad4b94887bed77c8824bc358f45c2e78af7' +
-      'e5447c0e4'
     Service = aiOpenAI
     Settings.GeminiModel = 'gemini-2.5-flash'
     Settings.OpenAIModel = 'gpt-4o'
